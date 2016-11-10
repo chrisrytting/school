@@ -1,0 +1,605 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 3.4}
+\author{Chris Rytting}
+\maketitle
+
+
+\subsection*{3.15 (i)}
+If we say that $A = QR$ then:
+\[  (QR)^{H}QRx = R^HQ^HQRx = R^HRx = x  \]
+\[  x = (QR)^Hb = R^HQ^Hb \Rightarrow Rx = Q^Hb  \]
+\subsection*{3.15 (ii)}
+$u_1 = \begin{bmatrix} \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}}
+\end{bmatrix}$ ~~~~~
+$u_2 = \begin{bmatrix} 
+3\sqrt[]{2}+6\sqrt[]{3}\\
+-3\sqrt[]{2}+6\sqrt[]{3}\\
+6\sqrt{3}
+\end{bmatrix} - \begin{bmatrix} 6\sqrt{3}\\ 6\sqrt{3}\\ 6\sqrt{3}
+\end{bmatrix}
+=\begin{bmatrix}
+3\sqrt[]{2}\\-3\sqrt[]{2}\\ 0
+\end{bmatrix}
+\Rightarrow \begin{bmatrix}
+\frac{1}{\sqrt[]{2}}\\
+\frac{-1}{\sqrt[]{2}}\\ 0
+\end{bmatrix}\\
+~~~~~Q = \begin{bmatrix}
+\frac{1}{\sqrt[]{3}} & \frac{1}{\sqrt[]{2}}\\
+\frac{1}{\sqrt[]{3}} & \frac{-1}{\sqrt[]{2}}\\
+\frac{1}{\sqrt[]{3}} & 0 
+\end{bmatrix}~~~~
+R = Q^TA = \begin{bmatrix}
+12 & 18\\
+0 & 6
+\end{bmatrix}
+$
+
+\subsection*{3.16}
+$u_1 = \begin{bmatrix}
+\frac{1}{2}\\
+\frac{1}{2}\\
+\frac{1}{2}\\
+\frac{1}{2}\\
+\end{bmatrix}~~~~~
+u_2 = \begin{bmatrix}
+-1\\
+4\\
+-1\\
+4
+\end{bmatrix} - \begin{bmatrix}
+-3\\
+-3\\
+-3\\
+-3
+\end{bmatrix} = \begin{bmatrix}
+-4\\
+1\\
+-4\\
+1
+\end{bmatrix}\Rightarrow \begin{bmatrix}
+\frac{1}{2}\\
+\frac{-1}{2}\\
+\frac{1}{2}\\
+\frac{-1}{2}\\
+\end{bmatrix}\\
+Q = \begin{bmatrix}
+\frac{1}{2}&\frac{1}{2}\\
+\frac{1}{2}&\frac{-1}{2}\\
+\frac{1}{2}&\frac{1}{2}\\
+\frac{1}{2}&\frac{-1}{2}\\
+\end{bmatrix} ~~~~~
+R = Q^TA = \begin{bmatrix}
+2 & 3\\
+0 & -5\\
+\end{bmatrix}
+$\\
+$x = R^{-1}Q^{-1}b$
+~~~~~~~$x = \begin{bmatrix}
+4.6\\
+.9
+\end{bmatrix}$
+
+\subsection*{3.17 (i)}
+If we consider the matrices $Q'=QD$ and $R'= D^{-1}R$ where D is a diagonal matrix:
+\[ A = Q'R' = (QD)(D^{-1}R) = QR  \]
+Showing that it is not unique in this circumstance. \\ 
+
+\subsection*{3.17 (ii)}
+
+
+Suppose $QR = A$ where $A$ is invertible, $Q$ is an orthonormal matrix, and $R$ is an upper-diagonal matrix. 
+We know that if $R_{ii}$ is non-positive, we can multiply the $i$th row of $R$, and the $i$th column of $Q$, a vector of length $1$. We therefore construct a $QR$ decomposition that is equivalent where $R$ has positive elements on the diagonal.\\
+As for uniqueness, suppose the following:
+\[
+    QR = A = Q'R'
+\]
+where R and R' both have positive elements on the diagonal. Because $A$ is nonsingular, we know that $Q$ and $R$ are both non-singular. Therefore, we have that
+\[
+    Q = AR^{-1} = AR'^{-1} = Q'
+\]
+and $Q = Q'$
+
+\[
+    R = AQ^{-1} = AQ'^{-1} = R'
+\]
+and $R = R'$, which is the desired result.
+\subsection*{3.18 (i)}
+We have that for $p$, the vector orthogonal to the plane $P$, and for $v$, the vector that we will reflect across the hyperplane of $p$, that
+\[ p = 
+\begin{bmatrix}
+    2\\1\\-1
+\end{bmatrix}
+||p|| = \sqrt{6}
+v = 
+\begin{bmatrix}
+    1\\1\\1
+\end{bmatrix}
+\]
+and that
+\begin{align*}
+    \text{proj}p(V) &= v - \langle p,v \rangle p &= 
+    \begin{bmatrix}
+        1\\1\\1
+    \end{bmatrix}
+    - \langle 
+    \begin{bmatrix}
+        \frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{6}}\\\frac{-1}{\sqrt{6}}
+    \end{bmatrix},
+    \begin{bmatrix}
+        1\\1\\1
+    \end{bmatrix}\rangle
+    \begin{bmatrix}
+        \frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{6}}\\\frac{-1}{\sqrt{6}} &
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        1\\1\\1
+    \end{bmatrix}
+    - \frac{2}{\sqrt{6}} 
+    \begin{bmatrix}
+        \frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{6}}\\\frac{-1}{\sqrt{6}}
+    \end{bmatrix}
+    &= 
+    \begin{bmatrix}
+        1-\frac{4}{6} \\ 1 - \frac{2}{6} \\ 1+ \frac{2}{6}
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        \frac{1}{3} \\ \frac{2}{3} \\ \frac{4}{3}
+    \end{bmatrix}
+\end{align*}
+
+\subsection*{3.18 (ii)}
+We know that the householder transformation across the hyperplane of $p$ is given by \[H_p = I - 2 \frac{pp^H}{p^Hp}\]
+
+\begin{align*}
+    \implies 
+    \begin{bmatrix}
+        \frac{6}{6} & 0 & 0 \\
+        0 & \frac{6}{6} & 0 \\
+        0 & 0 & \frac{6}{6}
+    \end{bmatrix}
+    - 2
+    \begin{bmatrix}
+        \frac{4}{6}& \frac{2}{6} & \frac{-2}{6} \\
+        \frac{2}{6}& \frac{1}{6} & \frac{-1}{6} \\
+        \frac{-2}{6}& \frac{-1}{6} & \frac{1}{6} \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{-2}{6}& \frac{-4}{6} & \frac{4}{6} \\
+        \frac{-4}{6}& \frac{4}{6} & \frac{2}{6} \\
+        \frac{4}{6}& \frac{2}{6} & \frac{4}{6} \\
+    \end{bmatrix}
+\end{align*}
+
+\subsection*{3.18 (iii)}
+\begin{align*}
+    \begin{bmatrix}
+        \frac{-2}{6}& \frac{-4}{6} & \frac{4}{6} \\
+        \frac{-4}{6}& \frac{4}{6} & \frac{2}{6} \\
+        \frac{4}{6}& \frac{2}{6} & \frac{4}{6} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1\\1\\1
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        \frac{-2}{6}\\\frac{2}{6}\\\frac{10}{6}
+    \end{bmatrix}
+\end{align*}
+
+\subsection*{3.18 (iv)}
+\begin{align*}
+    \begin{bmatrix}
+        \frac{-2}{6}\\\frac{2}{6}\\\frac{10}{6}
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \frac{6}{6}\\\frac{6}{6}\\\frac{6}{6}
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        \frac{4}{6}\\\frac{8}{6}\\\frac{16}{6}
+    \end{bmatrix}
+\end{align*}
+Which is a scalar multiple of the answer we found in (i). This makes sense because the householder transformation simply yields the vector reflected across the hyperplane, so if we add it to the original vector, it will land us in the hyperplane. Another way to think about it is that both vectors are the same distance from the hyperplane, but on differing sides. This means that if we add them together, since the hyperplane passes through the origin, then we will get a result within the hyperplane.
+
+\subsection*{3.19 (i)}
+We know that the projection of $v$ onto $p$ where $v = 
+\begin{bmatrix}
+    1\\1
+\end{bmatrix}
+$ and $p = \text{span} 
+\begin{bmatrix}
+    1\\2
+\end{bmatrix}
+$ is given by 
+\[ \text{proj}p(v) = \langle p,v \rangle p = 
+\frac{
+\langle 
+\begin{bmatrix}
+    1\\1
+\end{bmatrix}
+,
+\begin{bmatrix}
+    1\\2
+\end{bmatrix}
+\rangle
+\begin{bmatrix}
+    1\\2
+\end{bmatrix}
+}{5} = 
+\begin{bmatrix}
+    \frac{3}{5}\\\frac{6}{5}
+\end{bmatrix}
+\]
+\subsection*{3.19 (i)}
+We can use (i) to find the vector $x$ which is orthogonal to $p$ by noting that
+\[x=
+\begin{bmatrix}
+    1\\1
+\end{bmatrix}
+-
+\begin{bmatrix}
+    \frac{3}{5}\\\frac{6}{5}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    \frac{2}{5}\\\frac{-1}{5}
+\end{bmatrix}
+\]
+\subsection*{3.19 (ii)}
+Using this new vector $x$, we know that the householder transformation of $v$ is given by 
+\begin{align*}
+I - 2 \frac{xx^H}{x^Hx} &= 
+\begin{bmatrix}
+    1 & 0 \\
+    0 & 1 \\
+\end{bmatrix}
+-
+2 \cdot 5 
+\begin{bmatrix}
+    \frac{4}{25} & \frac{-2}{25}\\
+    \frac{-2}{25} & \frac{1}{25}\\
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+    \frac{5}{5} & 0 \\
+    0 & \frac{5}{5} \\
+\end{bmatrix}
+-
+2 \cdot  
+\begin{bmatrix}
+    \frac{4}{5} & \frac{-2}{5}\\
+    \frac{-2}{5} & \frac{1}{5}\\
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+    \frac{-3}{5} & \frac{4}{5}\\
+    \frac{4}{5} & \frac{3}{5}\\
+\end{bmatrix}
+\end{align*}
+\subsection*{3.19 (iii)}
+\[
+\begin{bmatrix}
+    \frac{-3}{5} & \frac{4}{5}\\
+    \frac{4}{5} & \frac{3}{5}\\
+\end{bmatrix}
+\begin{bmatrix}
+    1\\1
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    \frac{1}{5}\\\frac{7}{5}
+\end{bmatrix}
+\]
+\subsection*{3.19(iv)}
+
+\[
+\begin{bmatrix}
+    \frac{1}{5}\\\frac{7}{5}
+\end{bmatrix}
++
+\begin{bmatrix}
+    1\\1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \frac{1}{5}\\\frac{7}{5}
+\end{bmatrix}
++
+\begin{bmatrix}
+    \frac{5}{5}\\\frac{5}{5}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    \frac{6}{5}\\\frac{12}{5}
+\end{bmatrix}
+\]
+Which is $2\cdot \text{proj}p(v)$, a scalar multiple of the answer we got in (i). Same explanation as in (iii).
+
+    
+
+
+\subsection*{3.20}
+We have that
+\[Hv_1 = 
+\begin{bmatrix}
+     \frac{-5+4 \sqrt{3}}{3} & \frac{-2 + 2 \sqrt{3}}{3}& \frac{-2 + 2 \sqrt{3}}{3}\\
+     \frac{-2 + 2 \sqrt{3}}{3} &\frac{1}{3}& \frac{-2}{3} \\
+     \frac{-2 + 2 \sqrt{3}}{3} &\frac{-2}{3}& \frac{1}{3} \\
+\end{bmatrix}
+\]
+
+
+
+
+\subsection*{3.21}
+It suffices to show that $(I - 2 \frac{vv^H}{v^Hv})(I - 2 \frac{vv^H}{v^Hv})^H = I$ by Theorem 3.2.14.
+Note that
+\begin{align*}
+(I - 2 \frac{vv^H}{v^Hv})(I - 2 \frac{vv^H}{v^Hv})^H &=(I - 2 \frac{vv^H}{v^Hv})( (- 2 \frac{vv^H}{v^Hv})^H + I^H)\\
+&=(I - 2 \frac{vv^H}{v^Hv})(- 2 \frac{vv^H}{v^Hv} + I)\\
+\end{align*}
+Now, dividing $vv^H$ by $v^Hv$ will normalize the latter, effectively making $v$ a unit vector where $v^Hv = 1$. We have, then, that
+
+\begin{align*}
+(I - 2 \frac{vv^H}{v^Hv})(- 2 \frac{vv^H}{v^Hv} + I) &=(I - 2 vv^H)(- 2 vv^H + I)\\
+&=II + 4 vv^Hvv^H - 4vv^H\\
+&=II + 4 v1v^H - 4vv^H\\
+&=II + 4 1vv^H - 4vv^H\\
+&=I
+\end{align*}
+And we have the desired result.
+\subsection*{3.23 (i)}
+A hyperplane can be defined by a unit vector $v\int \mathbb{F}^n$. Reflecting x across the hyperplane has a matrix representation $H_v = I - 2vv^H$.  The vector v can be written in polar coordinates as $(cos(\phi), sin(\phi))^T$ for some $\phi \in [0,2\pi)$.We will use the equation $H_v = I-2(\frac {vv^H}{V^H V})$ in the proof.\\ 
+We first start by noting that,   
+  \[V= \begin{bmatrix}
+    rcos(\theta) \\
+    rsin(\theta) \\
+    \end{bmatrix}\]
+and we also have
+
+    \[V^H= \begin{bmatrix}
+    rcos(\theta) & rsin(\theta
+    \end{bmatrix}\]\\
+continuing we get,
+ \[V^H V = rcos(\theta)rcos(\theta)+rsin(\theta)rsin(\theta)\]
+ \[=r^2 cos^2(\theta)+ r^2 sin^2(\theta)\]
+ \[=r^2(cos^2(\theta)+sin^2(\theta))\]
+ \[=r^2\]
+also we have the numerator,
+\[VV^H= \begin{bmatrix}
+    rcos(\theta)rcos(\theta) & rsin(\theta)rcos(\theta) \\
+    rcos(\theta)rsin(\theta) & rsin(\theta)rsin(\theta) \\
+    \end{bmatrix}\]
+\[=
+\begin{bmatrix}
+    rcos^2(\theta) & rsin(\theta)rcos(\theta) \\
+    rcos(\theta)rsin(\theta) & rsin^2(\theta) \\
+ \end{bmatrix}
+ \]
+ using the three above equations we get
+ \[H_v=
+ \begin{bmatrix}
+    1 & 0 \\
+    0 & 1 \\
+ \end{bmatrix}
+-2\big(\frac{r^2}{r^2}\big )\begin{bmatrix}
+    rcos^2(\theta) & cos(\theta)sin(\theta) \\
+    cos(\theta)sin(\theta) & rsin^2(\theta)\\
+ \end{bmatrix}
+ \]
+\[=
+\begin{bmatrix}
+    1-2cos(\theta) & -2cos(\theta)sin(\theta) \\
+   2cos(\theta)sin(\theta) & 1-2sin^2(\theta) \\
+ \end{bmatrix}\]
+
+\[=
+\begin{bmatrix}
+    -cos(2\theta) & -sin(2\theta) \\
+   -sin(2\theta) & 1-1+cos(2\theta) \\
+ \end{bmatrix}\]
+\[=
+\begin{bmatrix}
+    -cos(2\theta) & -sin(2\theta) \\
+   -sin(2\theta) & cos(2\theta) \\
+ \end{bmatrix}\]
+
+ \[=
+\begin{bmatrix}
+    -cos(-2\theta) & sin(-2\theta) \\
+   sin(-2\theta) & cos(-2\theta) \\
+ \end{bmatrix}\]
+Since $\theta$ was an arbitrary angle chosen at the beginning of the proof, as long as the interior of the functions are uniform we can redefine this value to be our new $\theta$ value.
+\\ \\ 
+
+\subsection*{3.23 (ii)}
+In part one we proved that any reflection can be represented by a matrix:
+\[\Big{[}\begin{matrix}
+-cos(\theta) & sin(\theta)\\
+sin(\theta) & cos(\theta)\\
+\end{matrix} \Big{]}
+\]
+So we can say that two reflections can be represented as:
+\[\Big{[}\begin{matrix}
+-cos(\theta) & sin(\theta)\\
+sin(\theta) & cos(\theta)\\
+\end{matrix} \Big{]}
+\Big{[}\begin{matrix}
+-cos(\theta) & sin(\theta)\\
+sin(\theta) & cos(\theta)\\
+\end{matrix} \Big{]}\]
+Which when multiplied out gives:
+\[\Big{[}\begin{matrix}
+cos^{2}(\theta)+sin^{2}(\theta) & -cos(\theta)sin(\theta) +cos(\theta)sin(\theta)  \\
+-cos(\theta)sin(\theta) +cos(\theta)sin(\theta) & sin^{2}(\theta)+cos^{2}(\theta)  \\
+\end{matrix} \Big{]}
+\]
+Which can be simplified down to:
+\[\Big{[}\begin{matrix}
+1 & 0\\
+0 & 1\\
+\end{matrix} \Big{]}
+\]
+Thus showing that two reflections is simply a rotation around the origin.\\
+\\
+\subsection*{3.23 (iii)}
+Let $(\rho cos(\phi), \rho sin(\phi))^T$ be some arbitrary vector in the plane $\mathbb{R}^2$\\
+And so :
+\[
+ \begin{bmatrix}
+  -cos(\theta) & sin(\theta) \\
+    sin(\theta) & cos(\theta) \\
+ \end{bmatrix}
+ \begin{bmatrix}
+    \rho cos(\phi) \\
+    \rho sin(\phi) \\
+ \end{bmatrix} 
+\]
+ \[= 
+  \begin{bmatrix}
+    -\rho (cos(\phi)cos(\theta) + sin(\theta)cos(\phi))  \\
+    \rho (sin(\phi)cos(\theta) + sin(\theta)cos(\phi)) \\
+ \end{bmatrix} = 
+ \begin{bmatrix}
+    \rho (sin(\theta)cos(\phi)) - cos(\phi)cos(\theta) )   \\
+    \rho (sin(\phi)cos(\theta) + sin(\theta)cos(\phi)) \\
+ \end{bmatrix}
+ \]
+ In general\\
+ \[cos(u)cos(v) - sin(u)sin(v) = cos(u+v)\]
+ \[sin(u)cos(v) + sin(v)cos(u) = sin(u+v)\]
+ So,
+ \[\rho
+ \begin{bmatrix}
+    (sin(\theta)cos(\phi)) - cos(\phi)cos(\theta) )   \\
+    (sin(\phi)cos(\theta) + sin(\theta)cos(\phi)) \\
+ \end{bmatrix} = \rho
+ \begin{bmatrix}
+    (-1)cos(\theta + \phi)   \\
+    sin(\theta + \phi) \\
+ \end{bmatrix}
+ \]
+ In order to be a complete rotation we would need 
+ \[]
+ \begin{bmatrix}
+    (-1)cos(\theta + \phi)   \\
+    sin(\theta + \phi) \\
+ \end{bmatrix} = 
+ \begin{bmatrix}
+    \rho cos(\phi) \\
+    \rho sin(\phi) \\
+ \end{bmatrix}
+ \]
+ For contradiction's sake suppose $\rho sin(\theta + \phi) = \rho sin(\theta)$ Which is true if and only if $\phi = 2k\pi$ for some integer k.
+ Which implies $-\rho cos(\theta +2k\pi) = \rho cos(\theta)$ However $cos(\theta + 2k\pi) = cos(\theta)$ is only true if $cos(\theta) = 0 \Rightarrow  \theta =\frac{1}{2}\pi + n\pi$ for some integer n. Hence, $\rho sin(\theta + \phi) = \rho sin(\frac{1}{2}\pi + n\pi + 2k\pi)) = \pm \rho$ \\ \\
+And so 
+ \[\begin{bmatrix}
+  -cos(\theta) & sin(\theta) \\
+    sin(\theta) & cos(\theta) \\
+ \end{bmatrix} = 
+  \begin{bmatrix}
+  0 & \pm 1 \\
+    \pm 1 & 0 \\
+ \end{bmatrix}
+ \]
+ And so \\
+ \[\begin{bmatrix}
+  -cos(\theta) & sin(\theta) \\
+    sin(\theta) & cos(\theta) \\
+ \end{bmatrix}
+ \begin{bmatrix}
+    \rho cos(\phi) \\
+    \rho sin(\phi) \\
+ \end{bmatrix}= 
+  \begin{bmatrix}
+  0 & \pm 1 \\
+    \pm 1 & 0 \\
+ \end{bmatrix}
+ \begin{bmatrix}
+    0 \\
+    \pm \rho  \\
+ \end{bmatrix} = 
+  \begin{bmatrix}
+    \rho \\
+      0 \\
+ \end{bmatrix}\\
+ \]
+ Yet for nonzero $\rho$ 
+ \[\begin{bmatrix}
+    \rho \\
+      0 \\
+ \end{bmatrix} \neq  \begin{bmatrix}
+    0 \\
+      \pm \rho \\
+ \end{bmatrix}
+ \]
+ In which case we have a contradiction, and so the initially given matrix does not represent a complete rotation.\\
+
+
+
+
+\end{document}

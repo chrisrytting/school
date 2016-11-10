@@ -1,0 +1,195 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 4.3}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{4.15}
+
+By the definition of the characteristic function of the random variable $X$, we have that
+\[\Phi_X(t) = E[e^{itX}] = \int^{\infty}_{-\infty} p(x)e^{itx} dx \]
+Now, by the definition of the fourier transform of $p$ to be
+\[\hat p (x) = \int^{\infty}_{-\infty} e^{-itx} p(x) dx \implies \hat p (-x) = \int^{\infty}_{-\infty} e^{itx} p(x) dx \]
+and we have the desired result, that
+\[\Phi_X(t) = E[e^{itX}] = \int^{\infty}_{-\infty} p(x)e^{itx} dx = \hat p (-x) \]
+
+
+
+
+
+\subsection*{4.16 (i)}
+\begin{align*}
+    \phi_X(0) = E[e^{i0X}] = E[e^{0}] = E[1] = 1 
+\end{align*}
+\subsection*{4.16(ii)}
+\begin{align*}
+    \phi_{-X}(T) &= E[e^{it(-X)}] \\
+    &= \int^{-\infty}_{\infty} f_X(x)e^{it(-X)} dx\\
+    &= \int^{-\infty}_{\infty} f_X(x)e^{-itX} dx\\
+    &= \overline{\int^{-\infty}_{\infty} f_X(x)e^{itX} dx}\\
+    &= \overline {\phi_X(t)}\\
+\end{align*}
+\subsection*{4.16(iii)}
+\begin{align*}
+    \phi_Z(t) &= \phi_{X+Y}(t) \\
+    &= E[e^{it(X+Y)}]  \\
+    &= E[e^{itX+itY}]  \\
+    &= E[e^{itX}e^{itY}]  \\
+    &= E[e^{itX}]E[e^{itY}]  \\
+    &= \phi_{X}(t) \phi_Y(t) \\
+\end{align*}
+
+\subsection*{4.16(iv)}
+\begin{align*}
+    \phi_{aX}(t) &= E[e^{itaX}] \\
+    &= E[e^{iatX}] \\
+    &= \phi_{X}(at) \\
+\end{align*}
+
+
+\subsection*{4.17}
+Note, 
+\begin{align*}
+    \hat f _Z(t) &= \phi_Z(-t)\\
+    & =  \phi_X(-t)\phi_Y(-t) \\
+    & = \hat f_X(t) \hat f_Y(t)\\
+    & =  \hat f (f_X(t) * f_Y(t))
+\end{align*}
+Now, as the convolution is invertible, this can be expressed as
+\[f_Z(t) = f_X(t) * f_Y(t)\]
+\subsection*{4.18}
+
+By the stretch theorem and example 4.3.3, and letting $t = x - \mu$, we have that
+\begin{align*}
+\phi_N(\frac{x-\mu}{\sigma}) & = \hat f_N(\frac{-(x-\mu)}{\sigma})\\
+&= e^{\frac{-(x-\mu)^2}{2\sigma^2}}
+\end{align*}
+Note that, given the random variable $Y = \sum \frac{X_i - \mu}{\sqrt{n} \sigma^2}$, let $\bar x = x - \mu$. The variance will be the same, but we will have that $\mu_{\bar x} = 0$. Therefore, we see that
+\begin{align*}
+    \phi_Y(t) & = \phi_{\sum \frac{\bar x}{\sqrt{n} \sigma^2}}(t) \\
+    & = \phi_{\bar x} (\frac{t}{\sqrt{n}\sigma^2})^n \\
+    & = \int _{-\infty} ^\infty e ^{\frac{-it\bar x}{\sqrt{n} \sigma^2}} f_{\bar x}(\bar x)d\bar x \\
+    & = \int _{-\infty} ^\infty (1 - \frac{it \bar x}{\sqrt{n} \sigma^2}
+    + \frac{(it \bar x) ^2}{2!n\sigma^4}
+    - \frac{i t \bar x}{3! n^{\frac{3}{2}} \sigma^6} 
+    + \dots ) f_{\bar x} (\bar x) d \bar x  \\
+    & =  \int _{-\infty} ^\infty f_{\bar x} d \bar x 
+    - \frac{i \bar x}{\sqrt{n} \sigma^2}\int _{-\infty} ^\infty \bar x f_{\bar x} d \bar x
+    - \frac{\bar x ^2}{2n \sigma^4}\int _{-\infty} ^\infty \bar x^2 f_{\bar x} d \bar x 
+    + \frac{i \bar x ^3}{2n^{\frac{3}{2}} \sigma ^6}\int _{-\infty} ^\infty f_{\bar x}(\bar x^3 \dots )  d \bar x \\
+    & = 1 - \frac{i \bar x}{\sqrt{n} \sigma^2} \mu_{\bar x} - \frac{\bar x ^2 \sigma^2}{2 n \sigma^4}+h(n,t) \quad \text{where we know $h \rightarrow 0$ and $\mu_{\bar x} = 0$}\\
+    & = \left(\phi_{\bar x}\left(\frac{\bar x}{\sqrt{n}\sigma^2}\right)\right)^n
+    \rightarrow e^{\frac{-(\bar x)}{2 \sigma^2}}\\
+\end{align*}
+Now, by the stretch theorem,
+\[
+\hat f_Y(-\bar x) = \frac{1}{\sigma \sqrt{2 \pi}} \int ^\infty _{-\infty} e ^{-\frac{\bar x^2}{2 \sigma ^2}}
+    \]
+and substituting in for $\bar x$, 
+\[
+\hat f_Y(-( x- \mu)) = \frac{1}{\sigma \sqrt{2 \pi}} \int ^\infty _{-\infty} e ^{-\frac{(x - \mu)^2}{2 \sigma ^2}}
+\]
+and
+\[
+P(Y<S) = \frac{1}{\sigma \sqrt{2 \pi}} \int ^S _{-\infty} e ^{-\frac{(x - \mu)^2}{2 \sigma ^2}}
+\]
+
+
+\subsection*{4.19}
+
+
+Calculating fourier of PDF, we have
+\begin{align*}
+    g(\xi) &= \frac{\hat f}{\int^\infty _{-\infty}\hat f d\xi}\\
+    & = \frac{\int^\infty_{-\infty} \sqrt{2\pi} e^{-i \xi t} e^{-\frac{t^2}{2\sigma^2} }dt}{\sqrt{2\pi}\int^\infty_{-\infty} \int^\infty_{-\infty} e^{-i \xi t}e^{-\frac{t^2}{2\sigma^2}}dt d\xi}\\
+    & = \frac{\int^\infty_{-\infty} e^{-i \xi t} e^{-\frac{t^2}{2\sigma^2} }dt}{\int^\infty_{-\infty} \int^\infty_{-\infty} e^{-i \xi t}e^{-\frac{t^2}{2\sigma^2}}dt d\xi}\\
+\end{align*}
+Now,
+\begin{align*}
+    \int^\infty_{-\infty} e^{-i \xi t} e^{-\frac{t^2}{2\sigma^2} }dt 
+    & = \int^\infty_{-\infty} e^{-\frac{t^2 + 2\sigma^2 i \xi + (\sigma^2 i \xi)^2 - (\sigma^2 i \xi)^2}{2\sigma^2} }dt \\
+    & = \int^\infty_{-\infty} e^{-\frac{(t+ 2\sigma^2 i \xi)^2}{2\sigma^2}}e^{\frac{(\sigma^2 i \xi )^2}{2\sigma^2}  }dt \\
+    & = e^{\frac{(\sigma^2 i \xi )^2}{2\sigma^2}} \int^\infty_{-\infty} e^{-\frac{(t+ 2\sigma^2 i \xi)^2}{2\sigma^2}}dt \\ 
+    \text{making an 'x-substitution'}&\\
+    & = e^{\frac{(\sigma^2 i \xi )^2}{2\sigma^2}} \sigma \int^\infty_{-\infty} e^{-\frac{x}{2}}dx \\ 
+    & = e^{\frac{(\sigma^2 i \xi )^2}{2\sigma^2}} \sigma \sqrt{2\pi} \\  
+\end{align*}
+giving us
+\begin{align*}
+    \frac{\int^\infty_{-\infty} e^{-i \xi t} e^{-\frac{t^2}{2\sigma^2} }dt}{\int^\infty_{-\infty} \int^\infty_{-\infty} e^{-i \xi t}e^{-\frac{t^2}{2\sigma^2}}dt d\xi} 
+    & = \frac{e^{\frac{(\sigma i \xi )^2}{2}} \sigma \sqrt{2\pi}}{\int^\infty _{-\infty} e^{\frac{(\sigma i \xi )^2}{2}} \sigma \sqrt{2\pi} d\xi}\\
+    &\text{making a u-substitution}\\
+    & = \frac{e^{\frac{(\sigma i \xi )^2}{2}}}
+    {\frac{1}{\sigma}\int^\infty _{-\infty} e^{\frac{-(u)^2}{2}}du}\\
+    & = \frac{\sigma e^{\frac{(\sigma i \xi )^2}{2}}}{\sqrt{2\pi}}\\
+\end{align*}
+Knowing that the normal pdf is 
+\[\frac{e^{-\frac{x}{2\sigma_x^2}}}{\sigma_x \sqrt{2\pi}}\]\\
+We can make the substitution, 
+\[\sigma_g = \frac{1}{\sigma}\]
+and our pdf is a normal distribution with variance 
+\[\frac{1}{\sigma} \implies \frac{1}{\sigma_g}\cdot \sigma = 1\]
+This is very similar to the uncertainty principle because if you have a low variance, 
+and thereore high certaintiy of one state, you have a high variance and low certainity of the other, because the $\sigma$ values are so interrelated.
+
+It is like the uncertainty principle because given a low variance we have high certainty, and given a high variance we have low certainty.
+
+\end{document}

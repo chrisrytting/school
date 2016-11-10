@@ -1,0 +1,968 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% LaTeX Homework Template %%%%
+%%%%%% Modified 10 Sep. 2013           %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% What follows below is information that determine how the document will be formatted.
+% You shouldn't need to change any of this.
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amssymb,amsthm,amsmath}
+\usepackage[pdftex]{graphicx}
+
+
+
+\setlength{\oddsidemargin}{-0.1in} \setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-.75in} \setlength{\textheight}{9.75in}
+
+\newenvironment{problems}{\begin{list}{}{\setlength{\labelwidth}{.7in}}}{\end{list}}
+\newcounter{problempart}
+\newenvironment{parts}{\begin{list}{(\alph{problempart})}{\setlength{\itemsep}{0pt}\usecounter{problempart}}}{\end{list}}
+
+\linespread{1.1} %Put some extra space between the lines.
+\newcommand{\notR}{\not{\hskip -3pt R}}
+% % % % % % % % % % % % % %
+% % % % % % % % % % % % % %
+
+
+\begin{document}
+
+
+% This section gives the standard header to put on all of your homework, so you
+% only need to change it to your section number, Homework number, and your name
+\noindent {
+\sc MCL  Mathematics  \hfill    % Change the '?' to your section number (2 for my 9 am class, 4 for my 11 am class)
+Week \# 2 ch. 3 \hfill                 % Change the '?' to the homework number (or, if you don't know that, fill in the due date)
+Seth Evans                                     % Change this to be your name
+}
+
+\bigskip
+
+\begin{problems}
+
+\item[4.1]
+
+\item[4.2]
+Let V be the subspace $V = span(1,x,x^2)$ in the inner product space $L^2([0,1],\mathbb{R})$. Let D be the derivative operator $D: V \rightarrow V$. Find all the eigenvalues and eigenspaces of D. What are their algebraic and geometric multiplicites?\\
+
+First of all $D = 
+\begin{bmatrix}
+    0 & 1 & 0\\
+   0 & 0 & 2\\
+   0 & 0 & 0\\
+  \end{bmatrix}
+$
+
+Since D is an upper right triangular matrix its eigenvalues are on its diagonal. So we have $\lambda_1 = \lambda_2 = \lambda_3 = 0$.
+
+Now we find the eigenvectors: $D\vec x = \lambda \vec x \Rightarrow 
+\begin{bmatrix}
+    0 & 1 & 0\\
+   0 & 0 & 2\\
+   0 & 0 & 0\\
+  \end{bmatrix} 
+  \begin{bmatrix}
+    x_1\\
+   x_2\\
+   x_3\\
+  \end{bmatrix} = 
+  \begin{bmatrix}
+   x_2\\
+   2x_3\\
+   0 \\
+  \end{bmatrix} =
+  \begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+  \end{bmatrix} $
+  
+ So $x_1$ is arbitrary, $x_2 = x_3 = 0$, and an eigenvector for $\lambda_1 = 0$ is $ \begin{bmatrix}
+    1\\
+    0 \\
+    0 \\
+  \end{bmatrix}$\\
+  And so it follows that the eigenspace of D is $span\left\{ \begin{bmatrix}
+    1\\
+    0 \\
+    0 \\
+  \end{bmatrix} \right\}$
+  
+  The albegraic multiplicty of $\lambda_1$ is 3 and its geometric multiplicity is 1. \hfill $\clubsuit$\\
+ 
+ \item[4.3]
+ 
+ \item[4.4]
+ Recall that a matrix $A\in M_n(\mathbb{F})$ is called Hermitian if $A^H =A$ and skew-Hermitian if $A^H = -A^H$. Using exercise 4.3, prove the following:\\
+ 
+ (i)A Hermitian 2x2 matrix has only real eigenvalues.\\
+ Proof: \\
+ First we note that since $A^H = \overline A^T = A$ it follows that the entries of A are real ($a_{ij} = \overline a_{ij}$ if and only if $a_{ij}$ is real). Since A is 2x2 we can write as 
+ $\begin{bmatrix}
+    a & b \\
+   c & d \\
+ \end{bmatrix}
+  $
+
+  where $a,b,c,d\in \mathbb{R}$ and $A = A^H$ implies $c=d$. Using our characteristic polynomial from 4.3 we get $p(\lambda) = \lambda^2 - tr(A)\lambda +det(A) = \lambda^2 -(a+d)\lambda + (ad -bc )= \lambda^2 -(a+d)\lambda + ad -b^2$. Using the quadratic formula we have $ \lambda = \frac{(a+d) \pm \sqrt{(a+d)^2 - 4(1)(ad-b^2)    }   }{    2} = \frac{a+d}{2}+\frac{1}{2}\sqrt{a^2 + 2ad + d^2 -4ad + 4b^2} = \frac{a+d}{2}+\frac{1}{2}\sqrt{a^2 - 2ad + d^2 + 4b^2 } = 
+  \frac{a+d}{2}+\frac{1}{2}\sqrt{(a-d)^2 + 4b^2  }$\\
+  since $a,b,d \in \mathbb{R}$ then $(a-d)^2 + 4b^2$ is real as well and is greater than or equal to zero and so   the eigenvalues are real. \hfill $\clubsuit$\\ 
+ 
+ (ii)A skew-Hermitian 2x2 matrix has only imaginary eigenvalues.\\
+ Proof:\\
+ $A^H = -A$ implies $a_{11} = -\overline a_{11}$ and $a_{22} = -\overline a_{22}$ which implies the diagonal entries of A are pure imaginary numbers. Also we have $a_{12} = -\overline a_{21}$ If we use $x$ and $y$ to denote the real part and imaginary part of $a_{21}$, respectively. Then we have $a_{12} = -\overline{x+iy} = (-1)(x-iy) =-x+iy$. So we can write the matrix A as$ A = \begin{bmatrix}
+    ai  &  -x+iy\\
+   x+iy &  di 
+ \end{bmatrix} $ Where $a,d,x,y\in \mathbb{R}$\\
+ And so using the characteristic polynomial from 4.3 we get $p(y) = \lambda^2 -tr(A)\lambda +det(A) =
+ \lambda^2 -(ai+di)\lambda - (-x+iy)(x+iy)= 0 $\\
+ At this point we use the quadratic formula to solve for the zeros of the polynomial.\\
+ $\lambda = \frac{1}{2}(ai+di) \pm \frac{1}{2}\sqrt{ (ai+di)^2 -4(1)(aidi - (-x+iy)(x+iy))     } $\\
+$  = \frac{1}{2}(ai+di) \pm \frac{1}{2}\sqrt{ (ai)^2+2aidi + (di)^2 -4(-ad +x^2 + y^2)     }$\\
+$  = \frac{1}{2}(ai+di) \pm \frac{1}{2}\sqrt{ (ai)^2-2ad + (di)^2 +4ad -4x^2  -4y^2)     }$\\
+$  = \frac{1}{2}(ai+di) \pm \frac{1}{2}\sqrt{ -a^2 + 2ad  -d^2 -4x^2  -4y^2)     }$\\
+$  = \frac{1}{2}(ai+di) \pm \frac{1}{2}\sqrt{ (-1)(a^2 - 2ad  +d^2) -4x^2  -4y^2)     }$\\
+$  = \frac{i}{2}(a + d) \pm \frac{1}{2}\sqrt{ (-1)(a-d)^2 -4x^2  -4y^2)     }$\\
+$ = \frac{i}{2}(a + d) \pm \frac{1}{2}\sqrt{ (-1)((a-d)^2 +4x^2  +4y^2))     }$\\
+$ = i\left(\frac{1}{2}(a + d) \pm \frac{1}{2}\sqrt{ (a-d)^2 +4x^2  +4y^2    }\right)$\\
+And since $a,d,x,y\in \mathbb{R}$ then $x^2 \geq 0, y^2 \geq 0, (a-d)^2 \geq 0$ So the contents of the square root is a real number and $\frac{a+b}{2}$ is a real number, and i times the sum of two real numbers is a pure imaginary number. In other words, the eigenvalues of the matrix are pure imaginary. \hfill $\clubsuit$\\
+
+\item[4.6]
+Let $A = 
+\begin{bmatrix}
+   \frac{4}{5} & \frac{2}{5} \\
+   \frac{1}{5} & \frac{3}{5} \\
+  \end{bmatrix} 
+ $
+
+ Compute the transition matrix $P$ such that $P^{-1}AP$ is diagonal.\\
+ $det(A -\lambda I) = det\left(
+ \begin{bmatrix}
+   \frac{4}{5} - \lambda & \frac{2}{5} \\
+   \frac{1}{5} & \frac{3}{5} - \lambda \\
+  \end{bmatrix}\right) =
+ (\frac{4}{5} - \lambda)(\frac{3}{5} - \lambda) - \frac{2}{5}\frac{1}{5} =0$\\
+ $\lambda^2 -\frac{7}{5}\lambda +\frac{10}{25} = 0$\\
+ At this point we use the quadratic formula to solve for the eigenvalues.\\
+ $\lambda =   \frac{    \frac{7}{5}\pm \sqrt{(\frac{7}{5})^2 -4(\frac{10}{25})     }       }{  2        }$\\
+  $ = \frac{7}{10} \pm \frac{1}{2}\sqrt{\frac{49}{25} -\frac{40}{25})     }       $\\
+   $ = \frac{7}{10} \pm \frac{1}{2}\sqrt{\frac{9}{25}    }       $\\
+      $ = \frac{7}{10} \pm \frac{3}{10}      $\\
+$ \Rightarrow \lambda_1 = \frac{2}{5}$ and $\lambda_2 = 1$\\
+Now we find eigenvectors that correspond to the eigenvalues.\\
+$\begin{bmatrix}
+   \frac{4}{5} & \frac{2}{5} \\
+   \frac{1}{5} & \frac{3}{5} \\
+  \end{bmatrix} 
+  \begin{bmatrix}
+   x\\
+   y\\
+  \end{bmatrix} =
+  \frac{2}{5}
+  \begin{bmatrix}
+   x\\
+   y\\
+  \end{bmatrix} $
+Gives $\frac{4}{5}x + \frac{2}{5}y = \frac{2}{5}x \Rightarrow x=-y$ and so the eigenvector for $\lambda_1 = \frac{2}{5}$ is $\begin{bmatrix}
+   \frac{1}{\
+   \sqrt{2}}\\
+   \frac{-1}{\sqrt{2}}\\
+  \end{bmatrix} $
+
+Now we find the second eigenvector.\\
+$\begin{bmatrix}
+   \frac{4}{5} & \frac{2}{5} \\
+   \frac{1}{5} & \frac{3}{5} \\
+  \end{bmatrix} 
+  \begin{bmatrix}
+   x\\
+   y\\
+  \end{bmatrix} =
+  \begin{bmatrix}
+   x\\
+   y\\
+  \end{bmatrix} $
+Gives $\frac{4}{5}x + \frac{2}{5}y = x \Rightarrow x=2y$ so the eigenvector for $\lambda_2 = 1$ is  $\begin{bmatrix}
+   \frac{2}{\sqrt{5}}\\
+   \frac{1}{\sqrt{5}}\\
+  \end{bmatrix} $
+$ \Rightarrow P = \begin{bmatrix}
+   \frac{1}{\sqrt{2}}  &  \frac{2}{\sqrt{5}} \\
+   \frac{-1}{\sqrt{2}}  &  \frac{1}{\sqrt{5}} \\
+  \end{bmatrix} 
+  \Rightarrow P^{-1} = \begin{bmatrix}
+   \frac{\sqrt{2}}{3}  &  \frac{-2\sqrt{2}}{3} \\
+   \frac{\sqrt{5}}{3}  &  \frac{\sqrt{5}}{3} \\
+  \end{bmatrix} 
+  D = \begin{bmatrix}
+   \frac{2}{5}  & 0\\
+   0  &  1 \\
+  \end{bmatrix} 
+  $
+  
+\item[4.7]
+
+\item[4.8]
+Let A be the matrix in Exercise 4.6 above.\\
+(i)Compute $\displaystyle\lim_{n \to \infty} A^n$. That is find a matrix B such that for any $\epsilon > 0$ there exists an $N>0$ with $||A^k - B||_{1}< \epsilon$ whenever $k>N$. \\
+
+$\displaystyle\lim_{n \to \infty}A^n = \displaystyle\lim_{n \to \infty}(PDP^{-1})^n = \displaystyle\lim_{n \to \infty}PD^nP^{-1} = \displaystyle\lim_{n \to \infty}P\begin{bmatrix}
+   (\frac{2}{5})^n  & 0\\
+   0  &  1 \\
+  \end{bmatrix} P^{-1} = P\begin{bmatrix}
+    \displaystyle\lim_{n \to \infty}(\frac{2}{5})^n  & 0\\
+   0  &  1 \\
+  \end{bmatrix}P^{-1} =P
+  \begin{bmatrix}
+   0  & 0\\
+   0  &  1 \\
+  \end{bmatrix}P^{-1} = B$\\
+  
+  First we show that $A^n$ converges to B using the $||\cdot ||_1$ norm.\\
+  
+ We have $A^n = P\begin{bmatrix}
+   (\frac{2}{5})^n  & 0\\
+   0  &  1 \\
+  \end{bmatrix} P^{-1}$
+  And so $A^n-B = P\begin{bmatrix}
+   (\frac{2}{5})^n  & 0\\
+   0  &  1 \\
+  \end{bmatrix} P^{-1} - P\begin{bmatrix}
+   0  & 0\\
+   0  &  1 \\
+  \end{bmatrix} P^{-1} = 
+  P\left(  \begin{bmatrix}
+   (\frac{2}{5})^n  & 0\\
+   0  &  1 \\
+  \end{bmatrix} -
+  \begin{bmatrix}
+   0  & 0\\
+   0  &  1 \\
+  \end{bmatrix}\right)P^{-1} = 
+  P\begin{bmatrix}
+   (\frac{2}{5})^n  & 0\\
+   0  &  0 \\
+  \end{bmatrix} P^{-1} = 
+  \begin{bmatrix}
+   \frac{1}{\sqrt{2}}  &  \frac{2}{\sqrt{5}} \\
+   \frac{-1}{\sqrt{2}}  &  \frac{1}{\sqrt{5}} \\
+  \end{bmatrix} 
+  \begin{bmatrix}
+   (\frac{2}{5})^n  & 0\\
+   0  &  0 \\
+  \end{bmatrix}
+  \begin{bmatrix}
+   \frac{\sqrt{2}}{3}  &  \frac{-2\sqrt{2}}{3} \\
+   \frac{\sqrt{5}}{3}  &  \frac{\sqrt{5}}{3} \\
+  \end{bmatrix}$\\
+  
+  $ = \begin{bmatrix}
+   \frac{1}{\sqrt{2}}(\frac{2}{5})^n  &  0 \\
+   \frac{-1}{\sqrt{2}}(\frac{2}{5})^n &  0 \\
+  \end{bmatrix} 
+\begin{bmatrix}
+   \frac{\sqrt{2}}{3}  &  \frac{-2\sqrt{2}}{3} \\
+   \frac{\sqrt{5}}{3}  &  \frac{\sqrt{5}}{3} \\
+  \end{bmatrix}=
+   \begin{bmatrix}
+   \frac{1}{3}(\frac{2}{5})^n  &  \frac{-2}{3}(\frac{2}{5})^n \\
+   \frac{-1}{3}(\frac{2}{5})^n  &  \frac{2}{3}(\frac{2}{5})^n\\
+  \end{bmatrix}=
+  \frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}$\\
+  
+  So, $||A^n-B||_1 = || 
+  \frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}    ||_1 = |\frac{2}{3}(\frac{2}{5})^n| + |\frac{-2}{3}(\frac{2}{5})^n| + |\frac{1}{3}(\frac{2}{5})^n| + |\frac{-1}{3}(\frac{2}{5})^n| = 6|\frac{1}{3}(\frac{2}{5})^n| = 2|(\frac{2}{5})^n| $\\
+  
+ For each $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $n > N \Rightarrow 2|(\frac{2}{5})^n| <\epsilon$ 
+ 
+ Hence for each  $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $n > N \Rightarrow ||A^n-B||_1 <\epsilon$. The proof is finished.  \hfill $\clubsuit$\\
+
+We now show that $||A^n-B||_{\infty}$ converges to zero.\\
+Proof:\\
+Much of the initial calculations and logic in this sub-proof are identical to the preceding proof. So we pick up from the spot in the last proof where we started using the $\infty$-norm.
+
+That is we have $||A^n-B||_{\infty} = || 
+  \frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}    ||_{\infty} = |\frac{2}{3}(\frac{2}{5})^n|$\\
+  
+ For each $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $n > N \Rightarrow |\frac{2}{3}(\frac{2}{5})^n| <\epsilon$ 
+ 
+ Hence for each  $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $n > N \Rightarrow ||A^n-B||_{\infty} <\epsilon$. The proof is finished.  \hfill $\clubsuit$\\
+
+We now prove the convergence of $A^n$ to B using the 2-norm.\\
+Proof:\\
+
+We have  $||A^n-B||_{2} = || 
+  \frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}    ||_{2} $\\
+  
+  $= ( |\frac{1}{3}(\frac{2}{5})^n(1)|^2 +  |\frac{1}{3}(\frac{2}{5})^n(-1)|^2 + |\frac{2}{3}(\frac{2}{5})^n(1)|^2 + |\frac{-2}{3}(\frac{2}{5})^n(1)|^2                               )^{\frac{1}{2}} = (10|\frac{1}{3}(\frac{2}{5})^n(1)|^2)^{\frac{1}{2}} =\sqrt{10}|\frac{1}{3}(\frac{2}{5})^n(1)| $
+
+ For each $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $n > N \Rightarrow \sqrt{10}|\frac{1}{3}(\frac{2}{5})^n(1)| <\epsilon$ 
+ 
+ Hence for each  $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $n > N \Rightarrow ||A^n-B||_{2} <\epsilon$. The proof is finished.  \hfill $\clubsuit$\\
+
+ We now prove the convergence of $A^n$ to B using the Frobenius norm.\\
+ 
+ We have  $||A^n-B||_{Frobenius} = || 
+  \frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}    ||_{Frobenius} $\\
+  $= \sqrt{ tr\left(\left(\frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}\right)\left( \frac{1}{3}(\frac{2}{5})^n
+  \begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}  \right)^H  \right)}$\\
+  $ = \sqrt{ tr\left(\frac{1}{3}(\frac{2}{5})^n\frac{1}{3}(\frac{2}{5})^n\begin{bmatrix}
+   1 &  -2 \\
+   -1 &  2\\
+  \end{bmatrix}\begin{bmatrix}
+   1 &  -1 \\
+   -2 &  2\\
+  \end{bmatrix}      \right) }$\\
+  
+  $ = \sqrt{\frac{1}{9}\left( \frac{2}{5}  \right)^{2n}tr\left(\begin{bmatrix}
+   5 &  -5 \\
+   -5 &  5\\
+  \end{bmatrix}\right) =                                    } = \frac{1}{3}\left(\frac{2}{5}\right)^n\sqrt{10}$\\
+  
+  For each $\epsilon >0$ we can choose an $N\in \mathbb{N}$ large enough so that $\frac{1}{3}\left(\frac{2}{5}\right)^n\sqrt{10} < \epsilon$ when $n>n$. \hfill $\clubsuit$\\
+  
+ It seems that whether it converged or not was independent of which norm we used.\\
+ 
+ (ii)
+ 
+ \item[4.9]
+ 
+ \item[4.10]
+ For any semi-simple matrix $A\in M_{n}(\mathbb{F})$, let $p(x) = a_1x + a_2x^2 +...+a_nx^n$ be the characteristic polynomial of A. Prove that $p(A)=0_{nxn}$\\
+ Proof:\\
+ We make use of Theorem 4.2.6 which states that a matrix is diagonalizable if and only if it is semi-simple. So the matrix A can be written as $A=PDP^{-1}$ Where D is a diagonal matrix whose entries along the diagonal are the the n eigenvalues of A. So $p(A) = a_1A + a_2A^2 +...+a_nA^n = a_1(PDP^{-1}) + a_2(PDP^{-1})^2 +...+a_n(PDP^{-1})^n$\\
+ which by proposition 4.2.9 is equal to\\
+ $a_1PDP^{-1} + a_2PD^2P^{-1} +...+a_nPD^nP^{-1}$\\
+ $= a_1P 
+ \left(
+    \begin{array}{ccccc}
+\lambda_1 &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & \lambda_n
+  \end{array}\right)
+P^{-1}
+  + a_2P
+  \left(
+    \begin{array}{ccccc}
+\lambda_1^2 &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & \lambda_n^2
+  \end{array}\right)
+P^{-1} +
+  ...+a_nP
+  \left(
+    \begin{array}{ccccc}
+\lambda_1^n &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & \lambda_n^n
+  \end{array}\right)
+P^{-1}\\
+= P\left(a_1 
+ \left(
+    \begin{array}{ccccc}
+\lambda_1 &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & \lambda_n
+  \end{array}\right)
++ a_2
+  \left(
+    \begin{array}{ccccc}
+\lambda_1^2 &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & \lambda_n^2
+  \end{array}\right)
+ +
+  ...+a_n
+  \left(
+    \begin{array}{ccccc}
+\lambda_1^n &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & \lambda_n^n
+  \end{array}\right) \right)P^{-1}
+\\
+= P\left( 
+ \begin{array}{ccccc}
+a_1\lambda_1 + ...+a_n\lambda_1^n &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & a_1\lambda_n + ...+a_n\lambda_n^n
+  \end{array}
+\right)P^{-1}
+  $\\
+ and $p(\lambda_i) =  0$ for $i=1,...,n$ so we have\\
+ $ p(A)=  P\left( 
+ \begin{array}{ccccc}
+a_1\lambda_1 + ...+a_n\lambda_1^n &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & a_1\lambda_n + ...+a_n\lambda_n^n
+  \end{array}
+\right)P^{-1}\\
+ =P\left( 
+ \begin{array}{ccccc}
+0 &     & \text{\huge0}  \\
+          &\ddots             &   \\
+    \text{\huge0}      &      & 0
+  \end{array}
+\right)P^{-1}
+= 0_{nxn}
+  $ \hfill $\clubsuit$\\
+  
+\item[4.11]
+
+\item[4.12]
+Give an example to show that the power method may fail if there are two distinct dominant eigenvalues of the same magnitude. What happens if the dominant eignevalue has two linearly independent eigenvectors?\\
+$\\$Consider the following matrix:\\
+$\begin{bmatrix}
+2 & 3\\
+0&-2
+\end {bmatrix}$
+$\\$Its eigenvalues are $\lambda_1=2$ and $\lambda_2=-2$, with corresponding eigenvectors
+$\begin{bmatrix}
+1\\
+0
+\end {bmatrix}~~$
+$\begin{bmatrix}
+-3\\
+4
+\end {bmatrix}$\\
+Note that the modulii of the two eigenvalues are equal, so one of the hypotheses of the power method is not satisfied and so the power method may have problems.
+
+Using the power method with the initial guess of $[1,1]^T$ we get:
+\[\textbf{x}_1=A\textbf{x}_0=
+\begin{bmatrix}
+2 & 3\\
+0&-2
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}=
+\begin{bmatrix}
+5\\
+-2
+\end{bmatrix}
+\]
+\[\textbf{x}_2=A\textbf{x}_1=
+\begin{bmatrix}
+2 & 3\\
+0&-2
+\end{bmatrix}
+\begin{bmatrix}
+5\\
+-2
+\end{bmatrix}=
+\begin{bmatrix}
+4\\
+4
+\end{bmatrix}=4
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\]
+\[\textbf{x}_3=A\textbf{x}_2=
+\begin{bmatrix}
+2 & 3\\
+0&-2
+\end{bmatrix}
+\begin{bmatrix}
+4\\
+4
+\end{bmatrix}=
+\begin{bmatrix}
+20\\
+-8
+\end{bmatrix}=4
+\begin{bmatrix}
+5\\
+-2
+\end{bmatrix}
+\]
+\[\textbf{x}_4=A\textbf{x}_3=
+\begin{bmatrix}
+2 & 3\\
+0&-2
+\end{bmatrix}
+\begin{bmatrix}
+20\\
+-8
+\end{bmatrix}=
+\begin{bmatrix}
+16\\
+16
+\end{bmatrix}=16
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\]
+
+\[\vdots\]
+
+So we see that in this case the power method does not converge since it alternates between the two eigenvectors.\\
+
+Now we consider a case where one dominant eigenvalue has two eigenvectors:\\
+
+$\begin{bmatrix}
+5 & 0\\
+0&5
+\end {bmatrix}$
+$\\$Which has only one eigenvalue, 5. It also has two eigenvectors from this, which are:
+$\\$
+$\begin{bmatrix}
+1\\
+0
+\end {bmatrix}$,
+$\begin{bmatrix}
+0\\
+1
+\end {bmatrix}$.
+$\\$Starting with our same initial guess, we get:
+
+\[\textbf{x}_1=A\textbf{x}_0=
+\begin{bmatrix}
+5 & 0\\
+0&5
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}=
+\begin{bmatrix}
+5\\
+5
+\end{bmatrix}
+\]
+\[\textbf{x}_2=A\textbf{x}_1=
+\begin{bmatrix}
+5 & 0\\
+0&5
+\end{bmatrix}
+\begin{bmatrix}
+5\\
+5
+\end{bmatrix}=25
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\]
+
+\[\vdots\]
+
+ it only stays on the one vector. 
+\hfill $\clubsuit$
+
+\item[4.13]
+
+\item[4.15]
+
+\item[4.16]
+Given an nxn matrix A, we define the Rayleigh quotient:\\
+\[p(x) := \frac{\langle x, Ax \rangle}{||x||^2}\]
+Show that the Rayleigh Quotient can only take on real values for Hermitian matrices and only imaginary values for skew-Hermitian matrices.\\
+Proof:\\
+Assume that A is hermitian. Then $\langle x, Ax\rangle = x^HAx = x^HA^Hx = (x^HAx)^H  = \overline{\langle x,Ax\rangle}$. The fact that this number is equal to its conjugate implies that it is real ($ let z\in\mathbb{C} = x+iy $ for $x,y\in\mathbb{R}$ then $\overline z = \overline{x+iy} = x-iy$ and $x+iy = x-iy \Rightarrow y = 0$). The denominator in the Rayleigh quotient is a norm, which by definition is in the reals, and a real number divided by a real number is a real number and the proof is complete. \hfill $\clubsuit$\\
+
+Proof:\\
+Let A be a skew-Hermitian. Then $\langle x, Ax\rangle = x^HAx = -x^HA^Hx = -(x^HAx)^H  = -\overline{\langle x,Ax\rangle}$. The fact that this number is equal to the negative of its conjugate implies that it is pure imaginary ($ let z\in\mathbb{C} = x+iy $ for $x,y\in\mathbb{R}$ then $\overline z = -(\overline{x+iy}) = -x +iy$ and $x+iy = x-iy \Rightarrow x = 0$). So this pure imaginary number can be written as $bi$ where $b\in \mathbb{R}$. The denominator in the Rayleigh quotient is a norm, which by definition is in the reals, call it $a\in\mathbb{R}$.So the Rayleigh quotient $=\frac{bi}{a} = i\frac{b}{a}$ and $\frac{b}{a}\in \mathbb{R}$ so it follows that the Rayleigh quotient is a pure imaginary number. \hfill $\clubsuit$\\
+
+\item[4.19]
+
+\item[4.20]
+Assume $A,B\geq 0$. Prove that $0\leq tr(AB) \leq tr(A)tr(B)$ and use this to prove that $||\cdot||_F$ is a matrix norm.\\
+Proof:\\
+In this proof we will use Proposition 4.4.5 and we also will make use of the fact that in general $tr(CM) = tr(MC)$ for two square matrices M and N. So we can write $A = UD_1U^H$ and $B=VD_2V^H$ where $U$ and $V$ are orthonormal matrices and $D_1$ and $D_2$ are diagonal matrices and where $d_{ij}$ and $\delta_{ij}$ are the $(i,j)$ entries of $D_1$ and $D_2$ respectively. So it follows that $tr(A)tr(B) = tr(UD_1U^H)tr(VD_2V^H) = tr(U^HUD_1)tr(V^HVD_2) = tr(D_1)tr(D_2) = \sum\limits_{i=1}^n d_{ii}\sum\limits_{i=1}^n \delta_{ii} \geq \sum\limits_{i=1}^{n}d_{ii}\delta_{ii} = tr(D_1D_2)$.\\
+At this point we need to show that $tr(D_1D_2)\geq tr(UD_1U^HVD_2V^H)$\\
+
+$A = UD_1U^H = 
+\begin{bmatrix}
+u_{11} & u_{12}&\dots & u_{1n} \\
+u_{21} & u_{22}&\dots & u_{2n}  \\
+\vdots & \vdots &\ddots & \vdots \\
+u_{n1} & u_{n2}&\dots & u_{nn}  \\
+\end{bmatrix}
+%
+\begin{bmatrix}
+d_{11} &              &\text{\huge0} &  \\
+       & d_{22}       &              &  \\
+       &              &\ddots        &  \\
+       & \text{\huge0}&              & d_{nn}  \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+u_{11}d_{11} & u_{12}d_{12}&\dots & u_{1n}d_{1n} \\
+u_{21}d_{11} & u_{22}d_{12}&\dots & u_{2n}d_{1n}  \\
+\vdots & \vdots &\ddots & \vdots \\
+u_{n1}d_{11} & u_{n2}d_{12}&\dots & u_{nn}d_{1n}  \\
+\end{bmatrix}
+U^H \\
+=
+\begin{bmatrix}
+u_{11}d_{11} & u_{12}d_{12}&\dots & u_{1n}d_{1n} \\
+u_{21}d_{11} & u_{22}d_{12}&\dots & u_{2n}d_{1n}  \\
+\vdots & \vdots &\ddots & \vdots \\
+u_{n1}d_{11} & u_{n2}d_{12}&\dots & u_{nn}d_{1n}  \\
+\end{bmatrix}
+%
+\begin{bmatrix}
+\overline{u_{11}} & \overline{u_{21}}&\dots  & \overline{u_{n1}} \\
+\overline{u_{12}} & \overline{u_{22}}&\dots  & \overline{u_{n2}}  \\
+\vdots            & \vdots           &\ddots & \vdots             \\
+\overline{u_{1n}} & \overline{u_{2n}}&\dots  & \overline{u_{nn}}  \\
+\end{bmatrix}
+$\\
+And so it follows that\\
+$a_{11} = d_{11}u_{11}\overline{u_{11}} + d_{22}u_{12}\overline{u_{12}} + d_{33}u_{13}\overline{u_{13}} + ... + d_{nn}u_{1n}\overline{u_{1n}}$\\
+
+$a_{22} = d_{11}u_{21}\overline{u_{21}} + d_{22}u_{22}\overline{u_{22}} + d_{33}u_{23}\overline{u_{23}} + ... + d_{nn}u_{2n}\overline{u_{2n}}$\\
+
+ $a_{ii} = d_{11}u_{i1}\overline{u_{i1}} + d_{22}u_{i2}\overline{u_{i2}} + d_{33}u_{i3}\overline{u_{i3}} + ... + d_{nn}u_{in}\overline{u_{in}}$\\
+
+$a_{nn} = d_{11}u_{n1}\overline{u_{n1}} + d_{22}u_{n2}\overline{u_{n2}} + d_{33}u_{n3}\overline{u_{n3}} + ... + d_{nn}u_{nn}\overline{u_{nn}}$\\ 
+ 
+
+So $tr(A) =$\\
+
+$d_{11}( u_{11}\overline{u_{11}} +  u_{21}\overline{u_{21}} + ... + u_{i1}\overline{u_{i1}} + ...u_{n1}\overline{u_{n1}} )$\\
+$+ d_{22}( u_{12}\overline{u_{12}} +  u_{22}\overline{u_{22}} + ... + u_{i2}\overline{u_{i2}} + ...u_{n2}\overline{u_{n2}} )$\\
+$\vdots$\\
+$+ d_{nn}( u_{1n}\overline{u_{1n}} +  u_{2n}\overline{u_{2n}} + ... + u_{in}\overline{u_{in}} + ...u_{nn}\overline{u_{nn}} )$\\
+
+And since $U$ is orthonormal we have $UU^H = I$ and $U^HU = I$
+
+WE NEED HELP FIGURING THIS ONE OUT
+
+ \hfill $\clubsuit$\\
+
+Now we show that the Frobenius is a norm.\\
+Proof:\\
+Positivity:\\
+Proposition 4.4.7 shows that $AA^H$ is positive semi-definite. $||A||_F = \sqrt{tr(AA^H)} = \sqrt{tr(AA^H)}$. $I$ is also positive semi-definite. So by our proof of the first part of this problem we know that the trace of the product of to positive semidefinite matrices is nonnegative. 
+
+Scale Preservation:\\$||\alpha A||_F =\sqrt{tr(\alpha A \alpha A^H)} = \sqrt{  \alpha^2tr(AA^H)} = \sqrt{\alpha^2}\sqrt{tr(AA^H)} = |\alpha|||A||_F$.\\  
+
+Triangle Inequality:\\
+$||A+B||_F = \sqrt{ tr( (A+B)(A+B)^H    )     } = \sqrt{ tr( (A+B)(A^H+B^H)    )     } = \sqrt{ tr( AA^H + AB^H +BA^H+BB^H    )     }$\\
+$=\sqrt{tr(AA^H) + tr(BB^H) + 2tr(AB^H)       }$\\
+
+So $||A+B||^2 = tr(AA^H) + tr(BB^H) + 2tr(AB^H)$\\
+
+$||A||_F + ||B||_F = \sqrt{tr(AA^H)} + \sqrt{tr(BB^H)}$
+
+$(||A||_F + ||B||_F)^2 = ||A||_F^2 +2||A||_F||B||_F + ||B||_F^2 = tr(AA^H)+ 2\sqrt{tr(AA^H)tr(BB^H)} + tr(BB^H)$ 
+
+In order to show that the triangle inequality holds we only need to show that $2\sqrt{tr(AA^H)tr(BB^H)} \geq 2tr(AB^H) $, or equivalently that $tr(AA^H)tr(BB^H) \geq tr(AB^H)tr(AB^H)$ \\
+
+$tr(AA^H)tr(BB^H) = ||A||_F^2||B||_F^2$ and by Cauchy-Scharz we have\\
+$ ||A||_F^2||B||_F^2 \geq \langle A,B\rangle^2 =tr(AB^H)^2$\\
+
+So the Triangle Inequality holds. \hfill $\clubsuit$\\
+
+\item[4.21]
+
+\item[4.22]
+
+\item[4.24]
+Assume $A\in M_{mxn}(\mathbb{F})$ is of rank r. Prove the following:\\
+(i). $||A||_F = (\sigma_1^2 + ...\sigma_r^2)^{\frac{1}{2}}$, where $\sigma_1,...\sigma_r$ are the singular values of A.\\
+
+Proof:\\
+We make use of theorem 4.4.8 The Singular Value decomposition.  Since A has rank r we can write A as $A=U\Sigma V^H$ Where $U$ and $V$ are orthonormal matrices and $\Sigma$ is a diagonal matrix whose entries along the diagonal are the singular values of A. So we have $||A||_F = \sqrt{ tr(AA^H  )   }
+ = \sqrt{ tr(U\Sigma V^H    (U\Sigma V^H)^H  )   } = \sqrt{ tr(U\Sigma V^HV\Sigma^HU^H)     }
+  = \sqrt{ tr(U\Sigma\Sigma^HU^H)     }$ And in general $tr(BC) = tr(CB)$ so if $B =U\Sigma\Sigma^H$ and $C = U^H$ then $\sqrt{ tr(U\Sigma\Sigma^HU^H)     } = \sqrt{ tr(U^HU\Sigma\Sigma^H)     } = \sqrt{ tr(\Sigma\Sigma^H)     }$ and since $\Sigma$ is diagonal then $\Sigma^H = \Sigma$ so $\sqrt{ tr(\Sigma\Sigma^H)     } = \sqrt{ tr(\Sigma^2)     } = \sqrt{\sigma_1^2 +...+sigma_n^2   }$ which is the desired result. \hfill $\clubsuit$\\
+  
+(ii)If $U\in M_{mxn}(\mathbb{F})$ and $V\in M_{mxn}(\mathbb{F})$ ar orthonormal matrices then $||UAV||_F =||A||_F$\\
+Proof:\\
+$||UAV||_F = ( tr(UAV(UAV)^H)        )^{\frac{1}{2}} = ( tr(U A VV^H A^H U^H)        )^{\frac{1}{2}} = 
+( tr(U AA^H U^H)        )^{\frac{1}{2}} = (U^H U A A^H   )^{\frac{1}{2}} = (tr(A A^H)   )^{\frac{1}{2}} = ||A||_F$ \hfill $\clubsuit$\\
+
+\item[4.26]
+Let A be an nxn matrix. Prove that $|det(A)| = \prod_{i=1}^{n} \sigma_{i}$ , or in other words, the modulus of the determinant is the product of the singular values. \\
+Proof:\\
+We make use of theorem 4.4.8 The Singular Value decomposition. We can write A as $A=U\Sigma V^H$ Where $U$ and $V$ are orthonormal matrices and $\Sigma$ is a diagonal matrix whose entries along the diagonal are the singular values of A $\sigma_1,\sigma_2,...\sigma_n$ (if A has rank $r<n$ then the diagonal entries $\sigma_{n-r+1} = \sigma_{n-r+2} = ... = \sigma_n$ of  $\Sigma$ are zeros. So $|det(A)| =|det( U\Sigma V^H)| = |det(U)||det(\Sigma)||det(V^H)| = (1)|(\sigma_1)(\sigma_2)...(\sigma_n)|(1)  = | \prod_{i=1}^{n} \sigma_{i}  |$ and since thes singular values are all nonnegative $|\prod_{i=1}^{n} \sigma_{i}| = \prod_{i=1}^{n} \sigma_{i}$. and the proof is complete. \hfill $\clubsuit$\\
+
+\item[4.27]
+
+\item[4.28]
+Let A be the matrix in Exercise 4.21. Find the Moore-Penrose inverse $A^{\dagger}$ of A. Compare
+$A^{\dagger}A$ to $A^HA$.\\
+$A =\begin{bmatrix}
+   1 &  1 & 1 & 0 \\
+   0 &  0 & 0 & 0\\
+   2 &  2 & 2 & 0 \\
+  \end{bmatrix} $
+  
+  $\\$The good news is, the work for this problem is mostly done from problem 21, we know that:
+$\\$U=$\begin{bmatrix}
+\frac{1}{\sqrt{5}}&0 &-\frac{2}{\sqrt{5}}\\
+0&0&1\\
+\frac{2}{\sqrt{5}}&\frac{1}{\sqrt{5}}&0
+\end {bmatrix}$ $\Sigma=$
+$\begin{bmatrix}
+\sqrt{15}&0&0&0 \\
+0&0&0&0 \\
+0&0&0&0
+\end {bmatrix}$V=$\begin{bmatrix}
+\frac{1}{\sqrt{3}}&0 &-\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{3}} &0&0&\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{3}}&0&\frac{1}{\sqrt{2}}&0 \\
+0&1&0&0
+\end {bmatrix}$
+$\\$So, we're clipping the $\Sigma$, but there isn't anything else to really clip, so it's going to end up being the transpose. So now using:
+$\\$
+$\begin{bmatrix}
+\frac{1}{\sqrt{3}}&0 &-\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{3}} &0&0&\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{3}}&0&\frac{1}{\sqrt{2}}&0 \\
+0&1&0&0
+\end {bmatrix}$
+$\begin{bmatrix}
+\frac{1}{\sqrt{15}}&0&0 \\
+0&0&0 \\
+0&0&0\\
+0&0&0
+\end {bmatrix}$
+$\begin{bmatrix}
+\frac{1}{\sqrt{5}}&0 &-\frac{2}{\sqrt{5}}\\
+0&0&1\\
+\frac{2}{\sqrt{5}}&\frac{1}{\sqrt{5}}&0
+\end {bmatrix}^H$
+$\\$The result is: 
+\[A^{\dag}=\begin{bmatrix}
+\frac{1}{15}&0&\frac{2}{15} \\
+\frac{1}{15}&0&\frac{2}{15} \\
+\frac{1}{15}&0&\frac{2}{15}\\
+0&0&0
+\end{bmatrix}\]
+$\\$Then $A^{\dag}A$ is:
+$\begin{bmatrix}
+\frac{1}{3}&\frac{1}{3}&\frac{1}{3} &0\\
+\frac{1}{3}&\frac{1}{3}&\frac{1}{3} &0\\
+\frac{1}{3}&\frac{1}{3}&\frac{1}{3}&0\\
+0&0&0&0
+\end{bmatrix}$ and $A^HA$ is:
+$\begin{bmatrix}
+5 & 5&5&0\\
+5&5&5 & 0\\
+5&5&5&0\\
+0&0&0&0
+\end {bmatrix}$
+$\\$These two are very similar, they just differ by a scalar multiple.
+  
+ \item[4.34]
+ Consider the matrix $V_n =\begin{bmatrix}
+   1     &  x_0       & x_0^2      & \dots      & x_0^n \\
+   1     &  x_1       & x_1^2      & \dots      & x_1^n \\
+   %
+   \vdots&  \vdots    & \vdots     & \ddots     & \vdots \\
+   %
+   1     &  x_{n-1}   & x_{n-1}^2  & \dots      & x_{n-1}^n \\
+   1     &  x_n       & x_n^2      & \dots      & x_n^n \\
+  \end{bmatrix} $\\
+Prove that $det(V_n) = \displaystyle\prod_{i<j}\!(x_j -x_i)$\\
+Proof:\\
+To begin with we know that $det(V_n) = det(V_n^T)$\\
+$det(V_n^T) = \left|  \begin{array}{ccccc}
+   1           &  1           & 1          & \dots      & 1         \\
+   x_0         &  x_1         & x_2     & \dots      & x_n     \\
+   %
+   \vdots      &  \vdots      & \vdots     & \ddots     & \vdots    \\
+   %
+   x_0^{n-1}   &  x_1^{n-1}   & x_2^{n-1}  & \dots      & x_n^{n-1} \\
+   x_0^n       &  x_1^n       & x_2^n      & \dots      & x_n^n      \\
+  \end{array}           \right|$\\
+  
+  Adding or subtracting a multiple of a row to another doesn't affect the determinant.\\
+  We row reduce the nth row by subtracting $x_0$ times the nth row to the (n+1)th row.\\
+  
+ $det(V_n^T) = \left|  \begin{array}{ccccc}
+   1           &  1           & 1          & \dots      & 1         \\
+   x_0         &  x_1         & x_2      & \dots      & x_n     \\
+   %
+   \vdots      &  \vdots      & \vdots     & \ddots     & \vdots    \\
+   %
+   x_0^{n-1}   &  x_1^{n-1}   & x_2^{n-1}  & \dots      & x_n^{n-1} \\
+   0           &  x_1^n - x_0x_1^{n-1}       & x_2^n - x_0x_2^{n-1}     & \dots &x_n^n - x_0x_n^{n-1}      \\
+  \end{array}           \right|\\
+   = 
+ det(V_n^T) = \left|  \begin{array}{ccccc}
+   1           &  1           & 1          & \dots      & 1         \\
+   x_0         &  x_1         & x_2      & \dots      & x_n     \\
+   %
+   \vdots      &  \vdots      & \vdots     & \ddots     & \vdots    \\
+   %
+   x_0^{n-1}   &  x_1^{n-1}   & x_2^{n-1}  & \dots      & x_n^{n-1} \\
+   0           &  (x_1 - x_0)x_1^{n-1}       & (x_2 - x_0)x_2^{n-1}     & \dots &(x_n - x_0)x_n^{n-1}      \\
+  \end{array}           \right|$\\  
+
+We subtract $x_0$ times the (n-1)th row to the nth row.\\
+
+ $det(V_n^T) = \left|  \begin{array}{ccccc}
+   1           &  1           & 1          & \dots      & 1         \\
+   x_0         &  x_1         & x_2      & \dots      & x_n     \\
+   %
+   \vdots      &  \vdots      & \vdots     & \ddots     & \vdots    \\
+   %
+   %
+   x_0^{n-2}   &  x_1^{n-2}   & x_2^{n-2}  & \dots      & x_n^{n-2} \\
+   %
+   0         &  x_1^{n-1} - x_0x_1^{n-2}   & x_2^{n-1} - x_0x_2^{n-2}  & \dots & x_n^{n-1} -  x_0x_n^{n-2} \\
+   0           &  (x_1 - x_0)x_1^{n-1}       & (x_2 - x_0)x_2^{n-1}     & \dots &(x_n - x_0)x_n^{n-1}      \\
+  \end{array}           \right|\\  
+  %
+  = \left|  \begin{array}{ccccc}
+   1           &  1                     & 1                        & \dots      & 1         \\
+   x_0         &  x_1                   & x_2                      & \dots      & x_n     \\
+   %
+   \vdots      &  \vdots                & \vdots                   & \ddots     & \vdots    \\
+   %
+   %
+   x_0^{n-2}   &  x_1^{n-2}             & x_2^{n-2}                & \dots      & x_n^{n-2} \\
+   %
+   0           &  (x_1 - x_0)x_1^{n-2}  & (x_2 - x_0)x_2^{n-2}     & \dots      & (x_n -  x_0)x_n^{n-2} \\
+   0           &  (x_1 - x_0)x_1^{n-1}  & (x_2 - x_0)x_2^{n-1}     & \dots      &(x_n - x_0)x_n^{n-1}      \\
+  \end{array} \right| $
+  \\  
+
+  
+  We continue subtracting $x_0$ times the (p-1)th row from the pth row. Which gives\\
+  $det(V_n^T) = \left|  \begin{array}{ccccc}
+   1           &  1                     & 1                        & \dots      & 1                  \\
+   0           &  (x_1 - x_0)           & (x_2 - x_0)              & \dots      & (x_n - x_0)         \\
+   %
+   \vdots      &  \vdots                & \vdots                   & \ddots     & \vdots                \\
+   %
+   %
+   0           &  (x_1 - x_0)x_1^{n-3}  & (x_1 - x_0)x_2^{n-3}     & \dots      & (x_1 - x_0)x_n^{n-3} \\
+   %
+   0           &  (x_1 - x_0)x_1^{n-2}  & (x_2 - x_0)x_2^{n-2}     & \dots      & (x_n -  x_0)x_n^{n-2} \\
+   0           &  (x_1 - x_0)x_1^{n-1}  & (x_2 - x_0)x_2^{n-1}     & \dots      &(x_n - x_0)x_n^{n-1}      \\
+  \end{array}           \right|\\ 
+   = 
+  \left|  \begin{array}{ccccc}
+    (x_1 - x_0)           & (x_2 - x_0)              & \dots      & (x_n - x_0)         \\
+   %
+   \vdots                & \vdots                   & \ddots     & \vdots                \\
+   %
+   x_1^{n-3}(x_1 - x_0)  & x_2^{n-3}(x_1 - x_0)     & \dots      & x_n^{n-3}(x_1 - x_0) \\
+   %
+    x_1^{n-2}(x_1 - x_0)  & x_2^{n-2}(x_2 - x_0)     & \dots      & x_n^{n-2}(x_n -  x_0) \\
+   x_1^{n-1}(x_1 - x_0)  & x_2^{n-1}(x_2 - x_0)     & \dots      &x_n^{n-1}(x_n - x_0)      \\
+  \end{array}           \right|\\  
+  $
+  We can transpose this matrix and divide the first row by $(x_1-x_0)$, divide the second row by $(x_2-x_0)$,.., and divide the nth row by $(x_n-x_0)$. \\
+  
+  So $det(V_n) = (x_1-x_0)(x_2-x_0)...(x_n-x_0)\left|  \begin{array}{ccccc}
+    1           & 1              & \dots      & 1        \\
+   %
+   \vdots                & \vdots                   & \ddots     & \vdots                \\
+   %
+   x_1^{n-3}  & x_2^{n-3}    & \dots      & x_n^{n-3} \\
+   %
+    x_1^{n-2} & x_2^{n-2}     & \dots      & x_n^{n-2} \\
+   x_1^{n-1}  & x_2^{n-1}    & \dots      &x_n^{n-1}      \\
+  \end{array}           \right|\\  
+  $\\
+  However this new smaller determinant on the right is equal to the original larger determinant we set out to solve but simply with new indices which implies
+  
+  $\left|  \begin{array}{ccccc}
+    1           & 1              & \dots      & 1        \\
+   %
+   \vdots                & \vdots                   & \ddots     & \vdots                \\
+   %
+   x_1^{n-3}  & x_2^{n-3}    & \dots      & x_n^{n-3} \\
+   %
+    x_1^{n-2} & x_2^{n-2}     & \dots      & x_n^{n-2} \\
+   x_1^{n-1}  & x_2^{n-1}    & \dots      &x_n^{n-1}      \\
+  \end{array}           \right|
+   = 
+   (x_2-x_1)(x_3-x_1)...(x_{n-1}-x_1)
+   \left|  \begin{array}{ccccc}
+    1           & 1              & \dots      & 1        \\
+   %
+   \vdots                & \vdots                   & \ddots     & \vdots                \\
+   %
+   x_2^{n-4}  & x_3^{n-4}    & \dots      & x_{n-1}^{n-4} \\
+   %
+    x_2^{n-3} & x_3^{n-3}     & \dots      & x_{n-1}^{n-3} \\
+   x_2^{n-2}  & x_3^{n-2}    & \dots      &x_{n-1}^{n-2}      \\
+  \end{array}     \right| $
+  \\ 
+  
+  Proceeding recursively this implies that $det(V_n) = ((x_1-x_0)(x_2-x_0)...(x_n-x_0))((x_2-x_1)(x_3-x_1)...(x_{n-1}-x_1))... = \prod_{i<j}\! (x_j-x_i)$ \hfill $\clubsuit$\\
+  
+  \item[4.35]
+  
+  \item[4.36]
+  Find all possible Jordan forms for a transformation with characteristic polynomial: $(x+5)^2(x-3)^2$:\\
+  
+  The eigenvalues are $\lambda_1 = -5,\lambda_2 = 3$ where both algebraic multiplicity 2.\\
+  All of the possible Jordan forms:
+  
+  $\begin{bmatrix}
+   -5 & 0  & 0 & 0 \\
+   0  & -5 & 0 & 0 \\
+   0  & 0  & 3 & 0 \\
+   0  & 0  & 0 & 3 \\
+  \end{bmatrix} 
+  $
+  
+    $\begin{bmatrix}
+   -5 & 0  & 0 & 0 \\
+   0  & -5 & 0 & 0 \\
+   0  & 0  & 3 & 1 \\
+   0  & 0  & 0 & 3 \\
+  \end{bmatrix} 
+  $
+  
+    $\begin{bmatrix}
+   -5 & 1  & 0 & 0 \\
+   0  & -5 & 0 & 0 \\
+   0  & 0  & 3 & 0 \\
+   0  & 0  & 0 & 3 \\
+  \end{bmatrix} 
+  $
+  
+    $\begin{bmatrix}
+   -5 & 1  & 0 & 0 \\
+   0  & -5 & 0 & 0 \\
+   0  & 0  & 3 & 1 \\
+   0  & 0  & 0 & 3 \\
+  \end{bmatrix} 
+  $
+
+  
+  \item[4.37]
+  
+  \item[4.38]
+  
+  
+  
+\end{problems}
+ \end{document}

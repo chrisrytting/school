@@ -1,0 +1,166 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{580 Homework Supply}
+\author{Chris Rytting}
+\maketitle
+\subsection*{1}
+Let $y \in Y \text{ and } y'\leq y$. Also, $y' \not \in -\mathbb{R}_+^L$. Assume by way of contradiction that $y' \not \in Y$. Since $Y$ is closed and convex, by theorem M.G.2, we have that there is a $p \in \mathbb{R}^L$ with $p \neq 0$ and $c \in \mathbb{R}$ such that $p \cdot y' > C \text{ and } p \cdot y < C \quad \forall y \in Y$. We know that $P \geq 0$ since $-\mathbb{R}_+^L$, implying $p \cdot y' > p \cdot y$, which is a contradiction since $y' \leq y$, and we have the desired result.
+
+\subsection*{2}
+
+This is a close analogue to the UMP, so we can use Roy's identity to yield $z_1$ and we have
+\[z_1 = - \frac{\frac{\partial R }{\partial w_1}}{\frac{\partial R} {\partial C}}= -\frac{\frac{-p \alpha}{w_1} }{\frac{p}{C}} = \frac{\alpha C}{w_1} \]
+
+\subsection*{3 (a)}
+We will choose whichever good is cheaper since they are perfect substitutes. Let $i$ be said good. Then we have that
+\[z_i = q\]
+\[z_\neq i = 0\]
+and we have that
+\[C = w_iz_i\]
+
+
+\subsection*{3 (b)}
+
+We have that $z_1 = q, z_2 = q$, and this yields 
+\[C = q(w_1 + w_2) \]
+
+\subsection*{3 (c)}
+
+We have
+\[ \mathscr{L} = z_iw_i + z_2w_2 + \lambda (f-(z_1^{\rho} + z_2^{\rho})^{\rho}) \]
+FOC's
+\begin{align*}
+    \frac{\partial \mathscr{L} }{\partial z_1} &= w_1 - \lambda \frac{\rho}{\rho} z_1^{\rho -1}(z_1^{\rho} + z_2^{\rho})^{\frac{1}{\rho}-1} \\
+    \frac{\partial \mathscr{L} }{\partial z_2} &= w_2 - \lambda \frac{\rho}{\rho} z_2^{\rho -1}(z_1^{\rho} + z_2^{\rho})^{\frac{1}{\rho}-1} \\
+    \frac{\partial \mathscr{L} }{\partial \lambda} &= (z_1^{\rho} + z_2^{\rho})^{\frac{1}{\rho}}
+\end{align*}
+Thus, we have that
+\[\frac{w_1}{w_2} = \frac{z_1^{\rho-1}}{z_1^{\rho-1}}\]
+giving us that:
+\begin{align*}
+    z_1 &= z_2 \left( \frac{w_1}{w_2} \right)^{\frac{1}{\rho-1}} \\
+    z_2 &= z_1 \left( \frac{w_2}{w_1} \right)^{\frac{1}{\rho-1}} \\
+    C &= w_1^{\rho / \rho - 1}z_2 \left( \frac{1}{w_2} \right)^{\frac{1}{\rho-1}} + w_2^{\rho / \rho - 1}z_1 \left( \frac{1}{w_1} \right)^{\frac{1}{\rho-1}} 
+\end{align*}
+
+\subsection*{4}
+
+Let the cost function before the increase in $p$ be given by
+\[C(q) = z_1 \bar w_1 + z_2 \bar w_2 + \cdots + z_{L-1} \bar w_{L-1}\] 
+and the cost function after the increase in $p$ (in the short run) be given by
+\[C_{SR}(q) = z_1 \bar w_1 + z'_2 \bar w_2 + \cdots + z'_{L-1} \bar w_{L-1}\] 
+and the cost function after the increase in $p$ (in the long run) be given by
+\[C_{LR}(q) = z'_1 \bar w_1 + z'_2 \bar w_2 + \cdots + z'_{L-1} \bar w_{L-1}\] 
+Now, since the $z$'s are functions of $w$ and $p$ alone, we know that an increase in $p$ will result in an increase in each $z$ (or in no increase in the case that $z$'s are complements of one another in the production of good $L$, in which case this proof is trivial as no factor increases in the short run and they all increase in the long run).\\\\
+Proceeding with the general case, though, we know that the overall use of inputs $Z$ is given by
+\[Z = z_1 + z_2 + \cdots + z_{L-1} \]
+and the change in inputs in the short run is given by 
+\[\Delta_{SR} = Z_{SR} - Z = \sum^{L-1}_{i=2} z'_i - z_i \]
+
+
+and the change in inputs in the long run is given by 
+\[\Delta_{LR} = Z_{LR} - Z = \sum^{L-1}_{i=1} z'_i - z_i \]
+
+and the difference of these is given by 
+\[ \Delta_{LR} - \Delta_{SR} = z'_1 - z_1 > 0 \]
+since the $z'_l$'s are greater than the $z'_l$'s, and we have the desired result.
+
+\subsection*{5 (i)}
+Yes. As $z$ increases, $q$ also increases. The same holds for marginal product.
+
+
+\subsection*{5 (ii)}
+Essentially, the requirement is that marginal benefit equals marginal cost, which needs be the case for a maximization problem.\\\\
+If marginal cost were higher, we would want to engage in less trade, and if marginal cost were lower, we would want to engage in more trade.
+
+\subsection*{5 (iii)}
+The requirement is similar as in (ii). The solution of a maximization problem is its optimal point. Therefore, if marginal benefit equals marginal cost, we have our optimal solution.
+
+\subsection*{6 (a)}
+
+Have the firm with the lowest $\beta_j$ produce all goods, as this will increase marginal cost the least.
+
+
+\subsection*{6 (b)}
+
+Have the firm with the lowest $\beta_j$ produce all goods, as this will decrease marginal cost the least.
+
+\subsection*{6 (c)}
+Where $\beta_j > 0$:\\\\
+
+Have the firm with the lowest $\beta_j$ produce all goods, as this will increase marginal cost the least.\\\\
+
+
+
+
+Where $\beta_j < 0$:\\\\
+
+Have the firm with the lowest $\beta_j$ produce all goods, as this will decrease marginal cost the least.
+
+
+
+
+
+
+
+
+
+\end{document}

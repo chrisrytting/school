@@ -1,0 +1,223 @@
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Homework 1.5 344}
+\author{Chris Rytting}
+\maketitle
+\subsection*{2.1 (i)}
+Note that 
+\begin{align*}
+    L(a(x_1,x_2) + b(y_1,y_2)) &= L((ax_1,ax_2) + (by_1,by_2)) 
+    \\&=((ay_1,ay_2) + (bx_1,bx_2)) 
+    \\&=aL(x_1,x_2) + bL(y_1,y_2)
+\end{align*}
+\[ \mathscr{N} = {\mathbf{0} } \]
+\[ \mathscr{R} = \mathbb{R}^2\]
+Thus this is a linear transformation.
+
+\subsection*{2.1 (ii)}
+\begin{align*}
+    L(a(x_1,x_2) + b(y_1,y_2)) &= L((ax_1,ax_2) + (by_1,by_2)) 
+    \\&=((ax_1,0) + (by_1,0)) 
+    \\&=aL(x_1,x_2) + bL(y_1,y_2)
+\end{align*}
+\[ \mathscr{N} = \{(0,y) \vert x \in\mathbb{R}^2\}\]
+\[ \mathscr{R} = \{(x,0) \vert x \in\mathbb{R}^2\}\]
+Thus this is a linear transformation.
+
+\subsection*{2.1 (iii)}
+
+\begin{align*}
+    L(a(x_1,x_2) + b(y_1,y_2)) &= L((ax_1,ax_2) + (by_1,by_2)) 
+    \\&=((ax_1 + 1,ax_2 + 1) + (by_1 + 1,ax_2 + 1)) 
+    \\&\neq aL(x_1,x_2) + bL(y_1,y_2)
+    \\&= (ax_1 + a,ax_2 + a) + (by_1 + b,by_2 + b)
+\end{align*}
+Thus this is not a linear transformation.
+
+\subsection*{2.1 (iv)}
+\begin{align*}
+    L(a(x_1,x_2) + b(y_1,y_2)) &= L((ax_1,ax_2) + (by_1,by_2)) 
+    \\&=( a^2x_1^2, a^2x_2^2 ) + ( b^2y_1^2, a^2x_2^2) 
+    \\&\neq aL(x_1,x_2) + bL(y_1,y_2)
+    \\&= (ax_1^2,ax_2^2) + (by_1^2,by_2^2)
+\end{align*}
+Thus this is not a linear transformation.
+
+\subsection*{2.2(i)}
+Let $p(x), q(x) \in \mathbb{F}_2$ 
+\begin{align*}
+L(a(p(x)) + b(q(x))) &= x^2 + y^2
+\\&\neq aL(p(x)) + bL(q(x))
+\\&= ax^2 + bx^2
+\end{align*}
+    
+\subsection*{2.2(ii)}
+Note that $xp(x) \in \mathbb{F} [x]_4 \quad \forall p(x) \in \mathbb{F} [x]_2$
+Note that
+\begin{align*}
+L(a(p(x)) + b(q(x))) &= axp(x) + bxq(x)
+\\&=aL(p(x)) + bL(q(x))
+\end{align*}
+
+\subsection*{2.2(iii)}
+Note that $x^4 + p(x) \in \mathbb{F} [x]_4 \quad \forall p(x) \in \mathbb{F} [x]_2$
+Note that
+\begin{align*}
+L(a(p(x)) + b(q(y))) &= x^4 + ap(x) + y^4 + bq(y)
+\\&\neq aL(p(x)) + bL(q(x))
+\end{align*}
+Thus it is not a linear transformation
+
+\subsection*{2.2(iv)}
+Note that $(4x^2 - 3x)p'(x) \in \mathbb{F} [x]_4 \quad \forall p(x) \in \mathbb{F} [x]_2$
+Note that
+\begin{align*}
+L(a(p(x))) + L(b(q(x))) &= (4x^2 - 3x)ap'(x) + (4x^2 - 3x)bq'(x)
+\\&=a ( (4x^2 - 3x)p'(x)) + b( (4x^2 - 3xq'(x))
+\\&=a L(p(x) ) + b L(q(x))
+\end{align*}
+Thus it is a linear transformation
+
+\subsection*{2.3}
+Let $f(x), g(x) \in C^1 ([0,1]; \mathbb{F} )$. Note also that $\forall f(x), h(x) = f(x) + f'(x)$ is continuous since $f(x)$ and $f'(x)$ are both continuous.
+\begin{align*}
+    L(a(f(x))) + L(b(g(x))) &= af(x) + af'(x) + bg(x) + bg'(x)
+\\&=a(f(x) + f'(x)) + b(g(x) + g'(x))
+\\&=aL(f(x)) + bL(g(x))
+\end{align*}
+As for $L(f) = g$, note that
+\begin{align*}
+    L(f) &= e^{-x} \int_0^xg(t)d^tdt + Ce^{-x} + (-e^{-x} \int_0^x g(t)e^tdt) + e^{-x}g(x)c^x - Ce^{-x}
+    \\&=g(x) + c^{-x} - e^{-x}
+\\&=g(x)
+\end{align*}
+
+\subsection*{2.4}
+Let $L,K,M \in \mathscr{L}(V,W) \quad \mathbf{v} \in V, \quad a,b \in \mathbb{F} $.
+\subsection*{2.4 (i)}
+By the properties of linear maps,
+\[(L+K)(\mathbf{v} ) = L(\mathbf{v} ) + K(\mathbf{v} ) = K(\mathbf{v} ) + L(\mathbf{v} ) = (K+L)(\mathbf{v} ) \]
+
+\subsection*{2.4 (ii)}
+As with $(i)$
+\[(L+K)(\mathbf{v} ) + M(\mathbf{v} ) = (L(\mathbf{v} ) + K(\mathbf{v} )) + M(\mathbf{v} ) = L + (K + M)(\mathbf{v} ) = \]
+
+
+\subsection*{2.4 (iii)}
+$M(\mathbf{v} ) = 0$ satisfies the additive identity
+
+\subsection*{2.4 (iv)}
+Let $L'(\mathbf{v} ) = -\mathbf{v}$. This linear transformation yields the additive inverse
+
+\subsection*{2.4 (v)}
+As with $(i)$,
+\[a(L+K)(\mathbf{v} ) = a(L(\mathbf{v} ) + K(\mathbf{v} )) = aL(\mathbf{v} ) + aK(\mathbf{v} ) = a(K+L)(\mathbf{v} )\]
+
+\subsection*{2.4 (vi)}
+
+\[(a+b)L(\mathbf{v} ) = aL(\mathbf{v} + bL(\mathbf{v} ) = bL(\mathbf{v} + aL(\mathbf{v})= (b+a)L(\mathbf{v})\]
+
+\subsection*{2.4 (vii)}
+\[ \exists \mathbf{w} \in W  \quad 1L(\mathbf{v} ) = 1 * \mathbf{w} = \mathbf{w} = L(\mathbf{v} )\]
+
+
+
+\subsection*{2.4 (viii)}
+By properties of vector spaces, there are elements in W such that 
+\[(ab)L(\mathbf{v} ) = ab(\mathbf{w} ) = a(b \mathbf{w} ) = a(bL(\mathbf{v} ))\]
+
+\subsection*{2.5}
+By induction, we see that for $n=1$, we have $V_1, V_2, L_1 \quad L_1: V_1 \rightarrow V_2 \quad (L_1)^{-1} = L_1^{-1}$
+Suppose that $L_n L_{n-1}\cdots L_1)^{-1} = L_1^{-1}\cdots L_{n-1}^{-1}L_n^{-1}$. For $\{V_i\}_{i=1}^{n+1}\}$, and $\{L_i\}_{i=1}^{n}\}$, we have the expression
+\[(L_n L_{n-1}\cdots L_1)^{-1} =(L_n( L_{n-1}\cdots L_1)^{-1}\]
+And by remark 2.1.20, we can express it as follows
+\[ = (( L_{n-1}\cdots L_1)^{-1}L_n^{-1})\]
+And inductively conclude
+\[= L_1^{-1}\cdots L_n^{-1}\]
+
+
+\subsection*{2.6}
+
+To show $\mathscr{N} (KL) = L^{−1}\mathscr{N} (K) = {\mathbf{v}  \vert L(\mathbf{v} ) \in \mathscr{N} (K)}$, we note by definiton:
+\[\mathscr{N} (KL)={v \in V \vert KL(\mathbf{v} )=\mathbf{0} } \]
+\[\mathscr{N} (K)={w \in W \vert K( \mathbf{w} )=\mathbf{0} }\]
+We also know that $L^{−1} : W \rightarrow V $is a bijective map, because the two spaces are isomorphic. Let $v \in \mathscr{N} (KL)$. Thus $KL(\mathbf{v} ) = 0$, and $KL(\mathbf{v} ) \in W$. Thus, $v ∈ L{−1}KL(\mathbf{v} ) \in V$
+To show the other direction, let $v \in L^{-1}\mathscr{N} (K)$. Because L inverse is bijective, there exists $v \in V$,forevery $w \in W$ that is in the null space of $K$, and $L^{−1}\mathscr{N}(K)={v \in V \vert v = L^{−1}(\mathscr{N} (K)}$, and thus $v  \in  \mathscr{N} (KL)$.
+To show $\mathscr{R}(KL) \cong \mathscr{R}(K)$, we note by Definition:
+\[\mathscr{R}(KL) = {u  \in U \vert \exists v  \in V \quad \text{Where } KL(v) = u}\]
+\[\mathscr{R}(K) = {u \in U \vert \exists w ∈ W \quad \text{Where } K(w) = u}\]
+Let $u \in \mathscr{R}(KL)$. Thus,$\exists  v \in V$,where $KL(v)=w$. Note $L(v) \in W$, and $K(L(v))= u$. Thus, $u  \in \mathscr{R}(K)$.
+As for the other direction, let $u  \in \mathscr{R}(K)$. Thus  $\exists w  \in W$, where $K(w) = u$. Because $L \cong W, \exists v \in V \quad \text{s.t. } L(v)=w, KL(v)=u$. Thus $u \in \mathscr{R}(KL)$.
+Thus, $\mathscr{R}(KL) = \mathscr{R}(K).$
+ 
+\subsection*{2.7(i)}
+Let $\mathbf{x} \in V$, and $\mathbf{x}  \in \mathscr{N}(L^k)$. Thus, $L^k \mathbf{x}  = \mathbf{0} $. It follows that 
+\[L(L^k \mathbf{x} ) = L( \mathbf{0)} = \mathbf{0)} \]
+And thus that\[ \mathbf{x} \in \mathscr{N}(L^{k+1})\]
+
+\subsection*{2.7(ii)}
+Let $\mathbf{w}  \in \mathscr{R}(L^{k+1})$. Thus, there exists $\mathbf{v} \in V$ such that $L^{k+1}( \mathbf{v} ) = L(L(\mathbf{v} ))$. Thus, $\exists \mathbf{v}' \in V \quad L(\mathbf{v} )= \mathbf{v}'$. Thus $L^k(\mathbf{v}') = \mathbf{w}$ and $\mathbf{w} \in \mathscr{R}(L^k)$.
+\[\implies \mathscr{R}(L^{k+1}) \subset \mathscr{R}(L^k)\]
+
+
+\end{document}
+

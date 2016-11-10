@@ -1,0 +1,158 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 5.1}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{5.1}
+\textbf{(i)}
+This is a metric, note that $d_1 + d_2$ is:\\\\
+Positive Definite: $d_1(\textbf{x}, \textbf{y}) \geq 0$ and $d_2(\textbf{x}, \textbf{y}) \geq 0$ and we have that $(d_1+d_2)(\textbf{x}, \textbf{y}) \geq 0$.\\\\
+
+Symmetric: $(d_1+d_2)(\textbf{x}, \textbf{y}) = d_1(\textbf{x}, \textbf{y}) + d_2(\textbf{x}, \textbf{y}) = d_1(\textbf{y}, \textbf{x}) + d_2(\textbf{y}, \textbf{x}) = (d_1+d_2)(\textbf{y}, \textbf{x})$.  \\\\
+
+Triangle Inequality: We know that $d_1(\textbf{x}, \textbf{y}) \leq d_1(\textbf{x}, \textbf{z}) + d_1(\textbf{z}, \textbf{y})$ and $d_2(\textbf{x}, \textbf{y}) \leq d_2(\textbf{x}, \textbf{z}) + d_2(\textbf{z}, \textbf{y})$ it follows that:
+\begin{align*}
+    (d_1 + d_2)(\textbf{x}, \textbf{y}) &= d_1(\textbf{x}, \textbf{y}) + d_2(\textbf{x}, \textbf{y}) \\
+    & \leq d_1(\textbf{x}, \textbf{z}) + d_1(\textbf{z}, \textbf{y}) + d_2(\textbf{x}, \textbf{z}) + d_2(\textbf{z}, \textbf{y}) \\
+    &= (d_1(\textbf{x}, \textbf{z}) + d_2(\textbf{x}, \textbf{z})) + (d_1(\textbf{z}, \textbf{y}) + d_2(\textbf{z}, \textbf{y})) \\
+    &= (d_1 + d_2)(\textbf{x}, \textbf{z}) + (d_1 + d_2)(\textbf{z}, \textbf{y}) 
+\end{align*}
+And we have the desired result. \\\\
+
+\textbf{(ii)}
+This is not a metric. Think of the case where $d_1, d_2 > 0$ and $d_2 > d_1$. In this case, we don't have positivity.
+
+\textbf{(iii)}
+We know that $\text{min} \{d_1,d_2\} $ will yield either $d_1$ or $d_2$, which are both metrics, so this is a metric.
+
+\textbf{(iv)}
+We know that $\text{max} \{d_1,d_2\} $ will yield either $d_1$ or $d_2$, which are both metrics, so this is a metric.
+
+\subsection*{5.2}
+Because all trains originate from Paris. This means that the only way to get to another city in France is by travelling towards, from, or through Paris. In other words, one cannot travel directly to another city unless they are on a train that is coming directly from or going directly to Paris. Once one arrives in Paris, then you can change your direction, but only then. \\\\
+As for proving that this is a metric, we know that $d_2$ is a metric because, for where $ \textbf{x} = \textbf{y} \alpha$, it is given that $d_2$ is a metric.  \\\\
+As for everywhere else, we proved that it is still a metric in 5.1 (i).
+\\\\
+The open balls will be either circles or diamonds since we will use the one norm in the case of ``otherwise'' $d_2( \textbf{y}, 0) + d_2 ( \textbf{x}, 0 ) = \sqrt{y^2} + \sqrt{x^2} = | \textbf{x}| + | \textbf{y}|    $ and the two norm in the case of $ \textbf{x} = \alpha \textbf{y}  $, we will use the two norm as $d_2(x,y) = \sqrt{x^2 + y^2}$
+
+\subsection*{5.3}
+\textbf{(i)}
+Let $X = \mathbb{R}$.
+Consider 
+\[d(\textbf{x},\textbf{\textbf{z}}) = \sqrt{\textbf{x}^2 + \textbf{\textbf{z}}^2 - \textbf{x}^2 - \textbf{\textbf{z}}^2} = 0 \quad \textbf{x}\neq \textbf{\textbf{z}} \]
+Symmetry holds since
+\[d(\textbf{x},\textbf{\textbf{z}}) = \sqrt{\textbf{x}^2 + \textbf{\textbf{z}}^2 - \textbf{x}^2 - \textbf{\textbf{z}}^2} = \sqrt{\textbf{\textbf{z}}^2 + \textbf{x}^2 - \textbf{\textbf{z}}^2 - \textbf{x}^2} =d(\textbf{\textbf{z}},\textbf{x})\]
+Triangle inequality also holds since
+\[d(\textbf{x},\textbf{\textbf{z}}) = \sqrt{\textbf{x}^2 + \textbf{\textbf{z}}^2 - \textbf{x}^2 - \textbf{\textbf{z}}^2} \leq \sqrt{\textbf{x}^2 + \textbf{z}^2 - \textbf{x}^2 - \textbf{z}^2} + \sqrt{\textbf{z}^2 + \textbf{\textbf{z}}^2 - \textbf{z}^2 - \textbf{\textbf{z}}^2}\]
+
+\textbf{(ii)}\\
+Let $X = \mathbb{R}$ and $d(\textbf{x} ,\textbf{y}) = |\textbf{x}| \cdot |\textbf{y}|$. We see that $|\textbf{x}| \cdot |\textbf{y}| \geq 0$ and $|\textbf{x}| \cdot |\textbf{y}| = |\textbf{y}| \cdot |\textbf{x}|$. But $|\textbf{x}| \cdot |\textbf{y}| \leq |\textbf{x}| \cdot |\textbf{z}| + |\textbf{z}| \cdot |\textbf{y}|$ does not hold if $\textbf{x} = 1, \textbf{y} = 2, \textbf{z} = 0$. 
+
+\subsection*{5.4}
+If we let
+\[ \rho (\textbf{x}, \textbf{y}) = \frac{d(\textbf{x}, \textbf{y})}{1 + d(\textbf{x}, \textbf{y})}  \]
+We know that $\rho$ will have the following characteristics, fulfilling the criteria for a metric
+\\
+Positivity holds since \[d(\textbf{x}, \textbf{y}) \geq 0 \implies \rho (\textbf{x}, \textbf{y}) \geq 0\]\\
+\\
+Symmetry holds since
+\begin{align*}
+    \rho (\textbf{x}, \textbf{y}) &= \frac{d(\textbf{x}, \textbf{y})}{1 + d(\textbf{x}, \textbf{y})} \\
+    &= \frac{d(\textbf{y}, \textbf{x})}{1 + d(\textbf{y}, \textbf{x})} \\
+    &=  \rho (\textbf{y}, \textbf{x})
+\end{align*}
+Triangle inequality holds since
+\begin{align*}
+    \frac{d(x,y)}{1+d(x,y)}&\leq \frac{d(x,z)+d(z,y)}{1+d(x,z)+d(z,y)} \\
+    & \leq \frac{d(x,z)}{1+d(x,z)+d(z,y)} + \frac{d(z,y)}{1+d(x,z)+d(z,y)} \\
+    &  \leq \frac{d(x,z)}{1+d(x,z)} + \frac{d(z,y)}{1+d(z,y)}
+\end{align*}
+and we have the desired result.
+
+\subsection*{5.5}
+
+
+Note that we have
+\begin{align*}
+    d(x,y) & \leq d(x,z)+d(z,y) \\
+    d(x,z)& \geq d(x,y)-d(y,z)\\
+\end{align*}
+Thus, it is sufficent to show that $d(x,z) \geq d(y,z) - d(x,y)$. Note, by the triangle inequality, 
+\begin{align*}
+    d(y,z) &\leq d(y,x) + d(x,z) \\
+    \implies d(x,z) &\geq d(y,z) - d(x,y) \\
+\end{align*}
+and we havethe desired result.
+
+\subsection*{5.6}
+
+
+Suppose $d(x,y) < \delta$, and let $\epsilon = \delta$. Then we have that
+\[|f(x) - f(y)| = |d(x,D) - d(D,y) | \leq d(x,y) = \delta\]
+Therefore, \[ |f(x) - f(y)| < \epsilon \quad \forall x \in X\] and we have the desired result.
+
+\subsection*{5.7}
+
+
+By 5.6, we know that $f(x) = x$ is continuous where $\epsilon = \delta$, and we also know that every multivariable polynomial is a composition of sums, products, and scalar
+multiples of continuous univariate functions, and by proposition 5.1.21, all multi-variable polynomials are continuous.
+\end{document}

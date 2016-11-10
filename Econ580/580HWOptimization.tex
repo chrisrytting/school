@@ -1,0 +1,237 @@
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{580 Optimization Homework}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{Exercise 1 (i)}
+Let $X$ be a vector space. Let $x,y \in X \quad \alpha \in \mathscr{R} $. Note that 
+\[\alpha x + (1-\alpha) y \in X\]
+by properties 7 and 8 of vector spaces $\implies X \text{ is convex}$.
+
+\subsection*{Exercise 1 (ii)}
+Assume to the contrary that $X$ is finite and consists of $n$ elements
+\[ \text{s.t.} X = \{x_1, x_2,\cdots,x_n\}\]
+Now let $x' = x_1 + x_2 +\cdots + x_n$. By properties 7 and 8 $x' \in X$, which implies that there are more than $n$ elements in $X$, and we have a contradiction.
+
+\subsection*{Exercise 2}
+Note that 
+$|| y || = ||(y-x) + x || \leq ||y-x|| + ||x||$\\
+$\implies ||y|| - ||x|| \leq ||y-x||$
+
+\subsection*{Exercise 3}
+In order for $f(x)$ to be linear, we need to show that $f(\alpha x + \beta y) =\alpha f(x) + \beta f(y)$. Note that 
+\[ f(\alpha x + \beta y) = a'(\alpha x + \beta y) = a'\alpha x + a'\beta y = \alpha (a' x) +\beta (a' y) = \alpha f(x) +\beta f(y)\]
+
+
+\subsection*{Exercise 4}
+Let 
+\[\alpha= (\frac{|x_i|}{||x||_p})^p \quad \beta = (\frac{|a_i|}{||a||_q})^q \quad \lambda = \frac{1}{p} \quad (1-\lambda) = \frac{1}{q}\]
+\\
+Then by the Holder inequality, we have 
+\\
+\[((\frac{|x_i|}{||x||_p})^p)^\frac{1}{p} ((\frac{|a_i|}{||a||_q})^q)^\frac{1}{q} = (\frac{|x_i|}{||x||_p}) (\frac{|a_i|}{||a||_q}) = \frac{|x_i||a_i|}{||x||_p ||a||_q} \leq \frac{1}{p}(\frac{|x_i|}{||x||_p})^p + \frac{1}{q}(\frac{|a_i|}{||a||_q})^q\]
+\\
+which is the desired result.
+
+For the last part, we will sum up all the elements of both sides of the last inequality, such that
+\[ \sum^{\infty}_{i=1}  \frac{|a_ix_i|}{||x||_p||a||_q} \leq \sum^{\infty}_{i=1}(\frac{1}{p}(\frac{|x_i|}{||x||_p})^p + \frac{1}{q}(\frac{|a_i|}{||a||_q})^q)\]
+\[   \frac{\sum^{\infty}_{i=1}|a_ix_i|}{||x||_p||a||_q} \leq (\frac{1}{p}(\frac{\sum^{\infty}_{i=1}|x_i|}{||x||_p})^p + \frac{1}{q}(\frac{\sum^{\infty}_{i=1}|a_i|}{||a||_q})^q)\]
+\[   \frac{\sum^{\infty}_{i=1}|a_ix_i|}{||x||_p||a||_q} \leq (\frac{1}{p}(\frac{\sum^{\infty}_{i=1}|x_i|}{||x||_p})^p + \frac{1}{q}(\frac{\sum^{\infty}_{i=1}|a_i|}{||a||_q})^q)\]
+Now, since $||x||_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{\frac{1}{p}} \text{ and } ||a||_q = (|a_1|^q + |a_2|^q + \cdots + |a_n|^q)^{\frac{1}{q}}$, 
+Note that  $(||x||_p)^p = |x_1|^p + |x_2|^p + \cdots + |x_n|^p \text{ and } (||a||_q)^q = |a_1|^q + |a_2|^q + \cdots + |a_n|^q$, so we have
+
+\[   \frac{\sum^{\infty}_{i=1}|a_ix_i|}{||x||_p||a||_q} \leq (\frac{1}{p}(\frac{\sum^{\infty}_{i=1}|x_i|^p}{\sum^{\infty}_{i=1}|x_i|^p}) + \frac{1}{q}(\frac{\sum^{\infty}_{i=1}|a_i|^q}{\sum^\infty_{i=1}|a_i|^q}))\]
+\[   \frac{\sum^{\infty}_{i=1}|a_ix_i|}{||x||_p||a||_q} \leq \frac{1}{p} + \frac{1}{q} = 1\]
+which is the desired result.
+
+\subsection*{Exercise 5}
+We want to show that $||ax||_1 \leq ||a||_q||x||_p$. 
+Note that where $p=1, q=1$, 
+\[ ||ax||_1 \leq ||a||_1||x||_\infty\]
+\[ ||ax||_1 \leq ||a||_1 \text{max} \{x\}\]
+(Let $x^* = \text{max} \{x\}$)
+\[ ||ax||_1 \leq ||a||_1 x*\]
+\[ ||ax||_1 \leq ||ax*||_1 \]
+\[ \sum^{\infty}_{i=1} a_ix_i \leq \sum^{\infty}_{i=1}  a_ix^* \]
+Since the left side is the sum of the products of the elements of $a_i$ and $x_i$ where $x_i \leq x* \quad \forall i$, it should be clear that this inequality holds, suggesting that
+\[ ||ax||_1 \leq ||a||_1||x||_\infty\]
+
+\subsection*{Exercise 6}
+We know that 
+\[ \sum^{\infty}_{i=1} |x_i|^p < \infty \]
+ by the definition of $\ell_p$.
+Therefore, $x$ contains a finite number, call it $n$, of elements $y_i \in x \text{ s.t. } y_i \geq 1 \quad \forall i$, and an infinite number, call it $m$, of elements $x_i \in x \text{ s.t. } x_i < 1 \quad \forall i$, else the summation of elements of $x$ would not converge for $p \in [1, \infty)$. 
+\[S = {y_1, y_2,\cdots, y_n} \]\[ J = {x_1,x_2,\cdots, x_m} \]\[ N = \sum_{i \in S} |y_i|^p \]\[ M = \sum_{i \in J} |x_i|^p\] Now, notice that
+\[ \sum^{\infty}_{i=1} |x_i|^p = M + N \text{ where } M < \infty, N < \infty\]
+Now, since $N$ is a finite sum made up of finite terms, if we let $N' = \sum_{i \in S} |y_i|^{p'} \quad M' = \sum_{i \in J} |x_i|^{p'} \text{ where } p' \geq p$, we know that $N' < \infty$.
+Since $M$ is a sum of elements that converge to a finite number when raised to $p$, we know that $M'$ will converge even faster to a finite number since every $x_i \in J$ is less than one, raised to a number that is greater than $p$, namely $p'$.
+
+\subsection*{Exercise 7}
+We know that since $\langle \cdot, \cdot \rangle$ is an inner product, it behaves in the following way:
+For $x,y \in X$, since
+\[\langle x, x \rangle \geq 0\]
+\[\langle x, x \rangle > 0 \text{ if and only if } x = 0\]
+We have that
+\[\sqrt{\langle x, x \rangle } > 0 \text{ if } x \neq 0\]
+Also, since 
+\[ \langle \alpha x, y \rangle = \alpha \langle x, y \rangle\]
+and
+\[ \langle x, y \rangle = \langle y, x \rangle \]
+We know that
+\begin{align*}
+\sqrt{\langle \alpha x, \alpha x \rangle} = \sqrt{\alpha \langle x, \alpha x \rangle} 
+\\= \sqrt{\alpha \langle \alpha x, x \rangle}
+\\= \sqrt{\alpha^2 \langle  x, x \rangle} 
+\\= \alpha \sqrt{ \langle  x, x \rangle}
+\end{align*} 
+
+
+
+So we know that
+\[ ||\alpha x|| = |\alpha| ||x|| \forall x \in X\]
+
+
+
+Finally, we know that
+\begin{align*}
+    \sqrt{ \langle x+y ,  x+y \rangle} \leq \sqrt{ \langle x,x \rangle} + \sqrt{ \langle y,y \rangle}
+\end{align*}
+is equivalent to showing
+\begin{align*}
+    \langle x+y, x+y \rangle \leq \langle x,x \rangle + \langle y,y \rangle+2\sqrt{\langle x,x \rangle\langle y,y \rangle}\\
+    \langle x, x+y \rangle + \langle y, x+y \rangle \leq \langle x,x \rangle + \langle y,y \rangle+2\sqrt{\langle x,x \rangle\langle y,y \rangle}\\
+    \langle x, x \rangle + \langle y, y \rangle + 2\langle x,y \rangle \leq \langle x,x \rangle + \langle y,y \rangle+2\sqrt{\langle x,x \rangle\langle y,y \rangle}\\
+    2\langle x,y \rangle \leq 2\sqrt{\langle x,x \rangle\langle y,y \rangle}\\
+    \langle x,y \rangle \leq \sqrt{\langle x,x \rangle\langle y,y \rangle}\\
+    \text{By Cauchy-Shwarz we have} \\
+    \langle x,y \rangle \leq \sqrt{\langle x,x \rangle}\sqrt{\langle y,y \rangle}\\
+\end{align*}
+And so we have that
+\[ \sqrt{\langle x+y, x + y\rangle} \leq \sqrt{\langle x,x \rangle} + \sqrt{\langle y,y \rangle} \quad \forall x,y \in X \]
+Which is the desired result.
+
+\subsection*{Exercise 8}
+(i) 
+\begin{align*}
+    \mathscr{L} = -\frac{1}{2}(x-2)^2 + \lambda_1(x-0) + \lambda_2 (4-x)
+\end{align*}
+implies the following first order conditions and solution:
+\begin{align*}
+    &-(x-2)^2 + \lambda_1 - \lambda_2 \\
+    &\lambda_1 x  = 0\\
+    &\lambda_2 (4-x)  = 0\\
+\end{align*}
+and the following solution:
+\[x=2\]
+
+(ii) 
+\begin{align*}
+    &\mathscr{L} = -(x-2)^2 -(y-2)^2+ \lambda_1(x-0) + \lambda_2 (y-0) + \lambda_3(xy - 4)
+\end{align*}
+which yields the following first order conditions
+\begin{align*}
+    &-2(x-2) + \lambda_1 + \lambda_3y = 0\\
+    &-2(y-2) + \lambda_2 + \lambda_3x = 0\\
+    &\lambda_1 x = 0\\
+    &\lambda_2 y = 0\\
+    &xy = 4
+\end{align*}
+and the following solution:
+\[x=2, y=2\]
+(iii)
+
+\begin{align*}
+    \mathscr{L} (\sum^{\infty}_{t=0} \beta^t \text{log} (x(t))) + \lambda_1(w(0) - x(0)) + \sum^{\infty}_{i=1} \gamma_i(w(i-1) - x(i-1))
+\end{align*}
+However, as this is an infinite sum, there are infinite constraints and a finite number of variables and therefore no solution.
+
+(iv)
+\begin{align*}
+    &\mathscr{L} = x + \text{log} (y) + \lambda_1 (w - ax - by) + \lambda_2 (x-0) + \lambda(y-0)
+\end{align*}
+which yields the following first order conditions
+\begin{align*}
+    &1 - \lambda_1a + \lambda_2 = 0\\
+    &\frac{1}{y} - \lambda_1b = 0\\
+    &w-ax-by = 0\\
+    &\lambda x_2 = 0\\
+\end{align*}
+
+
+We know $y>0 \implies \lambda_3 = 0$. Now consider two cases $\lambda_2 > 0, \lambda_2 = 0$,
+\begin{align*}
+&\lambda_2 > 0\\
+\\
+&x=0\\
+&y = \frac{w}{b}\\
+\\
+&\lambda_2 = 0\\
+\\
+&x = \frac{w}{a}-1\\
+&w = a(x+1)\\
+&y = \frac{a}{b}\\
+&1 = \lambda_1 a\\
+&\frac{1}{y}- \frac{1}{a}b = 0
+&\end{align*}
+
+\end{document}

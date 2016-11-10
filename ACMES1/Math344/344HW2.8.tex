@@ -1,0 +1,434 @@
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 2.8}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{2.44}
+Since we know that $\text{det}(A) = \text{det}(A^T)$ and by Theorem 2.8.1, we have that
+\[ \text{det}(V_n) = \text{det}
+\begin{bmatrix}
+    1 & 1 & 1 \cdots 1 \\ 
+    x_0 & x_1 & x_2 \cdots x_n \\ 
+    x_0^2 & x_1^2 & x_2^2 \cdots x_n^2 \\ 
+    \cdots & \cdots & \cdots \cdots \cdots \\ 
+    x_0^n & x_1^n & x_2^n \cdots x_n^n \\ 
+\end{bmatrix} 
+\sim
+\text{det}
+\begin{bmatrix}
+    1 & 1 & 1 &\cdots& 1 \\ 
+    0 & x_1 - x_0 & x_2 - x_0 &\cdots& x_n - x_0 \\ 
+    0 & x_1^2 - x_1x_0 & x_2^2 - x_2x_0 &\cdots &x_n^2 - x_nx_0  \\ 
+    0 & x_1^3 - x_1^2x_0 & x_2^3 - x_2^2x_0 &\cdots &x_n^3 - x_n^2x_0  \\ 
+    \cdots & \cdots & \cdots& \cdots &\cdots \\ 
+    0 & x_1^n - x_1^{n-1}x_0 & x_2^n - x_2^{n-1}x_0&\cdots& x_n^3 - x_n^2x_0  \\ 
+\end{bmatrix} 
+\]
+\[ 
+\sim
+1\cdot\text{det}
+\begin{bmatrix}
+    x_1 - x_0 & x_2 - x_0 &\cdots& x_n - x_0 \\ 
+    x_1^2 - x_1x_0 & x_2^2 - x_2x_0 &\cdots &x_n^2 - x_nx_0  \\ 
+    x_1^3 - x_1^2x_0 & x_2^3 - x_2^2x_0 &\cdots &x_n^3 - x_n^2x_0  \\ 
+    \cdots & \cdots & \cdots& \cdots &\cdots \\ 
+    x_1^n - x_1^{n-1}x_0 & x_2^n - x_2^{n-1}x_0&\cdots& x_n^3 - x_n^2x_0  \\ 
+\end{bmatrix}
+\]
+\[
+\sim
+1\cdot\text{det}
+\begin{bmatrix}
+    x_1 - x_0 & x_1^2 - x_1x_0 &x_1^3 - x_1^2x_0 &\cdots &x_1^n - x_1^{n-1}x_0\\
+    x_2 - x_0 &x_2^2 - x_2x_0 &x_2^3 - x_2^2x_0 &\cdots & x_2^n - x_2^{n-1}x_0\\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+    x_n - x_0 &x_n^2 - x_nx_0& x_n^3 - x_n^2x_0 &\cdots & x_n^3 - x_n^2x_0 \\ 
+\end{bmatrix}
+\]
+\[
+\sim
+1(x_1-x_0)(x_2-x_0)\cdots(x_n - x_0)\text{det}
+\begin{bmatrix}
+    1 & x_1 & x_1^2 & \cdots & x_1^n \\
+    1 & x_2 & x_2^2 & \cdots & x_2^n \\
+    1 & x_3 & x_3^2 & \cdots & x_3^n \\
+    \cdots &\cdots &\cdots &\cdots &\cdots \\
+    1 & x_3 & x_3^2 & \cdots & x_3^n \\
+\end{bmatrix}
+\]
+\[
+\sim
+1(x_1-x_0)(x_2-x_0)\cdots(x_n - x_0)\text{det}
+\begin{bmatrix}
+    1 & 1 & 1 \cdots 1 \\ 
+    x_1 & x_2 & x_2 \cdots x_n \\ 
+    x_1^2 & x_2^2 & x_2^2 \cdots x_n^2 \\ 
+    \cdots & \cdots & \cdots \cdots \cdots \\ 
+    x_1^n & x_2^n & x_2^n \cdots x_n^n \\ 
+\end{bmatrix} 
+\]
+\[
+\sim
+(x_1-x_0)(x_2-x_0)\cdots(x_n - x_0)\text{det}
+\begin{bmatrix}
+    1 & 1 & 1 &\cdots& 1 \\ 
+    0 & x_2 - x_1 & x_3 - x_1 &\cdots& x_n - x_1 \\ 
+    0 & x_2^2 - x_2x_1 & x_3^2 - x_3x_1 &\cdots &x_n^2 - x_nx_1  \\ 
+    0 & x_2^3 - x_2^2x_1 & x_3^3 - x_3^2x_1 &\cdots &x_n^3 - x_n^2x_1  \\ 
+    \cdots & \cdots & \cdots& \cdots &\cdots \\ 
+    0 & x_2^n - x_2^{n-1}x_1 & x_3^n - x_3^{n-1}x_1&\cdots& x_n^3 - x_n^2x_1  \\ 
+\end{bmatrix} 
+\]
+\[
+\sim
+1(x_1-x_0)(x_2-x_0)\cdots(x_n - x_0)\text{det}
+\begin{bmatrix}
+x_2 - x_1 & x_3 - x_1 &\cdots& x_n - x_1 \\ 
+x_2^2 - x_2x_1 & x_3^2 - x_3x_1 &\cdots &x_n^2 - x_nx_1  \\ 
+x_2^3 - x_2^2x_1 & x_3^3 - x_3^2x_1 &\cdots &x_n^3 - x_n^2x_1  \\ 
+\cdots & \cdots& \cdots &\cdots \\ 
+x_2^n - x_2^{n-1}x_1 & x_3^n - x_3^{n-1}x_1&\cdots& x_n^3 - x_n^2x_1  \\ 
+\end{bmatrix} 
+\]
+\[
+\sim
+1(x_1-x_0)(x_2-x_0)\cdots(x_n - x_0)\text{det}
+\begin{bmatrix}
+    x_2 - x_1 & x_2^2 - x_2x_1 &x_2^3 - x_2^2x_1 &\cdots &x_2^n - x_2^{n-1}x_1\\
+    x_3 - x_1 &x_3^2 - x_3x_1 &x_3^3 - x_3^2x_1 &\cdots & x_3^n - x_3^{n-1}x_1\\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+    x_n - x_1 &x_n^2 - x_nx_1& x_n^3 - x_n^2x_1 &\cdots & x_n^3 - x_n^2x_1 \\ 
+\end{bmatrix}
+\]
+\[
+\sim
+1(x_1-x_0)(x_2-x_0)\cdots(x_n - x_0)(x_2 -x_1)(x_3 - x_1) \cdots (x_n - x_1)\text{det}
+\begin{bmatrix}
+    1 & x_2 & x_2^2 &\cdots &x_2^n\\
+    1 & x_3 & x_3^2 &\cdots &x_3^n\\
+    1 & x_4 & x_4^2 &\cdots &x_4^n\\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+    1 & x_n & x_n^2 &\cdots &x_n^n\\
+\end{bmatrix}
+\]
+
+Proceeding recursively, performing the same operations on this matrix, it should be clear that eventually we will have all ones on the diagonal of this matrix, yielding a determinant of 1 times all $(x_j - x_i) \text{ where } i<j$, and we have that
+\[\text{det}(V_n) = \Pi_{i<j} (x_j - x_i)\]
+
+\subsection*{2.45}
+Let 
+\[ A = 
+\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \cdots & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \cdots & x_{2n} \\
+    x_{31} & x_{32} & x_{33} & \cdots & x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+    x_{n1} & x_{n2} & x_{n3} & \cdots & x_{nn} \\
+\end{bmatrix}
+\]
+\[\implies \text{det}(A)  = 
+\text{det}
+\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \cdots & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \cdots & x_{2n} \\
+    x_{31} & x_{32} & x_{33} & \cdots & x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+    x_{n1} & x_{n2} & x_{n3} & \cdots & x_{nn} \\
+\end{bmatrix}
+\]
+Now we also have that
+\[ \alpha A = 
+\begin{bmatrix}
+    \alpha x_{11} &\alpha x_{12} &\alpha x_{13} & \cdots &\alpha x_{1n} \\
+   \alpha x_{21} &\alpha x_{22} &\alpha x_{23} & \cdots &\alpha x_{2n} \\
+   \alpha x_{31} &\alpha x_{32} &\alpha x_{33} & \cdots &\alpha x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+   \alpha x_{n1} &\alpha x_{n2} &\alpha x_{n3} & \cdots &\alpha x_{nn} \\
+\end{bmatrix}
+\]
+\[\implies \text{det}( \alpha A) = 
+\sim
+\text{det}
+\begin{bmatrix}
+    \alpha x_{11} &\alpha x_{12} &\alpha x_{13} & \cdots &\alpha x_{1n} \\
+   \alpha x_{21} &\alpha x_{22} &\alpha x_{23} & \cdots &\alpha x_{2n} \\
+   \alpha x_{31} &\alpha x_{32} &\alpha x_{33} & \cdots &\alpha x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+   \alpha x_{n1} &\alpha x_{n2} &\alpha x_{n3} & \cdots &\alpha x_{nn} \\
+\end{bmatrix}
+\]
+\[
+\sim
+\alpha \text{det}
+\begin{bmatrix}
+     x_{11} & x_{12} &x_{13} & \cdots &x_{1n} \\
+   \alpha x_{21} &\alpha x_{22} &\alpha x_{23} & \cdots &\alpha x_{2n} \\
+   \alpha x_{31} &\alpha x_{32} &\alpha x_{33} & \cdots &\alpha x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+   \alpha x_{n1} &\alpha x_{n2} &\alpha x_{n3} & \cdots &\alpha x_{nn} \\
+\end{bmatrix}
+\]
+\[
+\sim
+\alpha^2 \text{det}
+\begin{bmatrix}
+     x_{11} & x_{12} &x_{13} & \cdots &x_{1n} \\
+    x_{21} &x_{22} & x_{23} & \cdots &x_{2n} \\
+   \alpha x_{31} &\alpha x_{32} &\alpha x_{33} & \cdots &\alpha x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+   \alpha x_{n1} &\alpha x_{n2} &\alpha x_{n3} & \cdots &\alpha x_{nn} \\
+\end{bmatrix}
+\]
+Proceeding recursively, we have that
+
+\[\implies \text{det}(\alpha A)  = 
+\alpha^n \text{det}
+\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \cdots & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \cdots & x_{2n} \\
+    x_{31} & x_{32} & x_{33} & \cdots & x_{3n} \\
+    \cdots&\cdots&\cdots &\cdots &\cdots\\
+    x_{n1} & x_{n2} & x_{n3} & \cdots & x_{nn} \\
+\end{bmatrix}
+=
+\alpha^n \text{det}(A)
+\]
+Which is the desired result.
+
+\subsection*{2.46}
+We know that for an upper triangular matrix $B$,
+\[\text{det}(B) = b_{11}b_{22}\cdots b_{nn}\] where $b_{ii} \quad i = 0,1,\cdots,n$ are the diagonal entries of $B$. Now, since $A$ is in block-triangular form, we know that $A_{11}$ and $A_{22}$ are square matrices that can be row reduced so that they are upper triangular matrices $A'_{11}$ and $A'_{22}$, so that $\text{det}(A'_{11}) = a_{11,11}a_{11,22}\cdots a_{11,nn} \quad \text{det}(A'_{22}) = a_{22,11}a_{22,22}\cdots a_{22,nn}$ where $a_{11,ii}$ are the diagonal entries of $A'_{11}$ and  $a_{22,ii}$ are the diagonal entries of $A'_{22}$. However, these are also the diagonal entries of $A$, and we have the following
+\[\text{det}(A) = a_{11,11}a_{11,22}\cdots a_{11,nn}a_{22,11}a_{22,22}\cdots a_{22,nn} = \text{det}(A'_{11})\text{det}(A'_{22})= \text{det}(A_{11})\text{det}(A_{22})\]
+
+\subsection*{2.47}
+Knowing that
+\[
+\begin{bmatrix}
+    I & \mathbf{0} \\
+    -\mathbf{y^H} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+    I-\mathbf{xy^H} & \mathbf{x} \\
+    \mathbf{0^H} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+    I & \mathbf{0} \\
+    \mathbf{y^H} & 1 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    I & \mathbf{x} \\
+    \mathbf{0^H} & 1-\mathbf{y^Hx}  \\
+\end{bmatrix}
+\]
+
+\[
+\implies 
+\text{det}\Big(  
+\begin{bmatrix}
+    I & \mathbf{0} \\
+    -\mathbf{y^H} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+    I-\mathbf{xy^H} & \mathbf{x} \\
+    \mathbf{0^H} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+    I & \mathbf{0} \\
+    \mathbf{y^H} & 1 \\
+\end{bmatrix} \Big)
+=\text{det} \Big(
+\begin{bmatrix}
+    I & \mathbf{x} \\
+    \mathbf{0^H} & 1-\mathbf{y^Hx}  \\
+\end{bmatrix} \Big)
+\]
+By theorem 2.8.7, we have that
+\[
+\text{det}\Big(  
+\begin{bmatrix}
+    I & \mathbf{0} \\
+    -\mathbf{y^H} & 1 \\
+\end{bmatrix}
+ \Big) \text{det}  \Big(
+\begin{bmatrix}
+    I-\mathbf{xy^H} & \mathbf{x} \\
+    \mathbf{0^H} & 1 \\
+\end{bmatrix}
+ \Big) \text{det}  \Big(
+\begin{bmatrix}
+    I & \mathbf{0} \\
+    \mathbf{y^H} & 1 \\
+\end{bmatrix} \Big)
+=\text{det} \Big(
+\begin{bmatrix}
+    I & \mathbf{x} \\
+    \mathbf{0^H} & 1-\mathbf{y^Hx}  \\
+\end{bmatrix} \Big)
+\]
+Now, since the first and the third matrices are upper-triangular once transposed, we know that their determinant is equal to the product of their diagonal entries, which in this case are all ones. We also know that 
+
+\[
+\text{det} \Big(
+\begin{bmatrix}
+    I & \mathbf{x} \\
+    \mathbf{0^H} & 1-\mathbf{y^Hx}  \\
+\end{bmatrix} \Big)
+= 1 \cdot 1 \cdot \cdots \cdot (1- \mathbf{y^Hx}) =(1- \mathbf{y^Hx}  )
+\]
+for the same reason, that it is upper triangular, and the only non-one entry on the diagonal is $(1- \mathbf{y^Hx} )$.
+Finally, we know by the previous exercise (2.46) that
+
+\[
+ \text{det}  \Big(
+\begin{bmatrix}
+    I-\mathbf{xy^H} & \mathbf{x} \\
+    \mathbf{0^H} & 1 \\
+\end{bmatrix}
+ \Big)
+ = \text{det}(I - \mathbf{xy^H} ) \text{det}(1) = \text{det}(I - \mathbf{xy^H} )
+ \]
+ And so we have the following
+ \[\text{det}(I - \mathbf{xy^H} )
+= (1- \mathbf{y^Hx})\]
+Which is the desired result.
+
+\subsection*{2.48}
+\[A = 
+\begin{bmatrix}
+    1& 2 & 3 \\
+    1& 2 & 4 \\
+    5& 6 & 7 \\
+\end{bmatrix}
+\]
+We have that $A^{-1} = \frac{\text{adj}(A) }{\text{det}(A)}$. Now, we know that the adjoint of $A$ is given by 
+\[
+\begin{bmatrix}
+    14-24 & -(14-18) & 8-6 \\
+    -(7-20) & 7-15 & -(4-3) \\
+    6-10 & -(6-10) & 2-2 \\
+\end{bmatrix}
+ =
+\begin{bmatrix}
+    -10 & 4 & 2 \\
+    13 & -8 & -1 \\
+    -4 & 4 & 0 \\
+\end{bmatrix}
+\]
+And we have that $\text{det}(A) = 4$
+\[ \implies 
+\frac{1}{4}
+\begin{bmatrix}
+    -10 & 4 & 2 \\
+    13 & -8 & -1 \\
+    -4 & 4 & 0 \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -2.5 & 1 & .5 \\
+    3.25 & -2 & -.25 \\
+    -1 & 1 & 0 \\
+\end{bmatrix}
+\]
+\subsection*{2.49}
+The matrix is singular, and so Cramer's Rule does not apply.
+
+\subsection*{2.50 (i)}
+It suffices to show that if $\mathscr{C} $ is not linearly independent, then there exists no $x \in [a,b] \quad W(x) \neq 0$. So if $\mathscr{C}$ is linearly dependent, then we know that some $y_i \in \mathscr{C} $ will be a linear combination of other elements of $\mathscr{C}$ such that $\mathbf{y}_i = a_1 \mathbf{y}_1 +\cdots + a_{i-1} \mathbf{y}_{i-1} +a_{i+1} \mathbf{y}_{i+1} +\cdots+ a_{n-1} \mathbf{y}_{n-1} \quad a_j \in \mathbb{R} y_j \in \mathscr{C}$. Now, this implies that, using row operations, we can make this $y_i = 0$ in the transpose matrix. This will imply that all the derivatives $y_i', y_i'',\cdots y_i^{n-1}$ are zero as well, resulting in a whole row of zeros in $W(x)$. We have by exercise 2.43 that this will result in $W(x) = 0$, regardless of what $x$ is, implying that there exists no $x$ such that $W(x) \neq 0$.
+
+\subsection*{2.50 (ii)}
+We have that the Wronksian of $S$ is given by
+\[
+W(x) = \text{det} 
+\begin{bmatrix}
+    e^{\alpha x} & x e^{\alpha x} & x^2 e^{\alpha x} \\
+    \alpha e^{\alpha x} & e^{\alpha x} + \alpha x e^{\alpha x} & 2xe^{\alpha x} + \alpha x^2 e^{\alpha x} \\
+    \alpha^2 e^{\alpha x} & 2 \alpha e^{\alpha x} + \alpha^2 x e^{\alpha x} & 2e^{\alpha x} + 4xe^{\alpha x} + \alpha^2 x^2 e^{\alpha x} \\
+\end{bmatrix}
+\]
+\[
+= \text{det} 
+\begin{bmatrix}
+    e^{\alpha x} & x e^{\alpha x} & x^2 e^{\alpha x} \\
+    0 & e^{\alpha x} & 2xe^{\alpha x} \\
+    0 & 2 \alpha e^{\alpha x} & 2e^{\alpha x} + 4xe^{\alpha x} \\
+\end{bmatrix}
+\]
+\[
+= \text{det} 
+\begin{bmatrix}
+    e^{\alpha x} & x e^{\alpha x} & x^2 e^{\alpha x} \\
+    0 & e^{\alpha x} & 2xe^{\alpha x} \\
+    0 & 0 & 2e^{\alpha x} \\
+\end{bmatrix}
+\]
+\[
+=2e^{3(\alpha x)} \neq 0
+\]
+for any $x$, implying the desired result.
+
+
+
+
+
+\end{document}

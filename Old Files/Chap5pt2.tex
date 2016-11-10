@@ -1,0 +1,268 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\iffalse
+\section{First Section}\label{SecFirst}
+
+  Put first section text here. You can even reference Section \ref{SecFirst} with hyperlinks.
+
+  Here is an equation.
+  \begin{equation}\label{EqPopDef}
+    N_t\equiv\sum_{s=1}^{E+S} \omega_{s,t} \quad\forall t
+  \end{equation}
+
+  \begin{equation}\label{EqPopDef}
+    B_t\equiv\sum_{s=1}^{E+S} \omega_{s,t} \quad\forall t
+  \end{equation}
+
+
+  Below is some commented out text for a figure. I have commented it out because I didn't include the figure file with this template. Learn everything else on your own.
+\fi
+
+\section*{Problem Set 1}
+
+\section*{Chapter 5}
+
+\subsection*{5.1}
+
+The following condition characterizes the optimal amount of cake to eat in period 1:
+
+
+
+  \[ u (w_1 - \psi (w_1) ) = u(w_1)  \]
+  
+For period 2
+
+\[ w_{t+1}=\psi(w_1) = 0 \quad \forall  w_1\]
+
+
+\subsection*{5.2}
+
+Optimal amount of cake to leave for period 3 from period 2:
+
+\[w_3 = \psi_2(w_2) = 0\]
+
+\[\beta u'(w_2) = u'(w_1 - w_2)\]
+
+\subsection*{5.3}
+
+If the individual lives for three periods $T = 3$ what are the conditions that characterize the optimal amount of cake to leave for the next period in each period $\{W_2, W_3, W_4\}$? Now assume that the initial cake size is $W_1 = 1$, the discount factor is $\beta = 0.9$, and the period utility function is ln($c_t$). Show how $\{c_t\}_{t=1}^3$ and $\{W_t\}_{t=1}^4$ evolve over the three periods. 
+
+\[ \beta u'(w_3) = u'(w_2-w_3)\]
+
+\[ \beta u'(w_2 - \psi_2(w_2)) = u'(w_1-w_2)\]
+
+$w_1 = 1$
+
+$w_2 = .631$
+
+$w_3 = .299$
+
+$w_4 = 0$
+
+
+$c_1 = .369$
+
+$c_2 = .332$
+
+$c_3 = .299$
+
+\subsection*{5.4}
+
+\[ \beta v_T'(w_T) = u'(W_{T-1}-W_T)\]
+
+\[ W_T = \psi(W_{T-1}): u(W_{T-1} - \psi(W_{T-1})) + \beta V_T(\psi_{T-1}(W_{T-1}) = 0\]
+
+\subsection*{5.5}
+
+\[V_T = ln (\bar{W}) \neq V_{T-1} = (ln \bar{W} - \psi_{T-1}(\bar{W}))) + \beta ln (\psi_{T-1}bar{W}))\]
+
+\[W_{T+1} = \psi_T(\bar{W}) = 0\]
+\[W_T = \psi_{T-1}(\bar{W}) = ln(\bar{W} - \psi_{T-1}(\bar{W})) + \beta ln(\psi_{T-1}(\bar{W})) \neq 0  \]
+\[\implies \psi_{T-1}(\bar{W}) \neq \psi_{T}(\bar{W})\]
+
+\subsection*{5.6}
+
+Solution for the period $T - 2$ policy function for how much cake to save for the next period $W_{T-1}$:
+
+\[ W_{T-1} = \beta{(1+\beta) \over (1+\beta+\beta^2)W}T_{T-2}\]
+Analytical Solution for $V_{T-2}$:
+
+\[V_{T-2} = ln({1 \over 1+\beta+\beta^2}W_{T-2})+\beta ln({\beta \over 1+\beta+\beta^2}W_{T-2})+ \beta^2 ln({\beta^2 \over 1+\beta+\beta^2}W_{T-2})\]
+
+\subsection*{5.7}
+
+Analytical solution for $\psi_{T-s}(W_{T-s})$:
+
+\[\psi_{T-s}(W_{T-s}) = {\sum_{i=0}^s \beta^i -1 \over \sum_{i=0}^s \beta^i}\]
+Analytical solution for $V_{T-s}(W_{T-s})$:
+
+\[V_{T-s}(W_{T-s}) = \sum_{i=0}^s \beta^{i} ln({\beta^{i} \over \sum_{j=0}^s \beta^j} W_{T-s} )       \]
+Proofs:
+
+\[\lim_{s\to\infty} \psi_{T-s}(W_{T-s}) = \lim_{s\to\infty} {{1 \over 1-\beta} -1 \over {1 \over 1-\beta}}W_{T-s} = \lim_{s\to\infty} {{\beta \over 1-\beta} \over {1 \over 1-\beta}}W_{T-s} = \beta(W_{T-s}) = \psi(W_{T-s})\]
+
+And as $s \to \infty$:
+\[ V_{T-s}(W_{T-s}) = \sum_{i=0}^s \beta^{i} ln({\beta^{i} \over \sum_{j=0}^s \beta^j} W_{T-s} )   
+=  \sum_{i=0}^\infty \beta^{i} ln({\beta^{i} \over {1 \over 1-\beta}} W_{T-s} ) - \sum_{i=0}^\infty \beta^{i} ln(\beta^{i} (1-\beta) W_{T-s} ) \]
+\[ = \lim_{s\to\infty} \sum_{i=0}^s i\beta^i ln(\beta) + {ln((1-\beta)W_{T-s}) \over 1-\beta}  = ln(\beta)\lim_{s\to\infty} \sum_{i=0}^s i\beta^i  + {ln((1-\beta)W_{T-s}) \over 1-\beta} \]
+$\implies V_{T-s}(W_{T-s})$ converges to a function $V(W_{T-s})$, which is independent of time.
+
+\subsection*{5.8}
+
+Bellman equation with infinite horizon:
+
+\[V(W) = \max_{W' \in [0,W]} u(W-W') + \beta V(W')\]
+
+\subsection*{5.11}
+
+\[\delta_T = 709.1159\]
+
+\subsection*{5.12}
+
+\[\delta_{T-1} = 855.9830 \]
+
+$\delta_{T-1}$ is higher than $\delta_{T}$
+
+\subsection*{5.13}
+
+\[\delta_{T-2} = 838.5298 \]
+
+$\delta_{T-2}$ is higher than $\delta_{T}$, but lower than $\delta_{T-1}$.
+
+\subsection*{5.18}
+
+\[ \delta_T = 7,006,262.4138 \]
+
+\subsection*{5.19}
+
+\[ \delta_{T-1} = 5,684,014.4287 \]
+
+$\delta_{T-1}$ is lower than $\delta_{T}$
+
+\subsection*{5.20}
+
+\[ \delta_{T-2} = 4,609,092.4524 \]
+
+$\delta_{T-2}$ is lower than both $\delta_{T-1}$ and $\delta_{T}$
+
+\subsection*{5.25}
+
+\[ \delta_T = 24,819.0573 \]
+
+\subsection*{5.26}
+
+\[ \delta_{T-1} = 85,327.4341 \]
+
+$\delta_{T-1}$ is higher than $\delta_{T}$
+
+\subsection*{5.27}
+
+\[ \delta_{T-2} = 71,280.8333 \]
+
+$\delta_{T-2}$ is lower than $\delta_{T-1}$ but not $\delta_{T}$
+
+
+
+\section*{Chapter 4}
+
+\subsection*{4.1}
+
+ \[ \bar{k2} = .028\]
+
+ \[ \bar{k3} = .091\]
+
+ \[ \bar{c1} = .214\]
+
+ \[ \bar{c2} = .223\]
+
+ \[ \bar{c3} = .232\]
+
+ \[ \bar{w} = .242\]
+
+ \[ \bar{r} = 2.192\]
+
+\subsection*{4.2}
+
+ \[ \bar{k2} = .041\]
+
+ \[ \bar{k3} = .117\]
+
+ \[ \bar{c1} = .226\]
+
+ \[ \bar{c2} = .240\]
+
+ \[ \bar{c3} = .255\]
+
+ \[ \bar{w} = .268\]
+
+ \[ \bar{r} = 1.818\]
+
+ Consumption increases, kbar increases. This is due to the increase in patience. People will save more and therefore in the long-run will be able to consume more. The only variable which decreases is the interest rate, which also makes sense be cause more people are saving more.
+
+\subsection*{4.4}
+
+$T = 7$ before within .0001 of steady state.
+
+  % \begin{figure}[htb]\centering \captionsetup{width=4.0in}
+  %   \caption{\label{FigLogAbility}\textbf{Exogenous life cycle income ability paths $\log(e_{j,s})$ with $S=80$ and $J=7$}}
+  %   \fbox{\resizebox{4.0in}{2.0in}{\includegraphics{images/ability_log_2D_no_vline.png}}}
+  % \end{figure}
+
+
+\end{document}

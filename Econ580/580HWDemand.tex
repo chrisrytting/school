@@ -1,0 +1,292 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Econ 580 Demand Homework}
+\author{Chris Rytting}
+\maketitle
+
+\[*\text{For missing exercises, see handwritten material}*\]
+\subsection*{3.C.1}
+We know that  $x \succsim y$ if either ``$x_1 > y_1$'' or ``$x_1 = y_1 \text{ and } x_2 \geq y_2$''.\\\\
+(i) For any $x,y \in  X$, we know that either $x_1 > y_1$,$x_1 = y_1$ or $x_1 < y_1$, and that $x_2 > y_2$,$x_2 = y_2$ or $x_2 < y_2$. \\\\
+First, we know that if $x_1 = y_1$ and $x_2 = y_2$, then both $x \precsim y$ and $y \precsim x$.\\\\
+Now, if $x_1 > y_1$, or if $x_1 = y_1$ and $x_2 > y_2$, then we have that $x \succsim y$.\\\\
+If neither of the last two conditions apply, then $x_1 < y_1$, or if $x_1 = y_1$ then $x_2 < y_2$, and we have that $x \succsim y$.\\\\
+These conditions suffice for completeness.\\\\
+
+(ii) \\\\
+As for transitivity, we know that if $x \succsim y$ and $y \succsim z$, then either $x_1 > y_1$ or $x_1 = y_1 \text{ and } x_2 \geq y_2$, and that eiter $y_1 > z_1$ or $y_1 = z_1 \text{ and } y_2 \geq z_2$. Then either $x_1 > y_1 > z_1$ or $x_2 \geq y_2 \geq z_2$, implying that $x_1 > z_1$ or $x_2 \geq z_2$, which gives us that $x \succsim z$\\\\
+
+(iii)\\\\
+
+As for strict monotonicity, we know that if $x \geq y$, then either $x_1 \geq y_1$ or $x_2 \geq y_2$, giving us that $x \succsim y$, as desired.\\\\
+(iv)\\\\
+Given the assumptions that for $x,y,z \in X$, $z \succsim x$ and $y \succsim x$, we know that either $z_1 > x_1$ or $z_1 = x_1 \text{ and } z_2 \geq x_2$, with $z$ possibly being equal to $x$. Since $z \neq y$, though, we know that $y \neq x$ and that either $y_1 > x_1$ or $y_1 = x_1 \text{ and } y_2 > x_2$, then we have that for $w = \alpha z + (1-\alpha) y \text{ where } \alpha \in [0,1]$, $w_1$ or $w_2$ will be strictly greater than $x_1$ or $x_2$, implying that $w \succsim x$ but that $x \not \succsim w$, implying that $w \succ x$ as desired.
+
+\subsection*{3.C.3}
+
+If the upper and lower contour sets are closed, then we know that both these sets contain all their limit points for any convergent sequences within. This implies that for any sequences $\{(y^n, z^n)\}_{n=1}^\infty$ with $y_n \succsim x \succsim z_n$ for all $n$, $y = \lim_{n \to \infty} y^n$, along with $y^n$ will be in the upper contour set $\{y \in \mathbb{R}^L_+: y \succsim x\}$ and $z = \lim_{n \to \infty} z^n$, along with $z^n$, will be in the lower contour set $\{z \in \mathbb{R}^L_+: x \succsim z\}$.\\\\
+Therefore, since for all $y \succsim x \succsim z$, and $y^n \succsim x \succsim z^n$, we have the desired result, a continuous preference relation.\\\\
+
+\subsection*{3.C.4}
+Consider the preference relation between food and music. I will always prefer food to music, even if I have the choice between an infinitesimal amount of food and an abundant amount of music. Consider the sequences $\frac{1}{n}$ and $10(1^n)$, which represent food and music respectively. The first sequence converges to 0 and the second to 10. I will always choose food over music, but if there is no food offered me, as is the case at the limit point ($0$), then I might as well die listening to music. In this case, I prefer music to food at the limit points of the two sequences, and we have that this is not a continuous preference relation. 
+\\\\
+\[ u(f,m) = 
+\begin{cases}
+    m & \text{If $f = 0$}\\
+    \sqrt{f} & \text{If $f > 0$}
+\end{cases}\]
+
+\subsection*{3.C.6}
+(a) When $\rho = 1$, we have that 
+\[u(x) = [\alpha_1x_1^1 + \alpha_2x_2^2]^{1} = \alpha_1x_1 + \alpha_2x_2\]
+At which point if we take the MRS, we have
+\[\frac{\frac{\partial u}{\partial x_1}}{\frac{\partial u}{\partial x_2}} = \frac{\alpha_1}{\alpha_2}\]
+which is a constant, giving us the desired result.\\\\
+(b) When $\rho \to 0$, we have that the MRS is given by
+\[\frac{\frac{\partial u}{\partial x_1}}{\frac{\partial u}{\partial x_2}} 
+= \frac{\rho \alpha_1 x_1^{\rho-1} \frac{1}{\rho} [ \alpha_1 x_1^\rho + \alpha_2 x_2^\rho]^{\frac{1}{\rho}-1}}{\rho \alpha_2 x_2^{\rho-1} \frac{1}{\rho} [ \alpha_1 x_1^\rho + \alpha_2 x_2^\rho]^{\frac{1}{\rho}-1} }
+= \frac{\alpha_1x_1^{\rho-1}}{\alpha_2x_2^{\rho-1}} = 
+\frac{\alpha_1x_2}{\alpha_2x_1}\]
+Taking the MRS of the Cobb-Douglas function, we have
+\[\frac{\frac{\partial u}{\partial x_1}}{\frac{\partial u}{\partial x_2}}  = \frac{\alpha_1 x_1^{\alpha_1 -1} x_2^{\alpha_2}}{\alpha_2 x_1^{\alpha_1} x_2^{\alpha_2-1}} = \frac{\alpha_1 x_1^{-1}}{\alpha_2 x_2^{-1}} = \frac{\alpha_1 x_2}{\alpha_2 x_1}\]
+Which is equivalent to the CES function's MRS, meaning that the preferences are analogous, which is the desired result.\\\\
+(c) Given the MRS of the CES function found in (b), which is given by 
+\[ \frac{x_1^{\rho-1}}{x_2^{\rho-1}}\]
+As $n \to -\infty$, we see that we will have, functionally, since $-\infty -1$ is essentially the same as $-\infty$
+\[ \frac{\alpha_1 x_2^\rho}{\alpha_2 x_1^\rho} \]
+As $\rho \to \infty$.
+It is clear to see that as $\rho$ gets huge, as $x_2$ grows larger, the slope of the indifference curve will approach $\infty$ since $x_2$ is in the numerator and as $x_1$ grows larger, the slope of the indifference curve will approach $0$ since $x_1$ is in the denominator. This will happen progressively quicker as $\rho \to \infty$, and we have that the slope of the indifference curves eventually resembles these ``right angles'' which are characteristic of complementary goods.
+
+\subsection*{3.D.5}
+(i) We have the problem
+\[ \text{max}_{x_1,x_2} \left[ x_1^\rho + x_2^\rho \right]^{\frac{1}{\rho}} \]
+\[ \text{s.t.} p_1x_1 + p_2x_2 \leq w \]
+For first order conditions, we have
+\[\frac{\partial \mathscr{L}}{\partial x_1} = \frac{\rho}{\rho} x_1^{\rho-1} \left[ x_1^\rho + x_2^\rho \right]^\frac{1 -\rho}{\rho} - \lambda p_1 = 0\]
+\[\frac{\partial \mathscr{L}}{\partial x_2} = \frac{\rho}{\rho} x_2^{\rho-1} \left[ x_1^\rho + x_2^\rho \right]^\frac{1 -\rho}{\rho} - \lambda p_2 = 0\]
+\[w - p_1x_1 - p_2x_2 = 0\]
+Which yield the following Walrasian demands:
+\[ x_1(p,w) = w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\]
+
+\[ x_2(p,w) = w \Big( \frac{p_2^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \Big)\]
+Which yield the following indirect utility function:
+\[ v(p,w) = \left[ \left( w \left( \frac{p_1^{1/\rho-1}}{p_1^{\rho/\rho-1} + p_2^{\rho/\rho-1}} \right) \right)^\rho + \left( w \left( \frac{p_2^{1/\rho-1}}{p_1^{\rho/\rho-1} + p_2^{\rho/\rho-1}} \right) \right)^\rho \right]^{1/\rho}\]
+(ii)
+Note that for
+\[ x_1(p,w) = w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\]
+\[ x_1(\alpha p,\alpha w) =\alpha w \left( \frac{(\alpha p_1)^{\frac{1}{\rho-1}}}{(\alpha p_1)^{\frac{\rho}{\rho-1}} + (\alpha p_2)^{\frac{\rho}{\rho-1}}} \right)\]
+\[ =\alpha w \left( \frac{(\alpha)^{1/\rho-1} (p_1)^{\frac{1}{\rho-1}}}{(\alpha)^{\rho/\rho-1}(p_1)^{\frac{\rho}{\rho-1}} + (p_2)^{\frac{\rho}{\rho-1}}} \right)\]
+\[ =\alpha w \left( \frac{ (p_1)^{\frac{1}{\rho-1}}}{(\alpha)(p_1)^{\frac{\rho}{\rho-1}} + (p_2)^{\frac{\rho}{\rho-1}}} \right)\]
+\[ =\frac{\alpha}{\alpha} w \left( \frac{ (p_1)^{\frac{1}{\rho-1}}}{(p_1)^{\frac{\rho}{\rho-1}} + (p_2)^{\frac{\rho}{\rho-1}}} \right)\]
+\[ = w\left( \frac{ (p_1)^{\frac{1}{\rho-1}}}{(p_1)^{\frac{\rho}{\rho-1}} + (p_2)^{\frac{\rho}{\rho-1}}} \right)\]
+\[ = x_1(p,w) \]
+which shows Homogeneity of degree zero in $(p,w)$. We can make the same claim without loss of generality for $x_2(p,w)$.
+
+As for Walras' law, 
+
+\[ 
+x = 
+\begin{bmatrix}
+x_1(p,w)\\
+x_2(p,w) 
+\end{bmatrix}
+=
+\begin{bmatrix}
+w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\\
+w \left( \frac{p_2^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)
+\end{bmatrix}
+\]
+Now, 
+\[ p \cdot x = 
+\begin{bmatrix}
+    p_1
+    p_2
+\end{bmatrix}
+\begin{bmatrix}
+w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\\
+w \left( \frac{p_2^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)
+\end{bmatrix}
+ \]\[
+=
+w \left( \frac{p_1^{\frac{\rho}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right) + 
+w \left( \frac{p_2^{\frac{\rho}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)
+ \]\[
+=
+w \left(\left( \frac{p_1^{\frac{\rho}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right) + 
+ \left( \frac{p_2^{\frac{\rho}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\right)
+ \]\[
+=
+w \left( \frac{p_1^{\frac{\rho}{\rho-1}} + 
+ p_2^{\frac{\rho}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)
+ = w
+\]
+which fulfills Walras' law.
+
+As for Convexity, consider $x' = \alpha x_1(p,w) + (1-\alpha) x_2(p,w)$ where $\alpha \in [0,1]$. Note that $u(x_1(p,w)) = u(x_2(p,w)) \leq u(x'(p,w)) $ by quasiconcavity. Since $p \cdot x_1 \leq w$ and $p \cdot x_2 \leq w$, we also have that 
+\[p \cdot x' = p \cdot [ \alpha x_1(p,w) + (1-\alpha) x_2(p,w)] \leq w\]
+implying that $x' \in x(p,w)$, implying convexity, as desired.\\\\
+As for Prop. 3.D.3, we have that 
+
+\begin{align*}
+v(\alpha p,\alpha w) &= \left[ \left(\alpha w \left( \frac{(\alpha p_1)^{1/\rho-1}}{(\alpha p_1)^{\rho/\rho-1} +(\alpha p_2)^{\rho/\rho-1}} \right) \right)^\rho + \left(\alpha w \left( \frac{(\alpha p_2)^{1/\rho-1}}{(\alpha p_1)^{\rho/\rho-1} +(\alpha p_2)^{\rho/\rho-1}} \right) \right)^\rho \right]^{1/\rho}\\
+v(\alpha p,\alpha w) 
+&= \left[ \frac{\alpha^\rho \alpha^{\rho/\rho-1}}{\alpha^{2\rho/\rho-1}}\left( \left( w\frac{( p_1)^{1/\rho-1}}{(p_1)^{\rho/\rho-1} +( p_2)^{\rho/\rho-1}} \right) ^\rho + 
+\left( w \frac{(p_2)^{1/\rho-1}}{(p_1)^{\rho/\rho-1} +(p_2)^{\rho/\rho-1}} \right)^\rho \right) \right]^{1/\rho}\\
+&= \left[ \frac{\alpha^{2\rho/\rho-1}}{\alpha^{2\rho/\rho-1}}\left( \left( w\frac{( p_1)^{1/\rho-1}}{(p_1)^{\rho/\rho-1} +( p_2)^{\rho/\rho-1}} \right) ^\rho + 
+\left( w \frac{(p_2)^{1/\rho-1}}{(p_1)^{\rho/\rho-1} +(p_2)^{\rho/\rho-1}} \right)^\rho \right) \right]^{1/\rho}\\
+&= \left[  \left( w\frac{( p_1)^{1/\rho-1}}{(p_1)^{\rho/\rho-1} +( p_2)^{\rho/\rho-1}} \right) ^\rho + 
+\left( w \frac{(p_2)^{1/\rho-1}}{(p_1)^{\rho/\rho-1} +(p_2)^{\rho/\rho-1}} \right)^\rho  \right]^{1/\rho}\\
+& = v(p,w)
+\end{align*} 
+implying homogeneity of degree 0.\\\\
+
+
+As for part (ii), we have that $v(p,w)$ is strictly increasing in $w$ since $w$ is in the numerator and strictly decreasing in $p$ since the elements of $(p_1)^{\rho/\rho-1} +(p_2)^{\rho/\rho-1} > (p_2)^{1/\rho-1}$ and $(p_1)^{\rho/\rho-1} +(p_2)^{\rho/\rho-1} > (p_1)^{1/\rho-1}$, and the former of both of these terms is in the denominator, meaning a clear decrease in utility with an increase of any price.\\\\
+As for quasiconvexity,  let $(p'', w'') = (\alpha p + (1- \alpha)p', \alpha w + (1- \alpha) w')$ where $v(p,w) \leq \bar v$ and $v(p',w') \leq \bar v$ and $\alpha \in [0,1]$. Note, that if $p'' \cdot x \leq w''$, then
+\[\alpha p \cdot x + (1-\alpha)p' \cdot x \leq \alpha w + (1-\alpha) w'\]
+Therefore, either $p \cdot x \leq w$ or $p'\cdot x \leq w'$ or both. If the former holds, then $u(x) \leq v(p,w) \leq \bar v$. If the latter holds, then $u(x) \leq v(p',w') \leq \bar v$, and we have the desired result.\\\\
+As for continuity in $p$ and $w$, it follows from the continuity of $u(x)$ and $x(p,w)$.\\\\
+
+(c) \[\mathscr{L} = x_1x_2 + \lambda (w - p_1x_1 -p_2x_2) \]
+FOCs:
+\[ x_2 - \lambda p_1  = 0 \]
+\[ x_1 - \lambda p_2  = 0 \]
+\[w - p_1x_1 - p_2x_2 = 0 \]
+Yield Walrasian demands:
+\[x_1 = \frac{1}{2}\frac{w}{p_1} \]
+\[x_2 = \frac{1}{2}\frac{w}{p_2} \]
+And indirect utility function:
+\[v(p,w) = \frac{1}{4}\frac{w^2}{p_1p_2}\]
+
+For Leontief:
+\[ \mathscr{L} = min\left\{ x_1, x_2 \right\} + \lambda(w- p_1x_1 - p_2x_2)\]
+Yield Walrasian demands:
+\[x_1 = \frac{w}{p_1 + p_2}\]
+\[x_2 = \frac{w}{p_1 + p_2}\]
+And indirect utility function:
+\[v(p,w) = min \left\{ \frac{w}{p_1 + p_2},\frac{w}{p_1 + p_2} \right\}\]
+\\\\
+For $\rho \to \infty$ in the CES utlity curve,
+\[x_1(p,w) = w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\]
+We have
+\[\text{lim}_{\rho \to \infty} w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right) = w \left( \frac{p_1^0}{p_1^1 + p_2^1} \right)\]
+\[=  \left( \frac{w}{p_1 + p_2} \right)\]
+And for 
+\[x_2(p,w) = w \left( \frac{p_2^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)\]
+We have
+\[\text{lim}_{\rho \to \infty} w \left( \frac{p_2^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right) = w \left( \frac{p_2^0}{p_1^1 + p_2^1} \right)\]
+\[=  \left( \frac{w}{p_1 + p_2} \right)\]
+Which resemble Leontif preferences
+(d)
+Note that
+\[ \frac{w \left( \frac{p_1^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \right)}
+{w \Big( \frac{p_2^{\frac{1}{\rho-1}}}{p_1^{\frac{\rho}{\rho-1}} + p_2^{\frac{\rho}{\rho-1}}} \Big)}
+=
+\frac{p_1^{1/\rho-1}}{p_2^{1/\rho-1}}
+\] 
+Now, we have that $\xi_{12}$ is given by
+\[\frac{1}{(\rho-1)} \left( \frac{p_1}{p_2} \right)^{\frac{1}{\rho-1}-1}\frac{p_1}{p_2}\left(\frac{p_2}{p_1}  \right)^{1/\rho-1} =\frac{1}{(\rho-1)} \left( \frac{p_1}{p_2} \right)^{\frac{1}{\rho-1}-1}\left( \frac{p_2}{p_1} \right)^{-1}\left(\frac{p_2}{p_1}  \right)^{1/\rho-1} \]
+\[= \frac{1}{(\rho-1)} \left( \frac{p_1}{p_2} \right)^{\frac{1}{\rho-1}-1}\left(\frac{p_2}{p_1}  \right)^{\frac{1}{\rho-1}-1} = \frac{1}{\rho-1}\]
+\\
+For the linear utility function, $\xi_{12} = 0$\\\\
+For the Cobb-Douglas utility function, $\xi_{12} = 1$\\\\
+For the Leontif utility function, $\xi_{12} = 0$\\\\
+\subsection*{3.D.6}
+Because this function is strictly increasing and homogeneous of degree 1, so we can use a monotonic transformation on the utility function.
+As for the Walrasian demands, we have the following
+\[x_1(p,w) = b_1 +\alpha(w - p\cdot b)/p_1\] 
+\[x_2(p,w) = b_2 +\beta(w - p\cdot b)/p_2\]
+\[x_3(p,w) = b_3+\gamma(w - p\cdot b)/p_2\] 
+where $b=(b1,b2,b3)$.
+The indirect utility function is then 
+\[v(p,w) = (\alpha/p_1)\alpha(\beta/p_2)\beta(\gamma/p_3)\gamma(w − p \cdot b)\]
+
+\subsection*{3.G.6}
+(a)\\\\
+Note that at an optimum, we have that
+\[ x_1p_1 + x_2p_2 + x_3p_3 = w\]
+\[\implies \frac{x_1p_1 + x_2p_2  - w}{p_3}  = x_3\]
+(b)\\\\
+No, since we need it to be HOD $0$ in (p,w), and we have that
+\[x_1(\alpha p, \alpha w) = x_1 (p,w) \]
+\[x_2(\alpha p, \alpha w) = x_2 (p,w) \]
+Which is the desired result.
+
+\subsection*{3.H.5}
+From the indirect utility function to the expenditure function :\\\\
+We know that $e(p,u) = w$ and  that $v(p,w) = u$. So if we are given $v$, we simply solve for $w$ in terms of $p$ and $u$ then substitute in $e(p,u)$ for $w$.\\\\
+From the indirect utility function to the utility function:\\\\
+We can simply use Roy's identity to obtain $x(p,w) = x^*$ and then substitute in an $x$ for $x^*$ in the indirect utility function. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

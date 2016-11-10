@@ -1,0 +1,199 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Homework 1.3} 
+\author{Chris Rytting} 
+\maketitle
+
+\subsection*{1.15 (i)}
+We want to show that $V$ is a vector space. Take any three vectors $\mathbf{x}  = \{x_1, x_2, \dots, x_n\}, \mathbf{y}  = \{y_1, y_2, \dots, y_n\}$, and $\mathbf{z}  = \{z_1, z_2, \dots, z_n\}$ where $\mathbf{x}, \mathbf{y}, \mathbf{z}  \in V \quad a,b \in \mathbb{R} $
+\\
+$(i)$\\
+\begin{align*}
+\mathbf{x} + \mathbf{y}   &= \{x_1, x_2, \dots, x_n\} + \{y_1, y_2, \dots, y_n\} \\&= \{x_1 + y_1, x_2 + y_2, \dots, x_n + y_n\} \\&= \{y_1 + x_1, y_2 + x_2, \dots, y_n + x_n\} \\&= \mathbf{y} + \mathbf{x} 
+\end{align*}
+$(ii)$\\
+\begin{align*}
+(\mathbf{x} + \mathbf{y}) + \mathbf{z}    &=\{x_1 + y_1, x_2 + y_2, \dots, x_n + y_n\} + \{z_1, z_2, \dots, z_n\}  \\&=\{x_1 + y_1 + z_1, x_2 + y_2 + z_2, \dots, x_n + y_n + z_n\} \\&=\{x_1, x_2, \dots, x_n\} + \{y_1 + z_1, y_2 + z_2, \dots, y_n + z_n\}  \\&= \mathbf{x} + (\mathbf{y} + \mathbf{z})
+\end{align*}
+$(iii)$\\
+\begin{align*}
+    \mathbf{x}+\mathbf{0} &= \{x_1, x_2, \dots, x_n\} + \{0, 0, \dots, 0\} 
+    \\&= \{x_1 + 0, x_2 + 0, \dots, x_n + 0\} \\&=\{x_1, x_2, \dots, x_n\} \\&= \mathbf{x} 
+\end{align*}
+$(iv)$\\
+\begin{align*}
+    \mathbf{x}+ -\mathbf{x} &= \{x_1, x_2, \dots, x_n\} - \{x_1, x_2, \dots, x_n\} \\&= \{x_1 - x_1, x_2 - x_2, \dots, x_n - x_n\} \\&= \{0,0,\dots,0\} \\&=  \mathbf{0} 
+\end{align*}
+$(v)$\\
+\begin{align*}
+a(\mathbf{x}+\mathbf{y}) &= a(\{x_1, x_2, \dots, x_n\} +\{y_1, y_2,\dots y_n\}) 
+\\&= a(\{x_1 + y_1,x_2 + y_2,\dots, x_n + y_n\}) 
+\\&= \{ax_1 + ay_1,ax_2 + ay_2,\dots, ax_n + ay_n\} 
+\\&= a\{x_1, x_2, \dots, x_n\} +a\{y_1, y_2,\dots, y_n\} 
+\\&= a \mathbf{x}+ a \mathbf{y} 
+\end{align*}
+$(vi)$\\
+\begin{align*}
+    (a + b)\mathbf{x}  &= (a+b)\{x_1, x_2,\dots x_n\} 
+    \\&=\{(a+b)x_1, (a+b)x_2,\dots (a+b)x_n\} 
+    \\&=\{ax_1 + bx_1, ax_2+bx_2,\dots ax_n + bx_n\} 
+    \\&=a\{x_1, x_2,\dots x_n\} + b\{x_1, x_2,\dots x_n\} 
+    \\&=a\mathbf{x} + b\mathbf{x} 
+\end{align*}
+$(vii)$\\
+\begin{align*}
+    1\mathbf{x}&=1\{x_1, x_2,\dots x_n\} 
+    \\&=\{1x_1, 1x_2,\dots 1x_n\} 
+    \\&=\{x_1, x_2,\dots x_n\} 
+    \\&=\mathbf{x} 
+\end{align*}
+$(viii)$\\
+\begin{align*}
+    (ab)\mathbf{x} &= (ab)\{x_1, x_2,\dots x_n\} 
+    \\&= (a)\{bx_1, bx_2,\dots bx_n\} 
+    \\&= a(b\mathbf{x} )
+\end{align*}
+$\implies$ V is a vector space.
+
+\subsection*{1.15 (ii)}
+By Theorem 1.3.21, for $V_i \quad \forall i$, there exists a basis $S_i = \{s_1, s_2,\dots, s_{m_i}\}$ where $m_i = \text{dim}(V_i)$. Now, we know that $v \in  V $ can be expressed as follows $\alpha_{(i)j} \in \mathbb{R} $:
+\[v = (\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n) = ( \sum^{m_1}_{j=1} \alpha_{(1)j} S_{(1)j},\sum^{m_2-m_1}_{j=m_1 + 1} \alpha_{(2)j} S_{(2)j}, \dots, \sum^{m_n-m_{n-1}}_{j=m_{n-1} + 1} \alpha_{(n)j} S_{(n)j}) \]
+\[ = (\sum^{m_1}_{j=1} \alpha_{(1)j} S_{(1)j}, 0, \dots, 0) + (0, \sum^{m_2-m_1}_{j=m_1 + 1} \alpha_{(2)j} S_{(2)j},\dots,0) + (0, 0, \dots, \sum^{m_n-m_{n-1}}_{j=m_{n-1} + 1} \alpha_{(n)j} S_{(n)j}) \]
+With $\text{dim}(\mathbf{v}_i) = m_i$, we have that
+\[\implies \text{dim}(V_1 \times V_2 \times\dots\times V_n) = \sum^{n}_{i=1} \text{dim}(V_i)\]
+
+\subsection*{1.16}
+Let $W \in V$. by $1.3.16$, we know that if there are bases $T = \{t_i\}_{i=1}^n  \text{ and } S = \{x_i\}_{i=1}^m$ for $V \text{ and } W$, respectively, then there exists $S' \in S$ having $m-n$ elements such that $T \cup S'$ is a basis for $V$.
+This suggests that $t$ and $s'$ consist of linearly independent vectors, $\implies T \cap S' = \{\mathbf{0}\}$, and since $S'$ spans the rest of $V$, $S'$ is a basis, implying the existence of a subspace $X$. 
+
+\subsection*{1.17}
+Consider the subspaces 
+\begin{align*}
+    A_1 &= \{x^{ni}\}_{i=1}^\infty\\
+    A_2 &= \{x^{ni-1}\}_{i=1}^\infty\\
+    A_3 &= \{x^{ni-2}\}_{i=1}^\infty\\
+    &\vdots\\
+    A_{n-1} &= \{x^{ni-(n-1)}\}_{i=1}^\infty\\
+\end{align*}
+
+\subsection*{1.18}
+Let $B = \text{Sym}_n (\mathbb{F}),C = \text{Skew}_n (\mathbb{F}), D = \text{M}_n (\mathbb{F})$ 
+
+\subsection*{1.18 (i)}
+Let $X,Y \in B \quad a,b \in \mathbb{R}$ \\
+We have, then, that $X^T = X, Y^T = Y$. Now, note that 
+\begin{align}
+(aX + bY)^T  &= aX^T + bY^T \\ &= aX + bY
+\end{align}
+and we have that 
+\[(aX + bY)^T  = aX + bY\]
+
+\subsection*{1.18 (ii)}
+Let $X,Y \in C \quad a,b \in \mathbb{R}$ \\
+We have, then, that $X^T = -X, Y^T = -Y$. Now, note that 
+\begin{align}
+(aX + bY)^T  &= aX^T + bY^T \\ &=  a(-X) +  b(-Y) \\ &= - aX - bY
+\end{align}
+and we have that 
+\[(aX + bY)^T  = - (aX + bY)\]
+
+\subsection*{1.18 (iii)}
+
+Let any square matrix $A = B_1 + C_1$
+Let \[B_1 = \frac{1}{2}(A + A^T) \quad C_1 = \frac{1}{2}(A - A^T)\]
+We see that \[B_1^T = \frac{1}{2}(A + A^T)^T = \frac{1}{2}(A^T + A) = \frac{1}{2}(A + A^T) = B_1\]
+and that \[C_1^T = \frac{1}{2}(A - A^T)^T = \frac{1}{2}(A^T - A) = -C_1\]
+\[ \implies  B_1 \in B, C_1 \in C \]
+Now, by theorem 1.3.7, if $A$ is a unique combination of $B' \in B$ and $C' \in C$, then $B + C$ is an internal direct sum. Suppose to the contrary, that there exist some $B_2 \in B \quad C_2 \in C$
+\[s.t.\quad A = B_1 + C_1 = B_2 + C_2 \text{ where } B_2 \neq B_1 \quad C_2 \neq C_1 \]
+Now, since we proved in $(i)$ and $(ii)$ that $B$ and $C$ are subspaces, we know that
+\[B_1 - B_2  \in B \quad C_1 - C_2 \in C\] and by the definition of symmmetric and skew matrices,
+\[ B  \cap C = \{ \mathbf{0} \}\]
+\[ \implies B_1 - B_2  = C_1 - C_2 = \{\mathbf{0} \}\] 
+\[ \implies B_1 = B_2 \text{ and } C_1 = C_2 \]
+\[\Rightarrow\Leftarrow\]
+\[\implies M_n( \mathbb{F} ) = B \oplus C\]
+
+\subsection*{1.19}
+
+Let
+\[f(x) = g(x) + h(x)\]
+\[g(x) = \frac{1}{2}(f(x) + f(-x))\]
+Which is even because $g(-x) = g(x)$
+\[h(x) = \frac{1}{2}(f(x) - f(-x))\]
+Which is odd because $g(-x) = -g(x)$
+Now, to show uniqueness, assume to the contrary that there exists some even function $g(x)'$ and some odd function $h(x)'$ such that $g(x)' + h(x)' = f(x) = g(x) + h(x)$
+\[\implies g(x) - g(x)' = h(x) - h(x)' = \mathbf{0} \]
+since the zero function is the only odd and even function. However,
+\\
+\\
+\[\implies g(x) = g(x)' \text{ and } h(x) = h(x)'\]
+\[\Rightarrow \Leftarrow\]
+Showing uniqueness.\\\\
+To show that even functions are subspaces, let $f(x)$ and $g(x)$ be even functions. Now let \[h(x) = af(x) + bg(x)\] and note that \[ h(-x) = af(-x) + bg(-x) = af(x) + bg(x) = h(x)\]
+$\implies h(x)$ is even.\\\\
+To show that odd functions are subspaces, let $f(x)$ and $g(x)$ be odd functions. Now let \[h(x) = af(x) + bg(x)\] and note that \[ h(-x) = af(-x) + bg(-x) = -af(x) - bg(x) = -(af(x) + bg(x)) = -h(x)\]
+$\implies h(x)$ is odd.
+Therefore, both the spaces of even and odd functions form subspaces.
+
+
+
+
+\end{document}

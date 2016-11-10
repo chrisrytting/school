@@ -1,0 +1,625 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\subsection*{6.3}
+If $x^*$ is a local minimizer of $f$ over the feasible set $\mathcal(F)$, then we know by the definition local minimizers that there exists an open neighborhood $U \subset \mathscr{F}$ around $x^*$ such that $f(x^*) \leq f(x) ~\forall x \in U$. Now, since $U\subset \mathscr{F} \subset \mathscr{F}'$, we have that $U \subset \mathscr{F}'$ and therefore, $x^*$ is also a minimizer of $f$ on $\mathscr{F}'$ 
+\\
+\\
+For the counterexample, take $f(x) = x^\frac{1}{3}$. Let $\mathscr{F} = [0,1]$. In this case, $0$ is a local minimizer. However, let $\mathscr{F}' = [-1,1]$, which satisfies $\mathscr{F} \subset \mathscr{F}$, but $0$ is not a local minimizer for $\mathscr{F}'$.
+
+
+\subsection*{6.5}
+
+We conduct this proof by contradiction. Let there be some sequence of solutions $x_k \in \mathscr{F}$ and a particular solution $x \notin \mathscr{F} $ such that $x_k \to x$. Since $G$ is continuous we have that 
+\[G(x_k) \in G(\mathscr{F}) \\ \implies G(x_k) \preceq b\] 
+\[G(x) \notin G(\mathscr{F}) \\ \implies G(x) \succ b\]
+\[G(x_k) \to G(x)\]
+
+Now let $\varepsilon = \frac{G(x) - b}{2}$. We have a contradiction  because we can't choose a $k$ large enough such that $G(x_k) - G(x) \preceq \varepsilon$. We have, then, that $G(x) \in G(\mathscr{F})$ and, therefore, that $G(\mathscr{F})$ is closed, which implies that $\mathscr{F}$ is closed. 
+We therefore know that the feasible set of any such constraint function is closed, and since the feasible set of the function is simply the intersection of all the feasible sets of the constraint function, and the intersection of a finite number of closed sets is closed, we know that $\mathscr{F}$ is closed. 
+
+An example is $x^{-1}$.
+
+\subsection*{6.6 (iii)}
+\[\underset{m,b,\boldsymbol{\delta}}{\text{Min}}\qquad{\|  \boldsymbol{\delta}  \|}^2_2 + \|\mathbf{y} - m \boldsymbol{\delta} + m \mathbf{x} + b \mathbf{e}  \|_2^2\]
+
+\subsection*{6.9}
+
+We know that the $MLVUE$ is given by
+\[ \hat{\mathbf{x}} = (A^TQ^{-1}A)^{-1}A^TQ^{-1}\mathbf{b}\]
+Since we know that $Q$ is the variance-covariance matrix and that we have homoskedasticity and no serial correlation, we know that $Q$ is simply a diagonal matrix with a constant variance $\sigma^2$ all along the diagonal. Substituting, then, we have that
+
+\begin{align*}
+\hat{\mathbf{x}} &= (A^T \frac{1}{\sigma^2}A)^{-1}A^T\frac{1}{\sigma^2}\mathbf{b}\\
+&= \sigma^2(A^T A)^{-1}A^T\frac{1}{\sigma^2}\mathbf{b}\\
+&= (A^T A)^{-1}A^T\mathbf{b}\\
+\end{align*}
+
+\subsection*{6.10}
+
+Setting the general odds ratio equal to the student odds ratio, we have that
+\[
+r_i = \frac{p}{1-p}
+\implies
+p = \frac{r_i}{1+r_i}
+\]
+
+And we have the optimization problem
+
+\[ \underset{\beta_0, \beta_1}{\text{Max}} \displaystyle\prod_{i=1}^n {\frac{r_i}{1+r_i}}^{y_i}(1-\frac{r_i}{1+r_i})^{1-y_i}  \] 
+
+\subsection*{6.11}
+
+\begin{align*}
+\underset{k, m}{\text{Max}}\quad&.07m + .05k\\
+\text{s.t.}\quad&240000 \geq 4m + 3k\\
+&6000 \geq 2m + 1k
+\end{align*}
+
+\subsection*{6.12}
+
+Let $\displaystyle\sum$, the variance-covariance matrix, $\mathbf{w}$, the weights, $\mathbf{r}$, the expected returns, and $\bar{r}$, the return to the portfolio, be expressed as follows:
+\[ \mathbf{w} = [w_1,w_2]^T \qquad \mathbf{r} = [\bar{r}_1,\bar{r}_2]^T\]
+The minimization problem is as follows:
+\begin{align*}
+    \underset{w}{\text{Min}} \qquad&\mathbf{w}'\displaystyle\sum \mathbf{w}\\
+    \text{s.t.}\qquad  &\mathbf{w}'\mathbf{1} = 1 \\ &\mathbf{w}'\mathbf{r} = \bar{r}
+\end{align*}
+We have the following first-order conditions:
+\[ 2\displaystyle\sum \mathbf{w} + \lambda_1 \mathbf{1} + \lambda_2 \mathbf{r} = 0\]
+\[\mathbf{1}' \mathbf{w} - 1 = 0\]
+\[\mathbf{w}' \mathbf{r} - \bar{r} = 0\]
+Considering this equation in matrix form, we have
+\[\begin{bmatrix}
+    2\sigma_1^2 & 2\sigma_{12} & 1 & \bar{r}_1 \\
+    2\sigma_{21} & 2\sigma_2^2 & 1 & \bar{r}_2 \\
+    1 & 1 & 0 & 0 \\
+    \bar{r}_1 & \bar{r}_2 & 0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+w_1\\
+w_2\\
+\lambda_1\\
+\lambda_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+1\\
+\bar{r}
+\end{bmatrix}
+\]
+Since $A$, the first matrix in the above equation, is full-rank, there is a unique solution to the system of equations, which is the minimized solution. Since the variance $\mathbf{w}'\displaystyle\sum \mathbf{w}$ is quadratic in $\mathbf{w}$, and $\mathbf{w}$ is linear in $\bar{r}$, the variance is quadratic in $\bar{r}$
+\\ The bottom half is useless because it has the same variance but lower expected return, so the upper half is preferred.
+
+\subsection*{6.13 (i)}
+
+The optimization problem is as follows:\\
+\[\displaystyle \max_{C_0} u(C_0) + \beta u(m-C_0)\]
+
+We have that \[\displaystyle \max_{C_0} log(C_0) + \beta log(m-C_0)\]
+First order conditions
+\[\implies \frac{1}{C_0} + \beta\frac{-1}{m-C_0} = 0\]\\
+And we have that
+\[\implies  C_0 = \frac{m}{1+\beta} \qquad C_1 = \frac{\beta m}{1+\beta}\]
+
+\subsection*{6.13 (ii)}
+
+
+
+We have that \[\displaystyle \max_{C_0} (1-e^(-\alpha(C_0)) + \beta (1 - e^(\alpha(C_0-m))\]\\
+First order conditions
+\[ \alpha e^{-\alpha C_0}- \alpha \beta e^{\alpha(C_0 - m)} =0\]
+\[ \implies e^{-\alpha C_0} = \beta e^{\alpha(C_0-m)} \] upon which taking the log yields \[-\alpha C_0 = ln\beta + \alpha C_0 -\alpha m \]
+\[\implies C_0 = \frac{\alpha m -ln\beta}{2 \alpha} \qquad C_1 = \frac{\alpha m + ln \beta}{2 \alpha} \]
+
+\subsection*{7.3 (i)}
+
+Note that
+\begin{align*}
+f(x)&=\frac{1}{2}||Ax-b||_2^2\\
+&=\frac{1}{2}(Ax-b)^T(Ax-b)\\
+&=\frac{1}{2}(x^TA^TAx-x^TA^Tb-b^TAx+b^Tb)\\
+\end{align*}
+\[\implies \frac{df}{dx}=\frac{1}{2}(2A^TAx-2A^Tb)=0\]
+which yields
+\[A^TAx^*=A^Tb\]
+
+\subsection*{7.3 (ii)}
+
+Note that 
+\[\frac{df}{dx}=\frac{1}{2}(2A^TAx-2A^Tb)=0\] 
+we also know that 
+\[D^2f(x)=A^TA\]  
+Now, consider an arbitrary $n\times 1$ vector $v\in \mathbb{R}_n$. We need that \[v^TA^TAv \geq 0\]Note, though, that 
+\[v^TA^TAv = \langle vA, vA \rangle \geq 0\]
+and we have that \[A^TA \geq 0\]\\
+
+\subsection*{7.4 (i)}
+By a previous exercise, we know that if $A$ has full rank, then $A^TA$ does as well, implying that its eigenvalues are all positive, which implies that $A^TA$ is positive definite.
+
+\subsection*{7.4 (ii)}
+The full rank of $A^TA$ implies that it is invertible, and from 7.3 we know that \[(A^TA)x^* = A^Tb\] Therefore the unique solution of this equation can be written as \[x^* = (A^TA)^{-1}A^Tb\]
+\subsection*{7.7 (i)}
+
+
+Using $f'(x)=\frac{4}{3}x^{\frac{1}{3}}$ and $f''(x)=\frac{4}{9}x^{\frac{-2}{3}}$, we use Newton's formula to find that
+\[x_{k+1}=x_k- \frac{\frac{4}{3}x_k^{\frac{1}{3}}}{\frac{4}{9}x_k^{-\frac{2}{3}}}=x_k-3x_k=-2x_k\]
+
+\subsection*{7.7 (ii)}
+
+We know that \[x_{k+1}=-2x_k\] so the sequence doubles in value and switches sign every iteration, which implies divergence. Generalizing we get \[x_k=  (-2)^kx_0\] which is non-zero. Thm 7.2.2 doesn't apply as $f''(x)$ is not defined at $0$.\\
+
+
+\subsection*{7.9}
+
+\begin{lstlisting}
+
+from __future__ import division
+import numpy as np
+ 
+def newton(initialguess,fderiv,f2deriv,maxiter = 250,tolerance=1e-10):
+    xmin = 0    
+    err = 100
+    iterations = 0
+    try:
+        fderiv(initialguess)
+    except ZeroDivisionError:
+        string = "fderiv zero division"
+         
+        return string
+ 
+    try:
+        f2deriv(initialguess)
+    except ZeroDivisionError:
+        string = "f2deriv zero division"
+        return string
+     
+    try:
+        fderiv(0)/f2deriv(0)
+    except ZeroDivisionError:
+        string = "Zero division"
+        return string
+     
+    epsilon = 1e-5
+ 
+    xold = initialguess
+ 
+    while err > tolerance and iterations < maxiter:
+        xnew = xold - fderiv(xold)/f2deriv(xold)
+        err = abs(xnew - xold)*abs(xold)*epsilon
+        xold = xnew
+        iterations = iterations + 1
+ 
+    if iterations == maxiter:
+        string = "Doesn't converge"
+        return string
+ 
+    xmin = xnew
+    return xmin
+
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\subsection*{7.12}
+
+
+Note that 
+\[(A+BCD)[A^{-1}-A^{-1}B(C^{-1}+DA^{-1}B)^{-1}DA^{-1}]=I\]
+Then we have that
+\[(A+BCD)[A^{-1}-A^{-1}B(C^{-1}+DA^{-1}B)^{-1}DA^{-1}]\]
+\[=I+BCDA^{-1}-(B+BCDA^{-1}B)(C^{-1}+DA^{-1}B)^{-1}DA^{-1}\]
+\[=I+BCDA^{-1}BC(C^{-1}+DA^{-1}B)(C^{-1}+DA^{-1}B)^{-1}DA^{-1}\]
+\[=I+BCDA^{-1}-BCDA^{-1}\]
+\[=I\]
+
+
+
+\subsection*{7.13}
+Let $\Delta x_n = x_n - x_{n-1}$ and $\Delta g_n = g(x_n)-g(x_{n-1})$. Then substituting in we can express $A_n$ as follows: 
+\[ A_n = A_{n-1} + \frac{\Delta g_n - A_{n-1}(\Delta x_n)}{\Delta x_n^T\Delta x_n}(\Delta x_n^T) \]
+Remember that
+\[ (A+BCD)^{-1} = A^{-1}-A^{-1}B(C^{-1}+DA^{-1}B)^{-1}DA^{-1} \] 
+Now let \[A=A_{n-1}\quad B=\frac{\Delta g_n - A_{n-1}(\Delta x_n)}{\Delta x_n^T \Delta x_n} \quad C=1 \quad D=\Delta x_n^T\]
+Now substituting in and applying the inverse to $A_n$, we have that
+
+\begin{align*}
+A_n^{-1} &= A_{n-1}^{-1} - \frac{A_{n-1}^{-1}\frac{\Delta g_n - A_{n-1}(\Delta x_n)}{\Delta x_n^T \Delta x_n}\Delta x_n^T A_{n-1}^{-1}}{1+\Delta x_n^T A_{n-1}^{-1}\frac{\Delta g_n - A_{n-1}(\Delta x_n)}{\Delta x_n^T \Delta x_n}} \\
+&= A_n^{-1} - \frac{(A_{n-1}^{-1}\Delta g_n - \Delta x_n)\Delta x_n^T A_{n-1}^{-1}}{\Delta x_n^T \Delta x_n + \Delta x_n^T A_{n-1}^{-1}\Delta g_n - \Delta x_n^T \Delta x_n}\\
+&= A_{n-1}^{-1} + \frac{((x_n - x_{n-1})-A_{n-1}^{-1}(g(x_n)-g(x_{n-1})))(x_n-x_{n-1})^TA_{n-1}^{-1}}{(x_n-x_{n-1})^TA_{n-1}^{-1}(g(x_n)-g(x_{n-1}))}
+\end{align*}
+
+\subsection*{7.14}
+
+
+Initializing with an initial point $\mathbf{x}_0$ and compute its derivative given by 
+\[A_0 = Dg(x_0) \approx  \frac{g(x_1)-g(x_0)}{x_1-x_0}\]
+And with $Dg(x_1) = A_1$, we have that
+\[A_1 = A_0 + \frac{g(x_1)-g(x_0)-A_0(x_1-x_0)}{||x_1-x_0||} (x_1 - x_0)^T\]
+To show that $A_1$ minimizes $||A_n - A_0||$ note that 
+\\ \[||A_n-A_0|| = ||A_{n-1}+\frac{g(x_n)-g(x_{n-1})-A_{n-1}(x_n - x_{n-1})}{||x_n - x_{n-1}^2||} * (x_n - x_{n-1})^T - A_0 || \geq 0\]
+and that
+\[||A_1 - A_0|| = ||A_0 + \frac{g(x_1)-g(x_0)-A_0(x_1-x_0)}{||x_1-x_0||}*(x_n - x_{n-1})^T-A_0||\]
+By constraint, we have that \[A_0(x_1-x_0) =  g(x_1) - g(x_0)\] 
+Since $||A_1 - A_0|| \geq 0$, we know that 
+\[ A_1 \leq ||A_n - A_0|| \]
+which is non-negative, so we have the minimizer.
+
+\subsection*{7.15}
+
+We start with
+
+
+\[g_k=Df(x_k)\]
+\[y_{k+1}=g_{k+1}-g_{k}\]
+\[s_{k+1}=x_{k+1}-x_k=\alpha_kd_k ~ \alpha \in \mathbb{R}\] 
+Let $d_k$ represent the direction vector.\\
+\begin{align*}
+A_{k+1}&=A_k+\frac{y_{k+1}y_{k+1}^T}{y_{k+1}^Ts_{k+1}}-\frac{A_ks_{k+1}s_{k+1}^TA_k}{s^T_{k+1}A_ks_{k+1}}
+\\&=A_k+\frac{y_{k+1}y_{k+1}^T}{y_{k+1}^Ts_{k+1}}+\frac{A_ks_{k+1}s_{k+1}^TA_k}{-(s^T_{k+1}A_k)s_{k+1}}
+\end{align*}
+
+Yielding
+\[A_k+\frac{y_{k+1}y_{k+1}^T}{y_{k+1}^Ts_{k+1}}+\frac{\alpha_kA_kd_k\alpha_kd_k^TA_k}{\alpha_k g_k^T \alpha_k d_k}=A_k+\frac{y_{k+1}y_{k+1}^T}{y_{k+1}^Ts_{k+1}}+\frac{g_kg_k^T}{g^T_kd_k}\]
+
+Then by the Sherman-Morrison-Woodbury formula, we have that
+
+\[(A-uv^T)^{-1}=A^{-1}+\alpha A^{-1} uv^T A^{-1}\]
+
+Which applying twice yields the following:\\
+
+\[A_{k+1}^{-1}=A_k^{-1}-\frac{s_{k+1}y_{k+1}^TA^{-1}_k+A_k^{-1} y_{k+1} s_{k+1}^T}{s^T_{k+1}y_{k+1}}+(1+\frac{y^T_{k+1}A_k^{-1}y_{k+1}}{s_{k+1}^Ty_{k+1}})\frac{s_{k+1}s_{k+1}^T}{s^T_{k+1}y_{k+1}}\]
+
+Multiplying through and rearranging we get:\\
+\begin{align*}
+A_{k+1}^{-1}&=A_k^{-1}-\frac{s_{k+1}y_{k+1}^TA^{-1}_k+A_k^{-1} y_{k+1} s_{k+1}^T}{s^T_{k+1}y_{k+1}}+\frac{s_{k+1}s_{k+1}^T}{s^T_{k+1}y_{k+1}}+\frac{y^T_{k+1}A_k^{-1}y_{k+1}}{s_{k+1}^Ty_{k+1}}\frac{s_{k+1}s_{k+1}^T}{s^T_{k+1}y_{k+1}}\\
+&=A_k^{-1}-\frac{A_k^{-1} y_{k+1} s_{k+1}^T+s_{k+1}y_{k+1}^TA^{-1}_k}{s^T_{k+1}y_{k+1}}+\frac{s_{k+1}s_{k+1}^T}{s^T_{k+1}y_{k+1}}+\frac{y^T_{k+1}A_k^{-1}y_{k+1}}{s_{k+1}^Ty_{k+1}}\frac{s_{k+1}s_{k+1}^T}{s^T_{k+1}y_{k+1}}\\
+&=A_k^{-1}-\frac{A_k^{-1} y_{k+1} s_{k+1}^T+s_{k+1}y_{k+1}^TA^{-1}_k}{s^T_{k+1}y_{k+1}}+\frac{(s_{k+1}^Ty_{k+1})s_{k+1}s_{k+1}^T}{(s^T_{k+1}y_{k+1})^2}+\frac{y^T_{k+1}A_k^{-1}y_{k+1}s_{k+1}s_{k+1}^T}{(s_{k+1}^Ty_{k+1})^2}\\
+&=A_k^{-1}+\frac{(s^T_{k+1}y_{k+1}+y_{k+1}^TA_k^{-1}y_{k+1})s_{k+1}s_{k+1}^T}{(s_{k+1}^Ty_{k+1})^2}-\frac{A^{-1}_ky_{k+1}s_{k+1}^TA^{-1}_k}{s_{k+1}^Ty_{k+1}}\\
+\end{align*}
+
+
+
+\subsection*{7.16}
+
+For the first part, as $A$ is invertible, we have that\\
+\[Q^T = (\frac{1}{2}(A^T + A))^T = \frac{1}{2}((A^T)^T + A^T) =  \frac{1}{2}(A + A^T) = \frac{1}{2}(A^T + A) = Q\]
+
+so $Q$ is symmetric.\\
+ 
+For the second part, let $b \in \mathbb{R}^n$.
+
+We show $x^*$ is a minimizer of $f(x) = x^TAx - b^Tx$ if and only if it is a minimizer of $g(x) = x^TQx - b^Tx$.\\
+
+Taking the derivative of the first equation and setting it equal to 0 gives:\\
+
+\[Df(x) = ( x^*)^T(A + A^T) - b = 0\]
+\begin{align*}
+\\&\implies ( x^*)^T( \frac{1}{2}(A^T + A) +  \frac{1}{2}(A^T + A) = b
+\\&\implies ( x^*)^T(A^T + A)= b
+\end{align*}
+along with the second equation
+\begin{align*}
+& \qquad Df(x) = ( x^*)^T(Q + Q^T) - b = 0
+\\&\implies ( x^*)^T(Q + Q) = b 
+\\&\implies( x^*)^T( \frac{1}{2}(A^T + A) +  \frac{1}{2}(A^T + A) = b
+\\&\implies( x^*)^T(A^T + A)= b
+\end{align*}
+and so $x^*$ is a minimizer for $f(x) = x^TAx - b^Tx$
+
+
+
+
+
+\subsection*{7.19}
+Minimizing $\Phi_k$, we have that  
+\[
+\frac{\partial\left(\frac{1}{2}(\mathbf{x}_k+\alpha_k\mathbf{d}_k)^T Q(\mathbf{x}_k+\alpha_k\mathbf{d}_k)- \mathbf{b}^T(\mathbf{x}_k+\alpha_k\mathbf{d}_k)\right)}{\partial\alpha}
+\]
+\[ \implies 0 = \mathbf{d}_k^T Q(\mathbf{x}_k+\alpha_k\mathbf{d}_k)+\mathbf{b}^T\mathbf{d}_k \]
+\begin{align*}
+\alpha_k &= \frac{\mathbf{b}^T\mathbf{d}_k - \mathbf{d}_k^T Q\mathbf{x}_k}{\mathbf{d}_k^T Q\mathbf{d}_k}\\
+&= \frac{\mathbf{b}^T\mathbf{d}_k - (Q\mathbf{x}_k)^T\mathbf{d}_k}{\mathbf{d}_k^T Q\mathbf{d}_k} 
+\\&= \frac{\mathbf{r}_k^T\mathbf{d}_k}{\mathbf{d}_k^T Q\mathbf{d}_k}
+\end{align*}
+and we have that
+\[\mathbf{r}_k = \mathbf{b}-Q\mathbf{x}_k\]
+
+\subsection*{7.20(i)}
+Plugging in for $\varepsilon_0$, we have that
+			\begin{align*}
+            \textbf{d}_k^T Q\epsilon_0 &= \textbf{d}_k^T Q \displaystyle\sum_{j=0}^{n-1}\delta_j\textbf{d}_j \\&= \textbf{d}_k^T Q (\delta_0\textbf{d}_0 + \delta_1\textbf{d}_1 + \ldots + \delta_{n-1}\textbf{d}_{n-1}) \\&= \delta_k\textbf{d}_k^T Q\textbf{d}_k	
+			\end{align*}
+            and we have that
+			\[ \Rightarrow\qquad  \delta_k= \frac{\textbf{d}_k^T Q \epsilon_0}{\textbf{d}_k^T Q\textbf{d}_k}\]
+
+\subsection*{7.20 (ii)}
+
+
+			By the definitions,
+			\begin{align*}
+				\epsilon_k &= \textbf{x}_{k} -\textbf{x}^*\\
+				\textbf{x}_{k} &= \textbf{x}_{0} + \alpha_0\textbf{d}_0 + \alpha_1\textbf{d}_1 +\ldots + \alpha_{k-1}\textbf{d}_{k-1} = \textbf{x}_{0} + \displaystyle\sum_{j=0}^{k-1}\alpha_j\textbf{d}_j\\
+				\implies 
+				\epsilon_k &= \textbf{x}_{0} + \displaystyle\sum_{j=0}^{k-1}\alpha_j\textbf{d}_j -\textbf{x}^* \\&= (\textbf{x}_{0}-\textbf{x}^*) + \displaystyle\sum_{j=0}^{k-1}\alpha_j\textbf{d}_j \\&= \epsilon_0 + \displaystyle\sum_{j=0}^{k-1}\alpha_j\textbf{d}_j
+			\end{align*}
+            Now note that
+			\begin{align*}
+				\frac{\textbf{d}_k^T Q \epsilon_k}{\textbf{d}_k^T Q\textbf{d}_k} &= \frac{\textbf{d}_k^T Q (\epsilon_0 + \displaystyle\sum_{j=0}^{k-1}\alpha_j\textbf{d}_j)}{\textbf{d}_k^T Q\textbf{d}_k}\\
+				&= \frac{\textbf{d}_k^T Q \epsilon_0 + (\textbf{d}_k^T Q \displaystyle\sum_{j=0}^{k-1}\alpha_j\textbf{d}_j)}{\textbf{d}_k^T Q\textbf{d}_k}\\
+				&= \frac{\textbf{d}_k^T Q \epsilon_0 + (0)}{\textbf{d}_k^T Q\delta_k\textbf{d}_k} \\&= \delta_k
+			\end{align*}
+
+\subsection*{7.20 (iii)}
+            
+            
+			Keeping in mind that $Q\textbf{x}^*=\textbf{b}$,
+			\begin{align*}
+				\alpha_k &= \frac{\textbf{r}_k^T \textbf{d}_k}{\textbf{d}_k^T Q\delta_k\textbf{d}_k} \\&= \frac{(\textbf{b}-Q\textbf{x}_k)^T \textbf{d}_k}{\textbf{d}_k^T Q\textbf{d}_k}\\
+				&= \frac{(\textbf{b}-Q(\epsilon_k+ \textbf{x}^*))^T \textbf{d}_k}{\textbf{d}_k^T Q\textbf{d}_k}\\
+				&= \frac{(\textbf{b}-Q\epsilon_k- Q\textbf{x}^*))^T \textbf{d}_k}{\textbf{d}_k^T Q\textbf{d}_k}\\
+				&= \frac{-(Q\epsilon_k)^T \textbf{d}_k}{\textbf{d}_k^T Q\textbf{d}_k}\\&= -\delta_k\\
+			\end{align*}
+
+
+\subsection*{7.20 (iv)}
+
+By (ii), we know that
+			\begin{align*}
+				\epsilon_n	&= \epsilon_0 + \displaystyle\sum_{j=0}^{n-1}\alpha_j\textbf{d}_j		\\
+							&= \displaystyle\sum_{j=0}^{n-1}\delta_j\textbf{d}_j + \displaystyle\sum_{j=0}^{n-1}\alpha_j\textbf{d}_j\\
+							&= \displaystyle\sum_{j=0}^{n-1}-\alpha_j\textbf{d}_j + \displaystyle\sum_{j=0}^{n-1}\alpha_j\textbf{d}_j \\&= 0
+			\end{align*}
+            which we know by (iii)
+
+
+\subsection*{7.21(i)}
+Let
+\[A = 
+\begin{bmatrix}
+   a_{11} & \ldots & a_{1m}\\
+   \vdots & \ddots & \vdots \\
+   a_{m1}  & \ldots & a_{mn} \\
+  \end{bmatrix}
+  \text{and} \quad
+  x =
+  \begin{bmatrix}
+   x_{1} \\
+   \vdots  \\
+   x_{n}   \\
+  \end{bmatrix} \\
+\]
+Then\\ 
+\begin{align*}
+f(\textbf{x})=A\textbf{x}&=
+\begin{bmatrix}
+   a_{11} & \ldots & a_{1m}\\
+   \vdots & \ddots & \vdots \\
+   a_{m1}  & \ldots & a_{mn} \\
+  \end{bmatrix}
+  \begin{bmatrix}
+   x_{1} \\
+   \vdots  \\
+   x_{n}   \\
+  \end{bmatrix} \\
+  &=\begin{bmatrix}
+   a_{11}x_{1}+ \ldots + a_{1m}x_{n} \\
+   \vdots  \\
+   a_{m1}x_{1}+ \ldots + a_{mn}x_{n}   \\
+  \end{bmatrix}
+\end{align*}
+\[ \implies Df(\textbf{x}) = \begin{bmatrix}
+   a_{11} & \ldots & a_{1m}\\
+   \vdots & \ddots & \vdots \\
+   a_{m1}  & \ldots & a_{mn} \\
+  \end{bmatrix} = A \] 
+  \subsection*{7.21 (ii)}
+  
+  
+  We have that\\ 
+ \begin{align*}
+ f(\textbf{x})=\textbf{x}^{T}A&=
+ \begin{bmatrix}
+   x_{1} & \ldots & x_{m} \\
+  \end{bmatrix}
+ \begin{bmatrix}
+   a_{11} & \ldots & a_{1m}\\
+   \vdots & \ddots & \vdots \\
+   a_{m1}  & \ldots & a_{mn} \\
+  \end{bmatrix}
+   \\
+  &=\begin{bmatrix}
+   a_{11}x_{1}+ \ldots + a_{m1}x_{m} \\
+   \vdots  \\
+   a_{1n}x_{1}+ \ldots + a_{mn}x_{m}   \\
+  \end{bmatrix}
+ \end{align*}
+\[ \implies Df(\textbf{x}) = \begin{bmatrix}
+   a_{11} & \ldots & a_{m1}\\
+   \vdots & \ddots & \vdots \\
+   a_{1m}  & \ldots & a_{mn} \\
+  \end{bmatrix} = A^{T} \] \\
+\subsection*{7.21 (iii)}
+
+
+ We have \[u=\begin{bmatrix}
+   u_{1}(\textbf{x}) \\
+   \vdots  \\
+   u_{m}(\textbf{x}) \\
+  \end{bmatrix} 
+  v=\begin{bmatrix}
+   v_{1}(\textbf{x}) \\
+   \vdots  \\
+   v_{m}(\textbf{x}) \\
+  \end{bmatrix}\] \\ Therefore 
+ \begin{align*}
+ \end{align*} 
+  \[f = u_{1}(\textbf{x})v_{1}(\textbf{x})+ \ldots +u_{m}(\textbf{x})v_{m}(\textbf{x}) \]
+  \begin{align*}
+   \implies  Df(\textbf{x}) &= u^{'}_{1}(\textbf{x})v_{1}(\textbf{x})+ \ldots +u^{'}_{m}(\textbf{x})v_{m}(\textbf{x})+v^{'}_{1}(\textbf{x})u_{1}(\textbf{x})+ \ldots +v^{'}_{m}(\textbf{x})u_{m}(\textbf{x}) 
+    \\&= \langle v(\textbf{x}),Du(\textbf{x}) \rangle+ \langle u(\textbf{x}),Dv(\textbf{x})\rangle
+   \\&= u^{T}(\textbf{x})Dv(\textbf{x})+v^{T}(\textbf{x})D(u(\textbf{x}) 
+  \end{align*}
+
+\subsection*{21 (iv)}
+
+Let $f(x)$ be given by the following
+\begin{align*}
+\begin{bmatrix} x_1  \dots x_n \end{bmatrix}
+\begin{bmatrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n-1}&\dots&a_{nn}
+\end{bmatrix}
+\begin{bmatrix}x_1\\ 
+\vdots\\ 
+x_n\end{bmatrix}
+&=x_1(x_1a_{11}+\dots+x_n a_{n1})+\dots+x_n( x_1 a_{1n}+\dots+x_na_{nn})
+\end{align*}
+Then
+\[Df(x) = \begin{bmatrix}
+2x_1a_{11}+\dots+x_n a_{n1}+\dots+x_n a_{1n}\\
+\vdots\end{bmatrix}=
+\begin{bmatrix}
+x_1 \dots x_n
+\end{bmatrix}
+\left(\begin{bmatrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots&a_{nn}
+\end{bmatrix}+\begin{bmatrix}
+a_{11}&\dots&a_{n1}\\
+\vdots&\ddots&\vdots\\
+a_{1n}&\dots&a_{nn}
+\end{bmatrix}\right)\]
+\[=\textbf{x}^T(A+A^T)\]
+
+\subsection*{7.21 (v)}
+
+
+Let \[B(\mathbf{x})=\begin{bmatrix}
+\mathbf{b}_1(\mathbf{x}) \\
+\mathbf{b}_2(\mathbf{x}) \\
+\vdots \\
+\mathbf{b}_m(\mathbf{x})
+\end{bmatrix}\] Then we have that
+\begin{align*}
+f(x) &= \mathbf{u}^TB \\&= \begin{bmatrix}
+u_1(\mathbf{x}) & u_2(\mathbf{x}) & \hdots & u_m(\mathbf{x}) \end{bmatrix} \begin{bmatrix}
+\mathbf{b}_1(\mathbf{x}) \\
+\mathbf{b}_2(\mathbf{x}) \\
+\vdots \\
+\mathbf{b}_m(\mathbf{x})
+\end{bmatrix} 
+ \\&= \begin{bmatrix} 
+u_1(\mathbf{x})\mathbf{b}_1(\mathbf{x}) +
+u_2(\mathbf{x})\mathbf{b}_2(\mathbf{x}) +
+\hdots +
+u_m(\mathbf{x})\mathbf{b}_m(\mathbf{x}) 
+\end{bmatrix} 
+\end{align*}
+So 
+\begin{align*}
+Df &= \begin{bmatrix}
+\mathbf{b}_1(\mathbf{x})u_1'(\mathbf{x}) + u_1(\mathbf{x})\mathbf{b}_1'(\mathbf{x}) & \mathbf{b}_2(\mathbf{x})u_2'(\mathbf{x}) + u_2(\mathbf{x})\mathbf{b}_2'(\mathbf{x}) & \hdots & \mathbf{b}_m(\mathbf{x})u_m'(\mathbf{x}) + u_m(\mathbf{x})\mathbf{b}_m'(\mathbf{x}) \end{bmatrix} 
+ \\&= B^TD\mathbf{u}(\mathbf{x}) + \sum_{i=1}^{m}u_i(\mathbf{x})^TD\mathbf{b}_i(\mathbf{x}) 
+\end{align*}
+\subsection*{7.22 (i)}
+We have that
+\[f = \mathbf{r}(\mathbf{x})^T\mathbf{r}(\mathbf{x})\] \\ \\
+By 7.21 (iii), we have that,
+\[ Df(\mathbf{x}) = \mathbf{r}(\mathbf{x})^TD\mathbf{r}(\mathbf{x})+\mathbf{r}(\mathbf{x})^TD\mathbf{r}(\mathbf{x}) \]
+\[ = 2 \mathbf{r}(\mathbf{x})^TD\mathbf{r}(\mathbf{x}) = 2 \mathbf{r}^TD \mathbf{r} \]
+
+\subsection*{7.22 (ii)}
+By 7.21 part(v),
+\[ D^2f(\mathbf{x}) = 2D\mathbf{r}(\mathbf{x})^TD\mathbf{r}(\mathbf{x})+\sum_{i=1}^{m}2r_i(\mathbf{x})D^2r_i(\mathbf{x}) \]
+\[ = 2(D\mathbf{r}(\mathbf{x})^TD\mathbf{r}(\mathbf{x}) + \sum_{i=1}^{m}r_i(\mathbf{x})D^2r_i(\mathbf{x})) =  2(D\mathbf{r}^TD\mathbf{r}+ \sum_{i=1}^{m}r_i D^2r_i)  \]
+
+\subsection*{7.23}
+\[D^2f(x) > 0 \implies -D^2f(x_k)^{-1} < 0 \implies Df(x_k)(-D^2f(x_k))Df(x_k) < 0\]
+With $d_k = -D^2f(x_k)^{-1}Df(x_k)$ and $Df(x_k) = \lim_{\alpha \to 0} |\frac{f(x_k+\alpha d_k) - f(x_k)}{\alpha d_k}|$, it follows that\\
+\[Df(x_k)(-D^2f(x_k))Df(x_k) < 0\]
+\begin{align*}
+&\implies  \lim_{\alpha \to 0} \left|\frac{f(x_k+\alpha d_k) - f(x_k)}{\alpha d_k}\right| d_k < 0\\
+&\implies  \lim_{\alpha \to 0} \left|\frac{f(x_k+\alpha d_k)}{\alpha d_k}\right|d_k < \lim_{\alpha \to 0} \left|\frac{f(x_k)d_k}{\alpha d_k}\right|\\
+&\implies f(x + \alpha d_k) < f(x)\\
+\end{align*}
+
+\subsection*{7.26 (i-iv)}
+Newton's method takes iterative derivatives to find zeros or minima of a function. Minimization or maximization can be done by this method. It is strong because it is reliable, but weak in that you need to have a good guess for tricky functions.
+Maximum Likelihood Estimation finds critical points of a certain function. This method is mathematically sound but is a little more difficult to compute. It is unbiased, though, which is positive.
+Gauss-Newton finds critical points by way of Jacobian and Hessian matrices. The problem with this method is that if your guess is too far away from the real zero then it doesn't converge. 
+
+
+
+
+
+
+
+\end{document}
+

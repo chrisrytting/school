@@ -1,0 +1,212 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 4.2}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{4.7 (i)}
+No element of this set is a linear combination of other elements of the set, so we have that the set is linearly independent, and we know by assumption that the set spans $C^{\infty}$. Therefore, it forms a basis.
+
+\subsection*{4.7 (ii)}
+\[
+D = 
+\begin{bmatrix}
+    0 & -1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -2 \\
+    0 & 0 & 2 & 0 \\
+\end{bmatrix}
+\]
+
+\subsection*{4.7(iii)}
+
+Consider one space spanned by $sin(2x)$ and $cos(2x)$. Upon multiplying $D$ by the vector representations of these spans, namely
+\[ \left\{ 
+\begin{bmatrix}
+    0\\0\\1\\0
+\end{bmatrix}\right\}
+\text{ and }
+\left\{ 
+\begin{bmatrix}
+    0\\0\\0\\1
+\end{bmatrix}\right\}\]
+we will have a result in the same span, showing that these subspaces are $D$-invariant.\\\\
+
+
+Consider another space spanned by $sin(x)$ and $cos(x)$. Upon multiplying $D$ by the vector representations of these spans, namely
+\[ \left\{ 
+\begin{bmatrix}
+    1\\0\\0\\0
+\end{bmatrix}\right\}
+\text{ and }
+\left\{ 
+\begin{bmatrix}
+    0\\1\\0\\0
+\end{bmatrix}\right\}\]
+we will have a result in the same span, showing that these subspaces are $D$-invariant.
+
+
+
+
+
+
+\subsection*{4.8}
+
+Consider a unidimensional subspace span$\{(0,0,\dots,a_n,0,\dots)\}$ of the vector space $\ell^{\infty}$ and the right shift operated  span$\{(0,0,\dots,0,a_n,\dots)\}$. There exists no linear combination of elements from the first subspace that results in an element from the second, and therefore it is not invariant. 
+
+
+\subsection*{4.9}
+
+
+It suffices to show that $T'(a') = T'(b')$ if $a'=b'$. Now, let $a' = a + W$ and $b' = b + W$ where $a',b' \in V/W$. We will consider two cases, that $a,b \in W$ and that $a,b \not \in W$. \\\\
+Let $a,b \in W$. Then 
+\[T'(a') = T'(a + W) = T(a) + W\]
+and 
+\[T'(b') = T'(b + W) = T(b) + W\]
+and we have that, since by the definition of an invariant subspace, $T(a) \in W$ and $T(b) \in W$, that $T(a) + W = T(b) + W$ are in the same equivalence class and we have the desired result.\\\\
+
+Now let $a,b \not\in W$. We still have, though, that 
+\[a' = a + W = b' = b+W\] 
+Now, there exists a vector $c$ such that, since $a,b$ are in the same equivalence class, if we let 
+\[a'' = a - c + W\]
+and
+\[b'' = b - c + W\]
+we still have that $a'' = b''$
+and that 
+\[T'(a'') = T'(a - c + W) = T(a) - T(c) + W\]
+and 
+\[T'(b'') = T'(b - c + W) = T(b) - T(c) + W\]
+and, by the same logic as the other case, we have that
+\[T(a) - T(c) + W = T(b) - T(c) + W\]
+\[\implies T(a)  + W = T(b)  + W\]
+Which is the desired result.
+
+
+
+
+\subsection*{4.10}
+
+\[(i) \implies (ii)\]
+For $w_1 \in W_1$ and $w_2 \in W_2$ note that
+\[ R^2(w_1 + w_2) = R(w_1 - w_2) = w_1 + w_2 \]
+Which is the desired result.
+\\
+
+\[(ii) \implies (iii)\]
+To find the nullspace fo $(R-I)$, we note that
+\[ (R-I)v = 0 \implies Rv - v = 0 \implies Rv = v \]
+yielding
+\[ \mathscr{N}(R - I) = \{v \in V | Rv = v \} \]
+and 
+\[ (R+I)v = 0 \implies Rv + v = 0 \implies Rv = -v \]
+yielding
+\[ \mathscr{N}(R + I) = \{v \in V | Rv = -v \} \]
+It is clear that 
+\[ \mathscr{N}(R + I) \cap
+\mathscr{N}(R + I) = \{ 0\}\]
+Now, to show that these two spaces comprise all of $V$, we consider the vector 
+\[v\in V = \frac{1}{2}(I-R)v +  \frac{1}{2}(I+R)v\]
+and we have that 
+\[(R-I) (\frac{1}{2} (I + R)v) = \frac{1}{2}(R + R^2 - I - R)v =\frac{1}{2}(R + I - I - R)v = 0\]
+and
+\[(R+I) (\frac{1}{2} (I - R)v) = \frac{1}{2}(R - R^2 + I - R)v =\frac{1}{2}(R - I + I - R)v = 0\]
+implying that the first and second terms of $v$ are in the null space of $(R-I)$ and $(R+I)$, respectively. However, any $v\in V$ can be expressed as a linear combination of these nullspaces, implying that they span the whole space, and we have the desired result that they are complimentary.
+
+
+\[(iii) \implies (i)\]
+Let $W_1 = \mathscr{N}(R-I)$ and $W_2 = \mathscr{N}(R+I)$. We know by part (ii), that 
+\[R(w_1) = w_1 \quad w_1 \in W_1\] and that 
+\[R(w_2) = -w_2 \quad w_2 \in W_2\] 
+Now, $R$ is a linear operator, so we have that $R(w_1 + w_2) = R(w_1) + R(w_2)= w_1 - w_2$. Therefore, $R$ is a reflection.
+
+
+
+\subsection*{4.11 (i)}
+\[ \text{span} \left\{ \begin{bmatrix} 1 \\ 3 \end{bmatrix} \right\} \quad \text{span} \left\{ \begin{bmatrix} -3 \\ 1 \end{bmatrix} \right\} \]
+
+
+\subsection*{4.11 (ii)}
+
+\[ T = \left\{ \begin{bmatrix} 1 \\ 3 \end{bmatrix}, \begin{bmatrix} -3 \\ 1 \end{bmatrix} \right\} 
+\quad
+L_{TT} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+\] 
+\subsection*{4.11 (iii)}
+\[
+C_{ST} = \begin{bmatrix} 1 & 3 \\ 3 & -1 \end{bmatrix}
+\quad
+C_{TS} = \begin{bmatrix} 1/10 & 3/10 \\ 3/10 & -1/10 \end{bmatrix}
+\]
+\subsection*{4.11 (iv)}
+\[   
+L = C_{ST}L_{TT}C_{TS} = 
+\begin{bmatrix} 1 & 3 \\ 3 & -1 \end{bmatrix}
+\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+\begin{bmatrix} 1/10 & 3/10 \\ 3/10 & -1/10 \end{bmatrix}
+=
+\begin{bmatrix} -4/5 & 3/5 \\ 3/5 & 4/5 \end{bmatrix}
+\]
+
+
+
+
+
+\end{document}

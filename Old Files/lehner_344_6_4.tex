@@ -1,0 +1,120 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Chapter 6 Section 4}
+\author{Lehner White}
+\maketitle
+
+\subsection*{6.19}
+The proof is as follows:
+\begin{align*}
+    \|f(\textbf{y} ) - f(\textbf{x} )\|_Y &= \|\int^{1}_{0}Df(t \textbf{y}  + (1-t)\textbf{x} ))(\textbf{y} -\textbf{x} ) dt\|_Y\\
+    &\leq \| \int_0^1 Df\big(t \textbf{y} + (1- t) \textbf{x} \big) ( \textbf{y} - \textbf{x}) dt\|_Y \\
+    &\leq \int_0^1 \|  Df\big(t \textbf{y} + (1- t) \textbf{x} \big) ( \textbf{y} - \textbf{x}) dt\|_X \\
+    &\leq \int_0^1 \|  Df\big(t \textbf{y} + (1- t) \textbf{x} \big) \|_X,Y \| ( \textbf{y} - \textbf{x})dt \|_X \\
+    &\leq \int_0^1 \sup_{ \textbf{c} \in \ell( \textbf{x}, \textbf{y})} \|  Df\big( \textbf{c} \big) \|_{X,Y} \| ( \textbf{y} - \textbf{x}) dt\|_X \\
+    &\leq \sup_{ \textbf{c} \in \ell( \textbf{x}, \textbf{y})} \|  Df\big( \textbf{c} \big) \|_{X,Y} \| ( \textbf{y} - \textbf{x}) \|_X \\
+\end{align*}
+
+\subsection*{6.20}
+If we consider the function:
+\[F(t) =  \int_{g(c)}^{t} f(\tau) d\tau\] 
+Using the fundamental theorem of calculus $F'(t) = f(t)$, and then we use the chain rule for the following:
+\[\int_c^d f(g(s))g'(s)ds = \int_c^d F'(g(s))g'(s)ds= \int_{g(c)}^{g(d)} DF(g(s))ds\]
+By the fundamental theorem of calculus:
+\[= F(g(d)) - F(g(c)) = \int_{g(c)}^{g(d)} f(\tau)d\tau - \int_{g(c)}^{g(c)} f(\tau)d\tau = \int_{g(c)}^{g(d)} f(\tau)d \tau\]
+
+\subsection*{6.21}
+If a sequence, $(f_n)_{n=0}^\infty \in C(U;Y)$, is cauchy then we know that $(f_n|_K)_{n=0}^\infty \in (C(K;Y), \|\cdot \|_{L^\infty})$ is also cauchy for all compact subsets $K \subset U$, and that $(f_n)_{n=0}^\infty \in C(U;Y)$ is uniformly convergent. Thus $(f_n|_K)_{n=0}^\infty$ converges to $f|_K \text{ in }(C(K;Y), \|\cdot \|_{L^\infty})$ for all described compact subsets. \\
+\\
+Let these assumptions be true of the sequence  $f_n \in C(U;Y)$. Thus we know that it will be true for all sequences that are in any open set that is a subset of the closed set, as this is. 
+
+\subsection*{6.22}
+\textbf{(i)}\\
+There exists a derivative and is as follows for all $x \in [-1,1]$:
+\[ f'(x) = \frac{x}{\sqrt{\frac{1}{n^2} + x^2} }\]
+\textbf{(ii)}\\
+We now that:
+\[\sup_{(0,1)} f_n(x) = \sqrt{\frac{n^2 + 1}{n^2}}\] 
+We also know that any compact set is in $[a,b]$ where $0<a<b<\sqrt{\frac{n^2+1}{n^2}}$, giving us that:
+\[\|f_n(x)|_{[a,b]}\|_{L^\infty} = \sqrt{\frac{n^2+1}{n^2}} \to |x| \text{ as }n \to \infty\]
+Thus proving that $f_n(x)$ converges uniformly to $|x|$ on $[-1,1]$.
+\\ \\
+\textbf{(iii)}\\
+If $f(x) = |x|$, then 
+\[f'(x) = \begin{cases} -1 & \text{if}~x < 0 \\ 1 & \text{if}~x>0\\\end{cases}\]
+And this is discontinuous at $x=0$, implying that it is not differentiable. 
+\\ \\
+\textbf{(iv)}\\
+The assumption thst $f_n(\mathbf{x}_*))_{n=0}^\infty \subset C^1(U;Y)$ does not 
+        converge in $Y$ does not hold and thus the theorem holds.
+
+\subsection*{6.23}
+If we have that: 
+\[S_k = \sum^{k}_{n=0}  Df_n = D \sum^{k}_{n=0} f_n \]
+Then $\{s_k\}^\infty_{k=0}$ converges assymptotically on $U$. We also know that:
+\[t_k = \sum^{k}_{n=0} f_n(x_0)\]
+And thus $\{t_k\}_{k=0}^\infty$ converges on $Y$.
+
+
+
+
+
+\end{document}

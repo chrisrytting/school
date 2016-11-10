@@ -1,0 +1,185 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{mathrsfs}  
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins} \usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+\usepackage{amssymb}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{subsection*}{Exercise} % Number subsection*s on their own
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+
+\title{Math 344 Homework 3.7}
+\author{Chris Rytting}
+
+
+\begin{document}
+\maketitle
+\subsection*{3.37}
+
+
+\[D = \begin{bmatrix} 
+0&1&0\\
+0&0&2\\
+0&0&0\\
+\end{bmatrix}
+D^*  = \begin{bmatrix} 
+0&0&0\\
+1&0&0\\
+0&2&0\\
+\end{bmatrix}\]\\
+\smallskip\\
+\[\mathscr{N}(D) = \text{span}\{(1,0,0)^T\}\]\\
+\[\mathscr{R}(D) = \text{span}\{(0,1,0)^T,(0,0,1)^T\} \]\\
+\[\mathscr{N}(D^*) = \text{span}\{(0,0,1)^T\}\]\\
+\[\mathscr{R}(D^*) =  \text{span}\{(0,0,1)^T,(0,1,0)^T\}\]
+
+\subsection*{3.38}
+\[A=\begin{bmatrix}
+1 &1&1& 0 \\
+0&0&0& 0\\
+2&2&2& 0
+\end{bmatrix}\]\\
+\[A^* = A^H =\begin{bmatrix}
+1 &0&2\\
+1&0&2\\
+1&0&2\\
+0&0&0
+\end{bmatrix}\]\\
+\[\mathscr{N}(A) = \text{span}\{(0,0,0,1)^T, (1,0,-1,0)^T, (-1,1,0,0)^T\}\]\\
+\[\mathscr{R}(A) = \text{span}\{(1,0,0,0)^T\}\]\\
+\[\mathscr{R}(A^*) = \text{span}\{(1,0,0)^T\}\]\\
+\[\mathscr{N}(A^*) = \text{span}\{(0,1,0)^T, (2,0,-1)^T\} \]\\
+
+\subsection*{3.39 (i)}
+\begin{align*}
+    \langle \mathbf{w}, (S+T)\mathbf{n} \rangle_w &= \langle \mathbf{w}, S\mathbf{v}+T\mathbf{v} \rangle_w \\
+    & = \langle \mathbf{w}, S\mathbf{v} \rangle_w + \langle \mathbf{w}, T\mathbf{v} \rangle_w \\
+    & = \langle S^*\mathbf{w}, \mathbf{v} \rangle_v +\langle T^*\mathbf{w}, \mathbf{v} \rangle_v \\
+    & = \langle (S^* + T^*)\mathbf{w}, \mathbf{v} \rangle_v
+\end{align*}\\
+And we have that $(S+T)^* = S^* + T^*$
+\begin{align*}
+    \langle \mathbf{w}, \alpha  T\mathbf{v} \rangle_w &= \langle \bar \alpha \mathbf{w}, T\mathbf{v} \rangle_w \\
+    & = \langle \bar \alpha  \mathbf{w}, T^*\mathbf{v} \rangle_v
+\end{align*}
+\\
+And we have that $(\alpha T)^* = \bar \alpha T ^*$\\
+\subsection*{3.39 (ii)}
+\begin{align*}
+    \langle \mathbf{w}, S\mathbf{v} \rangle_w & = \langle S^*\mathbf{w}, \mathbf{v} \rangle_v = \langle \mathbf{w}, (S^*)^*\mathbf{v} \rangle_w
+\end{align*}
+\\
+And we have that $(S^*)^* = S$\\
+\subsection*{3.39 (iii)}
+\begin{align*}
+    \langle \mathbf{v}, ST\mathbf{v} \rangle & = \langle S^*\mathbf{v}, T\mathbf{v} \rangle = \langle T^*S^*\mathbf{v}, \mathbf{v} \rangle 
+\end{align*}
+\\
+And we have that $(ST)^* = T^*S^*$\\
+\subsection*{3.39 (iv)}
+\begin{align*}
+    \langle \mathbf{v}, \mathbf{v} \rangle & = \langle TT^{-1}\mathbf{v}, \mathbf{v} \rangle \\
+    & = \langle T^{-1}\mathbf{v}, T^*\mathbf{v} \rangle \\
+    & = \langle \mathbf{v}, (T^{-1})^*T^*\mathbf{v} \rangle  = \langle \mathbf{v}, \mathbf{v} \rangle 
+\end{align*}\\
+And we have that $(T^{-1})^* T^* = I$, implying $(T^{-1})^* = (T^*)^{-1}$.
+
+\subsection*{3.40}
+We know that $L^*:W\rightarrow V$ and $\mathbf{v}\in \mathscr{R}(L^*)^\bot$ iff 
+\[\langle \mathbf{v}, L^* \mathbf{w} \rangle = 0 \forall \mathbf{w} \in W\]
+This is true iff 
+\[\langle L\mathbf{v}, \mathbf{w} \rangle =0 \quad \forall \mathbf{v} \in V\]
+which happens iff 
+\[\mathbf{v} \in \mathscr{N}(L)\]
+Therefore, $\mathscr{N}(L) = \mathscr{R}(L^*)^{\bot}$, and by Lemma 3.7.18, $\mathscr{N}(L)^\bot = \mathscr{R}(L^*)$
+
+
+\subsection*{3.41 (i)}
+It is sufficient to show $\langle Y,AX\rangle = \langle A^HY,X\rangle$\\
+\begin{align*}
+\langle Y, AX\rangle = tr(Y^HAX) = tr(A^HY)^HX)= \langle A^HY,X\rangle
+\end{align*}
+\subsection*{3.41 (ii)}
+\begin{align*}
+\langle V,WA \rangle = tr(V^HWA) = tr(AV^HW) = tr((VA^H)^HW)=\langle VA^*,W\rangle
+\end{align*}
+\subsection*{3.41 (iii)}
+\begin{align*}
+    \langle (T_A(B))^*,C\rangle & = \langle B,T_A(C)\rangle\\
+    & = \langle B, AC-CA \rangle = tr(B^H(AC_CA))  \\ 
+    & =tr(B^HAC)-tr(B^HCA)=\langle B,AC\rangle -\langle B,CA\rangle\\
+    & = \langle A^*B,C\rangle - \langle BA^*,C\rangle \\
+    & = tr(B^H(A^*)^HC)-tr((A^*)^HB^HC) = tr(B^H(A^*)^HC-(A^*)^HB^HC)\\ 
+    & = \langle A^*B-BA^*,C\rangle\\
+    & = \langle T_{A^*}(B),C\rangle \\
+\end{align*}\\
+And we have that $(T_A)^* = T_{A^*}$
+
+\subsection*{3.42}
+Note that $A^* = A^H$, and if there exists a solution to 
+\[A \mathbf{x} = \mathbf{b}  \implies \mathbf{x} \in \mathscr{R}(A)\]
+Otherwise, it would be the case that 
+\[\mathbf{x} \in \mathscr{R}(A)^\bot\]
+because they are complement subspaces. By Theorem 3.7.21, we know 
+\[\mathscr{R}(A)^\bot = \mathscr{N}(A^H)\]
+Therefore, we have that \[\mathbf{x} \in \mathscr{R}(A) \quad \text{ or }\quad \mathbf{x} \in \mathscr{N}(A^H)\]
+
+
+
+\subsection*{3.43}
+
+If $A$ and $B$ are arbitrary matrices in the spaces $\text{Sym}_n(\mathbb{R})$ and $\text{Skew}_n(\mathbb{R})$, respectively, then So $A^T = A$ and $B^T = -B$. We also know that the following is true:
+\[tr(CD) = tr(DC) \quad\text{and}\quad tr(C) = tr(C^T)\]
+\[\implies \langle A,B \rangle = \text{tr}(A^TB) = \text{tr}((-1)A^TB^T) =  -\text{tr}(A^TB^T) = -\text{tr}((BA)^T) =  -\text{tr}(AB)\] but $\text{tr}(AB) = -\text{tr}(AB)$ only holds iff $\text{tr}(AB) =  0$. \\\\
+Therefore, the set of symme\text{tr}ic ma\text{tr}ices in $M$ is orthogonal to the set of skew ma\text{tr}ices.
+
+
+
+\end{document}
+

@@ -1,0 +1,171 @@
+\documentclass[8pt]{extarticle}
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,paperwidth =5in, paperheight = 3in,tmargin=0in,bmargin=0in,lmargin=0.1in,rmargin=0.1in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+{\small
+$DEF \mathbf{innerproduct}$ on $V$,a scalar-valued map $\langle \cdot,\cdot \rangle: V\times V \to \mathbb{F}$ that satisfies, for $\mathbf{x,y,z} \in V$, $a,b \in \mathbb{F}: (i) \langle x,x \rangle \geq 0, eq. iff \mathbf{x} =0 $
+(ii) $\langle x,a \mathbf{y} + b \mathbf{z}  \rangle = a \langle x,y \rangle + b \langle x,z \rangle$
+(iii)$ \langle x,y \rangle = \overline { \langle y,x \rangle }$
+$DEF$ A vector space together with an inner product is called an \textbf{inner product space} ($V, \langle \cdot,\cdot \rangle$) 
+
+$PROP3.1.3$ Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space. For any $\mathbf{x,y,z} \in V$ an any $a \in \mathbb{F}$, we have (i)
+$\langle \mathbf{x + y},\mathbf{z} \rangle  = \langle \mathbf{x},\mathbf{z} \rangle + \langle \mathbf{y},\mathbf{z} \rangle 
+(iii) \langle a \mathbf{x},\mathbf{y} \rangle = \overline a \langle x,y \rangle$
+
+$DEF$ Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space. The length of a vector $\mathbf{x} \in V$ induced by the inner product is $|| \mathbf{x} || = \sqrt{ \langle x,x \rangle} $. If $||\mathbf{x} || = 1$, we say that x is a unit vector. The distance between two vectors $x,y \in V$ is the length of the difference, that is, $dist(x,y)=||x-y||$
+
+$PROPCauchyShwarz$ Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space. For all $ \mathbf{x,y} \in V$, we have $| \langle x,y \rangle | \leq ||\mathbf{x}||||\mathbf{y}||$
+
+$DEF$ Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space. We define the angle between two nonzero vectors $\mathbf{x,y}$ be the unique angle $\theta \in [0, \pi]$ such that 
+$\text{cos}(\theta) = \langle x,y \rangle / ||\mathbf{x}||||\mathbf{y}||$
+
+$THMPythagoreanLaw$ If $\mathbf{x,y}$ are orthongonal vectors in the inner product space ($V, \langle \cdot,\cdot \rangle$), then $||\mathbf{x + y}||^2 = ||\mathbf{x}||^2 + ||\mathbf{y}||^2$
+
+$DEF$  Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space. For any unit vector $\mathbf{u}\in V$ and any $\mathbf{x} in V$, define the orthogonal projection of $\mathbf{x}$ onto span($\{\mathbf{u}\}$) to be $\text{proj}_{span(\{\mathbf{u}\})}(\mathbf{x}) = \langle u,x \rangle u$
+
+$PROP 3.1.23$ Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space. For any unit vector $\mathbf{u} \in V$ the map $\text{proj}_u: V \to V$ is a linear operator. Moreover the following hold:
+(i) $\text{proj}_u \circ \text{proj}_u =  \text{proj}_u $ 
+(ii) Residual vector $r = v - \text{proj}_u(v)$  is orthogonal to vector in span(u), including $\text{proj}_u(v)$. Thus $r$ lies in $\mathscr{N}(\text{proj}_u$
+(iii) The vector $\text{proj}u(v)$ is the unique vector in span(u) that is nearest to $\mathbf{v}$
+
+$REM$ for any $v \in  V, u = v / ||v||, \text{proj}u(x) = \langle v / ||v||,x \rangle v/||v|| = \langle v,x \rangle v / \langle v,v \rangle$
+
+$DEF$ Let ($V, \langle \cdot,\cdot \rangle$) be an inner product space and $\{\mathbf{x}_i\}_{i=1}^m$ is a finite orthonormal set with span($\{\mathbf{x}_i\}_{i=1}^m) = X$, then for any $\mathbf{v} \in V$ we define orthogonal projection onto $X$ as $\text{proj}_X(\mathbf{v}) = \sum^{m}_{i=1} \langle \mathbf{x}_i,\mathbf{v} \rangle \mathbf{x}_i$.
+
+$THM 3.2.6$ If $\{\mathbf{x}_i\}_{i=1}^m$ is a finite orthonormal set with span = $X$, then the map $\text{proj}_X: V \to V$ is a linear transformation, and (i) $proj_X \circ proj_X = proj_X$
+(ii) For every $\mathbf{v} \in V$, $r$ is orthogonal to every $x \in X$. Thus $\mathbf{r}$ lies in $\mathscr{N}proj_X$
+(iii) The image $proj_X(\mathbf{v})$ is the unique vector in $X$ that is nearest to $\mathbf{v}$. That is, $||v - \text{proj}_X(v) || < ||\mathbf{v} - \mathbf{x}||$ for all $\mathbf{x} \in X$ where $\mathbf{x} \neq \text{proj}_X(v)$.
+
+$THMPythagorean Theorem$ LVbaips. If $\{\mathbf{x}_i\}_{i=1}^m$ is a finite orthonormal set with span = $X$, then every $\mathbf{v} \in V$ satisfies $||v||^2 = \sum^{m}_{i=1} |\langle x_i,v \rangle|^2 + ||v - \sum^{m}_{i=1} \langle x_i,v \rangle x_i||^2  $
+
+$Bessel's Inequality$ LVbaips. If $\{\mathbf{x}_i\}_{i=1}^m$ is a finite subset of an orthonormal set $\mathscr{C} \in V$, then every $v \in V$ satisfies $||v||^2 \geq \sum^{m}_{i=1} | \langle x_i,v \rangle|^2 = ||\text{proj}_X(v)||^2$
+
+$DEF$ A linear map $L$ from an IPS $V$ to an inner product space $W$ is called an orthonormal transformation if for every $x,y \in V$ we have $\langle x,y \rangle_V = \langle Lx,Ly \rangle_W$ If $L: V \to V$, it is an orthonormal operator. 
+
+$PROP$ LVbaips. If $L$ is an orthonormal operator, it is invertible. 
+
+$DEF$ A square matrix $Q$ is orthonormal if it is the matrix representation of an orthonormal operator on $\mathbb{F}^n$ with the standard bases and the standard inner products.
+
+
+$THM$ Let $Q, Q_1, Q_2$ be orthonormal square matrices and assuming the usual inner product. Then 
+(i) $||Qx|| = ||x||$
+(ii) $Q_1Q_2$ is an orthonormal matrix
+(iii) $Q^{-1}$ is orthonormal matrix
+(iv) The matrix $Q$ is an orthonormal matrix iff $Q^HQ = QQ^H = I$.
+(v) The columns of $Q$ are orthonormal 
+(vi) $|\text{det}(Q)| = 1$
+
+$THM Gram-Schmidt$ Let $x_1, x_2,\ldots x_n$ be a linearly independent set in ipsV. Define $q_1 = x_1/||x_1||$ and $q_k = (x_k - p_{ k-1}) / ||x_k - p_{ k-1}||$ where $p_{k-1} = \text{proj}_{Q^{k-1}}(x_k) = \sum^{k-1}_{i=1} \langle q_i, x_k \rangle q_i$. Resulting set orthonormal with same span as $x_1, x_2,\cdots, x_n$.
+
+$THMQRDecompostion$
+Let $A$ be an mxn matrix of rank n. Then A can be factored into a product QR, where $Q$ is an mxn matrix with orthonormal columsn and R is a nonsingular nxn upper triangular matrix $R = Q^HA$
+
+$DEF$ A Hyperplane $W$ in a vector space V is any subspace such that V/W is one dimensional.
+
+$DEF$. Given a unit vector $ v \in \mathbb{F}^n$, we define the hyperplane $Y$ to be the subset of $\mathbb{F}^n$where every element of $Y$ is orthogonal to v. More precisely $Y = \{y \in  \mathbb{F}^n | \langle v,y \rangle = 0\}$. Reflection across hyperplane orthogonal to v given by $H_v = I - (2vv^H/v^Hv) $
+
+$PROP$ reflection through the hyperplane orthogonal to v is an orthonormal transformation.
+
+$DEF$ A norm is a map that satisfies: 
+(i)$||x|| \geq 0$
+(ii) $||ax|| = |a| ||x||$
+(iii) $||x + y|| \leq ||x|| + ||y||$
+A vector space with a norm is called a normed linear space
+
+$DEF. ||g||_{L^\infty} = sup\{ ||g(x)|| | x \in X\}$
+$DEF$ Induced norm  on $\mathscr{B}(V,W)$ is $||T||_{V,W} = sup_{x\neq 0} (||T(x)||_W/||x||_V) = sup_{||x||_V =1} ||T(x)||_W$. 
+
+$DEF$ If $ST \in \mathscr{B}(X,Z), 
+||ST||_{X,Z} \leq ||S||_{Y,Z}||T||_{X,Y}$
+
+$THM$
+1-norm, largest column sums. $\infty$ norm, largest column sums (after taking abs. value of each entry).
+
+$Young's$
+If $a,b \geq 0, 1/p + 1/q = 1, 1 < p,q < \infty \implies ab \leq a^p/p + b^q/q$.
+
+$Arithmetic-Geometric Mean$ If $a,b \geq 0, 0 \leq \theta \leq 1 \implies a^\theta b^{1-\theta} \leq \theta a  + (1- \theta)b$.
+
+$Holder's$ If $x,y \in \mathbb{F}^n, 1/p + 1/q = 1, 1 < p < \infty \implies \sum^{n}_{k=1} |x_ky_k| \leq ||x||_p||y||_q$
+
+$Minkowski's$ 
+If $x,y \in \mathbb{F}^n, 1 < p < \infty \implies ||x+y||_p \leq ||x||_p + ||y||_p$
+
+
+DEF: Given two inner product spaces of V and W, and that $L: V \to W$ is a linear transformation, the adjoint of $L$ is a linear transformation $L^*:W \to V$ s.t. $\langle w,Lv \rangle_W = \langle L^*w,v \rangle_V, \forall v \in V, w\in W$
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

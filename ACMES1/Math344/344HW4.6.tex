@@ -1,0 +1,312 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 4.6}
+\author{Chris Rytting}
+\maketitle
+\subsection*{4.33}
+We know that $A^HA$'s eigenvalues are the squared singular values of $A$, and since $(A^HA)^H = (A^HA)$, the same thing applies for $A^H$. Now, we know that 
+\[p_A(z) = \text{det}(A - zI) = (\lambda_1 - z) (\lambda_2 - z)\dots(\lambda_n - z) \]
+\[\implies p_A(0) = \text{det}(A) = (\lambda_1) (\lambda_2)\dots(\lambda_n) =\Pi_{i = 1}^{n} \lambda_i  \]
+
+This gives us that
+\begin{align*}
+    \vert \text{det}(A^HA)\vert &= \vert \Pi_{i = 1}^{n} \lambda_i \vert \\
+    &= \vert \Pi_{i = 1}^{n} \sigma_{Ai}^2 \vert \\
+    &= \vert \Pi_{i = 1}^{n} \sigma_{A^Hi}^2 \vert \\
+\end{align*}
+Since these are equal, we will denote them
+\begin{align*}
+    &= \vert \Pi_{i = 1}^{n} \sigma_{i}^2 \vert \\
+\end{align*}
+As for the other side of the equality, we have that
+\[\text{det}(A) = \Pi_{i = 1}^{n} \lambda_i = \text{det}(A^H) \]
+and so the left side of the equality turns into 
+ 
+\begin{align*}
+\vert \text{det}(A^HA)\vert &=\vert \text{det}(A)\text{det}(A^H)\vert  \\
+&=\vert \text{det}(A)\vert^2 \\
+\end{align*}
+and we have finally that 
+\begin{align*}
+\vert \text{det}(A)\vert^2 &= \vert \Pi_{i = 1}^{n} \sigma_{i}^2 \vert \\
+\implies \vert \text{det}(A)\vert &= \vert \Pi_{i = 1}^{n} \sigma_{i} \vert \\
+\implies \vert \text{det}(A)\vert &=  \Pi_{i = 1}^{n} \sigma_{i} \\
+\end{align*}
+since the singular values of $A$ are positive and real. Therefore the equality holds and we have the desired result.
+
+\subsection*{4.34}
+
+
+If we let 
+\[A = \begin{bmatrix}-i & 0 \\
+                0 & i \\
+\end{bmatrix}\]
+whose eigenvalues are $\lambda = -i, i$ whose determinant $\text{det}(A) = 1$\\
+Therefore, \[A^HA = \begin{bmatrix}1 & 0 \\
+                0 & 1 \\
+\end{bmatrix}\]
+whose eigenvalue is 1. Therefore, we have that the singular value is 1. 
+
+\subsection*{4.35}
+As the first $r$ columns of $U$ and $V$ from the Singular Value Decomposition of $A$ yield $U_1$ and $V_1$, $\Sigma_1$ is the $r \times r$ diagonal matrix with the diagonals as the non-zero eigenvalues of $A^HA$, we have the following
+\[ 
+U_1 = 
+\begin{bmatrix} \frac{1}{\sqrt{5}} \\ 0 \\ \frac{2}{\sqrt{5}} \end{bmatrix}
+\quad
+\Sigma_1 = 
+\begin{bmatrix} \sqrt{15} \end{bmatrix}
+\quad
+V_1 = 
+\begin{bmatrix} \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}}\\0 \end{bmatrix}
+\]
+Then we have, by the definition of the Moore-Penrose Inverse,
+\[   
+A^{\dagger} =
+    \begin{bmatrix} \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}}\\0 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{15}} \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{5}} & 0 & \frac{2}{\sqrt{5}} \end{bmatrix}
+=
+\begin{bmatrix} 
+    \frac{1}{15} & 0 & \frac{2}{15} \\
+    \frac{1}{15} & 0 & \frac{2}{15} \\
+    \frac{1}{15} & 0 & \frac{2}{15} \\
+    0 & 0 & 0 
+\end{bmatrix}
+\]
+Now, we have that
+\[
+A^HA=\begin{bmatrix}
+    5&5&5&0\\
+    5&5&5&0\\
+    5&5&5&0\\
+    0&0&0&0
+\end{bmatrix}
+\quad
+A^{\dagger}A=\begin{bmatrix}
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+    0&0&0&0
+\end{bmatrix}
+\]
+The matrices are scalar multiples of one another.
+
+
+\subsection*{4.36}
+\[ A = U_1 \Sigma_1 V_1^H \quad  A^\dagger = V_1 \Sigma^{-1}_1 U_1^H\]
+So we have that
+\subsection*{4.36 (i)}
+\begin{align*}
+AA^\dagger A&=  U_1 \Sigma_1 V_1^H   V_1 \Sigma^{-1}_1 U_1^H U_1 \Sigma_1 V_1^H\\
+&=  U_1 \Sigma_1I \Sigma^{-1}_1 I \Sigma_1 V_1^H\\
+&=  U_1 I I \Sigma_1 V_1^H\\
+&=  U_1 \Sigma_1 V_1^H\\
+&=  A\\
+\end{align*}
+
+
+
+\subsection*{4.36 (ii)}
+\begin{align*}
+    A^\dagger AA^\dagger&=  V_1 \Sigma^{-1}_1 U_1^H   U_1 \Sigma_1 V_1^H  V_1 \Sigma^{-1}_1 U_1^H\\
+&=  V_1 \Sigma^{-1}_1I \Sigma_1 I \Sigma^{-1}_1 U_1^H\\
+&=  V_1 I \Sigma^{-1}_1 U_1^H\\
+&=  A^\dagger\\
+\end{align*}
+
+
+
+\subsection*{4.36 (iii)}
+\begin{align*}
+    (AA^\dagger)^H &= (U_1 \Sigma_1 V_1^H   V_1 \Sigma^{-1}_1 U_1^H)^H\\
+&= U_1 (\Sigma^{-1}_1)^H V_1^H V_1  (\Sigma_1)^H       U_1^H\\
+&= U_1 (\Sigma^{-1}_1)^H I  (\Sigma_1)^H       U_1^H\\
+&= U_1 (\Sigma_1 \Sigma^{-1}_1)^H       U_1^H\\
+&= U_1       U_1^H\\
+&= I\\
+\end{align*}
+and we have that
+\begin{align*}
+    AA^\dagger &=  U_1 \Sigma_1 V_1^H V_1 \Sigma^{-1}_1 U_1^H  \\
+&=  U_1 \Sigma_1 I \Sigma^{-1}_1 U_1^H  \\
+&=  U_1 I U_1^H  \\
+&=  U_1 U_1^H  \\
+&=  I  \\
+\end{align*}
+which is equivalent to the first expression.
+
+\subsection*{4.36 (iv)}
+
+
+\begin{align*}
+    A^\dagger A &=  V_1 \Sigma^{-1}_1 U_1^H U_1 \Sigma_1 V_1^H  \\
+                    &= V_1(\Sigma_1)^H(U_1)^HU_1 (\Sigma^{-1}_1)^HV_1^H\\
+                    &= V_1(\Sigma_1)^H I (\Sigma^{-1}_1)^HV_1^H\\
+                    &= V_1(\Sigma^{-1}_1\Sigma_1)^H V_1^H\\
+                    &= V_1(I)^H V_1^H\\
+                    &= V_1 V_1^H\\
+                    &= I\\
+\end{align*}
+and we have that
+
+\begin{align*}
+    A^\dagger A &= V_1 \Sigma^{-1}_1 U_1^H U_1 \Sigma_1 V_1^H  \\
+&= V_1 \Sigma^{-1}_1 I \Sigma_1 V_1^H  \\
+&= V_1  I  V_1^H  \\
+&= I    \\
+\end{align*}
+which is equivalent to the first expression.
+
+\subsection*{4.36 (v)}
+
+\begin{align*}
+    A A^\dagger &= U_1    U_1^H  \\
+\end{align*}
+We know, though, that the first $r$ columns of $U_1$ form a basis for $\mathscr{R}(A)$, so it follows that anything's projection onto $\mathscr{R}(A)$ can be expressed in terms of this basis.
+
+
+\subsection*{4.36 (vi)}
+
+\begin{align*}
+     A^\dagger A&= V_1    V_1^H  \\
+\end{align*}
+
+We know, though, that the first $r$ columns of $V_1$ form a basis for $\mathscr{R}(A^H)$, so it follows that anything's projection onto $\mathscr{R}(A^H)$ can be expressed in terms of this basis.
+
+\subsection*{4.37}
+Note
+\begin{align*}
+    || \Delta||_2 &= || - \sum^{r}_{i = s+1} \sigma_i u_i v_i^H||_2 \\ 
+    &\geq \sigma_{s+1} \\ \\
+    &\text{by Schmidt-Eckart-Young-Mirsky}\\\\
+    &= \text{inf}_\text{rank(B) = S} ||A-B||_2 \\ 
+    &= \text{inf}_\text{rank(B) = S} || \sum^{r}_{i=1}  \sigma_iu_iv_i^H - \sum^{s}_{i=1}  \sigma_iu_iv_i^H||_2 \\ 
+    &= \text{inf}_\text{rank(B) = S} || \sum^{r}_{i=s+1}  \sigma_iu_iv_i^H ||_2 \\ 
+    &= \text{inf}_\text{rank(B) = S} || - \sum^{r}_{i=s+1}  \sigma_iu_iv_i^H ||_2 \\ 
+\end{align*}
+Which holds, so we have the inequality thanks to the infimum.\\\\
+
+Now note
+\begin{align*}
+    ||- \sum^{r}_{i=s+1} \sigma_iu_iv_i^H ||_F &\geq \left( \sum^{r}_{k = s+1} \sigma_k^2 \right)^{1/2}\\
+    &\text{by Schmidt-Eckart-Young-Mirsky}\\\\
+    &= \text{inf} ||A-B||_F \\
+    &= \text{inf} || \sum^{r}_{i=s+1} ||_F \\
+    &= \text{inf} || -\sum^{r}_{i=s+1} ||_F \\
+\end{align*}
+which also holds, so we have the desired inequality thanks to the infimum.
+
+\subsection*{4.38}
+Note that
+\begin{align*}
+    (I - A\Delta^{\diamond})\textbf{u}_1 &= (I - U\Sigma V^H\frac{1}{\sigma_1}\textbf{v}_1 \textbf{u}_1^H) \textbf{u}_1 \\
+    &=  \textbf{u}_1 - U\Sigma V^H\frac{1}{\sigma_1}\textbf{v}_1 \textbf{u}_1^H \textbf{u}_1 \\
+    &=  \textbf{u}_1 - U\frac{1}{\sigma_1}\Sigma V^H\textbf{v}_1 \\
+    &=  \textbf{u}_1 - U\frac{1}{\sigma_1}\Sigma     
+    \begin{bmatrix} \textbf{v}_1 | \textbf{v}_2 | \dots |\textbf{v}_n \end{bmatrix}^H\textbf{v}_1 \\
+\end{align*}
+Now, we know that $\textbf{v}_i$ are orthonormal for all $i$, so we have 
+\begin{align*}
+    &=  \textbf{u}_1 - U\frac{1}{\sigma_1}\Sigma     
+    \begin{bmatrix} \textbf{v}_1 | \textbf{v}_2 | \dots |\textbf{v}_n \end{bmatrix}^H\textbf{v}_1 \\
+    &=  \textbf{u}_1 - U\frac{1}{\sigma_1}\Sigma     
+    \begin{bmatrix} 1\\ 0 \\ \vdots \\ 0 \end{bmatrix} \\
+\end{align*}
+We also know that because of the format of the matrix $\Sigma$:
+\begin{align*}
+    &=  \textbf{u}_1 - U\frac{1}{\sigma_1}\Sigma \begin{bmatrix} 1\\ 0 \\ \vdots \\ 0 \end{bmatrix} \\
+    &=  \textbf{u}_1 - U\frac{1}{\sigma_1}\begin{bmatrix} \sigma_1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \\
+    &=  \textbf{u}_1 - U\begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \\
+        &=  \textbf{u}_1 - \textbf{u}_1  = \textbf{0}\\
+\end{align*}
+
+
+\subsection*{4.39}
+
+
+\[
+    \|A\|_2 \|\Delta\|_2 = \sigma_1 \|\Delta\|_2 < \sigma_1 \frac{1}{\sigma_1} = 1
+\]
+which is the desired result.
+
+\subsection*{4.40 (i)}
+
+
+         Let $\mathscr{R}(\Delta) \subset \mathscr{R}(A)$
+         and we have
+         \begin{align*}
+             A + \Delta & = (A^\dagger A+A^\dagger \Delta)\\
+             & = A^\dagger A (I + \Delta) \\
+             & = (I +A^\dagger \Delta)
+         \end{align*}
+\subsection*{4.40 (ii)}
+Note, rank$(XY) <    \text{rank}(X)$. Thus, $\exists \mathbf{v}$ s.t. $XY \mathbf{v} = 0$, but $X     \mathbf{v} \neq 0$.\\
+         Therefore $\mathbf{v} \in \mathscr{N}(Y)$, which is non-triv    ial, thus $Y$ is not invertible.
+\subsection*{4.40 (iii)}
+         Suppose $A + \Delta$ has rank $s < r$. Thus, by (i) and (ii), 
+         \[ \text{rank} (A + \Delta) = \text{rank}(A(I + A^\dagger \Delta))\]
+and by Thm. 4.6.7
+        \[\|\Delta\|_2 \geq \sigma_r\]
+
+
+
+
+\end{document}

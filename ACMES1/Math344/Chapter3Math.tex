@@ -1,0 +1,670 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\title{Chapter 3 Math}
+\author{Lehner White}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Exercise 3.1}
+i)
+\begin{align*}
+\langle x,y\rangle  &= \frac{1}{4}(\|x+y\|^{2} - \|x-y\|^{2}) \\
+&= \frac{1}{4}[(\langle x,x\rangle  + \langle x,y\rangle  + \langle y,x\rangle  + \langle y,y\rangle ) - (\langle x,x\rangle  - \langle x,y\rangle  - \langle y,x\rangle  + \langle y,y\rangle )] \\
+&= \frac{1}{4}(2\langle x,y\rangle  + 2\langle y,x\rangle ) \\
+&= \frac{1}{4}(4\langle x,y\rangle ) \\
+&= \langle x,y\rangle 
+\end{align*}
+ii)
+\begin{align*}
+\|x\|^{2}\|y\|^{2} &= \frac{1}{2}(\|x+y\|^{2} + \|x-y\|^{2}) \\
+&= \frac{1}{2}(\langle x,x\rangle  + \langle x,y\rangle  + \langle y,x\rangle  + \langle y,y\rangle + \langle x,x\rangle  - \langle x,y\rangle  - \langle y,x\rangle  + \langle y,y\rangle ) \\
+&= \frac{1}{2}(2\langle x,x\rangle  + 2\langle y.y\rangle ) \\
+&= \langle x,x\rangle  + \langle y,y\rangle 
+\end{align*}
+
+\subsection*{Exercise 3.2}
+\begin{align*}
+\langle x,y\rangle  &= \frac{1}{4}(\|x+y\|^{2} - \|x-y\|^{2} + i\|x-iy\|^{2} - i\|x+iy\|^{2}) \\
+&= \frac{1}{4}(4\langle x,y\rangle  + i\langle x-iy,x-iy\rangle  - i\langle x+iy,x+iy\rangle ) \\
+&= \frac{1}{4}[4\langle x,y\rangle  + i(\langle x,x\rangle  + \langle x,-iy\rangle  + \langle -iy,x\rangle  + \langle -iy,-iy\rangle ) \\
+&~~~~~~~ - i(\langle x,x\rangle  + \langle x,iy\rangle  + \langle iy,x\rangle  + \langle iy,iy\rangle )] \\
+&= \frac{1}{4}(4\langle x,y\rangle  + i(\langle iy,x\rangle  + \langle -iy,x\rangle ) - i(\langle -iy,x\rangle  + \langle iy,x\rangle ) \\
+&= \frac{1}{4}(4\langle x,y\rangle )
+\end{align*}
+
+\subsection*{Exercise 3.3}
+i)
+\begin{align*}
+cos(\theta)& = \frac{\langle x,x^{5}\rangle }{\|x\|\|x^{5}\|} \\
+\langle x,x^{5}\rangle  &= \int^{1}_{0} x^{6} dx = \frac{1}{7}x^{7} |_{0}^{1} = \frac{1}{7} \\
+\|x\| &= \sqrt{\langle x,x\rangle } = \int^{1}_{0} x^{2} dx = \frac{1}{3}x^{3} |_{0}^{1} = \frac{1}{\sqrt{3}} \\ 
+\|x^{5}\| &= \sqrt{\langle x,x\rangle } = \int^{1}_{0} x^{10} dx = \frac{1}{11}x^{11} |_{0}^{1} = \frac{1}{\sqrt{11}} \\ 
+\theta &= cos^{-1}(\frac{\sqrt{33}}{7}) \approx .60824
+\end{align*}
+ii)
+\begin{align*}
+cos(\theta)& = \frac{\langle x^{2},x^{4}\rangle }{\|x^{2}\|\|x^{4}\|} \\
+\langle x,x^{4}\rangle  &= \int^{1}_{0} x^{5} dx = \frac{1}{6}x^{6} |_{0}^{1} = \frac{1}{6} \\
+\|x^{2}\| &= \sqrt{\langle x,x\rangle } = \int^{1}_{0} x^{4} dx = \frac{1}{5}x^{5} |_{0}^{1} = \frac{1}{\sqrt{5}} \\ 
+\|x^{4}\| &= \sqrt{\langle x,x\rangle } = \int^{1}_{0} x^{8} dx = \frac{1}{9}x^{9} |_{0}^{1} = \frac{1}{\sqrt{9}} \\ 
+\theta &= cos^{-1}(\frac{\sqrt{45}}{6}) \approx .48121
+\end{align*}
+
+\subsection*{Exercise 3.4}
+
+
+\subsection*{Exercise 3.5}
+\[f = e^{x} ~~~~~~~~~ g = x-1 \] \\
+\begin{align*}
+proj_{u}(f) &= \frac{\langle g,f\rangle }{\langle g,g\rangle } \cdot g \\
+\langle g,f\rangle  &= \langle e^{x}, x-1\rangle  = \int_{0}^{1}xe^{x} - e^{x} dx = xe^{x} - 2e^{x} |_{0}^{1} = (e-2e) + (2) = -e +2 \\ 
+\langle g,g\rangle  &= \int_{0}^{1}(x-1)^{2} = \int_{0}^{1} x^{2} - 2x + 1 dx = \frac{1}{3}x^{3} - x^{2} + x |_{0}^{1} = \frac{1}{3} \\
+\frac{-e+2}{\frac{1}{3}} &\cdot(x-1) = (-3e+6)(x-1)
+\end{align*}
+
+\subsection*{Exercise 3.6}
+Starting with  $0\leq\|x-\lambda y\|^{2}$ we define $\lambda = \frac{\langle x,y\rangle }{\langle y,y\rangle }$ and we continue as follows:
+\[\|x-\lambda y\|^{2} = \langle x-\lambda y, x-\lambda y\rangle \]
+Note that $x-\lambda y$ is orthogonal to $y$ and thus $\lambda y$, meaning that $\langle x-\lambda y,-\lambda y\rangle  = 0$ and $\langle -\lambda y, x-\lambda y\rangle  = 0$. 
+ \begin{align*}
+0 \leq \|x-\lambda y\|^{2} &= \langle x-\lambda y, x-\lambda y\rangle  \\
+&= \langle x,x\rangle  - \langle \lambda y, x\rangle  \\
+&= \| x^{2} \| - \frac{\langle x,y\rangle ^{2}}{\langle y,y\rangle ^{2}} \\
+&= \| x^{2} \| - \frac{\langle x,y\rangle ^{2}}{\|y\|^{2}} \\
+0 \leq \| x^{2} \| &- \frac{\langle x,y\rangle ^{2}}{\|y\|^{2}} \\
+&\Rightarrow \frac{\langle x,y\rangle ^{2}}{\|y\|^{2}} \leq \| x^{2} \| \\
+&\Rightarrow \frac{\langle x,y\rangle }{\|y\|} \leq \| x \| \\
+&\Rightarrow \langle x,y\rangle  \leq \| x \| ~\| y \| \\
+\end{align*}
+
+\subsection*{Exercise 3.7}
+Starting with Bessel's inequality saying that $ \|v\|^{2} \geq \sum_{i=1}^{m} |{\langle x_{i},v\rangle }|^{2} = \| proj_{x}(v)\|^{2}$ and we define $x_{i} = \{ \frac{x}{\|x\|} \}$. 
+
+\begin{align*}
+\|v\|^{2} &\geq \sum_{i=1}^{m} |{\frac{x}{\|x\|},v\rangle }|^{2} \geq |{\frac{x}{\|x\|},v\rangle }|^{2} \\
+\|v\| &\geq \frac{1}{\|x\|}|\langle x,v\rangle | \\
+\|v\|~\|x\| &\geq |\langle x,v\rangle | \\
+\end{align*}
+
+\subsection*{Exercise 3.8}
+i) \\ \\
+We show that the set is normal by showing that for $s\in S ~ \|s\| = 1$, and show that it is orthogonal by showing that $\langle s_{1}, s_{2} \rangle = 0 ~ \forall s_{1}, s_{2} \in S$. \\ \\
+\[\langle  cos(x), cos(x)\rangle   = \frac{1}{\pi}\int ^{\pi}_{-pi} cos^2(x)dx = \frac{1}{\pi}[x+sin(x)cos(x)]^\pi_0 = 1\]
+\[\langle  sin(x), sin(x)\rangle   = \frac{1}{\pi}\int ^{\pi}_{-pi} sin^2(x)dx = \frac{1}{\pi}[x-sin(x)cos(x)]^\pi_0 = 1\]
+Our other two elements follow from the first as they are simply a change in period within our trigonometric functions.\\
+\begin{align*}
+\langle  cos(x), sin(x)\rangle   &= \frac{1}{\pi}\int ^\pi_{-\pi} cos(x)sin(x)dx = (\frac{1}{\pi})(\frac{-1}{2}) cos^2(x)_{-\pi}^\pi = 0 \\
+\langle  cos(x), cos(2x)\rangle   &= \frac{1}{\pi}\int_{-\pi}^{\pi}cos(x)cos(2x)dx=\frac{1}{\pi}\int_{-\pi}^{\pi}cos(x)[cos^2(x)-sin^2(x)]dx \\
+&=\frac{1}{\pi}\int_{-\pi}^{\pi}cos^3(x)dx-\int_{-\pi}^{\pi}sin^2(x)cos(x)dx = \frac{1}{\pi}(0)=0 \\
+\langle  cos(x), sin(2x) \rangle   &= \frac{1}{\pi}\int_{-\pi}^{\pi}cos(x)sin(2x)=\frac{1}{\pi}[\frac{-2}{3}cos^3(x)]_{-\pi}^\pi=0 \\
+\langle  sin(x), cos(2x) \rangle   &= \frac{1}{\pi}\int_{-\pi}^{\pi}cos^2(x)sin(x)dx-\int_{-\pi}^{\pi}sin^3(x)dx= -\frac{1}{3\pi}cos^3(x)_{-\pi}^\pi = 0 \\
+\langle  sin(x),sin(2x)\rangle  &= \frac{1}{\pi}\int_{-\pi}^{\pi}sin(x)sin(2x)dx=\frac{2}{3\pi}sin^3(x)_{-\pi}^\pi = 0 \\
+\end{align*}
+Again because we solved for $\langle cos(x),sin(x) \rangle$ we know that the same is true of $\langle cos(2x),sin(2x) \rangle$.\\\\\\\\\\
+ii)
+\[\|t\| = \langle  t,t \rangle   = \frac{1}{\pi}\int_{-\pi}^{\pi}t^2dt = \frac{1}{3\pi}[t^3]^\pi_{-\pi}=\frac{2\pi^2}{3}\]
+iii)
+
+\begin{align*}
+proj_X(cos(3t)) &= \langle  cos(t),cos(3t)\rangle   cos(t)+\langle  sin(t),cos(3t)\rangle   sin(t)+\\ 
+&~~~~~\langle  (cos(2t),cos(3t)\rangle   cos(2t) +\langle  sin(2t),cos(3t)\rangle   sin(2t)\\
+&=\frac{1}{\pi}\bigg(\int^\pi_{-\pi}cos(t)cos(3t)dt ~cos(t)+\int^\pi_{-\pi}sin(t)(cos(3t)dt ~sin(t)+\\ 
+&~~~~~~~~\int^\pi_{-\pi}cos(2t)cos(3t)dt~cos(2t)+ \int^\pi_{-\pi}sin(2t)cos(3t)dt~sin(2t)\bigg)\\
+&=\frac{1}{\pi}\big(0 \cdot cos(t)+\frac{-3\pi}{2}sin(t)+0+4\pi sin(2t)\big)=\frac{-3}{2}sin(t)+ 4sin(2t)
+\end{align*}
+This is a linear combination of the starting equations.\\ \\
+iv)
+\begin{align*}
+proj_{x}(t) &= \langle cos(t),t\rangle cos(t)+\langle  sin(t),t\rangle sin(t) + \langle  (cos(2t),t\rangle   cos(2t) +\langle  sin(2t),t\rangle   sin(2t)\\
+&=\frac{1}{\pi}\bigg(\int^\pi_{-\pi}cos(t)t~dt ~cos(t)+\int^\pi_{-\pi}sin(t)t~dt ~sin(t)+\\ 
+&~~~~~~~~\int^\pi_{-\pi}cos(2t)t~dt~cos(2t)+ \int^\pi_{-\pi}sin(2t)t~dt~sin(2t)\bigg) \\
+&=\frac{1}{\pi}(2\pi sin(t)-\pi sin(2t))=2sin(t)-sin(2t)
+\end{align*}
+This is a linear combination of the starting equations.
+
+\subsection*{Exercise 3.11}
+i) \\ \\
+As we take the Hermetian the Q's cancel out due to orthogonality. 
+\[   \|Qx\|_{2} =  \langle Qx,Qx \rangle = (Qx)^HQx = x^Hx = \langle x,x\rangle = \|x\|_{2}  \]
+ii) \\ \\
+By definition if we can multiply this product by it's Hermetian and obtain the identity matrix it is orthonormal.
+\[\langle Q_{1},Q_{2}\rangle = (Q_{1}Q_{2})(Q_{1}Q_{2})^H = Q_{1}Q_{2}Q_{2}^HQ_{1}^H= Q_{1}Q_{1}^{-1} = I \]
+\\ \\
+iii) \\ \\
+Becuase Q is orthonormal, when we take the Hermetian of the inverse this results in the original Q allowing us to perform the following proof:
+\[\langle Q^{-1},Q^{-1}\rangle = Q^{-1}(Q^{-1})^H = Q^{-1}Q = I\]
+iv) \\ \\
+$\Rightarrow$ If Q is orthonormal the previous exercises show that the resulting statement is true. 
+$\Leftarrow$ If $Q^HQ=QQ^H=I$ then by definition Q is orthogonal and further examination will show that $\|Q\| = 1$ and is orthonormal. \\ \\
+v) \\ \\
+Because we know that if Q is orthonormal then either the rows or the columns must be orthonormal. Suppose that the rows are orthinormal. Because we know that $Q^{T}$ is also orthonormal then the columns of Q are orthonormal. \\ \\
+vi) \\ \\
+If $|det(Q)| = 1$ this does not imply that Q is orthonormal. An example is 
+$[\begin{matrix}
+\frac{1}{2} & 2\\
+0 & 1\\
+\end{matrix}]$
+
+\subsection*{Exercise 3.12}
+If this process is applied to a linearly dependent then this process will yield zero vectors because they are linear combinations of each other. 
+
+\subsection*{Exercise 3.14}
+The set of orthogonal vectors for this set are:
+\[E=\{\frac{1}{\sqrt{\pi}},\frac{x}{\sqrt{\frac{\pi}{2}}},\frac{x^2-\frac{1}{2}}{\sqrt{\frac{\pi}{8}}},\frac{x^3-\frac{3}{4}x}{\sqrt{\frac{7\pi}{8}}}\}\]
+These are all orthogonal to each other.
+
+\subsection*{Exercise 3.15}
+i) \\ \\
+If we say that $A = QR$ then:
+\[  (QR)^{H}QRx = R^HQ^HQRx = R^HRx = x  \]
+\[  x = (QR)^Hb = R^HQ^Hb \Rightarrow Rx = Q^Hb  \]
+ii) \\ \\
+$u_1 = \begin{bmatrix} \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}}
+\end{bmatrix}$ ~~~~~
+$u_2 = \begin{bmatrix} 
+3\sqrt[]{2}+6\sqrt[]{3}\\
+-3\sqrt[]{2}+6\sqrt[]{3}\\
+6\sqrt{3}
+\end{bmatrix} - \begin{bmatrix} 6\sqrt{3}\\ 6\sqrt{3}\\ 6\sqrt{3}
+\end{bmatrix}
+=\begin{bmatrix}
+3\sqrt[]{2}\\-3\sqrt[]{2}\\ 0
+\end{bmatrix}
+\Rightarrow \begin{bmatrix}
+\frac{1}{\sqrt[]{2}}\\
+\frac{-1}{\sqrt[]{2}}\\ 0
+\end{bmatrix}\\
+~~~~~Q = \begin{bmatrix}
+\frac{1}{\sqrt[]{3}} & \frac{1}{\sqrt[]{2}}\\
+\frac{1}{\sqrt[]{3}} & \frac{-1}{\sqrt[]{2}}\\
+\frac{1}{\sqrt[]{3}} & 0 
+\end{bmatrix}~~~~
+R = Q^TA = \begin{bmatrix}
+12 & 18\\
+0 & 6
+\end{bmatrix}
+$
+
+\subsection*{Exercise 3.16}
+$u_1 = \begin{bmatrix}
+\frac{1}{2}\\
+\frac{1}{2}\\
+\frac{1}{2}\\
+\frac{1}{2}\\
+\end{bmatrix}~~~~~
+u_2 = \begin{bmatrix}
+-1\\
+4\\
+-1\\
+4
+\end{bmatrix} - \begin{bmatrix}
+-3\\
+-3\\
+-3\\
+-3
+\end{bmatrix} = \begin{bmatrix}
+-4\\
+1\\
+-4\\
+1
+\end{bmatrix}\Rightarrow \begin{bmatrix}
+\frac{1}{2}\\
+\frac{-1}{2}\\
+\frac{1}{2}\\
+\frac{-1}{2}\\
+\end{bmatrix}\\
+Q = \begin{bmatrix}
+\frac{1}{2}&\frac{1}{2}\\
+\frac{1}{2}&\frac{-1}{2}\\
+\frac{1}{2}&\frac{1}{2}\\
+\frac{1}{2}&\frac{-1}{2}\\
+\end{bmatrix} ~~~~~
+R = Q^TA = \begin{bmatrix}
+2 & 3\\
+0 & -5\\
+\end{bmatrix}
+$\\
+$x = R^{-1}Q^{-1}b$
+~~~~~~~$x = \begin{bmatrix}
+4.6\\
+.9
+\end{bmatrix}$
+
+\subsection*{Exercise 3.17}
+i) \\ \\
+If we consider the matrices $Q'=QD$ and $R'= D^{-1}R$ where D is a diagonal matrix:
+\[ A = Q'R' = (QD)(D^{-1}R) = QR  \]
+Showing that it is not unique in this circumstance. \\ 
+ii) \\ \\
+
+\subsection*{Exercise 3.23}
+i) \\ \\
+A hyperplane can be defined by a unit vector $v\int \mathbb{F}^n$. Reflecting x across the hyperplane has a matrix representation $H_v = I - 2vv^H$.  The vector v can be written in polar coordinates as $(cos(\phi), sin(\phi))^T$ for some $\phi \in [0,2\pi)$.We will use the equation $H_v = I-2(\frac {vv^H}{V^H V})$ in the proof.\\ 
+We first start by noting that,   
+  \[V= \begin{bmatrix}
+    rcos(\theta) \\
+    rsin(\theta) \\
+    \end{bmatrix}\]
+and we also have
+
+    \[V^H= \begin{bmatrix}
+    rcos(\theta) & rsin(\theta
+    \end{bmatrix}\]\\
+continuing we get,
+ \[V^H V = rcos(\theta)rcos(\theta)+rsin(\theta)rsin(\theta)\]
+ \[=r^2 cos^2(\theta)+ r^2 sin^2(\theta)\]
+ \[=r^2(cos^2(\theta)+sin^2(\theta))\]
+ \[=r^2\]
+also we have the numerator,
+\[VV^H= \begin{bmatrix}
+    rcos(\theta)rcos(\theta) & rsin(\theta)rcos(\theta) \\
+    rcos(\theta)rsin(\theta) & rsin(\theta)rsin(\theta) \\
+    \end{bmatrix}\]
+\[=
+\begin{bmatrix}
+    rcos^2(\theta) & rsin(\theta)rcos(\theta) \\
+    rcos(\theta)rsin(\theta) & rsin^2(\theta) \\
+ \end{bmatrix}
+ \]
+ using the three above equations we get
+ \[H_v=
+ \begin{bmatrix}
+    1 & 0 \\
+    0 & 1 \\
+ \end{bmatrix}
+-2\big(\frac{r^2}{r^2}\big )\begin{bmatrix}
+    rcos^2(\theta) & cos(\theta)sin(\theta) \\
+    cos(\theta)sin(\theta) & rsin^2(\theta)\\
+ \end{bmatrix}
+ \]
+\[=
+\begin{bmatrix}
+    1-2cos(\theta) & -2cos(\theta)sin(\theta) \\
+   2cos(\theta)sin(\theta) & 1-2sin^2(\theta) \\
+ \end{bmatrix}\]
+
+\[=
+\begin{bmatrix}
+    -cos(2\theta) & -sin(2\theta) \\
+   -sin(2\theta) & 1-1+cos(2\theta) \\
+ \end{bmatrix}\]
+\[=
+\begin{bmatrix}
+    -cos(2\theta) & -sin(2\theta) \\
+   -sin(2\theta) & cos(2\theta) \\
+ \end{bmatrix}\]
+
+ \[=
+\begin{bmatrix}
+    -cos(-2\theta) & sin(-2\theta) \\
+   sin(-2\theta) & cos(-2\theta) \\
+ \end{bmatrix}\]
+Since $\theta$ was an arbitrary angle chosen at the beginning of the proof, as long as the interior of the functions are uniform we can redefine this value to be our new $\theta$ value.
+\\ \\ 
+ii) \\ \\
+In part one we proved that any reflection can be represented by a matrix:
+\[\Big{[}\begin{matrix}
+-cos(\theta) & sin(\theta)\\
+sin(\theta) & cos(\theta)\\
+\end{matrix} \Big{]}
+\]
+So we can say that two reflections can be represented as:
+\[\Big{[}\begin{matrix}
+-cos(\theta) & sin(\theta)\\
+sin(\theta) & cos(\theta)\\
+\end{matrix} \Big{]}
+\Big{[}\begin{matrix}
+-cos(\theta) & sin(\theta)\\
+sin(\theta) & cos(\theta)\\
+\end{matrix} \Big{]}\]
+Which when multiplied out gives:
+\[\Big{[}\begin{matrix}
+cos^{2}(\theta)+sin^{2}(\theta) & -cos(\theta)sin(\theta) +cos(\theta)sin(\theta)  \\
+-cos(\theta)sin(\theta) +cos(\theta)sin(\theta) & sin^{2}(\theta)+cos^{2}(\theta)  \\
+\end{matrix} \Big{]}
+\]
+Which can be simplified down to:
+\[\Big{[}\begin{matrix}
+1 & 0\\
+0 & 1\\
+\end{matrix} \Big{]}
+\]
+Thus showing that two reflections is simply a rotation around the origin.\\
+\\
+iii) \\ \\
+Let $(\rho cos(\phi), \rho sin(\phi))^T$ be some arbitrary vector in the plane $\mathbb{R}^2$\\
+And so :
+\[
+ \begin{bmatrix}
+  -cos(\theta) & sin(\theta) \\
+    sin(\theta) & cos(\theta) \\
+ \end{bmatrix}
+ \begin{bmatrix}
+    \rho cos(\phi) \\
+    \rho sin(\phi) \\
+ \end{bmatrix} 
+\]
+ \[= 
+  \begin{bmatrix}
+    -\rho (cos(\phi)cos(\theta) + sin(\theta)cos(\phi))  \\
+    \rho (sin(\phi)cos(\theta) + sin(\theta)cos(\phi)) \\
+ \end{bmatrix} = 
+ \begin{bmatrix}
+    \rho (sin(\theta)cos(\phi)) - cos(\phi)cos(\theta) )   \\
+    \rho (sin(\phi)cos(\theta) + sin(\theta)cos(\phi)) \\
+ \end{bmatrix}
+ \]
+ In general\\
+ \[cos(u)cos(v) - sin(u)sin(v) = cos(u+v)\]
+ \[sin(u)cos(v) + sin(v)cos(u) = sin(u+v)\]
+ So,
+ \[\rho
+ \begin{bmatrix}
+    (sin(\theta)cos(\phi)) - cos(\phi)cos(\theta) )   \\
+    (sin(\phi)cos(\theta) + sin(\theta)cos(\phi)) \\
+ \end{bmatrix} = \rho
+ \begin{bmatrix}
+    (-1)cos(\theta + \phi)   \\
+    sin(\theta + \phi) \\
+ \end{bmatrix}
+ \]
+ In order to be a complete rotation we would need 
+ \[]
+ \begin{bmatrix}
+    (-1)cos(\theta + \phi)   \\
+    sin(\theta + \phi) \\
+ \end{bmatrix} = 
+ \begin{bmatrix}
+    \rho cos(\phi) \\
+    \rho sin(\phi) \\
+ \end{bmatrix}
+ \]
+ For contradiction's sake suppose $\rho sin(\theta + \phi) = \rho sin(\theta)$ Which is true if and only if $\phi = 2k\pi$ for some integer k.
+ Which implies $-\rho cos(\theta +2k\pi) = \rho cos(\theta)$ However $cos(\theta + 2k\pi) = cos(\theta)$ is only true if $cos(\theta) = 0 \Rightarrow  \theta =\frac{1}{2}\pi + n\pi$ for some integer n. Hence, $\rho sin(\theta + \phi) = \rho sin(\frac{1}{2}\pi + n\pi + 2k\pi)) = \pm \rho$ \\ \\
+And so 
+ \[\begin{bmatrix}
+  -cos(\theta) & sin(\theta) \\
+    sin(\theta) & cos(\theta) \\
+ \end{bmatrix} = 
+  \begin{bmatrix}
+  0 & \pm 1 \\
+    \pm 1 & 0 \\
+ \end{bmatrix}
+ \]
+ And so \\
+ \[\begin{bmatrix}
+  -cos(\theta) & sin(\theta) \\
+    sin(\theta) & cos(\theta) \\
+ \end{bmatrix}
+ \begin{bmatrix}
+    \rho cos(\phi) \\
+    \rho sin(\phi) \\
+ \end{bmatrix}= 
+  \begin{bmatrix}
+  0 & \pm 1 \\
+    \pm 1 & 0 \\
+ \end{bmatrix}
+ \begin{bmatrix}
+    0 \\
+    \pm \rho  \\
+ \end{bmatrix} = 
+  \begin{bmatrix}
+    \rho \\
+      0 \\
+ \end{bmatrix}\\
+ \]
+ Yet for nonzero $\rho$ 
+ \[\begin{bmatrix}
+    \rho \\
+      0 \\
+ \end{bmatrix} \neq  \begin{bmatrix}
+    0 \\
+      \pm \rho \\
+ \end{bmatrix}
+ \]
+ In which case we have a contradiction, and so the initially given matrix does not represent a complete rotation.\\
+
+\subsection*{Exercise 3.24}
+In order to prove this, we need to prove that these norms do in fact exhibit the three characteristics of a norm. These being: (1) positivity (2) preservation of scalar multiplication, and (3) preservation of the triangle inequality. \\ \\ \\ 
+i) \\ \\
+$\int_{a}^{b}|f(t)| dt = \int_{a}^{b}|-f(t)| dt$ showing it is always positive. \\
+$\int_{a}^{b}|af(t)| dt = \int_{a}^{b}|a||f(t)| dt$ preserving scalar multiplication. \\
+$\int_{a}^{b}|f(t) \cdot g(t)| dt = \int_{a}^{b}|f(t)| + |g(t)| dt$ preserving the triangle inequality. \\ \\
+ii) \\ \\ 
+$(\int_{a}^{b}|f(t)|^{2} dt))^{\frac{1}{2}} = (\int_{a}^{b}|-f(t)|^{2} dt))^{\frac{1}{2}}$ showing it is always positive. \\
+$(\int_{a}^{b}|af(t)|^{2} dt))^{\frac{1}{2}} = (\int_{a}^{b}|a|^{2}|-f(t)|^{2} dt))^{\frac{1}{2}} = |a|(\int_{a}^{b}|-f(t)|^{2} dt))^{\frac{1}{2}}$ preserving scalar multiplication. \\
+$(\int_{a}^{b}|f(t)+g(t)|^{2} dt))^{\frac{1}{2}} \leq (\int_{a}^{b}|f(t)|^{2}|g(t)|^{2} dt))^{\frac{1}{2}} \leq (\int_{a}^{b}|f(t)|^{2} dt))^{\frac{1}{2}} + (\int_{a}^{b}|g(t)|^{2} dt))^{\frac{1}{2}}$ preserving the triangle inequality. \\ \\
+iii) \\ \\ 
+$sup_{x \in [a,b]} |-f(x)| = sup_{x \in [a,b]} |f(x)|$ showing it is always positive.\\
+$ sup_{x \in [a,b]} |af(x)| = |a| (sup_{x \in [a,b]} |f(x)|)$ preserving scalar multiplication.\\
+$sup_{x \in [a,b]} |f(x) + g(x)| \leq sup_{x \in [a,b]} |f(x)| + |g(x)| \leq sup_{x \in [a,b]} |f(x)|+ sup_{x \in [a,b]} |g(x)|$ preserving the triangle inequality.\\
+
+\subsection*{Exercise 3.26}
+\[ |\|x\|-\|y\|| = |\sqrt{<x,x>} - \sqrt{<y,y>}| \leq |\sqrt{<x,x> - <y,y>}| = \| x-y \|  \]
+
+\subsection*{Exercise 3.27}
+We want to show that $a\equiv a$, remember that $\forall m \in (0,1), M \in (0, \inf)$, $m\|x\|_a \leq \|x\|_a \leq M \|x\| _a$\\
+\smallskip\\ 
+Proving that $ b \equiv a$ if $a \equiv b$, we want to keep in mind that 
+\[\exists m_1,M_1: m_1\|x\|_a \leq \|x\|_b \leq M_1\|x\|_a \]
+If we let $m_2 = \frac{1}{m_1}$ and $ M_2 = \frac{1}{M_1}$. We can say that:\\
+\[m_2\|x\|_b \leq \|x\|_a \leq M_2\|x\|_b \]
+\smallskip\\
+Now to show transitivity we suppose $\exists M_1,M_2,m_1,m_2$ with \\
+\[m_1\|x\|_a \leq \|x\|_b \leq M_1 \|x\|_a ~~\&~~
+ m_2\|x\|_b \leq \|x\|_c \leq M_2 \|x\|_b \] 
+Let $M_3 = M_1 M_2$, and $m_3 = m_1 m_2$\\
+\[m_3 \|x \|_a = m_1m_2\|x\|_a \leq m_2 \|x\|_b \leq \|x\|_c \leq M_2 \|x\|_b \leq M_1M_2 \|x\|_a = M_3 \|x\|_a\]
+Showing that this is an equivalence relation.
+
+\subsection*{Exercise 3.31}
+$\Leftarrow$ Suppose that $a^{p} = b^{q}$. Then $(a^{p}/p+b^{q}/q)=a^{p}(1/p+1/q)=a^{p}$ and $ab = (a^{p})^{1/p}(b^{q})^{1/q}=(a^{p})^{1/p}(a^{p})^{1/q}=a^{p}$, showing that $ab = a^{p}/p+b^{q}/q$. \\ \\
+$\Rightarrow$ Suppose that $ab=(1/p)a^{p}+(1/q)b^{q}$ Upon dividing by $ab$ and using the fact that $a^{p}/b=(a^{p}/b^{q})^{1/q}$ and $b^{q}/a=(b^{q}/a^{p})^{1/p}$, we see that \[ \frac{1}{p}(\frac{a^{p}}{b^{q}})^{1/q}+\frac{1}{q}(\frac{b^{q}}{a^{p}})^{1/p}=1\]
+Let $x= a^{p}/b^{q}$. Multiplying by $x^{1/p}$, we obtain 
+\[ \frac{1}{p}x^{1/p+1/q}+\frac{1}{q}=1\]
+ \[\rightarrow \frac{1}{p}x+\frac{1}{q}=1\]
+ This implies that $x= a^{p}/b^{q}=1$, so $a^{p}= b^{q}$, as desired.\\\\
+
+\subsection*{Exercise 3.34}
+Letting $\theta=\frac{1}{2}$, we get : 
+\begin{align*}
+&a^\frac{1}{2}b^\frac{1}{2} \leq \frac{1}{2} (a+b) \\
+&(ab)^\frac{1}{2} \leq \frac{1}{2} (a+b) \\
+&(area)^\frac{1}{2} \leq \frac{1}{4} Perimeter \\
+& P \geq 4 \sqrt{A}
+\end{align*}
+The minimum lies at $P=4 \sqrt{A}$ which holds only for 
+\[2(a+b)=4\sqrt{ab} \Rightarrow 4(a+b)^2 = 16(ab) \Rightarrow 4(a-b)^2=0 \Rightarrow a=b \]
+
+\subsection*{Exercise 3.37}
+The D operator is given by the matrix\\
+$D = \begin{bmatrix} 
+0&1&0\\
+0&0&2\\
+0&0&0\\
+\end{bmatrix}$
+$D^*  = \begin{bmatrix} 
+0&0&0\\
+1&0&0\\
+0&2&0\\
+\end{bmatrix}$\\
+\smallskip\\
+The four fundamental subspaces of D are given by the column space of D, Null space of D, and column and null spaces of D adjoint. \\
+column space of $D = span(1,0,0)^T,(0,1,0)^T$\\
+nullspace of $D = span(1,0,0)^T $
+column space of $D^* = (0,0,1)^T, (0,1,0)^T$\\
+nullspace of $D^* =  (0,0,1)^T$
+
+\subsection*{Exercise 3.38}
+Null of $D = span(0,0,0,1), (1,0,-1,0), (-1,1,0,0)$\\
+Column of $D = span(1,0,2)$\\
+$D^T=\begin{bmatrix}
+1 &0&2\\
+1&0&2\\
+1&0&2\\
+0&0&0
+\end{bmatrix}$\\
+Column space of $D^T = span(1,1,1,0)$\\
+Null space of $D^T = span(0,-1,0), (2,0,-1) $\\
+
+
+\subsection*{Exercise 3.41}
+i) \\
+It is sufficient to show $\langle Y,AX\rangle = \langle A^HY,X\rangle$\\
+$\langle Y, AX\rangle = tr(Y^HAX) = tr(A^HY)^HX)= \langle A^HY,X\rangle$ \\
+ii)  \\
+$\langle V,WA \rangle = tr(V^HWA) = tr(AV^HW) = tr((VA^H)^HW)=\langle VA^*,W\rangle $\\
+iii) \\
+$\langle (T_A(B))^*,C\rangle  = \langle B,T_A(C)\rangle = \langle B, AC-CA \rangle = tr(B^H(AC_CA))=\\ 
+tr(B^HAC)-tr(B^HCA)=\langle B,AC\rangle -\langle B,CA\rangle = \langle A^*B,C\rangle - \langle BA^*,C\rangle \\
+= tr(B^H(A^*)^HC)-tr((A^*)^HB^HC) = tr(B^H(A^*)^HC-(A^*)^HB^HC)=\\ 
+\langle A^*B-BA^*,C\rangle = \langle T_{A^*}(B),C\rangle $\\
+Thus, $(T_A)^* = T_{A^*}$
+
+\subsection*{Exercise 3.43}
+Let $A$ and $B$ be arbitrary matrices from $Sym_n(\mathbb{R})$ and $Skew_n(\mathbb{R})$ respectively. So $A^T = A$ and $B^T = -B$. Remember that  $tr(CD) = tr(DC)$ and $tr(C) = tr(C^T)$
+\[\langle A,B \rangle = tr(A^TB) = tr((-1)A^TB^T) =  -tr(A^TB^T) = -tr((BA)^T) =  -tr(AB)\] but the only way that $tr(AB) = -tr(AB)$ is if $tr(AB) =  0$. Therefore, the set of symmetric matrices in M is orthogonal to the set of skew matrices.
+
+\subsection*{Exercise 3.44}
+$\\$i)\\
+We notice that since $\textbf{x} \in N(A^HA)$ we know that $\textbf{x} \in R^n$. From previous theorems, we know that $R(A)=\{\textbf{b} \in R^m:\textbf{b}=A\textbf{x}~for~some~x \in R^n\}$. So it's clear that $A\textbf{x}~\in R(A)$ because $A\textbf{x}$ generates the elements in R(A) by definition. Also $N(A^H)$ has all elements $\textbf(y)$ such that $A^H\textbf{y}=\textbf{0}$. So clearly $A\textbf{x}\in~N(A^H)$ because $\textbf{x} \in N(A^HA)$ which implies that $A^H(A\textbf{x})=\textbf{0}$ for all $A\textbf{x}$
+
+$\\$ii)\\
+Consider that N(A) is all $\textbf{x}$ such that $A\textbf{x}=\textbf{0}$. Multiplying both sides by $A^H$, we get:
+\[A^HA\textbf{x}=A^H\textbf{0}=0\]
+For all $\textbf{x}$. Since $N(A^HA)$ is all $\textbf{x}$ such that $A^HA=\textbf{0}$, it must be that $N(A^HA)$ is a subset 0f $N(A)$.
+$\\$All we need to show is that $N(A)$ is also a subset of $N(A^HA)$
+$\\$We know that $N(A^HA)$ is all $\textbf{x}$ such that $A^HA\textbf{x}=\textbf{0}$. We know that $\textbf{x} \in N(A^HA)$, then $A\textbf(x)$ is in both R(A) and $N(A^H)$
+$\\$A most useful fact is that R(A) and $N(A^H)$ are orthogonal, so the only element they can have in common is the zero vector. Thus, $A\textbf{x}=\textbf{0}$. So clearly $N(A)$ is a subset of $N(A^HA)$. So $N(A^HA)=N(A)$
+
+$\\$iii)\\
+From the previous part, we know that $N(A^HA)=N(A)$, their dimensions are equivilient. So $dim(N(A^HA))=dim(N(A))=a$ for some integer a.
+$\\$Using the rank nullity theorem, we know that:
+\[rank(A^HA)+dim(N(A^HA))=n\]
+$\\$We also know that:
+\[rank(A)+dim(N(A))=n\]
+$\\$Working with these two equations
+\[rank(A^HA)=n-dim(N(A^HA))\]
+\[rank(A)=n-dim(N(A))\]
+$\\$ So both ranks are equal to $n-a$, since we defined the dimensions as equal to a. Therefore their ranks must be equal.
+
+$\\$iv)
+\\If A has linearly independent columns, then it's rank is n. In the last part, we showed that A and $A^HA$ have the same rank. This implies that they both have rank n. Since $A^HA$ has rank $n$ in this case its columns must be linearly independent, which means that $A^HA$ is nonsingular because it's nxn.
+
+\subsection*{Exercise 3.45}
+$\\$ $P=A(A^HA)^{-1}A^H$\\
+$\\$i) \\
+$P^2=P$
+\[PP=A(A^HA)^{-1}A^HA(A^HA)^{-1}A^H=A(A^HA)^{-1}A^H=P\]
+$\\$ii) \\
+$P^H=P$
+\[P^H=(A(A^HA)^{-1}A^H)^H=(A^H)^H((A^HA)^{-1})^HA^H=A(A^HA)^{-1}A^H=P\]
+$\\$iii) \\
+Since P is symmetric and idempotent:
+\[rank(P)=Trace(P)\]
+\[rank(A(A^HA)^{-1}A^H)=Trace(A(A^HA)^{-1}A^H)=Trace(A^HA(A^HA)^{-1})=Trace(I)\]
+$\\$Based on the rules of matrix multiplication, this version of the identity matrix is nxn. So the sum of the main diagonal elements of P is n. So therefore:
+\[rank(P)=n\]
+
+\subsection*{Exercise 3.46}
+\[(QR)^HQR\hat{x}=(QR)^Hb\]
+\[R^HQ^HQR\hat{x}=R^HQ^Hb\]
+\[R^HR\hat{x}=R^HQ^Hb\]
+Since $R$ is invertable,
+\[R\hat{x}=Q^Hb\]
+
+\subsection*{Exercise 3.49}
+i) \\
+Show P is linear. Note that $P(\alpha A+ \beta B) 
+=\frac{(\alpha A+ \beta B)+(\alpha A+ \beta B)^{T} } {2} =\frac{\alpha A + \alpha (A)^{T}}{2} + 
+\frac{\beta B + \beta (B)^{T}}{2}=\alpha P (A) + \beta P(B)$, so P is linear. \\
+ii) \\
+ \[P^{2}=P(P(A))=\frac{\frac{A+A^{T}}{2}+\frac{(A+A^{T})^{T}}{2}}{2} \] 
+ \[=\frac{\frac{A+A^{T}}{2}+\frac{A+A^{T}}{2}}{2}=\frac{A+A^{T}}{2}=P(A) \] 
+iii) \\
+Show $P^{*}=P$. We showed in exercise 41 that $A^{*}=A^{H}$ for any matrix A under the Frobenius inner product. Since we are in the real numbers, we have that $A^{*} = A^{H} = A^{T}$. So we have only to show that $P^{T} = P$. Well, 
+\[P(A)^{T} = \frac{(A+A^{T})^{T} } {2 } = \frac{(A^{T}+(A^{T})^{T}) } {2 } = \frac{A+A^{T}}{2} = P(A) \] 
+iv) \\
+Suppose A is in the null space of P. So $\frac{A+A^{T}}{2}=0$. Then $A/2=-A^{T}/2$.  
+\[ \Rightarrow A = -A^{T}\] 
+So $ A \in skew_{n}(\mathbb{R})$\\
+Now suppose that $ A \in skew_{n}(\mathbb{R})$. Then $A=-A^{T}$, and therefore $P(A) = \frac{A+A^{T}}{2} = 0$, so A is in the null space of P.  Therefore $N(P) = skew_{n}(\mathbb{R})$. \\\\
+
+\subsection*{Extra Exercise}
+We measure the weight of a radioactive substance over time to get $n$ observation points $\{t_i,w_i\}_{i=1}^n$. The substance decays exponentially according to the curve $w(t)=ae^{kt}$. By taking the log of both side, the equation becomes $log w(t)=log(a)+kt$. We can express this in matrix form $Ax=b$ where
+\[A=\begin{bmatrix}
+t_1&1\\
+t_2&1\\
+\vdots&\vdots\\
+t_n&1 \\
+\end{bmatrix},
+x=\begin{bmatrix}
+x \\
+log(a)\\
+\end{bmatrix},
+\text{ and }
+b=\begin{bmatrix}
+log(w_1)\\
+log(w_2)\\
+\vdots \\
+log(w_n)\\
+\end{bmatrix}
+\]
+If we have the data points (3.0,7.3), (4.0,3.5), (5.0,1.2), and (6.0,0.8), where the first point is time measured in years and the second point is the weight of the radioactive substance measured by grams. We might notice that this is similar to OLS and by using the familiar equation of $x=(A^TA)^{-1}A^Tb$ to get $k=-0.7703$ and $a=71.2736$. Therefore, the half life in this case is $-(log2)/k=0.8998$.
+
+\end{document}

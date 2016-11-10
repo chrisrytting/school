@@ -1,0 +1,250 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Chapter 6 Section 3}
+\author{Lehner White}
+\maketitle
+
+\subsection*{6.12}
+\textbf{(i)}\\
+\begin{align*}
+    Df(x) &= DAx \\
+    &=
+    D\begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \vdots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\x_2 \\ \vdots \\ x_n 
+    \end{bmatrix}\\
+    &=
+    D\begin{bmatrix}
+        a_{11}x_1 +  a_{12}x_2 +  \cdots + a_{1n}x_n \\
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n \\
+        \vdots \\
+        a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n \\
+    \end{bmatrix}
+\end{align*}
+Because we know that the matrix represntation of the linear map $Df(x)$ is the jacobian it follows that:
+\begin{align*}
+    D\begin{bmatrix}
+        a_{11}x_1 +  a_{12}x_2 +  \cdots + a_{1n}x_n \\
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n \\
+        \vdots \\
+        a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n \\
+    \end{bmatrix} 
+    &=
+    \begin{bmatrix}
+    D_1f_1(x) &D_2f_1(x) & \cdots &D_nf_1(x)  \\
+    D_1f_2(x) &D_2f_2(x) & \cdots &D_nf_2(x)  \\
+    \vdots & \vdots & \ddots & \vdots \\
+    D_1f_m(x) &D_2f_m(x) & \cdots &D_nf_m(x)  \\
+    \end{bmatrix}
+    \\ &=
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{bmatrix} = A
+\end{align*}
+\textbf{(ii)}\\
+\begin{align*}
+    Df(x) &= Dx^TA \\
+    &=D
+    \begin{bmatrix}
+        x_1 & x_2 & \cdots & x_n 
+    \end{bmatrix}
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{bmatrix}\\
+    &= 
+    D\begin{bmatrix}
+        a_{11}x_1 + \cdots + a_{m1}x_n &
+        a_{12}x_1 + \cdots + a_{m2}x_n &
+        \cdots &
+        a_{1n}x_1 + \cdots + a_{mn}x_n 
+    \end{bmatrix}\\
+    &= 
+    D\begin{bmatrix}
+        f_1 &
+        f_2 &
+        \cdots &
+        f_n &
+    \end{bmatrix}
+\end{align*}
+Similar to part \textbf{(i)} it follows that:
+\begin{align*}
+    D\begin{bmatrix}
+        f_1 &
+        f_2 &
+        \cdots &
+        f_n &
+    \end{bmatrix}
+    &= 
+    \begin{bmatrix}
+    D_1f_1(x) &D_2f_1(x) & \cdots &D_nf_1(x)  \\
+    D_1f_2(x) &D_2f_2(x) & \cdots &D_nf_2(x)  \\
+    \vdots & \vdots & \ddots & \vdots \\
+    D_1f_m(x) &D_2f_m(x) & \cdots &D_nf_m(x)  \\
+    \end{bmatrix}^T = A^T
+\end{align*}
+
+
+
+\subsection*{6.13}
+\textbf{(i)}\\
+If $f(x) = u(x)^Tv(x)$ then we want to show that:
+\[ \lim_{h \to 0} \frac{\| u (x+h)^Tv(x+h) - u(x)v(x) - u(x)^TDv(x)h - v(x)^TDu(x)h\|}{\|h\|} = 0\]
+And from proposition 6.2.17 we know that $\textbf{u},\textbf{v}$ are locally lipschitz giving us that:
+\[\|u(x+h)-u(x)\| \leq L\|h\| \quad \|v(x+h)-v(x)\| \leq L\|h\|\]
+And it follows that:
+\[    \|u(x+h) - u(x)^T - Du(x)\| \leq \frac{\epsilon \|h\|}{3(\|v(x)\|+1)}\]
+\[   \|v(x+h) - v(x)^T - Dv(x)\| \leq \frac{\epsilon \|h\|}{3(\|u(x)\|+1)}\]
+If $\|h\| <\delta_x$ then both dervivatives exists for some ball.\\
+\\
+For $\epsilon > 0$ if $\delta = \text{min} \left\{ \delta_x, \frac{\epsilon}{3L\|Dv(x)\|}\right\}$ then $\|h\| < \delta$ gives us that:
+\begin{align*}
+    \| u &(x+h)^Tv(x+h) - u(x)v(x) - u(x)^TDv(x)h - v(x)^TDu(x)h\| \\
+    & \leq \|u(x+h)^T\|\|v(x+h)-v(x)-Dv(x)h\| + \|v(x)\|\|u(x+h)-u(x)^t - Du(x)h\|\\
+    & \quad \quad \quad     +\|u(x+h)^T-u(x)^T\|\|Dv(x)h\|\|h\|\\
+    & \leq \|u(x)^T + L\|\|v(x+h) - v(x) - Dv(x)h\| + \|v(x)\|\|u(x+h)^T-u(x)^T - Du(x)h\| \\
+    & \quad \quad \quad     + \delta L\|Dv(x)\|\|h\|\\
+    & < \epsilon \|h\|
+\end{align*}
+\textbf{(ii)}\\
+If $f(x)= x^T \quad g(x) = Ax$ then it follows from part \textbf{(i)} that:
+\[D(fg) = x^tA + x^TA^T = x^T(A+A^T)\]
+\textbf{(iii)}\\
+If $f(x) = Bw$ then it follows from part \textbf{(i)} that:
+\begin{align*}
+    Df(x) &= B(x)Dw(x) + w^TDB(x)^T\\
+    &= B(x)Dw(x) + \begin{bmatrix} w^TDb_1^T(x)\\
+        \vdots \\
+        w^T(x)Db_k^T(x)
+    \end{bmatrix}
+\end{align*}
+
+
+
+
+\subsection*{6.14}
+Finding the standard inner product we have that:
+\begin{align*}
+    \int^{}_{}\overline {DF(\gamma(t))^T} \gamma'(t) dt &=  \int^{}_{}DF(\gamma(t)) \gamma'(t) dt \\
+    &=  \int^{}_{}DF(\gamma(t))D\gamma(t) \gamma'(t) dt \\
+    &=  \int^{}_{}DC\cdot D\gamma(t) \gamma'(t) dt \\
+    &=  \int^{}_{}0\cdot D\gamma(t) \gamma'(t) dt \\
+    &=  0
+\end{align*}
+And since the inner product is $0$ we know that they are orthogonal. 
+
+
+
+\subsection*{6.15}
+We know that:
+\begin{align*}
+D(g \circ f)&=D(g(f(\textbf{x})))D(f(\textbf{x}))\\
+\end{align*}
+\[D(g(x)) = \begin{bmatrix} y & x\\ 2x& 2y \end{bmatrix}\]
+\[D(f(x)) = \begin{bmatrix} -1 & cos(y) \\ e^x& -1 \end{bmatrix}\]
+    We also know that
+    Because $f(0,0) = (0,1)$ we know that:
+\[Dg(f(0,0)) = \begin{bmatrix} 1&0\\0&2\end{bmatrix} \begin{bmatrix}-1 & 1 \\
+                1 & -1 \\
+\end{bmatrix}
+= \begin{bmatrix}-1 & 1 \\
+                2 & -2 \\
+\end{bmatrix}\]
+
+
+\subsection*{6.16}
+Taking the inner product here gives us:
+\begin{align*}
+    \langle f, g\rangle &= xy(\sin(y) - x) + (e^x - y)(x^2 + y^2) \\
+    &= xy\sin(y) - x^2y + x^2e^x+y^2e^x-yx^2 - y^3 \\
+\end{align*}
+And taking the derivative of this function will be the gradient giving:
+\begin{align*}
+    D(\langle f, g\rangle) & = 
+    \begin{bmatrix}
+        y\sin(y) - 2xy + 2xe^x + x^2e^x+ y^2e^x - 2xy \\
+        x\sin(y) + xy\cos(y) - x^2 +2ye^x - x^2 - 3y^2
+    \end{bmatrix}
+\end{align*}
+And evaluating at $(0,0)$ gives us 
+$\begin{bmatrix}
+0\\
+0
+\end{bmatrix}$.
+
+\subsection*{6.17}
+If $f( \textbf{x}) = \| A \textbf{x} - \textbf{b} \|_2^2 $ using the chain rule here we have that:
+\begin{align*}
+    D f( \textbf{x}_0) &= 2 \|A \textbf{x}_0 - \textbf{b} \|_2 \cdot \nabla \| A \textbf{x}_0 - \textbf{b} \|_2 \cdot A
+\end{align*}
+
+
+\end{document}

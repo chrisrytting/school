@@ -1,0 +1,133 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 5.2}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{5.10}
+Consider a point $x \in (\overline E )^c$. As $(\overline E^c) $ is open, $x$ is an interior point of $(\overline E)^c$, and $(\overline E) ^c \subset E^c$, thus x is an interior point of $E^c$.
+\[\implies x \in (E^c)^\circ\]
+Now consider a point $x \in (E^c)^\circ$. Thus x is an interior point of $(E^c)$ and we have that there exists a $B(x, \delta)$ such that \[B \subset E^c, \quad (\overline E)^c \subset E^c\]
+
+\subsection*{5.11}
+$(\rightarrow)$ If $ \textbf{x}_0 \in \overline E $, then $\inf_{x\in E} d( \textbf{x}_0, \textbf{x}) = 0  $ since $d( \textbf{x}_0, \textbf{x}_0) = 0$ and we know that metrics have to be nonnegative, so we couldn't find $d( \textbf{x}_0, \textbf{x}) < 0$, and we have the desired result.\\\\
+$(\leftarrow)$ If $\inf_{x\in E} d( \textbf{x}_0, \textbf{x}) = 0  $, then we know by the criteria of metrics that $d(x,y) = 0 iff x = y$. Therefore, we have that $ \textbf{x}_0 = \textbf{x}  $, implying that $ \textbf{x}_0 \in \overline E $ since $m \in \overline E$
+
+\subsection*{5.12}
+We know that since $T$ is unbounded, that for any sequence of normalized vectors, that
+\[\frac{\|T \textbf{x}_k \| }{\| \textbf{x}_k \| } = \|T \textbf{x}_k \| > k \quad \forall k  \]
+Now, if we let $z_k = \frac{x_k}{k}$, then we have that
+\[ \| T \textbf{z} _k \| = \frac{1}{k} \|T \textbf{x}_k \| > \frac{k}{k} = 1\]
+and we have that at the origin, if $ \textbf{z} \to 0 $, then $T$ is continuous at zero iff $T \textbf{x}_k \to T \textbf{0}  $, but we know this isn't true since $T \textbf{z}_k \to$ something that is not zero.\\\\
+This proves discontinuity at zero. We proceed to prove that $T$ is discontinuous at $j \neq 0, j \in \mathbb{R}$. We know that 
+\[j \to j \text{ as } k \to \infty \quad \lim_{k \to \infty} T(j) = \lim_{k \to \infty} T(j + z_k) = \lim_{k \to \infty} T(j) + \lim_{k \to \infty} T(z_k) \neq T(j)\]
+and we have a contradiction, implying that $T$ is not continuous at $ \textbf{0}, \textbf{j}  $, encompassing all of $\mathbb{R}$.
+
+\subsection*{5.13 (i)}
+
+        Where \[f(x,y) = \frac{\sqrt{xy}}{x^2+y^2}\]
+        Let $y = x$. Therefore, we have that
+        \[\lim_{x \rightarrow 0}f(x) = \lim_{x \rightarrow 0 } \frac{x}{2x^2} = \infty \]
+        Hence the limit doesn't exist.
+\subsection*{5.13 (ii)}
+        Where \[f(x,y) = \frac{xy}{x^2+y^2}\]
+        Let $y=x$ 
+        \[\lim_{x \rightarrow 0}f(x) = \lim_{x \rightarrow 0 } \frac{x^2}{2x^2} = \frac{1}{2} \]
+        Let $ y = \frac{1}{x}$ 
+        \[\lim_{x \rightarrow 0}f(x) = \lim_{x \rightarrow 0 } \frac{1}{x^2 + \frac{1}{x^2}} = \lim_{x \rightarrow 0 } \frac{1}{x^2 +1} = 1 \]
+        Hence the limit doesn't exist.
+\subsection*{5.13 (iii)}
+Given
+        \[
+        c = \frac{xy}{\sqrt{x^2+y^2}}
+        \]
+        we have
+        \begin{align*}
+            \frac{1}{c^2} = \frac{1}{x^2} + \frac{1}{y^2}
+        \end{align*}
+        \[\implies \lim_{(x,y) \rightarrow (0,0)} \frac{1}{c^2} = \infty\]
+        implying
+        \[\lim_{(x,y) \rightarrow (0,0)} c = 0\]
+\subsection*{5.14}
+Consider 
+\[  f(x,y) = \begin{cases} \frac{x^2 - y^2}{\sqrt{x^2 + y^2}} & \text{if } (x,y) \neq (0,0) \\ 0 & \text{if } (x,y) = (0,0) \end{cases} \]
+at (0,0).
+Under the metric $d(a,b) = |b-a|$ we have
+\begin{align*}
+    |x^2 - y^2| &\leq |x^2| + |-y^2| \\
+    &= |x^2| + |y^2| \\
+    &= x^2 + y^2
+\end{align*}
+
+\[\implies  \left| \frac{x^2 - y^2}{\sqrt{ x^2 + y^2}} \right| \leq \frac{x^2 + y^2}{|\sqrt{ x^2 + y^2}|} = \sqrt{x^2 + y^2}  \]
+\[\implies  |f(x,y) - 0| \leq \sqrt{x^2 + y^2}\]
+and we have that $f(x,y)$ is continuous at $(0,0)$.
+
+\subsection*{5.15 (i)}
+
+Where $x, y \neq 0$,
+        \[\frac{2at^3}{t^4+a^2t^2} = \frac{2at}{t^2 + a^2} = 0\]
+\subsection*{5.15 (ii)}
+Where $x,y \neq 0$,
+        \[\frac{2t^4}{t^4+t^4} = \frac{2t^4}{2t^4} = 1 \]
+This implies that the limit doesn't exist.
+
+\end{document}

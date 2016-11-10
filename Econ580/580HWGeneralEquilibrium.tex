@@ -1,0 +1,135 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Econ 580 General Equilibrium Homework}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{15.B.6}
+Upon imposing $p_1 = 1, p_2 = p$,
+we have
+\[ w_1 = p_1 w_1 + p_2 w_2 = 1 \]
+\[ w_2 = p_1 w_1 + p_2 w_2 = p \]
+\[MRS_{12}^1 = \frac{1}{p}\]
+\[MRS_{12}^2 = \frac{1}{p}\]
+Let $p_L = 1$ and $q = p_1^{1/3}$, then
+\[q = 1, \frac{3}{4}, \frac{4}{3}\]
+and
+\[ \frac{p_1}{p_2} = 1, \left( \frac{3}{4} \right)^{1/3}, \left( \frac{4}{3} \right)^{1/3}\]
+
+\subsection*{15.B.10 (a)}
+If consumer one only takes into account his utility from one of the goods, and the other good's quantity increases, he could see a decrease in wealth and utility. This applies to a monopoly since it will, unimpeded, refrain from supplying the maximum quantity of the good so as to avoid a decrease in price.
+\subsection*{15.B.10 (b)}
+Let $(p,x)$ be equilibrium prices and allocations after original endowment $(\omega_1, \omega_2)$. Let $(p',x')$ be equilibrium prices and allocations after a new endowment $(\omega_1', \omega_2')$. Then $x,x'$ are both elements of the interior of the edgeworth box. By the first FTWE, these allocations are both pareto optimal, thus \[x_{11} = x_{12}' \quad x_{12} = x_{21}'\] Now, letting $p=p'$ we know that $p>>0$ and by strong monotonicity, $\omega_1' \geq \omega_1$. Therefore,  \[p\cdot \omega_1' > p\cdot \omega_1\] 
+and since \[p\cdot x_1' = p\cdot \omega_1' > p\cdot \omega_1 = p\cdot x_1\] we have that \[x_1' > x_1\]
+\subsection*{15.B.10 (c)}
+Upon a wealth transfer from individual 2 to individual 1 where price ratio does not change, then there will be excess demand for one of the goods. Then price ratio will change to as to maintain equilibrium, implying a decrease in wealth for individual 1 since he alone supplies good 1.\\
+Figure:
+\\\\\\\\\\\\\\\\\\
+\subsection*{15.B.10 (d)}
+Figure:
+\\\\\\\\\\\\\\\\\\
+
+\subsection*{16.C.2}
+Suppose, to the contrary, that for $x_i \preceq x_i^*$, we have that $p \cdot x_i \leq w_i$, then said $x_i$ would be affordable and $x_i^*$ wouldn't be optimal. Therefore we have a contradiction and the desired result. 
+
+\subsection*{16.C.4}
+In order for $x$ to be pareto optimal relative to the $u_i$'s, we must have that upon increasing $u_i$, we must decrease $u_j$ where $i \neq $. However, we know that this is true of $U_i \forall i$. However, a decrease in $U_i$ must necessarily mean a decrease in some $u_i$, and we have the desired result.
+
+\subsection*{16.D.2}
+Local nonsatiation, as continuity and convexity both hold.
+
+
+
+
+\subsection*{16.E.2}
+Let $(x,y), (x',y')$ be two allocation with $\lambda \in [0,1]$. If
+\[ x'' = \lambda x + ( 1-\lambda ) x' \text{ and } y'' = \lambda y + ( 1-\lambda ) y' \]
+by convexity of production and consumption sets, $(x'', y'')$ is feasible by concavity of utility functions and 
+\[ u_i(x_i'') \geq \lambda u_i(x_i) + (1- \lambda) u_i(x_i') \]
+
+
+\subsection*{17.B.2}
+Because $p >> 0$, there exists a consumer $i$ such that $w_1 > 0$. Since $p  \sum^{}_{} w_i > 0, \quad p_n^e \to 0$ and consumer $i$ has strictly monotone preferences, it follows that 
+\[z_{ie}= x_{ie}(p^l_n, p \cdot w_i) - w_i\]
+since \[x_{ie}(p_n^l, p \cdot w_i) \to \infty \text{ as } p_n^e \to 0\]
+\[\implies z_{ie}(p) \to \infty\]
+\[\implies max \{z_1(p^n), \cdots,z_z(p^n) \} \to \infty \]
+
+
+\subsection*{17.C.1}
+Let $p \in \Delta, q' \in f(p), q'' \in f(p), \lambda \in [0,1]$.
+Case 1: \[p \in int{\Delta}. \forall q \in \Delta(z(p))(\left( 1-\lambda \right)q' + \lambda q'') \]
+\[ = (1- \lambda)z(p)q' + \lambda z( p) q'' \]
+\[ \geq (1- \lambda)z(p)q + \lambda z( p) q \]
+\[ \implies  (1- \lambda)z(p)q' + \lambda z( p) q'' \in f(p)\]
+Case 2: \[ p \in bd(\Delta)\]
+If $p_l > 0$, then $q'_l =q''_l = 0$ and $(1-\lambda) q_l' + \lambda q_e'' $
+\[ \implies  (1- \lambda)z(p)q' + \lambda z( p) q'' \in f(p)\]
+
+\subsection*{17.C.4}
+\[p_1 + 2p_2 = w_1 \]
+\[2p_1 + p_2 = w_2 \]
+\[\implies \frac{3}{2}( p_1 + p_2) = \overline w \]
+Post tax, we have 
+\[w_1 = \frac{3}{2} (p_1 + p_2) + \frac{1}{2} (p_1 + 2p_2 - \frac{3}{2}(p_1 + p_2)) = \frac{5}{4}p_1 + \frac{7}{4}p_2\]
+\[w_2 = \frac{7}{4}p_1 + \frac{5}{4}p_2\]
+
+\end{document}

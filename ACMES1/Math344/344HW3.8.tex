@@ -1,0 +1,246 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 3.8}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{3.44 (i)}
+
+
+We know that $Ax \in \mathscr{R}(A)$ by definition. Moreover, we know that 
+\[ A^HAx = 0 \implies Ax \in \mathscr{N}(A^H)\]
+
+\subsection*{3.44 (ii)}
+We want to show that $x \in \mathscr{N}(A^HA)$ iff $\mathscr{N}(A)$.\\\\
+$(\rightarrow) \quad$ We know that $Ax \in \mathscr{R}(A)$ and $Ax \in \mathscr{N}(A^H)$. Since 
+$\mathscr{R}(A) \cap \mathscr{R}(A) = 0$ by FST(Fundamental Subspaces Theorem), we know that $Ax=0$ since it is in both.
+\\\\
+$(\leftarrow)$\\\\
+\[Ax = 0 \implies A^HAx = 0 \]
+Which gives us the desired result.
+
+\subsection*{3.44 (iii)}
+First, $\mathscr{N}(A^HA) = \mathscr{N}(A)$, implying that their dimensions are equal to some constant $a$. 
+By rank nullity Theorem, we know that 
+\[\text{dim}(\mathscr{R}(A^HA)) + \text{dim}(\mathscr{N}(A^HA)) = n \]
+and that
+\[\text{dim}(\mathscr{R}(A)) + \text{dim}(\mathscr{N}(A)) = n \]
+which yields
+\[\text{dim}(\mathscr{R}(A^HA)) + a = n \]
+\[\text{dim}(\mathscr{R}(A)) + a = n \]
+\[\implies  \text{dim}(\mathscr{R}(A^HA)) = n - a = 
+\text{dim}(\mathscr{R}(A))  \]
+\[\implies  \text{dim}(\mathscr{R}(A^HA)) = 
+\text{dim}(\mathscr{R}(A))  \]
+Which is the desired result.
+
+\subsection*{3.44 (iv)}
+We know that $A$ being linearly independent implies that $\text{rank}(A) = n$. Since, by (iii), 
+\[ n = \text{rank}(A) = \text{rank}(A^HA)\]
+and $A^HA$ is $n\times n$, it must have rank $n$.
+
+\subsection*{3.45 (i)}
+\[P^2 = A(A^HA)^{-1}A^HA(A^HA)^{-1}A^H\]
+\[ = A(A^HA)^{-1}IA^H = P\]
+
+\subsection*{3.45 (ii)}
+\[P^H = (A(A^HA)^{-1}A^H)^H = (A((A^HA)^{-1})^HA^H)^H = (A((A^HA)^{H})^{-1}A^H) = (A(A^HA)^{-1}A^H) = P\]
+
+\subsection*{3.45 (iii)}
+TODO \\\\
+\\\\
+\\\\
+\\\\
+\\\\
+\\\\
+\\\\
+TODO   \\\\\\\\
+\\\\
+\\\\
+\\\\
+\\\\
+\\\\
+\\\\
+\\\\
+
+
+
+\subsection*{3.46}
+Because $Q$ is orthonormal, we know that $Q^{-1} = Q^H$, and we have that
+\begin{align*}
+(QR)^HQR\hat x &= (QR)^Hb\\
+R^HQ^HQR\hat x &= (QR)^Hb\\
+R^HR\hat x &= R^HQ^Hb\\
+\end{align*}
+Which holds iff $R \hat x = Q^Hb$.
+
+\subsection*{3.47}
+\begin{align*}
+    \begin{bmatrix}
+        A & I \\
+        0 & A^H
+    \end{bmatrix}
+    \begin{bmatrix}
+        \hat x\\
+        r
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        b \\ 0
+    \end{bmatrix}\\
+    \begin{bmatrix}
+        A \hat x + r \\
+        A^Hr
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        b\\0
+    \end{bmatrix}\\
+    \begin{bmatrix}
+        \text{proj}{\mathscr{R}(A)}(b) + b - \text{proj}{\mathscr{R}(A)}(b) \\
+        A^Hr
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        b\\0
+    \end{bmatrix}\\
+    \begin{bmatrix}
+        b\\
+        A^Hr
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        b\\0
+    \end{bmatrix}
+\end{align*}
+Now, it is clear that $b=b$. As for the second equation, that $A^Hr = 0$, we know that $r \in \mathscr{R}(A)^\bot = \mathscr{N}(A^H)$
+, meaning that $A^Hr = 0$, as desired.
+
+\subsection*{3.48}
+\[A^HAx = 
+\begin{bmatrix}
+    \overline x_1^2 & \overline x_2^2 & \cdots & \overline x_n^2 \\ 
+    \overline y_1^2 & \overline y_2^2 & \cdots & \overline y_n^2 \\ 
+\end{bmatrix}
+\begin{bmatrix}
+    x_1^2 & y_1^2 \\ 
+    x_2^2 & y_2^2 \\ 
+    \vdots &\vdots\\
+    x_n^2 & y_n^2
+\end{bmatrix}
+\begin{bmatrix}
+    r\\s
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \overline x_1^2 & \overline x_2^2 & \cdots & \overline x_n^2 \\ 
+    \overline y_1^2 & \overline y_2^2 & \cdots & \overline y_n^2 \\ 
+\end{bmatrix}
+\begin{bmatrix}
+    1\\1\\\vdots\\1
+\end{bmatrix}
+ = A^Hx
+\]
+\subsection*{3.49 (i)}
+Note that 
+\[P(\alpha A  + \beta B) =\frac{\left( \alpha A  + \beta B \right) + \left( \alpha A  + \beta B \right)^2 }{2} = \frac{\alpha (A + (A)^T)}{2} + \frac{\beta (A + (A)^T)}{2} = \alpha P(A) + \beta P(B)  \]
+Therefore, $P(A)$ is linear.
+
+\subsection*{3.49 (ii)}
+ \[P(A)^{2}=P(P(A))=\frac{\frac{A+A^{T}}{2}+\frac{(A+A^{T})^{T}}{2}}{2} 
+=\frac{\frac{A+A^{T}}{2}+\frac{A+A^{T}}{2}}{2}=\frac{A+A^{T}}{2}=P(A) \] 
+
+\subsection*{3.49 (iii)}
+By 3.41, we know that $A^* = A^H$ under the Frobenius inner product, and since we are in the reals, $A^* = A^H = A^T$. It suffices to show, then, that $P^T = P$. Well,
+\[P(A)^{T} = \frac{(A+A^{T})^{T} } {2 } = \frac{(A^{T}+(A^{T})^{T}) } {2 } = \frac{A+A^{T}}{2} = P(A) \] 
+
+\subsection*{3.49 (iv)}
+Assume $A \in \text{Skew}_n(\mathbb{R})$.
+Then $A^T = -A$, and we have that
+\[P(A) = \frac{A^T + A}{2} = 0\]
+Then $A$ is in the null space of $A$.
+\\\\
+Now assume that $A$ is in the null space of $P$. Then
+\[P(A) = \frac{A^T + A}{2} = 0 \implies A^T = -A\]
+And we have containment both in both directions, implying the equality at hand.
+
+\subsection*{3.49 (v)}
+Assume $A \in \text{Sym}_n(\mathbb{R})$. Then $A^T = A$, and we have that 
+\[P(A) = \frac{A^T + A}{2} = A\] which is in the range space of $P$ since $P(A) = A$. \\\\
+Now assume that $A$ is in the range space of $P$. Then $A$ is given by
+\[P(B) = \frac{B^T + B}{2} = A\]
+Now, we know that $A_{ij} = \frac{B_{ij} + B_{ji}}{2} = A_{ji}$, implying that $A$ is symmetric, which is the desired result.
+
+\subsection*{3.49 (vi)}
+\begin{align*}
+    ||A - P(A)||_F &= ||\frac{2A - A - A^T}{2}||_F\\ &= ||\frac{A - A^T}{2}||_F\\ 
+    &= \sqrt{\text{tr} \left( \frac{(A^T-A)}{2}\frac{(A-A^T)}{2} \right)}\\
+    &= \sqrt{ \left( \frac{(\text{tr}(A^TA) - \text{tr}(A^2) - \text{tr}((A^T)^2) + \text{tr}(AA^T))}{4} \right)}\\
+    &= \sqrt{ \left( \frac{(\text{tr}(A^TA) - \text{tr}(A^2) - \text{tr}(A^2) + \text{tr}(A^TA))}{4} \right)}\\
+    &= \sqrt{ \left( \frac{(2\text{tr}(A^TA) - 2\text{tr}(A^2)}{4} \right)}\\
+    &= \sqrt{ \left( \frac{(\text{tr}(A^TA) - \text{tr}(A^2)}{2} \right)}\\
+\end{align*}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,186 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 4.2}
+\author{Chris Rytting}
+\maketitle
+
+
+\subsection*{4.8}
+
+
+\begin{align*}
+    \mathscr{F}(f(t)) & = \int^b_a e^{i \xi t} dt - \int _b ^c e^{i \xi t}dt \\
+    & = \frac{e^{i \xi t}}{i \xi} \big| ^b _a -  \frac{e^{i \xi t}}{i \xi}\big| ^c _b  \\
+    & = \frac{2e^{i\xi b} - e^{i\xi a} - e^{i\xi c}}{i \xi}
+\end{align*}
+        which is the desired result.
+
+\subsection*{4.9}
+
+
+If we let $u = at$, then we have
+\begin{align*}
+    f(at) & = \int^\infty _{-\infty} e^{i \xi t} f(at) dt \\
+    & = \frac{1}{a}\int^\infty _{-\infty} e^{i \xi \frac{u}{a}} f(u) du \\
+    & = \frac{1}{a} \hat f(\frac{\xi}{a})
+\end{align*}
+        which is the desired result.
+
+\subsection*{4.10}
+
+It suffices to show equality in the other direction. Note then, that
+
+\begin{align*}
+    \frac{1}{2\pi} \hat f(-\xi) & = \frac{1}{2 \pi} \int ^\infty_{-\infty} e^{-i(-\xi )t}f(t)dt \\
+    & =  \frac{1}{2 \pi} \int ^\infty_{-\infty} e^{i\xi t}f(t)dt \\
+    & = \mathscr{F}^{-1}(f)\\
+\end{align*}
+        which is the desired result.
+
+\subsection*{4.11}
+
+Again, it suffices to show equality in the other direction. Note then, that
+
+\begin{align*}
+    \hat f(\xi -a) & = \int ^\infty_{-\infty} e^{-i(\xi-a) t}f(t)dt \\
+    & = e^{iat} \int ^\infty_{-\infty} e^{-i\xi t}f(t)dt \\
+    & = e^{iat} \hat f(\xi) \\
+    & = \mathscr{F}(e^{iat}f(t))
+\end{align*}
+        which is the desired result.
+
+\subsection*{4.12}
+
+
+We have that
+\[\hat f(\xi) = \mathscr{F}(f(t)) = \int^\infty_{-\infty} e^{-i\xi t} f(t)dt\]
+Therefore, we also have that
+\begin{align*}
+    \mathscr{F}(\overline{f(t)})&  = \int^\infty_{-\infty} e^{-i\xi t} \overline{f(t)}dt \\
+    & = \overline{\int^\infty_{-\infty} e^{-i(-\xi) t} f(t)dt} \\
+    & = \overline{\hat f(-\xi)}
+\end{align*}
+        which is the desired result.
+
+
+
+\subsection*{4.13 (i)}
+By letting \[u = t - \tau\]
+we have
+        \begin{align*}
+            &\int^\infty_{-\infty} f(\tau)g(t-\tau)d\tau \\
+            & = -\int^{-\infty}_\infty f(t-u)g(u) du \\
+            & = \int^\infty_{-\infty} f(t-u)g(u) du
+        \end{align*}
+        which is the desired result.
+\subsection*{4.13 (ii)}
+Note that
+        \begin{align*}
+            f*(g*h) & = \int_{-\infty}^\infty f(t-\tau_1) \int_{-\infty}^\infty g(\tau-\nu)h(\nu)d\nu d\tau \\
+            & = \int_{-\infty}^\infty \int_{-\infty}^\infty f(t-\tau)g(\tau - \nu)h(\nu)d\nu d\tau \\
+            \\
+             \text{Now, if we let }~\tau - \nu &= \tau_0, \text{ then we have} \\
+            \\
+            & = \int_{-\infty}^\infty \int_{-\infty}^\infty f(t-\tau_0 - \nu)g(\tau_0)h(\nu) d\tau d\nu \\
+            & = \int_{-\infty}^\infty h(\nu) \int_{-\infty}^\infty f(t-\nu - \tau_0)g(\tau_0) d\tau d\nu \\
+            & = h * (f*g) \\
+            & = (f * g) * h
+        \end{align*}
+        which is the desired result.
+\subsection*{4.13 (iii)}
+    \begin{align*}
+    f*(\alpha g + \beta h) &= \int^{\infty}_{-\infty} f(t - \tau) (\alpha g(\tau) + \beta h(\tau)) d\tau \\
+    &= \int^{\infty}_{-\infty} \alpha f(t - \tau) g(\tau) d\tau + \int^{\infty}_{-\infty} \beta f(t - \tau) h(\tau) d\tau \\
+    &= (\alpha f * g) + (\beta f * h)    
+    \end{align*}
+        which is the desired result.
+
+
+
+\subsection*{4.14 (i)}
+Note that
+        \begin{align*}
+            \mathscr{F}(f*g) &= \int_{-\infty}^\infty  e^{-i \xi t} (f*g)(t) dt \\
+            & =   \int_{-\infty}^\infty e^{-i \xi t} \int_{-\infty}^\infty f(\tau) g(t-\tau)d\tau dt \\
+            & = \int_{-\infty}^\infty \int_{-\infty}^\infty e^{-i \xi t} f(\tau) g(t-\tau) d\tau dt \\\\
+            & \text{ Now, letting }s = t - \tau\quad t = s+\tau \quad dt = ds, \text{ we have that } \\\\
+            & = \int_{-\infty}^\infty \int_{-\infty}^\infty e^{-i \xi (s+\tau)} f(\tau) g(s) d\tau ds \\
+            & = \int_{-\infty}^\infty \int_{-\infty}^\infty e^{-i \xi \tau}f(\tau) \cdot e^{-i \xi s} g(s) d\tau ds \\
+            & = \int_{-\infty}^\infty e^{-i \xi \tau} f(\tau) d\tau \cdot \int_{-\infty}^\infty  e^{-i\xi s } g(s)ds \\
+            & = \mathscr{F}(f) \cdot \mathscr{F}(g)
+        \end{align*}
+        which is the desired result.
+
+\subsection*{4.14 (ii)}
+        \begin{align*}
+            \mathscr{F}(g)* \mathscr{F}(f) & = \int_{-\infty}^\infty \int_{-\infty}^\infty f(x)e^{-i\tau x} dx \int_{-\infty}^\infty g(y) e^{-i(t-\xi)y}dyd\tau \\
+            & = \int_{-\infty}^\infty \int_{-\infty}^\infty \int_{-\infty}^\infty f(x)g(y)e^{-i \tau x}e^{-i t y}e^{i \tau y} dx dy d\tau \\
+            & =2\pi  \int_{-\infty}^\infty g(y) \frac{1}{2\pi} \int_{-\infty}^\infty   \int_{-\infty}^\infty
+            f(x)e^{-i \tau x} e^{i\tau y} d\tau dx e^{-i t y }dy \\
+            & \text{ Now, as this is the inverse of the inverse, we have that  } \\
+            & = 2 \pi \int_{-\infty}^\infty g(y)f(y)e^{-it y} dy \\
+            & = \mathscr{F}(fg)
+        \end{align*}
+        which is the desired result.
+
+
+
+\end{document}

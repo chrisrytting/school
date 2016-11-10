@@ -1,0 +1,159 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 5.7}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{5.31}
+
+Suppose to the contrary that we have $n$ nodes
+
+\[\int_{-1}^1 p_{2n}(x) = \sum_{i=0}^{n-1} f(x_i)w_i\]
+
+
+Yielding the sytstem of equations
+
+\begin{align*}
+   2 &= \int_{-1}^1 1 = \sum_i^{n-1}w_i\\
+   0 &= \int_{-1}^1 x = \sum_i^{n-1} x_i^1w_i\\
+   \frac{2}{3} &= \int_{-1}^1 x^2 = \sum_i^{n-1} x_i^2w_i\\
+   0 &= \int_{-1}^1 x^3= \sum_i^{n-1} x_i^3w_i\\
+   &\vdots\\
+   \frac{2}{2n+1} &= \int_{-1}^1 x^2 = \sum_i^{n-1} x_i^{2n}w_i\\
+\end{align*}
+
+If the system has a solution, it will yield a gaussian quadrature for $n$ nodes on $\mathbb{R}[x]_{2n}$\\
+
+
+
+However, there is one more unknown than there are equations. Therefore, we cannot find a solution.
+
+\subsection*{5.32}
+The third-degree Taylor series approximation around 0 is given by
+\begin{align*}
+p(x) &\approx f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 +\frac{f'''(a)}{3!}(x-a)^3\\
+&=\sin(3) + \cos(3)x - \frac{sin(3)}{2}x^2 - \frac{\cos(3)}{6}x^3
+\end{align*}
+Now, by Example 5.7.2, we compute the integral and using a Taylor series approximation
+\begin{align*}
+\int_{-1}^1 & \frac{-\cos(3)}{6}x^3 - \frac{\sin(3)}{2}x^2 + \cos(3)x +sin(3)dx\\
+ &= \frac{-cos(3)}{6}(\frac{-1}{\sqrt{3}})^3 - \frac{sin(3)}{2}(\frac{-1}{\sqrt{3}})^2 + \cos(3)(\frac{-1}{\sqrt{3}}) +\sin(3)\\
+       &-\frac{cos(3)}{6}(\frac{1}{\sqrt{3}})^3 - \frac{sin(3)}{2}(\frac{1}{\sqrt{3}})^2 + \cos(3)(\frac{1}{\sqrt{3}}) +\sin(3)\\
+       &= 0.2352
+\end{align*}
+Now, computing the integral of $\sin(x+3)$, we can compare it to the previous computation
+\[\int_{-1}^1 sin(x+3)dx = -cos(x+3)|_{-1}^1 = -cos(4) - (-cos(3)) = 0.2374\] 
+Which are nearly the same.
+
+\subsection*{5.33}
+Let $y_i = g(x_i) =  a(1-x_i) + b(x_i)$. Then we have that if $\{y_i\}_{i = 0}^n \subset [a,b]$ are the roots of the $n+1$st Legendre polynomial, then for all $q(x) = \mathbb{R}[x]_{2n+1}$ we have 
+\[ \int^{b}_{a} q(x) dx = \sum^{n}_{i=0} q(y_i)w_i\]
+where
+\[w_i = \int^{b}_{a} L_{i,n}(x) dx, \quad i = 0,1,2,\cdots,n \]
+are the integrals of the Lagrange basis polynomials. Since we have a map $g:[-1,1] \to [a,b]$ and a map $g^{-1}: [a,b]\to [-1,1] $, we can apply the proof of Theorem 5.7.4 without loss of generality by mapping back and forth between these intervals. 
+
+\subsection*{5.34}
+
+\begin{lstlisting}
+
+import numpy as np
+
+def f(x):
+    return np.abs(x)
+
+def z(x):
+    return np.cos(x)
+
+
+def quadrature(f,n):
+    a = np.linspace(-1,1,n+1)
+    roots,weights = np.polynomial.legendre.leggauss(n+1)
+    function_vals = f(roots)
+    return np.sum(function_vals*weights)
+print quadrature(z,4)
+print np.sin(1)*2.
+
+1.68294197041
+1.68294196962
+(Very close to one another)
+
+
+
+print abs(x) yields the following values with for n = 10,20,30,...,100:
+for i in xrange(10,110,10):
+    print quadrature(f,i)
+
+0.987523109474
+0.996438310884
+0.99834153543
+0.999044665942
+0.999379701294
+0.999565044201
+0.999678211086
+0.999752337668
+0.999803515872
+0.999840326218
+
+\end{lstlisting}
+One's approximation is better since it is smooth and therefore more conducive to using polynomials.
+
+
+\end{document}

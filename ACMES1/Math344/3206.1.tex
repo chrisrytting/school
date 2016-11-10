@@ -1,0 +1,73 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 6.1}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{6.2}
+Since $\textbf{x}^* $ is an interior point of $\mathscr{F}$, then there exists an epsilon ball $B(\textbf{x}^*, \varepsilon) $ such that $B(\textbf{x}^*, \varepsilon) \subset \mathscr{F}\subset \mathscr{F}' $.\\\\
+Furthermore, since it is a local minimizer, there exists an open neighborhood $U = B(\textbf{x}^*, \delta) \in \mathbb{R}^n $ such that $f(\textbf{x}^* \leq f(\textbf{x}) \forall \textbf{x}^* \neq \textbf{x}$ where $\textbf{x} \in U \cap \mathscr{F} $.\\\\
+ Then if we take the smaller of the two and let $\gamma = \text{min}(\delta,\varepsilon)$, then there exists an open neighborhood $U' = B(\textbf{x}^*,\gamma) $ such that $\mathscr{F}' \cap U' \subset \mathscr{F}\subset \mathscr{F}'$  for which $\textbf{x}^*  $ is a minimizer so we have that $\textbf{x}^* $ is a local minimizer for $\mathscr{F}'$.
+
+
+
+
+\end{document}

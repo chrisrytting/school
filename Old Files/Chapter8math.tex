@@ -1,0 +1,503 @@
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{ dsfont }
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+
+
+\begin{document}
+\subsection*{8.1}
+
+
+Let $y_1, y_2 \in cspan(S)$.\\
+Then $y_1 = \lambda_1 x_1 + \lambda_2 x_2 + ...\lambda_n x_n$ and $y_2 = \gamma_1 z_1 + \gamma_2 z_2 + ... \gamma_m z_m ~ \forall m,n \in \mathbb{N}$, where $\sum\limits_{i=1}^n \lambda_i = 1$ and $\sum\limits_{i=1}^m \gamma_i = 1$ and $x_1, ..., x_n, z_1, ..., z_m \in S$.\\ \\
+We want to show that $\alpha y_1 + (1-\alpha) y_2 \in cspan(S)~ \forall 0 \leq \alpha \leq 1$.\\ \\
+Note, \\
+\\
+$\alpha y_1 + (1-\alpha) y_2  = \alpha( \lambda_1 x_1 + \lambda_2 x_2 + ...\lambda_n x_n) + (1-\alpha)(\gamma_1 z_1 + \gamma_2 z_2 + ... \gamma_m z_m)\\ \\
+ = \alpha \lambda_1 x_1 +\alpha  \lambda_2 x_2 + ... + \alpha \lambda_n x_n +
+ (1-\alpha ) \gamma_1 z_1 + (1-\alpha)  \gamma_2 z_2 + ... + (1-\alpha) \gamma_m z_m$.\\ \\
+Now \\ 
+\\$\sum\limits_{i=1}^n \alpha \lambda_i + \sum\limits_{i=1}^n (1-\alpha) \gamma_i = 
+\alpha \sum\limits_{i=1}^n  \lambda_i + (1-\alpha) \sum\limits_{i=1}^n \gamma_i = \alpha + (1-\alpha) = 1 \in cspan(S).\\
+\\
+\implies cspan(S)$ is convex.
+
+\subsection*{8.2 (i)} 
+Let $(V, \langle \cdot, \cdot \rangle)$ be an inner product space and $P\subset V$ be a hyperplane such that\\ 
+$P = \{ x \in V | \langle x, v \rangle = b \}$ for $v\in V$ and $b \in \mathds{R}$. Then for an any $x,y \in P$, we have $\langle x,v \rangle = b$ and $\langle y,v \rangle = b$. \\
+Now, let $ 0 \leq \lambda \leq 1$. We have that 
+
+\begin{align*}
+\langle \lambda x + (1-\lambda)y,v \rangle &= \langle \lambda x, v \rangle + \langle (1-\lambda)y, v \rangle \\
+ &= \lambda \langle x,v \rangle + (1-\lambda)\langle y,v \rangle \\
+ &= \lambda b + (1-\lambda)b = b 
+\end{align*}
+
+So $P$ is convex.
+\\ \\
+
+\subsection*{8.2 (ii)}
+
+
+Let $H=\{ x \in V | \langle x, v \rangle \leq b \}$ be a half space where $v \in V$, $v \neq 0$,$~b \in \mathds{R}$. For any $x,y \in H$, we have that $\langle x,v \rangle \leq b$ and $\langle y,v \rangle \leq b$. \\
+Let $ 0 \leq \lambda \leq 1$. Now we have that 
+
+\begin{align*}
+\langle \lambda x + (1-\lambda)y,v \rangle &= \langle \lambda x, v \rangle + \langle (1-\lambda)y, v \rangle \\
+ &= \lambda \langle x,v \rangle + (1-\lambda)\langle y,v \rangle \\
+ &\leq \lambda b + (1-\lambda)b = b 
+\end{align*}
+
+So $H$ is convex.
+\\ \\
+
+\subsection*{8.3 (i)}
+
+
+For any $x \in  X$ and $y \in Y, ~ \langle a, x \rangle \neq \langle a, y \rangle$
+\subsection*{8.3 (ii)}
+
+
+$| \langle a, x\rangle - \langle a, y \rangle| \neq 0$
+
+\subsection*{8.3 (iii)}
+
+
+For all $x \in  X$ and $y \in Y,   \langle a, x \rangle \leq \langle a, y \rangle$
+
+
+\subsection*{8.4 (i)}
+
+\begin{align*}
+||x-p||^2 + ||p-y||^2 +2\langle x-p,p-y\rangle
+&= \langle x-p,x-p\rangle + \langle p-y,p-y\rangle +\langle 2(x-p),p-y\rangle\\
+&= \langle x-p,x-p\rangle + \langle p-y + 2(x-p),p-y\rangle\\
+&=\langle x-p,x-p\rangle + \langle p-y + 2x-2p,p-y\rangle\\
+ &=\langle x-p,x-p\rangle + \langle (x-y) + (x-p),p-y\rangle\\
+ &=\langle x-p,x-p\rangle + \langle x-p,p-y\rangle + \langle x-y,p-y\rangle\\
+ &= \langle x-p,x-p +p-y\rangle + \langle x-y,p-y\rangle\\
+ &= \langle x-p,x-y\rangle + \langle x-y,p-y\rangle\\
+ &= \langle x-y,x-p\rangle + \langle x-y,p-y\rangle\\
+ &= \langle x-y,x-p +p-y\rangle\\
+ &= \langle x-y,x-y\rangle = ||x-y||^2 
+\end{align*}
+
+\subsection*{8.4 (ii)}
+
+
+We know from (i) that $||x-y||^2 = ||x-p||^2 + ||p-y||^2 +2\langle x-p,p-y\rangle$. Since $p\neq y$, $||p-y||^2 > 0$. And by (8.10), $2\langle x-p,p-y\rangle \geq 0$. Therefore, $||x-y||^2 > ||x-p||^2$ and $ ||x-y|| > ||x-p||$ 
+
+\subsection*{8.4 (iii)}
+
+From (i) we have 
+\begin{align*}
+||x-z||^2 &= ||x-p||^2 + ||p-z||^2 +2\langle x-p,p-z\rangle\\
+ &= ||x-p||^2 + ||p-(\lambda y + p-\lambda p)||^2 +2\langle x-p,p-(\lambda y + p-\lambda p)\rangle\\
+ &= ||x-p||^2 + ||p-\lambda y - p +\lambda p)||^2 +2\langle x-p,p-\lambda y - p + \lambda p)\rangle\\
+ &= ||x-p||^2 + ||\lambda(p- y)||^2 +2\langle x-p,\lambda(p- y)\rangle\\
+ &= ||x-p||^2 + \lambda^2||(p- y)||^2 +2\lambda \langle x-p,p- y\rangle
+\end{align*}
+
+\subsection*{8.4 (iv)}
+
+
+To begin, we have $||x-p|| < ||x-z||~ \forall z\in C$
+and $||x-z||^2 = ||x-p||^2 + \lambda^2||y-p||^2 +2\lambda \langle x-p,p-y\rangle$
+ $\implies \lambda^2||y-p||^2 +2\lambda \langle x-p,p-y\rangle = ||x-z||^2 - ||x-p||^2$
+Then by$||x-z||^2 - ||x-p||^2 \geq 0$ shows that $\lambda^2||y-p||^2 +2\lambda \langle x-p,p-y\rangle \geq 0 $
+Yielding $\lambda||y-p||^2 +2 \langle x-p,p-y\rangle \geq 0$\\
+Now, since $||x-p||\geq 0$, $||x-z|| \geq 0$, $||x-p||<||x-z||$,
+we have that $||x-p||^2\leq ||x-z||^2$,
+so $||x-z||^2 - ||x-p||^2 \geq 0$\\
+Hence $\lambda||y-p||^2 +2 \langle x-p,p-y\rangle \geq 0 ~\forall \lambda \in [0,1]$\\ Now let $\lambda = 0$ and we have that $2 \langle x-p,p-y\rangle \geq 0 \Rightarrow \langle x-p,p-y\rangle \geq 0$ 
+
+\subsection*{8.4}
+
+
+$(\Leftarrow)$ Let $\langle x-p,p-y \rangle \geq 0$.\\
+By (ii) we have that $\| x - y \| \geq \| x - p \|$\\ \\
+$(\Rightarrow)$ Let $||x-y|| > ||x-p||~ \forall y \in C$.\\
+By parts (iii) and (iv), we have that $\langle x-p,p-y \rangle \geq 0$.
+
+
+\subsection*{8.5}
+
+
+By having $A \geq 0$, we know that $\langle x,Ax \rangle \geq 0$, which implies: 
+
+\begin{align*}
+& <x,Ax> + <b,x> +c \leq 0 \\
+& <b,x> \leq -c - <x,Ax> \\
+& <b,x> \leq -c
+\end{align*} 
+
+which satisfies the conditions of a half-space, which is convex by (ii).
+
+\subsection*{8.6}
+As $f$ is any non-negative combination of convex functions, let $f = f(x) = \sum_{i=1}^{k}\lambda_i f_i(x)$. 
+Then, since each $f_i$ is convex, we have that
+\[ f(\alpha x + (1-\alpha)y) = \sum_{i=1}^{k}\lambda_i f_i(\alpha x + (1-\alpha)y) \leq \sum_{i=1}^{k}\lambda_i(\alpha f_i(x)+(1-\alpha)f_i(y))\]
+\[\implies \sum_{i=1}^{k}\lambda_i(\alpha f_i(x)+(1-\alpha)f_i(y)) = \alpha\sum_{i=1}^{k}\lambda_i f_i(x)+(1-\alpha)\sum_{i=1}^{k}\lambda_i f_i(y) 
+ = \alpha f(x) + (1-\alpha)f(y) \]
+
+which is convex.
+
+\subsection*{8.7}
+
+
+Knowing that $b=\lambda b+(1-\lambda)b$ we have  \\
+
+\begin{align*}
+g(\lambda x +(1-\lambda)y) & = f(A(\lambda x +(1-\lambda) y)+b) \\
+						   & = f(\lambda Ax +(1-\lambda) Ay +\lambda b + (1-\lambda) b ) \\
+						   & = f( \lambda (A+b) +(1-\lambda ) (Ay+b) ) \\
+						   & \leq \lambda f(AX+b) + (1-\lambda) f(Ay+b) 
+						    = \lambda g(x) +(1-\lambda) g(y) 
+\end{align*} \\ \\ 
+
+
+
+\subsection*{8.8(i)}
+We know that $f$ is convex, so 
+\[ f(\lambda a + (1-\lambda)b) \leq \lambda f(a) + (1-\lambda)f(b) \] 
+Let $\lambda = \frac{b-x}{b-a}$. Then we have that 
+
+\[f(x) \leq \frac{b-x}{b-a}f(a) + \frac{x-a}{b-a}f(b) \]
+
+\subsection*{8.8 (ii)}
+
+
+
+By (i), we have that 
+\begin{align*}
+\frac{f(x)-f(a)}{x-a} &\leq \frac{\frac{(b-x)f(a)+(x-a)f(b)}{b-a}-f(a)}{x-a} \\
+ &= \frac{(b-x)f(a)+(x-a)f(b)-(b-a)f(a)}{(b-a)(x-a)}\\ 
+ &= \frac{bf(a)-xf(a)+(x-a)f(b)-bf(a)+af(a)}{(b-a)(x-a)} \\
+ &= \frac{(x-a)f(b)-(x-a)f(a)}{(b-a)(x-a)}\\ 
+ &= \frac{f(b)-f(a)}{b-a} 
+\end{align*}
+
+and by (ii)
+\begin{align*}
+ \frac{f(b)-f(x)}{b-x} &\geq \frac{\frac{-((b-x)f(a)-(x-a)f(b))}{b-a} + f(b)}{b-x} \\
+ &= \frac{-bf(a)+xf(a)-xf(b)+af(b)+bf(b)-af(b)}{(b-a)(b-x)} \\
+ &= \frac{(b-x)(f(b)-f(a))}{(b-x)(b-a)}\\ 
+ &= \frac{f(b)-f(a)}{b-a} 
+\end{align*}
+
+
+\subsection*{8.9 (i)}
+
+Express the values along the diagonal as $\frac{\partial^2 f}{\partial x_j^2}$ and those off of the diagonal as $\frac{\partial^2 f}{\partial x_j \partial x_k}$
+\[\frac{\partial{f}}{\partial{x}_j}=\frac{1}{n}\prod_{i=1}^n [x_i^{1/n-1}](\frac{\prod_{i=1}^nx_i}{x_j})\]
+Note that
+\[\frac{\partial^2f}{\partial x_j^2}=-\frac{1}{n}(1/n-1)\prod_{i=1}^n[x_i^{1/n-2}](\frac{\prod_{i=1}^nx_i}{x_j})^2=(n-1)\frac{\prod_{i=1}^nx_i^{1/n}}{n^2}(\frac{1}{x_j^2})\]
+Now consider the diagonal matrix for $D^2f(x)$:
+\[\frac{\prod_{i=1}^nx_i^{1/n}}{n^2}(1/x_j^2(n-1))\]
+Which equals the second derivative, so the diagonals match.\\
+Now consider the values off of the diagonal. Note that
+\[\frac{\partial{f}}{\partial{x}_j}=\frac{1}{n}\frac{\prod_{i=1}^n [x_i^{1/n}]}{x_j}\]
+\[\frac{\partial^2f}{\partial x_jx_k}=\frac{1}{n^2}\frac{\prod_{i=1}^n [x_i^{1/n-1}]}{x_j}\frac{\prod_{i=1}^n x_i}{x_k}=\frac{1}{n^2}\frac{\prod_{i=1}^n [x_i^{1/n}]}{x_jx_k}\]
+Now we will find the off-diagonals of $D^2f(x)$
+\[\frac{\prod_{i=1}^nx_i^{1/n}}{n^2}\frac{1}{x_jx_k}\]
+Which is equivalent, so the Hessian of $f$ can be written as $D^2f(x)$  
+\\
+\subsection*{8.9 (ii)}
+
+
+\[(\sum_{i=1}^n\frac{v_i}{x_i})^2 =(<\frac{v_i}{x_i},1>)^2\le ||\sum_{i=1}^n\frac{v_i}{x_i}||^2||1||^2 =n \sum_{i=1}^n\frac{v_i^2}{x_i^2} \]
+
+\subsection*{8.9 (iii)}
+
+
+Begin with
+
+\[v^TD^2f(x)v=\begin{bmatrix}
+v_1 &\dots &v_n\end{bmatrix} D^2f(x)
+\begin{bmatrix}
+v_1 \\
+\vdots \\
+v_n\\
+\end{bmatrix}
+\]
+\[=\begin{bmatrix}
+\dots &\sum_{k=1}^n[\frac{v_k}{x_jx_k}\frac{\prod_{i=1}^nx_i^{1/n}}{n^2}]+\frac{v_j\prod_{i=1}^nx^{1/n}}{nx_j^2} & \dots
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+\vdots \\
+v_n\\
+\end{bmatrix}
+\]
+\[\sum_{j=1}^n[\sum_{k=1}^n(\frac{-v_kv_j}{x_jx_k}\frac{\prod_{i=1}^nx_i^{1/n}}{n^2})+\frac{v_j^2\prod_{i=1}^nx_i^{1/n}}{nx_j^2}]=-\frac{\prod_{i=1}^nx_i^{1/n}}{n}(\sum_{j=1}^n\frac{v_j}{x_j})^2+\prod_{i=1}^nx_i^{1/n}\sum_{j=1}^n[\frac{v_j^2}{x_j^2}]\]
+Since $(\sum_{i=1}^n\frac{v_i}{x_i})^2 \le n\sum_{i=1}^n\frac{v_i^2}{x_i^2}$, \[\prod_{i=1}^nx_i^{1/n}\sum_{j=1}^n[\frac{v_j^2}{x_j^2}] \ge \frac{\prod_{i=1}^nx_i^{1/n}}{n}(\sum_{j=1}^n\frac{v_j}{x_j})^2\]
+so it follows that $D^2f(x) \ge 0$.
+
+\subsection*{8.10 (i)}
+Let $M,N \subset PD_n(\mathbb{F})$. $M$ and $N$ are orthonormally diagnolizable, so let $M=WD_1Q^H$, $N=PD_2P^H$. Therefore,
+\[\alpha M +(1-\alpha)N=\alpha QD_1Q^H +(1-\alpha)PD_2P^H\]
+\[=\alpha Q \begin{bmatrix}
+d_{11}&& \text{\huge{0}} \\
+ & \ddots &\\
+\text{\huge{0}} && d_{nn} \end{bmatrix}Q^H+(1-\alpha)P\begin{bmatrix}
+d_{11}&& \text{\huge{0}} \\
+ & \ddots &\\
+\text{\huge{0}} && d_{nn} \end{bmatrix}P^H\]
+\[=Q \begin{bmatrix}
+\alpha d_{11}&& \text{\huge{0}} \\
+ & \ddots &\\
+\text{\huge{0}} && \alpha d_{nn} \end{bmatrix}Q^H+P\begin{bmatrix}
+(1-\alpha)\delta_{11}&& \text{\huge{0}} \\
+ & \ddots &\\
+\text{\huge{0}} && (1-\alpha)\delta_{nn} \end{bmatrix}P^H\]
+Which is positive-definite.\\
+
+\subsection*{8.10 (ii)}
+
+
+a.\\
+As $g$ is convex function,
+\[g(\alpha x +(1-\alpha)y) \le \alpha g(x)+(1-\alpha)g(y)\]
+Note that
+\[g(\alpha x +(1-\alpha)y)=f((\alpha x +(1-\alpha) y)A+(1-\alpha x -(1-\alpha)y)B)\]
+\[=f(\alpha(xA+(1-x)B)+(1-\alpha)(yA+(1-y)B))\]
+and that
+\[\alpha g(x)+(1-\alpha)g(y)=\alpha f(xA+(1-x)B)+(1-\alpha)f(yA+(1-y)B)\]
+and that
+\[f(\alpha(xA+(1-x)B)+(1-\alpha)(yA+(1-y)B)) \le \alpha f(xA+(1-x)B)+(1-\alpha)f(yA+(1-y)B)\]
+ $\implies f$ is convex.\\
+b.\\
+\begin{align*}
+g(t)=f(tA+(1-A)B)&=-ln(det(tA+(1-t)B))\\
+&=-ln(det(S^H(tS+(1-t)(S^H)^{-1}B)))\\
+&=-ln(det(S^H(tI+(1-t)(S^H)^{-1}BS^{-1})S))\\
+&=-ln(det(S^H)det(tI+(1-t)(S^H)^{-1}BS^{-1})det(S))\\
+&=-ln(det(S^HS)det(tI+(1-t)(S^H)^{-1}BS^{-1}))\\
+&=-ln(det(A)det(tI+(1-t)(S^H)^{-1}BS^{-1}))\\
+&=-ln(det(A))-ln(det(tI+(1-t)(S^H)^{-1}BS^{-1}))\\
+\end{align*}
+c.\\
+Since $(S^H)^{-1}BS^{-1}$ is positive-definite, let
+\[(S^H)^{-1}BS^{-1} = PDP^H\]
+Now let
+\[-ln(det(tI+(1-t)(S^H)^{-1}BS^{-1}))=-ln(det(tI+(1-t)PDP^H)\]
+Now we have that
+\[det(tI+(1-t)PDP^H)=\prod_{i=1}^n[\lambda_i(1-t)+t]\] so
+
+\[-ln(\prod_{i=1}^n[\lambda_i(1-t)+t])=-\sum_{i=1}^n[ln(\lambda_i(1-t)+t)]\]
+Therefore, \[G(t)=-\sum_{i=1}^n[ln(\lambda_i(1-t)+t)-ln(det(A))\]
+d.\\
+\[\frac{dg}{dt}=-\sum_{i=1}^n\frac{1-\lambda_i}{t+(1-t)\lambda_i}\]
+\[\frac{d^2g}{dt^2}=\sum_{i-1}^n\frac{(1-\lambda_i)^2}{(t+(1-t)\lambda_i)^2}\]
+As $(1-\lambda_i)^2 \geq 0$, so necessarily the whole quantity must be positive.
+\subsection*{8.11 (i)}
+
+
+			(Proof by induction) At $n=1, x_{1}^1 \leq 1 x_1$ is trivial, and we know by exercises in Chapter 3 that 
+            \[n=2, x_1^{\lambda_1}x_2^{\lambda_2} \leq \lambda_1 x_1 + \lambda_2 x_2\]
+
+			We can assume, then, that $\Pi_{k=1}^n x_k^{\lambda_k} \leq \Sigma_{k=1}^n \lambda_k x_k ~\forall n \in \mathbb{N}$. As for $n+1$
+			\begin{align*}
+				\Pi_{k=1}^{n+1} x_k^{\lambda_k} &= x_1^{\lambda_1}x_2^{\lambda_2}\ldots x_n^{\lambda_n}x_{n+1}^{\lambda_{n+1}}\\
+				&= (x_1^{\lambda_1}x_2^{\lambda_2}\ldots x_n^{\lambda_n})^{\frac{1-\lambda_{n+1}}{1-\lambda_{n+1}}}x_{n+1}^{\lambda_{n+1}}\\
+				&= (x_1^{\frac{\lambda_1}{1-\lambda_{n+1}}}x_2^{\frac{\lambda_2}{1-\lambda_{n+1}}}\ldots x_n^{\frac{\lambda_n}{1-\lambda_{n+1}}})^{1-\lambda_{n+1}}x_{n+1}^{\lambda_{n+1}}\\
+				&\leq (1-\lambda_{n+1})(x_1^{\frac{\lambda_1}{1-\lambda_{n+1}}}x_2^{\frac{\lambda_2}{1-\lambda_{n+1}}}\ldots x_n^{\frac{\lambda_n}{1-\lambda_{n+1}}}) + (\lambda_{n+1})x_{n+1}\\
+				&\leq (1-\lambda_{n+1})({\frac{\lambda_1}{1-\lambda_{n+1}}}x_1 + {\frac{\lambda_2}{1-\lambda_{n+1}}}x_2 + \ldots + \frac{\lambda_n}{1-\lambda_{n+1}}x_n) + (\lambda_{n+1})x_{n+1}\\
+				&= \lambda_1 x_1 + \lambda_2 x_2 + \ldots + \lambda_n x_n + \lambda_{n+1}x_{n+1} = \Sigma_{k=1}^{n+1} \lambda_k x_k\\
+			\end{align*}
+            \subsection*{8.11 (ii)}
+             
+            
+			Let $\mathbf{x}, \mathbf{y} \in \{(x_1,x_2,\ldots,x_n) \in \mathbb{R}^n |\ \Pi_{k=1}^{n}\ x_k \geq 1\}$, then we have that
+            \begin{align*}
+				\Pi_{k=1}^{n}{\lambda x_k + (1-\lambda)y_k} &= x_1^\lambda x_2^\lambda \ldots x_n^\lambda y_1^{1-\lambda} y_1^{1-\lambda} \ldots y_n^{1-\lambda}\\
+				&= (x_1 x_2\ldots x_n)^\lambda(y_1 y_2\ldots y_n)^{1-\lambda}\\
+				&\geq 1\\ 
+			\end{align*}
+            
+				Since $x_1 x_2\ldots x_n \geq 1 \ \mathrm{and }\ y_1 y_2\ldots y_n \geq 1$
+
+\subsection*{problem 8.12}
+Let $s = sup\{ f(x) \}$. Let $\epsilon > 0$ then there exists a $z$ such that $f(z) + \epsilon > s$. Then $ \exists x,y \in\mathbb{R}$ such that $ z= \lambda x + (1-\lambda)y$ for some $0< \lambda<1$. So we have 
+\begin{align*}
+s &< \epsilon + f(z)\\ &\leq \epsilon + \lambda f(x) + (1-\lambda)f(y) \\&\leq \epsilon \lambda f(x) + (1-\lambda)s\\
+\end{align*}
+So we have that
+\begin{align*}
+&s < \epsilon + \lambda f(x) + s - \lambda s\\&\implies  0 < \epsilon + \lambda f(x) - \lambda s\\ &\implies \lambda s < \epsilon + \lambda f(x). 
+&\implies s\leq f(x)
+\end{align*}
+Now, $s\leq f(x)$ and $f(x) \leq s \implies f(x) = s \implies f $is a constant function. 
+
+\subsection*{8.13}
+
+
+By Example 8.1.13, let the hyperplane which bisects $p-x$ through the midpoint $m$ be $<x-p,y-m>=0$. 
+By Thm. 8.3.2, we know that said hyperplane exists and can be expressed as $<x-p,z-v>=0$ where $x$ an $p$ are the initial points, $z$ is a general vector which satisfies this condition, $v$ is any point on the vector that connects $x$ and $p$. Take the hyperplane that passes through $p$, and we have $<x-p,z-p>=0$. Add thee distance from $x$ to $p$, and we have the hyperplane that passes through $x$  \\
+
+\begin{align*}
+& <x-p,z-p> = <x-p,x-p> \\
+& <x-p,z-x>=0
+\end{align*}\\
+
+So we obtain a hyperplane that divides $x$ from $C$ for any $v=\lambda (x-p)$ with $ 0 \leq \lambda < 1$. The proof is similar for $m$ and $\lambda = 0.5$. \\
+
+\subsection*{problem 8.14}
+
+By thm. 8.3.5, $f$ being convex implies that epi($f$) is convex.
+
+By cor. 8.3.3 The set $C$ is equal to the intersection $S$ of all half spaces that support it. Now, each hyperplane of our set is the boundary of xome supporting half space of $C$, meaning that no interior point of $C$ is contained in said half spaces. 
+
+Therefore, we have that a vertical supporting hyperplane $(HX\mathbb{R})\cap int[epi(f)]=0$
+
+
+\subsection*{8.16}
+Note that
+\[ f^*(y) = \sup_{x \in C} (xy - xln(x))\]
+
+$\frac{\partial(xy-xln(x))}{\partial x}=0$ yields
+\begin{align*}
+ y - (1+ln(x)) &= 0\\
+ ln(x) &= y-1 \\
+ x &= e^{y-1} \\
+\end{align*}
+We have, then, the domain \[C^* = \mathds{R}\] and complex conjugate
+\[f^*(y) = e^{y-1}y - e^{y-1}ln(e^{y-1}) = e^{y-1} \]
+
+\subsection*{8.17}
+
+By similar derivation as in (8.16), we have the domain \[C^* = \mathbb{R}\]
+
+
+And the complex conjugate \[f^*(y) = y (\frac{y}{p})^{\frac{1}{p-1}} - ((\frac{y}{p})^{\frac{p}{p-1}} \]
+
+\subsection*{8.18}
+
+\[f(x)+f^*(y)=f(x)+\sup_{x \in C}(y^Tx-f(x)) \ge f(x)+y^Tx-f(x)=y^Tx\]
+since $y^Tx$ is a scalar, we have that  \[y^Tx=x^Ty\] and therefore
+\[f(x)+f^*(y) \ge x^Ty\]
+
+\subsection*{8.19}
+Let $F^*(y)=sup_x (y^Tx-F(x))$. The derivative with respect to x yields \\
+
+\begin{align*}
+y-F'(x)=y-f(x)=0
+\end{align*}\\
+
+since $g = f^{-1}$, we have that $x=g(y)$ The convex conjugate is given by \\
+
+\begin{align*}
+F^*(y)=yg(y)-\int_0^{g(y)} f(t)dt
+\end{align*}\\
+
+Taking the derivative of both $G(y)$ and $F^*(y)$ yields
+\begin{align*}
+\left( yg(y) \right)^{'} &= \left( \int_0^{g(y)} f(t)dt + \int_0^{y} g(s)ds \right)^{'} \\
+g(y) + yg^{'}(y) &= f(g(y))g^{'}(y) + g(y)\\
+g(y)+yg^{'}(y) &= yg^{'}(y) +g(y)
+\end{align*} \\
+
+
+and since we have $f(0)=0$ and $g(0)=0$ and therefore $0= \int_0^{g(0)} f(t)dt + \int_0^0 g(s)ds$. 
+By similar proof, we have that \[F(x) = G^*(y)\]
+
+Since $F^*(x) = G(y)$, by exercise 8.18 we have\\
+
+\begin{equation}
+xy \leq F(x) + G(y) 
+\end{equation}\\
+
+
+\subsection*{8.20 (i)}
+
+By (ii), let $y_i=\frac{e^{x_i}}{\sum_{j=1}^ne^{x_j}}\ge 0$.\\
+Now, let $x=t\mathbf{1}$ and we have that
+\begin{align*}
+sup(y^Tx-ln\sum_{i=1}^ne^{x_i})&=sup(y^Tt\vec{1}-ln\sum_{i=1}^ne^t)\\
+&=sup(\sum_{i=1}^ny_it-ln(ne^t))\\
+&=sup(\sum_{i=1}^ny_it-ln(n) - tln(e))\\
+&=sup(\sum_{i=1}^ny_it-t-ln(n))\\
+&=sup(t(\sum_{i=1}^ny_i-1)-ln(n))
+\end{align*}
+ $\implies \displaystyle\sum_{i=1}^ny_i=1$ so the domain of $f^*$ is the set $Z=(z_1,z_2,...,z_n)$ where each $z_i \ge 0$ and $\sum_{i=1}^nz_i=1$.
+
+\subsection*{8.20 (ii)}
+
+\begin{align*}
+y^Tx - f(x) &= \displaystyle\sum_{i=1}^{n}\! y_ix_i - ln\left(\displaystyle\sum_{i=1}^{n}\!e^{x_i}     \right)\\
+ &= \displaystyle\sum_{i=1}^{n}\!\left(\frac{e^{x_i}}{\displaystyle\sum_{j=1}^{n}e^{x_j}}ln(e^{x_i})\right) - \left(\frac{\displaystyle\sum_{i=1}^{n}\!e^{x_i}}{\displaystyle\sum_{j=1}^{n}\!e^{x_j}}\right)ln\left(\displaystyle\sum_{k=1}^{n}\!e^{x_k}\right)\\
+ &= \displaystyle\sum_{i=1}^{n}\!\left(     \frac{e^{x_i}}{\displaystyle\sum_{j=1}^{n}\!e^{x_j}}\left(  ln(e^{x_i}) - ln\left(\displaystyle\sum_{k=1}^{n}\!e^{x_k}\right)\right)\right)\\
+ &= \displaystyle\sum_{i=1}^{n}\!\left( \frac{e^{x_i}}{\displaystyle\sum_{j=1}^{n}\!e^{x_j}}ln\left(\frac{e^{x_i}}{\displaystyle\sum_{k=1}^{n}\!e^{x_k}}\right)    \right)\\
+ &= \displaystyle\sum_{i=1}^{n}\!y_i ln(y_i)
+\end{align*}
+
+\subsection*{8.20 (iii)}
+
+
+\begin{align*}
+    f^{*}(\mathbf{y}) &= sup_{x} \left( \mathbf {y} ^T \mathbf {x} - f(\mathbf {x})     \right)\\
+&= sup_{x} \left( \displaystyle\sum_{i=1}^{n}y_iln(y_i))\right)\\ &= \displaystyle\sum_{i=1}^{n}y_iln(y_i)  
+\end{align*}
+
+Where $y_i=0$, supremum $\implies x_i \rightarrow -\infty$. So $y^Tx$ has one dimension less and $ln(\sum_{i=1}^{n}e^{x_i})$ has one dimension less, so $f^*(y)$ only has one dimension less than in (iii), but besides that is identical.
+
+\subsection*{8.21}
+
+
+\begin{align*}
+lim_{h\to 0} \lVert A(x+h) - A(x) \lVert & = lim_{h \rightarrow 0} \lVert Ax + Ah -Ax \lVert \\
+												 & = lim_{h \rightarrow 0} \lVert Ah \lVert 
+												 \leq lim_{h \rightarrow 0} M \lVert h \lVert \rightarrow 0
+\end{align*} \\ 
+
+Proving that a function continuous at every $x$ is continuous at some $x$ is trivial. As for boundedness, note that $Ah < 1$ and we have
+
+\begin{align*}
+\lVert Av \lVert & = \lVert \frac{Avh}{h} \lVert \\
+				 & = \lVert Ah \lVert \lVert \frac{v}{h} \lVert 
+				  \leq \lVert \frac{v}{h} \lVert 
+\end{align*} \\ 
+
+Let $M=\frac{1}{h} \implies$ The linear operator is bounded. \\
+
+\end{document}

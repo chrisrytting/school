@@ -1,0 +1,242 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Mat 344 Homework 2.5}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{2.27}
+On the left side, we have
+\begin{align*}
+    B^n_j(X) = \frac{n!}{j!(n-j)!}x^j(1-x)^{n-j}
+\end{align*}
+
+On the right side, we have
+\begin{align*}
+    (1-x)B^{n-1}_j(x) + xB^{n-1}_{j-1}(x) &= \frac{(n-1)!}{(n-1-j)! j!}x^j (1-x)^{n-j} + \frac{(n-1)!}{(j-1)!(n-j)!} x^j(1-x)^{n-j} \\
+    &= x^j(1-x)^{n-j}  \Big( \frac{(n-j)(n-1)!}{(n-j)! j!} + \frac{(n-1)!j}{(j)!(n-j)!} \Big)  \\
+    &= x^j(1-x)^{n-j} \frac{(n-1)!}{j!(n-j)!} (n-j+j)\\
+    &= x^j(1-x)^{n-j} \frac{(n-1)!}{j!(n-j)!} (n)\\
+    &= x^j(1-x)^{n-j} \frac{n!}{j!(n-j)!}\\ \end{align*}
+
+\subsection*{2.28}
+On the left side, we have
+\begin{align*}
+    B_j^n(x) &= \frac{n!}{j!(n-j)!}x^j(1-x)^{n-j} \\
+\end{align*}
+On the right side, we have
+\begin{align*}
+    \frac{j+1}{n+1}B^{n+1}_{j+1} (x) + \frac{n-j+1}{n+1}B^{n+1}_j(x) &= \frac{j+1}{n+1}\frac{(n+1)!}{(j+1)!(n-j)!}x^{j+1}(1-x)^{n-j}\\ &+ \frac{n-j+1}{n+1}\frac{(n+1)!}{(j)!(n-j+1)!}x^{j}(1-x)^{n-j+1} \\
+    &= \frac{n!}{j!(n-j)!}x^{j+1}(1-x)^{n-j} \\&+ \frac{n!}{j!(n-j)!}x^{j}(1-x)^{n-j+1} \\
+    &= x\frac{n!}{j!(n-j)!}x^{j}(1-x)^{n-j} \\&+ (1-x) \frac{n!}{j!(n-j)!}x^{j}(1-x)^{n-j} \\
+    &= (x+1-x)\frac{n!}{j!(n-j)!}x^{j}(1-x)^{n-j} \\
+    &= \frac{n!}{j!(n-j)!}x^{j}(1-x)^{n-j} \\
+\end{align*}
+
+Now we have, by the recurrence relation, that
+\begin{align*}
+    B_0^n &= \frac{1}{n+1}B_1^{n+1} + \frac{n+1}{n+1}B_0^{n+1} \\
+    B_1^n &= \frac{2}{n+1}B_1^{n+1} + \frac{n}{n+1}B_0^{n+1} \\
+    B_2^n &= \frac{3}{n+1}B_1^{n+1} + \frac{n-1}{n+1}B_0^{n+1} \\
+\end{align*}
+Resulting in the matrix
+\begin{align*}
+    \begin{bmatrix}
+       \frac{n+1}{n+1}&\frac{1}{n+1}&0&0& \cdots & 0 \\
+       0&\frac{n}{n+1}&\frac{2}{n+1}&0& \cdots & 0 \\
+       0&0&\frac{n-1}{n+1}&\frac{3}{n+1}& \cdots & 0 \\
+       \vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+       0&0&0&0&\frac{2}{n+1}&\frac{n}{n+1}\\
+       0&0&0&0&0&\frac{1}{n+1}\\
+    \end{bmatrix}
+\end{align*}
+
+
+
+
+
+
+\subsection*{2.29 (i)}
+On the left side, we have
+\begin{align*}
+    DB_j^n(x) &= D \frac{n!}{j!(n-j)!}x^j(1-x)^{n-j}\\
+    DB_j^n(x) &=  \frac{n!}{j!(n-j)!}Dx^j(1-x)^{n-j}\\
+    DB_j^n(x) &=  \frac{n!}{j!(n-j)!}(jx^{j-1}(1-x)^{n-j} + (-1)(n-j)x^j(1-x)^{n-j-1})\\
+    DB_j^n(x) &=  \frac{n!}{j!(n-j)!}(jx^{j-1}(1-x)^{n-j} - (n-j)x^j(1-x)^{n-j-1})\\
+\end{align*}
+On the right side, we have
+\begin{align*}
+    n(B_{j-1}^{n-1}(x) - B^{n-1}_j(x) &= n \Big( \frac{(n-1)!}{(j-1)!(n-j)!}x^{j-1}(1-x)^{n-j} - \frac{(n-1)!}{j!(n-1-j)!}x^j(1-x)^{n-j-1} \Big) \\
+    n(B_{j-1}^{n-1}(x) - B^{n-1}_j(x) &= \frac{n!}{j!(n-j)!} \Big( jx^{j-1}(1-x)^{n-j} - (n-j)x^j(1-x)^{n-j-1} \Big) \\
+\end{align*}
+Which is the desired result.
+
+\subsection*{2.29 (ii)}
+We have, by the recurrence relation, that
+\begin{align*}
+    DB_0^n&=  n B^{n-1}_{-1}(x) - n B_0^{n-1}(x) \\
+    DB_1^n&=  n B^{n-1}_{0}(x) - n B_1^{n-1}(x)  \\
+    DB_2^n&=  n B^{n-1}_{1}(x) - n B_2^{n-1}(x)  \\
+    \vdots
+\end{align*}
+Which yields the matrix
+\begin{align*}
+    \begin{bmatrix}
+        n & -n & 0 & \cdots & 0 \\
+        0 & n & -n & \cdots & 0 \\
+        0 & 0 & n & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & 0 & n  & -n \\
+        0 & 0 & 0 & 0 & n \\
+    \end{bmatrix}
+\end{align*}
+
+
+\subsection*{2.29 (iii)}
+
+\[
+\begin{bmatrix}
+    n & \frac{n}{n+1} - \frac{n^2}{n+1} & 0 & 0 & \dots & 0\\
+    0 & n\frac{n}{n+1} &  \frac{2n}{n+1} - n \frac{n-1}{n+1} & 0 & \dots & 0\\
+    0 & 0 & n\frac{n-1}{n+1} & \frac{3n}{n+1} - n \frac{n-2}{n+1}&  \dots & 0\\
+    \vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\
+    \vdots&\vdots&\vdots&\vdots&\vdots&n \frac{n-1}{n+1} + \frac{n}{n+1}\\
+    0&0&0&0&0& \frac{n}{n+1}
+\end{bmatrix}
+\]
+
+
+\subsection*{2.30}
+\begin{align*}
+    DB_j^n(x) &= n \Big( B^{n-1}_{j-1} (x) - B^{n-1}_j (x)  \Big) \\
+    DB_j^{n+1}(x) &= (n + 1) \Big( B^{n}_{j-1} (x) - B^{n}_j (x)  \Big) \\
+    B_j^{n+1}(x) \Big|_0^1 &= (n + 1) \Big(\int^{1}_{0} B^{n}_{j-1} (x)dx -(n+1)\int^{1}_{0} B^{n}_j (x) dx  \Big) \\
+    \Big((n+1)\int^{1}_{0} B^{n}_j (x) dx  \Big) &= (n + 1) \Big(\int^{1}_{0} B^{n}_{j-1} (x)dx\Big)  - B_j^{n+1}(x) \Big|_0^1 \\
+    \Big(\int^{1}_{0} B^{n}_j (x) dx  \Big) &=  \Big(\int^{1}_{0} B^{n}_{j-1} (x)dx\Big)  -\frac{1}{(n+1)} B_j^{n+1}(x) \Big|_0^1 \\
+    \Big(\int^{1}_{0} B^{n}_j (x) dx  \Big) &=  \Big(\int^{1}_{0} B^{n}_{j-1} (x)dx \Big)  \\
+    \implies 
+    \Big(\int^{1}_{0} B^{n}_j (x) dx \Big) &=  \Big(\int^{1}_{0} B^{n}_{j-1} (x)dx\Big) = \Big(\int^{1}_{0} B^{n}_0 (x) dx \Big) = \frac{1}{n+1} \\
+    \implies 
+    I = [\frac{1}{n+1}, \cdots, \frac{1}{n+1}]
+\end{align*}
+
+\subsection*{2.31 (i)}
+Let $L = \mathbf{B}_n$.
+We know the Bernstein basis of $n=2$ to be as follows
+\[ \{(1-x)^2, 2(1-x)x, x^2\} \]
+Now, by the definition given in the problem, let
+\begin{align*}
+    \mathbf{B}  ( (1-x)^2) &= f(0) B_0^1(x)+ f(1) B_1^1(x)\\
+ &= 1 B_0^1(x)+ 0 B_1^1(x)\\
+    \mathbf{B} ( 2(1-x)x) &= f(0) B_0^1(x)+ f(1) B_1^1(x)\\
+ &= 0 B_0^1(x)+ 0 B_1^1(x)\\
+    \mathbf{B} ( x^2) &= f(0) B_0^1(x)+ f(1) B_1^1(x)\\
+ &= 0 B_0^1(x)+ 1 B_1^1(x)\\
+\end{align*}
+
+\[ \mathbf{B_1}  = 
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+\end{bmatrix}
+\]
+
+\subsection*{2.31 (ii)}
+Given the basis $\{\text{sin} (x) , \text{cos} (x) \}$, 
+\begin{align*}
+    \implies 
+    \text{ for } n &= 0\\
+    \mathbf{B}_0(f(x)) &= [0,0]\\
+    \text{ for } n &= 1\\
+    \mathbf{B}_1(f(x)) &= f(0)B_0^1(x) +f(1)B_1^1(x)  \\
+    \mathbf{B}_1(\text{sin} (x) ) &= 0B_0^1(x) +\text{sin} (1) B_1^1(x)  \\
+    \mathbf{B}_1(\text{cos} (x) ) &= 1B_0^1(x) +\text{cos} (1) B_1^1(x)  \\
+    &\implies
+    \begin{bmatrix}
+        0 & 1 \\
+        \text{sin} (1) & \text{cos} (1) 
+    \end{bmatrix}\\
+    \text{ for } n &= 2\\
+    \mathbf{B}_2(f(x)) &= f(0)B_0^1(x) + f(\frac{1}{2})B_1^1(x)  + f(1) B^2_2(x)  \\
+    \mathbf{B}_2(\text{sin} (x) ) &= 0B_0^2(x) +\text{sin} (\frac{1}{2}) B_1^2(x) + \text{sin} (1) B_2^2(x)  \\
+    \mathbf{B}_2(\text{cos} (x) ) &= 1B_0^2(x) +\text{cos} (\frac{1}{2}) B_1^2(x) + \text{cos} (1) B_2^2(x)  \\
+    &\implies
+    \begin{bmatrix}
+        0 & 1 \\
+        \text{sin} (\frac{1}{2}) & \text{cos} (\frac{1}{2}) \\
+        \text{sin} (1) & \text{cos} (1) \\
+    \end{bmatrix}\\
+    \vdots
+\end{align*}
+
+\[
+\begin{bmatrix}
+    0 & 1\\
+    \text{sin} (\frac{1}{n}) & \text{cos} (\frac{1}{n}) \\
+    \vdots & \vdots\\
+    \text{sin} (\frac{n}{n}) & \text{cos} (\frac{n}{n}) \\
+\end{bmatrix}
+\]
+
+
+
+
+
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 1.9 part 2}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{Algorithm description}
+Consider the following problem. An individual, Charlie, is on a treasure-hunting expedition. He stumbles upon a vast treasure trove, where there is a large, but finite, amount of jewels and valuables. Charlie is faced with a problem, though. He can only carry a certain weight $W$ before his knapsack breaks.
+Every item has its weight $w_i$ and value $v_i$ etched on the side. How does Charlie figure out what to take?
+He employs the following algorithm, implemented in python on his MacBook Pro. 
+\\
+\\
+He fills his knapsack with $n$ random objects $x_i$ such that $ \sum^{n}_{i=1} x_i < W$. He then checks the ratio $\frac{v_i}{w_i}$ to see if this ratio is higher than the objects already in the backpack. This algorithm will have temporal complexity of $O(2n)$, since he will have to store every items ratio and replace the items in his pack a potentially huge number of times.
+\\\\
+He then realizes that there is a better way! He decides not to store every ratio in memory. Rather, he only stores a ratio if it is a new, unseen ratio. This way, he stores a fraction of what he once stored, and only places the most valuable items in his knapsack. This algorithm has a temporal complexity of $O(n)$, since he only has to store a few values and only places the most valuable items in his knapsack, and Charlie goes home rich!
+\\\\ \[\text{Fin} \]
+
+
+
+
+
+
+
+
+
+\end{document}

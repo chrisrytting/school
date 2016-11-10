@@ -1,0 +1,62 @@
+<tensorflow.python.ops.rnn_cell.MultiRNNCell object at 0x10c477f10>
+FOUND 1548 BATCHES
+0 0	4.3717
+0 1000	1.9009
+I 's able of they en ar with then do. ""You knot. TheGhis sump
+1 0	2.3578
+1 1000	1.6241
+I With mean head. We'll theyed. EPt?"
+"MyN?"
+"CMust
+wouldn't q
+2 0	2.1631
+2 1000	1.4751
+I will said something about moods as no wonkled in the
+doped h
+3 0	2.0289
+3 1000	1.3693
+I Dwarff. But I love I chead in
+which a crue floth. There's on
+4 0	1.9311
+4 1000	1.2888
+I had a lifed of minur though God, years. I could naturol
+mero
+5 0	1.8471
+5 1000	1.2149
+I see also that?" I said the Ghost, which Illone all this. Non
+6 0	1.7889
+6 1000	1.1539
+I morling about it before as its leaving well it all plain."
+"
+7 0	1.7403
+7 1000	1.1050
+I though the Earting. In hardly
+leaved."
+But for stop of then'
+8 0	1.7020
+8 1000	1.0797
+I thunking that are in the blace both.
+"What would him me in w
+9 0	1.6712
+9 1000	1.0598
+I Place, and robe then two of his follew minded adonaterinatio
+10 0	1.6505
+10 1000	1.0587
+I Said he ansoon was
+planing now still in Hell, they skill to
+11 0	1.6355
+11 1000	1.0569
+I What maduall body.
+"Well-mady quarrel woice, and all as I sa
+12 0	1.6170
+12 1000	1.0654
+I spirity young mornoubsting. For betien will noty of charswed
+13 0	1.5982
+13 1000	1.0659
+I stopped in that they caught glamed they asgetured show Priss
+14 0	1.5798
+14 1000	1.0660
+I began to black exist, of eight to ble me shall making chects
+15 0	1.5649
+15 1000	1.0444
+I whon were we'd levelvesine and one to be a gittle his tow, n

@@ -1,0 +1,124 @@
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 3.7}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{3.39}
+\[E(\hat p) E \left[ \frac{1}{Nn} \sum^{N}_{i=1} X_i \right]  = \frac{1}{Nn} \sum^{N}_{i=1} E[X_i] = \frac{Nnp}{Nn} = p\]
+
+\subsection*{3.40}
+We have that
+\begin{align*}
+    L(\lambda) & = e^{-\lambda n}\frac{\lambda^{\sum x_i}}{\prod (x_i)!} \\
+   &\text{Now, differentiating and setting equal to zero, we have}\\
+    \frac{ne^{-\lambda n}\lambda^{ n \bar x}}{\prod (x_i)!} + \frac{\bar x ne^{-\lambda n}\lambda^{n \bar x -1}}{\prod (x_i)!} &= 0 \\
+    \implies n \bar x \lambda ^{n \bar x-1} &=n \lambda^{n \bar x}\\
+    \implies \lambda = \bar x = &\frac{\sum_{i=1}^n}{n}
+\end{align*}
+
+\subsection*{3.41}
+We have that
+\begin{align*}
+    L(\lambda) &= \prod \lambda e^{-\lambda x} \\
+    & = \lambda^n e^{-\lambda \bar x n}\\
+    &\text{Now, differentiating and setting equal to zero, we have} \\
+    n \lambda ^{n-1} - \bar xn \lambda^n &= 0 \\
+    \implies   \frac{n\lambda^{n-1}}{\lambda^{n-1}} &= \frac{\bar x n \lambda ^n}{\lambda^{n-1}} \\
+    \implies   \lambda = \frac{1}{\bar x} &= \frac{n}{\sum ^n _{i=1}}
+\end{align*}
+
+
+
+
+\subsection*{3.42}
+The maximum likelihood estimator $ \hat p$ would be one as we see in Example 3.7.10. This would be misleading because the probability/mean $p$ is likely not equal to one. However, the key words here are ``a small number of draws''. Therein lies the weakness of MLE, for if there is a small number of draws, then we can get misleading results. 
+
+\subsection*{3.43}
+
+
+For $k =1$, $k<n$,
+$P(M \leq k) = 0$. This is true because upon drawing $n$, we have that $M > 1$, because the next draw will necessarily be greater than 1.\\\\
+Suppose now that $k-1 < n$, $P(M \leq k-1) = 0$.
+Without loss of generality, we can assum that on the first $k-1$ draws, we draw the first $k-1$ values. The minimum $M$ value possible on the $k^{th}$ draw is $k$. However, we know that $k<n$, so we must draw at least one more, and the $k+1$ draw maximum value will be greater than $k$.\\\\
+Therefore, we have that $P(M \leq k) = 0$ for all $k < n$.\\\\
+As for finding $P(M \leq k) \quad k>n$, note that for any draw, for $M \leq k$, every draw must come from beneath k. The total number of draws possible fitting that circumstance can be expressed by $C(n,k)$. In our sample space there are $C(b,n)$ total possible draws.\\\\
+Therefore, we have that
+\begin{align*}
+    P(M \leq k) = \frac{\binom kn}{\binom bn}
+\end{align*}
+As for the probability of equality,
+\begin{align*}
+    P(M = k) &= P(M \leq k-1) - P(M \leq k) \\
+    & = \frac{\binom{k}{n}}{\binom bn} - \frac{\binom{k-1}n}{\binom bn}\\
+    & = \frac{\binom{k}{n} - \binom{k-1}n}{\binom bn}\\
+    &\text{by Pascal's identity}\\
+    & = \frac{\binom{k-1}{n-1}}{\binom bn}
+\end{align*}
+Which is the desired result.
+
+
+
+
+
+
+\end{document}

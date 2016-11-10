@@ -1,0 +1,109 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 4.6}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{4.30}
+
+By exercise 4.10 and example 4.2.6, we have that
+\begin{align*}
+    \mathscr{F}^{-1}( \text{sinc} (at)) =  (\text{rect}_a(\xi) ) = \frac{1}{2    \pi} \hat f(-t) = \frac{1}{2 \pi} \mathscr{F}(\text{sinc} (-at)
+\end{align*}
+but since sinc is even, we have
+\begin{align*}
+    \text{rect}_a(\xi)  = \frac{1}{2    \pi} \hat f(-t) = \frac{1}{2 \pi} \mathscr{F}(\text{sinc} (-at) = \frac{1}{2 \pi} \mathscr{F}(\text{sinc} (at))
+\end{align*}
+\[\implies 2 \pi \text{rect}_a(\xi) = \mathscr{F}(\text{sinc} (at)\]
+
+\subsection*{4.31}
+
+We need to shift $f$ by $\frac{b+a}{2}$. To do so, we let 
+\[g(t) = e^{-it (\frac{b+a}{2}} f(t) \]
+where $g$ is a symmetric version of $f$.\\\\
+Thus, we have that 
+\[g(t) = \sum^{\infty}_{-\infty} g(t_k) \text{sinc} (\frac{b-a}{2}t - k \pi)\]
+Therefore,
+\[f(t) = \sum^{\infty}_{-\infty} e^{it (\frac{b+a}{2}} e^{-it_k (\frac{b+a}{2}} f(t_k) \text{sinc} (\frac{b-a}{2}t - k \pi) \]
+
+\[\implies f(t) = \sum^{\infty}_{-\infty} e^{i(t-t_k) \frac{b+a}{2}} f(t_k) \text{sinc} (\frac{b-a}{2}t - k \pi) \] 
+which is the desired result.
+\subsection*{4.32}
+
+Suppose to the contrary that this holds for $N=1$. Then we have that
+
+\begin{align*}
+    \text{sin} (t)&= \sum^{\infty}_{-\infty} \text{sin} (t_k) \text{sinc} (Nt - \pi k)  \\
+    &= \sum^{\infty}_{-\infty} \text{sin} (\frac{k \pi}{N}) \text{sinc} (Nt - \pi k)  \\
+    &= \sum^{\infty}_{-\infty} \text{sin} (k \pi) \text{sinc} (Nt - \pi k)  \\
+\end{align*}
+However, since $k \in \mathbb{Z}$, we have that $\text{sin} (k\pi) = 0 \quad \forall k$, yielding that
+\[\text{sin} (t)  \sum^{\infty}_{-\infty} \text{sin} (k \pi) \text{sinc} (Nt - \pi k) = 0 \forall t\]
+this is a contradiction since for 
+\[\text{sin} (\frac{\pi}{2})  \neq 0\]
+
+
+
+
+
+
+
+\end{document}

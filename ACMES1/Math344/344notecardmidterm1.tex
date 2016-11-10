@@ -1,0 +1,116 @@
+\documentclass[8pt]{extarticle}
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,paperwidth =5in, paperheight = 3in,tmargin=0in,bmargin=0in,lmargin=0.1in,rmargin=0.1in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+{\small
+$\mathbf{DEFVecSp}:1.x+y=y+x2.(x+y)+z = x+(y+z)3.Add.Id.0\in V | 0+x = x4. \exists Add.Inv. (-x) | x+(-x) = 0(5.) F.Dis.Law a(x+y) = ax + ay(6.) S.Dis.Law (a+b)(x) = ax + bx(7.)Mul.Id.1x=x(8.) (ab)x = a(bx)$
+$\mathbf{THM1.1.13}$ If $W$ is a subset of a vector space $V$ s.t. $\mathbf{x,y} \in @$ and for any $a,b \in \mathbb{F} $ the vector $a \mathbf{x} + b \mathbf{y}  \in W$, then $W$ is a subspace of $V$.
+$\mathbf{DEFLinHull}$ of $S \langle S \rangle$,  smallest subspace of $V$ that contains $S$,i.e. intersection of all subspaces of $V$ that contain $S$.
+$\mathbf{THM1.2.6Span}(S)$ = $\langle S \rangle$.
+$\mathbf{DEF}\bigoplus$ Where $W_1, W_2$ are subspaces of $V$, then $W_1 + W_2 = W_1 \bigoplus W_2 $ if $W_1 \cap W_2 = {0}.$
+$\mathbf{DEF Complementary subspaces} W_1$ and $W_2$ if $V = W_1 \bigoplus W_2$
+$\mathbf{THM Replacement}$: $V$ is a vector space spanned by $S = {s_1,\cdots,s_m}$. If $T = {t_1,\cdots,t_n}$ is a L.I. subset of $V$, then $\leq m$ and $\exists S' \subset S$ having $m-n$ elements such that $T\cup S'$ spans $V$.
+$\mathbf{THM Extension}$: $W$ is a subspace of $V$If $T = {t_1,\cdots,t_n}$ and $S = {s_1,\cdots,s_m}$ span $W$ and $V$, respectivley, then $\exists S' \subset S$ having $m-n$ elements such that $T \cup S'$ is a basis for $V$.
+$\mathbf{DEF Quotient Spaces}$: $W$ subspace of $V$. The set ${x+W | x \in V}(or equivalently [[ x ]] | x \in V)$ of all cosets of $W$ in $V$ is denoted $V/W$ and is called the quotient of $V$ modulo $W$.
+$\mathbf{DEF} \boxplus \boxdot$:Let $W$ be a subspace of $V$. Define operations $\boxplus: V/W \times V/W \rightarrow V/W$ and $\boxdot : \mathbb{F} \times V/W \rightarrow V/W$ given by (i) $(x+W) \boxplus (y+W) = (x+y) + W$ and $a \boxdot(x+W) = (ax) + W$. These are the operations of vector addition and scalar multiplication on $V/W$.
+$\mathbf{   CHAP2   } $
+$\mathbf{DEF Linear transformation}$ Let $V$ and $V$ be vector spaces over $\mathbb{F} $. A map $L: V \rightarrow W$ is a linear transformation from $V$ into $W$ if $L(ax_1 + bx_2) = aL(x_1) + bL(x_2)$ for $x_1,x_2 \in V$ and $a,b \in \mathbb{F}$
+$\mathbf{COR 2.1.17}$ A linear transforamtion is invertible if and only if it is bijective.
+$\mathbf{Prop. 2.1.24: }$ If $V  \cong W$ are isomorphic vector spaces, with isoorphism $L:V \rightarrow W$, then: 
+(i) A linear equation holds in V iff it also holds in W: that is $\sum_{i=1} ^\mathscr{l} a_i \mathbf{x_i} = \mathbf{0}$ holds in V iff $\sum_{i=1} ^\mathscr{l} a_i L_i \mathbf{x_i} = \mathbf{0}$ holds in W.
+(ii) A set B = $\{\mathbf{v_i} ,\dots, \mathbf{ v_n}\}$ is a basis of V iff LB = $\{L\mathbf{v_i} ,\dots,L \mathbf{ v_n}\}$ is a basis for W. Moreover, the dimension of V is equal to the dimension of V.
+(iii) The subspaces of V are in vijective correspondence with the subspaces of W.
+(iv) If K: W $\rightarrow$ U is any linear transformation, then the composition KL:V$\rightarrow$ U is also a linear transformation and we have $\mathscr{N}(KL) = L^{-1} \mathscr{N} (K) = \{v | L(\mathbf{v}) \in \mathscr{N} (K)\}$ and $\mathscr{R} (KL) = \mathscr{R} (K)$
+$\mathbf{THM F.Iso.} $ If $V$ and $X$ are vector spaces and $L: V\rightarrow X$ is a linear transformation, then $V/\mathscr{N} (L) \cong \mathscr{R} (L)$. in particular, if $L$ is surjective, then $V/N(L) \cong X$.
+$\mathbf{THM2.2.7}$ If $V$ is a finite-dimensional vector space and $W$ is a subspace of $V$, then $\text{dim} (V) = \text{dim} (W) + \text{dim} (V/W) $
+$\mathbf{THM Rank-Nullity}$ Let $V$ and $W$ be finite-dimensional vector spaces. If $L:V \rightarrow $ is a linear transformation then $\text{dim} (V) = \text{dim} \mathscr{R} (L) + \text{dim} \mathscr{N} (L) = \text{rank} (L) + \text{nullity} (L)$.
+$\mathbf{COR Sec. Iso. Thm.}$ Assume $V_1$ and $V_2$ are subspaces of $V$. Then $V_1/(V_1 \cap V_2) \cong (V_1 + V_2)/V_2$.
+$\mathbf{COR Dim. Formula}$ If $V_1$ and $V_2$ are finite-dimensional subspaces of a vector space $V$, then $\text{dim} (V_1) + \text{dim} (V_2) = \text{dim} (V_1 \cap V_2) + \text{dim} (V_1 + V_2)$
+$\mathbf{DEF Similar Matrices} $ Two square matrices $A,B \in M_n(\mathbb{F} )$ are said to be similar if there exists a nonsingular $P \in M_n(\mathbb{F} )$ such that $B = P^-1AP$.
+$\mathbf{DEF Bernstein Polynomials} $ Given $n \in \mathbb{N}_{\geq 0}J$, the Bernstein polynomials ${B_j^n(x)}_{j=0}^n$ of degree $n$ are defined as $B_j^n(x) = \binom nj x^j(1-x)^{n-j}$, where $\binom nj = \frac{n!}{j!(n-j)!}$
+$\mathbf{LEM 2.5.3}$For $j = 0,1,\dots,n ~ ~ B_j^n(x) = \sum^{n}_{i=j}(-1)^{i-j} \binom ni \binom ij x^i $
+$\mathbf{THM2.5.4}$ For any $n \in \mathbb{N}$, the set $T_n$ of degree $n$ Bernstein polynomials $T_n = {B_j^n (x) }_{j=0}^n$ forms a basis for $\mathbb{F}[x]^n $
+$\mathbf{DEF Trace}$ The trace is the sum of the elements along the main diagonal
+$\mathbf{PROP2.6.2}$All of the elementary matrices are invertible.
+$\mathbf{DEF Row Equivalence}$The $B$ is said to be row equivalent to the matrix $A$ if there exists a finite collection of elementary matrices $E_1,E_2,\dots, E_n$ such that $B = E_1E_2\dots E_n$
+$\mathbf{DEF REF}$ $A$ is REF if (i) leading coefficient of each row is strictly to the right of the previous row's leading coefficient (ii) All nonzero rows are above any zero rows and $ \mathbf{RREF} $ if (iii) the leading coefficient of every row is 1 (iv) The leading coefficient of every row is the only nonzero entry in its column.
+$\mathbf{DEF Permutation}$ Different arrangements of a set. Even if it has an even number of inversions, odd if an odd number of inversions. Sign is 1 if even, -1 if odd.
+$\mathbf{DEF Inversion}$ A pair $(\sigma(i), \sigma(j))$ such that $i<j$ and $\sigma(i) > \sigma(j)$.
+$\mathbf{THM2.8.7}$ If $A, B \in M_n(\mathbb{F})$, then $\text{det}(AB) = \text{det}(A)\text{det}(B)$
+$\mathbf{COR2.8.8} \text{det}(A^{-1} = (\text{det}(A))^{-1})$
+$\mathbf{Cramer's Rule}$ If $A \in M_n(\mathbb{F})$ is nonsingular, then the unique solution to $Ax=b$ is $x = A^{-1}b = \frac{\text{adj}(A)}{\text{det}(A)}b$. Moreover, if $A_i(b) \in M_n(\mathbb{F})$ is the matrix $A$ with the i-th column replaced by b, then the i-th coordinate of $x$ is $x_i = \frac{\text{det}(A_i(b))}{\text{det}(A)}$
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

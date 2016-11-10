@@ -1,0 +1,124 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 5.6}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{5.36}
+Let $(x,d)$ be a metric space, suppose 
+\[f: [0, \infty ) \to [0, \infty ) \quad  f(0) = 0, f'(x) > 0, f(a+b) \leq f(a) + f(b)\]
+We know that this is positive semidefinite, and that $\delta(x,y) = \delta(y,x)$, therefore $f(\delta(x,y)) = f(\delta(y,x))$, and the triangle inequality holds by definition. \\\\
+Now let $\varepsilon > 0$. Consider the open ball $B_\delta(x, \varepsilon)$. Note, the open ball $B_\rho(x, f(\varepsilon/2)) \subset B_\delta(x, \varepsilon) $. Consider that for $B_\rho$, $\exists \gamma \in [0,\infty)$ such that $f(\gamma) < \delta$, and the open ball $B_\delta(x,\gamma) \subset B_\rho(x, \varepsilon)$. \\\\
+Thus, they are topologically equivalent.
+
+\subsection*{5.37}
+We know that this is positive as $\| f^{-1}(\textbf{y}) \| \geq 0$. Thus it fulfills positivity. \\
+\\
+Note that $\| a \textbf{y}  \|_f = |a|\| \textbf{y} \| _f$ and since $\exists x \in Y$ such that $f(x) = \textbf{y}$. Since isomorphisms are linear,
+\[ \| a \textbf{y} \| _f = \| a f^{-1}(\textbf{y} \|_X = |a| \| f^{-1}(\textbf{y}) \|_X = |a| \| \textbf{y} \| _F    \]
+and thus it fulfills scalar preservation.\\\\
+Note that
+\[  \| \textbf{x} + \textbf{y} \|_f = \| f^{-1}(\textbf{x}) + f^{-1}(\textbf{y}) \| \leq \| f^{-1}(\textbf{x}) \| + \| f^{-1}(\textbf{y}) \| = \| \textbf{x} \| _f + \| \textbf{y} \| _f    \]
+And thus it fulfills the triangle inequality.
+\subsection*{5.38}
+
+$(\rightarrow)$ Suppose that two matrices, $\delta$ and $\rho$ are topologically equivalent.\\\\
+The identity mapping $I : (x, \delta)\rightarrow (x, \rho)$ is clearly bijective.\\\\
+As for continuity, since these are topologically equivalent, we have
+\[B_\delta (x, \epsilon) \subset B_\rho(x, \gamma) \quad \epsilon, \gamma > 0\]
+
+\[\implies I(B_\delta (x, \epsilon)) \subset I(B_\rho(x, \gamma))\]
+This holds for $I ^{-1}$, therefore $I$ is a homeomorphism.\\
+$(\leftarrow)$ Now suppose $I$ is a homeomorphism. Then it is bijective, continous, and its inverse is continuous. Thanks to continuity,
+\[i(B_\delta(x, \epsilon)) = B+\rho(x, \gamma)\]
+for some $\gamma$.\\
+\[\implies B_\rho(x,\gamma /2) \subset B_\delta (x, \epsilon)\]
+\[\implies   I(B_\rho (x, \epsilon)) = B_\delta(x, r)\]
+\[\implies B_\delta(x, \gamma / 2 ) \subset B_\rho (x , \epsilon)\]
+implying topological equivalence.
+
+\subsection*{5.39}
+Let 
+\[f:S^1 \to \mathbb{R}\]
+Now, $S^1$ can be uniquely expressed as $[0,2\pi]$, so let $f:[0,2\pi] \to \mathbb{R}$ where $f(0) = f(2\pi)$, where $f$ is continuous.\\\\
+Splitting $f$ into two distinct functions by splitting the domain, letting 
+\[f_1(x) = f(x)\quad x\in [0,\pi]\]
+\[f_2(x) = f(x+\pi, \quad x \in [0,\pi]\] Note each is continuous and has the same beginning and end points. \\\\
+
+Now let $g(x) =  f_1(x) - f_2(x)$. $g$ maps from $(f(0) - f(\pi), -(f(0) - f(\pi)))$. Therefore, by the IVT, 
+\[\exists c \quad \text{ such that } g(c) = 0 \implies f_1(x) = f_2(x)\] 
+and there exists two equivalent anti-podal points.
+
+
+\subsection*{5.40}
+
+
+Suppose $f: \mathbb{R} \to \mathbb{R}$ is a homeomorphism. Then there exists a homeomorphism
+\[\mathbb{R} \setminus 0 \to \mathbb{R}^2 \setminus f(0)\] but this would suggest that $\mathbb{R}^2\ f(0)$ is connected. However, this is a contradiction of Theorem 5.6.25, and we have that it is not.
+
+\subsection*{5.41}
+No. Consider the sets of invertible matrices which are continuous and open such that
+\[S_1 = \{A \in M_2(\mathbb{R})| \det(A) > 0\}\]
+\[S_2 = \{A \in M_2(\mathbb{R})| \det(A) < 0\}\]
+Note that $S_1 \bigcup S_2 = M_2(\mathbb{R})$ and they are disjoint.
+
+
+\end{document}

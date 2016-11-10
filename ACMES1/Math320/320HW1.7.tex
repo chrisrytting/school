@@ -1,0 +1,160 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Homework 1.7 Math 320}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{1.37}
+For $n=1$, it is obvious that there are $1! = 1$ permutations.
+Assume that it is true that for $n-1$ there are $(n-1)!$ permutations such that for 
+\[(k_1,k_2,k_3,\cdots,k_{n-1}) \text{ there are $(n-1)!$ permutations}.\]
+Now, let us add an $n$th element. We know that for 
+\[(k_n, k_1,k_2,k_3,\cdots,k_{n-1}) \text{ there are $(n-1)!$ permutations, and that for}\]
+\[(k_1,k_n, k_2,k_3,\cdots,k_{n-1}) \text{ there are $(n-1)!$ permutations}.\]
+Proceeding inductively, there are $n$ spots into which we could insert $k_n$, each resulting in a set with $(n-1)!$, permutations, leading to the conclusion that there are $n(n-1)!=n!$ permutations in a set with $n$ elements.
+
+\subsection*{1.38 (i)}
+\[ 6! \]
+
+\subsection*{1.38 (ii)}
+\[ 5!2! \]
+
+\subsection*{1.38 (iii)}
+\[ 4!3! \]
+
+\subsection*{1.38 (iv)}
+\[ 3!3!2! \]
+
+\subsection*{1.39}
+\[C(13,2)C(4,2)C(4,2)C(11,1)4 = 78\cdot6\cdot6\cdot11\cdot4 = 123,552\]
+
+\subsection*{1.40}
+\[\text{Total number of ways to win \$100: }C(1,1)C(5,3)C(54,2) = 1 \cdot 10 \cdot 1431 = 14,310\]
+\[\text{Total possible combinations: }C(35,1)C(59,5) = 35\cdot5,006,386 = 175,223,510\]
+\[\text{Probability of winning \$100: }14,310/175,223,510 = .000081667\]
+
+
+
+
+
+
+
+
+
+
+\subsection*{1.41 (i)}
+Note that
+\begin{align*}
+    (1+x)^n = \sum^{n}_{k=0} \binom nk x^k
+\end{align*}
+Differentiating both sides with respect to $x$, we have
+\begin{align*}
+    n(1+x)^{n-1} = \sum^{n}_{k=0} \binom nk kx^{k-1}
+\end{align*}
+Letting $x=1$, we have
+\begin{align*}
+    n2^{n-1} = \sum^{n}_{k=0} \binom nk k
+    n2^{n-1} = \sum^{n}_{k=1} \binom nk k + 0
+\end{align*}
+
+\subsection*{1.41 (ii)}
+Note that
+\begin{align*}
+    (1+x)^n = \sum^{n}_{k=0} \binom nk x^k
+\end{align*}
+Differentiating both sides with respect to $x$, we have
+\begin{align*}
+    n(1+x)^{n-1} = \sum^{n}_{k=0} \binom nk kx^{k-1}\\
+    xn(1+x)^{n-1} = \sum^{n}_{k=0} \binom nk kx^{k}
+\end{align*}
+Differentiating both sides again (with respect to $x$), we have
+\begin{align*}
+    n(1+x)^{n-1} + xn(n-1)(1+x)^{n-2}  = \sum^{n}_{k=0} \binom nk k^2x^{k-1}
+\end{align*}
+Letting $x=1$, we have
+\begin{align*}
+    n(2)^{n-1} + n(n-1)(2)^{n-2}  = \sum^{n}_{k=0} \binom nk k^2\\
+    n2^{n-2}(1 + n)  = \sum^{n}_{k=0} \binom nk k^2\\
+    n2^{n-2}(1 + n)  = \sum^{n}_{k=1} \binom nk k^2 + 0
+\end{align*}
+
+\subsection*{1.42}
+
+\begin{align*}
+    (1+x)^n(1+x)^m = \sum^{n}_{k=0} \binom nk x^k \cdot \sum^{m}_{j=0} \binom mj x^j\\
+    (1+x)^{n+m} = \sum^{n}_{k=0} \sum^{m}_{j=0} \binom nk \binom mj x^j x^k
+\end{align*}
+Now, let $r = k + j$, implying $j = r - k$. We also know that the monomials $x_1, x_2,\dots,x_n$ are linearly independent, implying that
+\begin{align*}
+    \implies \sum^{m+n}_{r=0} \sum^{r}_{k=0} \binom nk \binom m{r-k} x^r = \sum^{n+m}_{r=0} x^r \\
+    \implies \sum^{r}_{k=0} \binom nk \binom m{r-k} = \binom {m+n}r
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+\end{document}

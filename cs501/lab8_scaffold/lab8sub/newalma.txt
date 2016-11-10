@@ -1,0 +1,116 @@
+Interrupt: Press ENTER or type command to continue
+loading preprocessed files
+<tensorflow.python.ops.rnn_cell.MultiRNNCell object at 0x103d94e50>
+FOUND 4666 BATCHES
+0 0	4.2803
+0 1000	1.5289
+0 2000	1.7602
+0 3000	1.4766
+0 4000	1.5715
+And now usonn them.
+
+ For he should Zoramanall that ye sen, that
+1 0	1.7116
+1 1000	0.8851
+1 2000	1.2491
+1 3000	1.2584
+1 4000	1.2837
+And murberen-shands because of many to mustaron and also put you
+2 0	1.6224
+2 1000	0.7785
+2 2000	1.0191
+2 3000	1.1609
+2 4000	1.2292
+And wroswering the Zoramites, amongst them a man of liferty and
+3 0	1.6121
+3 1000	0.7374
+3 2000	0.8954
+3 3000	1.0939
+3 4000	1.2447
+And of those hattlee shupbyed, the Lamanites, which we set that
+4 0	1.6126
+4 1000	0.6985
+4 2000	0.8174
+4 3000	1.0452
+4 4000	1.2330
+And whosoever diligence and exching nevelles were coming on take
+5 0	1.5742
+5 1000	0.6731
+5 2000	0.7565
+5 3000	0.9828
+5 4000	1.1924
+And to come to pass a truse that pertaising unto him wholy suffi
+6 0	1.5558
+6 1000	0.6735
+6 2000	0.7285
+6 3000	0.9248
+6 4000	1.1488
+And seeparines of all.
+
+ And he also reenst ant affer able into
+7 0	1.5329
+7 1000	0.6852
+7 2000	0.7129
+7 3000	0.8992
+7 4000	1.1016
+And govert unto you in the hanger of many sent and away from Oni
+8 0	1.5112
+8 1000	0.6896
+8 2000	0.6932
+8 3000	0.8951
+8 4000	1.0826
+And his son of the city of Nephi; for behold, according as the L
+9 0	1.4985
+9 1000	0.6829
+9 2000	0.6736
+9 3000	0.8830
+9 4000	1.0897
+And to Moronihous, desired his two doihble, notwithstanding the
+10 0	1.4892
+10 1000	0.6795
+10 2000	0.6628
+10 3000	0.8811
+10 4000	1.0498
+And many dissensions, after him, according to the city of Moroni
+11 0	1.4662
+11 1000	0.6794
+11 2000	0.6385
+11 3000	0.9055
+11 4000	1.0184
+And moreok not to har to behold, he caused that he shiblon shoul
+12 0	1.4253
+12 1000	0.7035
+12 2000	0.6159
+12 3000	0.8994
+12 4000	1.0186
+And behold we do not governold of easy many lines; yea, and also
+13 0	1.3834
+13 1000	0.7249
+13 2000	0.6101
+13 3000	0.8558
+13 4000	0.9470
+And many men.
+
+ But behold, he saw that, they cry of his lined o
+14 0	1.3698
+14 1000	0.7006
+14 2000	0.5806
+14 3000	0.8742
+14 4000	0.8862
+And when ye are arose year, thus lessed away let?
+
+ For I also.
+15 0	1.3340
+15 1000	0.6612
+15 2000	0.5808
+15 3000	0.9138
+15 4000	0.9161
+And thus erecrived a the soul would pravain your souls.
+
+ And it
+16 0	1.3079
+16 1000	0.6581
+16 2000	0.5817
+16 3000	0.9064
+16 4000	0.9127
+And of peopli, unto them in the wage; for behold, the people sca

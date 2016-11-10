@@ -1,0 +1,168 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 1.9}
+\author{Chris Rytting}
+\maketitle
+\subsection*{1.53 (i)}
+As 
+\begin{align*}
+\\&a=3\\
+&b=2\\
+&d=2\\
+&\text{log}_2 (3) = 1.58\\
+&d > \text{log}_2 (3)\\
+&\implies T(n) \in O(n_2)    
+\end{align*}
+
+\subsection*{1.53 (ii)}
+As 
+\begin{align*}
+\\&a=4\\
+&b=2\\
+&d=1\\
+&\text{log}_2 (4) = 2\\
+&d < \text{log}_2 (3)\\
+&\implies T(n) \in O(n^{\text{log}_2 (4)})    
+\end{align*}
+
+\subsection*{1.53 (iii)}
+Master Theorem does not apply, as $n^n \not\in O(n^d) \quad d \in \mathbb{R} $
+
+\subsection*{1.53 (iv)}
+Master Theorem does not apply, as $2^n \not\in O(n^d) \quad d \in \mathbb{R} $
+
+\subsection*{1.53 (v)}
+As 
+\begin{align*}
+\\&a=16\\
+&b=8\\
+&d=1\\
+&\text{log}_8 (16) = \frac{4}{3}\\
+&d < \text{log}_8 (16)\\
+&\implies T(n) \in O(\text{log}_8 (16) )    
+\end{align*}
+
+\subsection*{1.53 (vi)}
+As 
+\begin{align*}
+\\&a=2\\
+&b=2\\
+&d=1\\
+&\text{log}_2 (2) = 1\\
+&d = \text{log}_2 (2)\\
+&\implies T(n) \in O(n \text{log} (n) )    
+\end{align*}
+
+\subsection*{1.54}
+\begin{align*}
+    a(T\lceil n-1 \rceil) + g(n) &=a(a(T\lceil n-2 \rceil) + g(n-1)) + g(n)
+\\&=a^2(T\lceil n-2 \rceil) + ag(n-1)) + g(n)
+\\&=a^3(T\lceil n-3 \rceil) + a^2g(n-2))+ ag(n-1)) + g(n)
+\\\cdots
+\\&=a^n(T\lceil n-n \rceil) + a^ng(n-n) + a^{n-1}g(n-(n-1)) + \cdots + ag(n-1)) + g(n)
+\\&=a^nT_0 + \sum^{n}_{i=1} a^{n-i}g(i)
+\end{align*}
+Which is the desired result.
+
+\subsection*{1.55}
+By 1.27 and 1.36, we have that \[T(n) = a^nT_0 + \sum^{n}_{i=1} a^{n-i} g(i) = a(T\lceil n-1 \rceil) + c\]
+We can see that for addition, $a=1, g(i) = c$
+\[T(n) = T_0 + \sum^{n}_{i=1} c = 1(T\lceil n-1 \rceil) + c\]
+\[\implies T_0 + cn \in O(n)\]
+Since $T_0 + cn < mn \quad m \in \mathbb{N} $
+
+\subsection*{1.56}
+(Proof similar to 1.55) By 1.27 and 1.36, we have that \[T(n) = a^nT_0 + \sum^{n}_{i=1} a^{n-i} g(i) = a(T\lceil n-1 \rceil) + c\]
+We can see that for addition, $a=1, g(i) = c$
+\[T(n) = T_0 + \sum^{n}_{i=1} c = 1(T\lceil n-1 \rceil) + c\]
+\[\implies T_0 + cn \in O(n)\]
+Since $T_0 + cn < mn \quad m \in \mathbb{N} $
+
+\subsection*{1.58}
+Take a unimodal sequence $x_i$ with $n$ elements. The way we will find the maximum is by cutting the sequence in half and comparing the first element of the right half and the last element of the left half. If the element from the right half is greater than the element from the left half, then we know the maximal element lies in the right half. Otherwise, the maximal element lies in the left half. Whichever half we know to contain the maximal element, we will do the same thing as we did to the whole sequence. This algorithm will terminate in $\text{log}_2 (n)$ steps or fewer, since the worse case scenario will require us splitting the series $\text{log}_2 (n) $ times before finding the maximum. Note that $\text{log}_2 (n) \in \text{log} (n) $.
+See attached python script for actual algorithm.
+
+\pagebreak
+\begin{lstlisting}
+def unimodal(tosort):
+    """
+    tosort: list of unimodal sequence to find maximum of.
+    """
+    half1 = tosort[:(len(tosort)/2)]
+    half2 = tosort[(len(tosort)/2):]
+    if len(tosort) == 1:
+        return tosort
+    else:
+        if half1[-1] > half2[0]:
+            return unimodal(half1) 
+        elif half1[-1] < half2[0]:
+            return unimodal(half2)
+
+unimodalsequence = [1,2,3,4,17,8,2,1]
+print unimodal(unimodalsequence)
+\end{lstlisting}
+The results are as follows:
+\begin{lstlisting}
+    [17]
+\end{lstlisting}
+
+
+\end{document}

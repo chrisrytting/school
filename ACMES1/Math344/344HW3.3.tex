@@ -1,0 +1,120 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 3.3}
+\author{Chris Rytting}
+\maketitle
+
+
+
+\subsection*{Exercise 3.12}
+If this process is applied to a linearly dependent then this process will yield zero vectors because they are linear combinations of each other. 
+
+\subsection*{3.13}
+Gram-Schmidt yields the basis
+\[B=
+\begin{bmatrix}
+    \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+    \frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}
+\end{bmatrix}
+\]
+By Theorem 3.2.3, we have that each $a_i$, or in other words, the coefficients that we multiply the vectors $x_i$(in this case, the vectors of $B$) by to yield $x (\text{in this case }(2e_1 + 3e_2) = 
+\begin{bmatrix}
+    2\\3
+\end{bmatrix})$, is given by $\langle x,x_i \rangle = a_i$.
+This yields $a_1 = \frac{5}{\sqrt{2}} \text{ and } a_2 = \frac{-1}{\sqrt{2}}$, and we have that
+\[
+\begin{bmatrix}
+    \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\\
+    \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}}
+\end{bmatrix}
+\begin{bmatrix}
+    \frac{5}{\sqrt{2}}\\
+    \frac{-1}{\sqrt{2}} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2\\
+    3
+\end{bmatrix}
+\]
+
+
+
+
+\subsection*{Exercise 3.14}
+The set of orthogonal vectors for this set are:
+\[E=\{\frac{1}{\sqrt{\pi}},\frac{x}{\sqrt{\frac{\pi}{2}}},\frac{x^2-\frac{1}{2}}{\sqrt{\frac{\pi}{8}}},\frac{x^3-\frac{3}{4}x}{\sqrt{\frac{7\pi}{8}}}\}\]
+These are all orthogonal to each other.
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

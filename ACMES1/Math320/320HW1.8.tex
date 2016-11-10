@@ -1,0 +1,277 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 1.8}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{1.44 (i)}
+
+\begin{align*}
+\binom a0 = \frac{\Gamma (a+1)}{\Gamma (1) \Gamma(a + 1)}
+\binom a0 = \frac{\Gamma (a+1)}{0! \Gamma(a + 1)}
+\binom a0 = \frac{\Gamma (a+1)}{ \Gamma(a + 1)}
+\end{align*}
+
+
+
+
+\subsection*{1.44 (ii)}
+
+\begin{align*}
+\binom a{b+1} = \frac{\Gamma(a+1)}{\Gamma(a-b) \Gamma(b+2)} 
+\end{align*}
+
+Now, note that $\Gamma(n) = (n-1)\Gamma(n-1) \implies  \Gamma(a-b) = \frac{\Gamma(a-b+1)}{a-b} $, and we have that
+\begin{align*}
+\binom {a}{b+1} = \frac{\Gamma(a+1)}{\Gamma(a-b) \Gamma(b+2)} &=\frac{\Gamma(a+1) (a-b)}{\Gamma(a-b+1) \Gamma(b+1) (b+1)}
+\\&= \binom a{b+1} \frac{a-b}{b+1}
+\end{align*}
+
+\subsection*{1.44 (iii)}
+
+\begin{align*}
+\binom {a-1}{b-1}+ \binom {a-1}b &= \frac{\Gamma(a)}{\Gamma(b) \Gamma(a-b+1)} + \frac{\Gamma(a)}{\Gamma(b+1) \Gamma(a-b)} 
+\\&= \frac{\Gamma(a)b}{\Gamma(b+1) \Gamma(a-b+1)} + \frac{(a-b)\Gamma(a)}{\Gamma(b+1) \Gamma(a-b+1)} 
+\\&= \frac{\Gamma(a)b + \Gamma(a)a - \Gamma(a)b}{\Gamma(b+1) \Gamma(a-b+1)} 
+\\&= \frac{ \Gamma(a)a }{\Gamma(b+1) \Gamma(a-b+1)} 
+\\&= \frac{ \Gamma(a+1) }{\Gamma(b+1) \Gamma(a-b+1)} 
+\\&= \binom ab 
+\end{align*}
+
+\subsection*{1.44 (iv)}
+\begin{align*}
+    \binom ak &= \frac{\Gamma(a+1)}{\Gamma(a-k+1) \Gamma(k+1)} 
+    \\ &= \frac{\Gamma(a+1)}{\Gamma(a-k+1) k!} 
+    \\ &= \frac{a\Gamma(a)}{(a-k)\Gamma(a-k) k!} 
+    \\ &= \frac{a(a-1)\Gamma(a-1)}{(a-k)(a-k-1)\Gamma(a-k-1) k!} 
+\end{align*}
+Proceeding inductively, since $k \in \mathbb{N} $, we know that eventually we will have 
+
+\begin{align*}
+    \\ &= \frac{a(a-1)(a-2)\dots(a-k+1)(a-k)(a-k-1) \Gamma(a-k-1)}{(a-k)(a-k-1)\Gamma(a-k-1) k!} 
+\end{align*}
+It should be clear that the terms following and including $(a-k)$ in the numerator and denominator products will cancel out, leading to 
+
+\begin{align*}
+    \\ &= \frac{a(a-1)(a-2)\dots(a-k+1)}{k!} 
+\end{align*}
+Which is the desired result.
+
+\subsection*{1.45 (i)}
+
+\begin{align*}
+    (\int^{\infty}_{-\infty}  e^{x^2/2})^2 dx  &= \int^{\infty}_{-\infty} \int^{\infty}_{-\infty} e^{-(x^2 + y^2)/2} dx dy
+    \\&= \int^{2 \pi}_{0} \int^{\infty}_{0} e^{-r^2/2} dr d\theta  \text{ where } r^2 = x^2 + y^2
+    \\&= \int^{2 \pi}_{0} \int^{\infty}_{0} e^{-r^2/2} dr d\theta
+\end{align*}
+Now let $u = -\frac{r^2}{2}$, and we have
+\begin{align*}
+    \\&= \int^{2 \pi}_{0} \int^{\infty}_{0} e^{-u} du d\theta
+    \\&= \int^{2 \pi}_{0} \int^{\infty}_{0} e^{-u} du d\theta
+    \\&= \int^{2 \pi}_{0} \Big( -e^{-u} \Big|^\infty_0 \Big) d\theta 
+    \\&= \int^{2 \pi}_{0} 1 d\theta 
+    \\&= \theta \Big|^{2 \pi}_{0}
+    \\&= 2 \pi
+\end{align*}
+\subsection*{1.45 (ii)}
+
+\begin{align*}
+\Gamma(x) &= \frac{1}{2{x-1}} \int^{\infty}_{0}e^{-\frac{u^2}{2}} u^{2x-1}du
+\\&= \frac{1}{2^{x-1}} \int^{\infty}_{0}e^{-\frac{u^2}{2}} u^{2x-1}du
+\\&= \frac{1}{2^{x-1}} \int^{\infty}_{0}e^{-\frac{u^2}{2}} u^{2x-1}du
+\end{align*}
+Now, letting $t = \frac{u^2}{2}$, we have
+\begin{align*}
+    \\&= \frac{1}{{2^{x-1}}} \int^{\infty}_{0}e^{-t} u^{2x-2}dt
+\\&= \frac{1}{2^{x-1}} \int^{\infty}_{0}e^{-t} u^{2x-2}dt
+\\&= \frac{1}{2^{x-1}} \int^{\infty}_{0}e^{-t} 2^{x-1} (\frac{u^2}{2})^{x-1}dt
+\\&= \frac{2^{x-1}}{2^{x-1}} \int^{\infty}_{0}e^{-t}  t^{x-1}dt
+\end{align*}
+Which is equal to the definition of $\Gamma(x)$, yielding the desired result.
+
+\subsection*{1.45 (iii)}
+By $1.45 (ii)$
+\begin{align*}
+    \Gamma(\frac{1}{2}) &=\frac{1}{a^{2x-1}} \int^{\infty}_{0}e^{-\frac{u^2}{2}} u^{2x-1}du
+    \\&=\frac{1}{2^-1/2} \int^{\infty}_{0}e^{-\frac{u^2}{2}} u^{0}du
+    \\&= \sqrt{2} \int^{\infty}_{0}e^{-\frac{u^2}{2}} du
+    \\&= \sqrt{2} \int^{\infty}_{0}e^{-\frac{u^2}{2}} du
+    \\&= \sqrt{2} \int^{\infty}_{0}\int^{\infty}_{0}e^{-\frac{x^2 +y^2}{2}} du
+    \\&= \sqrt{2} \int^{\pi/2}_{0}\int^{\infty}_{0}e^{-\frac{r^2}{2}} r dr d\theta
+    \\&= \sqrt{2} \int^{\pi/2}_{0}\int^{\infty}_{0}e^{-\frac{r^2}{2}} r dr d\theta
+\end{align*}
+If we let $u = \frac{r^2}{2}$
+\begin{align*}
+    \\&= \sqrt{2} \int^{\pi/2}_{0}\int^{\infty}_{0}e^{-u} r du d\theta
+    \\&= \sqrt{2} \int^{\pi/2}_{0}\int^{\infty}_{0}e^{-u}  du d\theta
+    \\&= \sqrt{2} \int^{\pi/2}_{0} 1 d\theta
+    \\&= \sqrt{2} \int^{\pi/2}_{0} 1 d\theta
+    \\&= \sqrt{2} \frac{\pi}{2} 1 d\theta
+\end{align*}
+
+\subsection*{1.45 (iv)}
+\begin{align*}
+    \int^{\infty}_{0} e^{-xt^2} dt &= \Big( \int^{\pi}{0} e^{-xt^2} dt\Big)^2
+    \\&= \Big( \int^{\infty}_{0} e^{-xt^2} dt\Big)^2
+    \\&= \int^{\infty}_{0} \int^{\infty}{0} e^{-x(m^2 + n^2)} dm dn
+\end{align*}
+    Let $r^2 = m^2 + n^2$, we have  
+\begin{align*}
+    \\&= \int^{\pi/2}_{0} \int^{\infty}{0} e^{-xr^2}r dr d\theta
+    \\&= \int^{\pi/2}_{0} \int^{\infty}{0} e^{-xr^2}r dr d\theta
+\end{align*}
+Let $u = xr^2$, and we have that
+\begin{align*}
+    \\&= \int^{\pi/2}_{0} \int^{\infty}_{0} \frac{e^{-u}}{2x} du d\theta
+    \\&=\frac{1}{\sqrt{2x}} \int^{\pi/2}_{0} \int^{\infty}_{0} e^{-u} du d\theta
+    \\&=\frac{1}{\sqrt{2x}} \int^{\pi/2}_{0} 1 d\theta
+    \\&=\frac{1}{\sqrt{2x}} \sqrt{\frac{\pi}{2}} 
+    \\&=\frac{1}{2} \sqrt{\frac{\pi}{x}} 
+\end{align*}
+
+\subsection*{1.46}
+The desired is equivalent to showing that
+\begin{align*}
+    &\text{lim}_{x\rightarrow \infty} \frac{\text{Beta} (x,y)}{\Gamma(y) x^{-y}} =1
+    \\&= \text{lim}_{x\rightarrow \infty} \frac{\frac{\Gamma(x)\Gamma(y) }{\Gamma(x+y)}}{\frac{\Gamma(y)x^{-y}}{1}} 
+    \\&= \text{lim}_{x\rightarrow \infty} \frac{\Gamma(x)\Gamma(y) }{\Gamma(y) \Gamma(x+y) x^{-y}} 
+    \\&= \text{lim}_{x\rightarrow \infty} \frac{\Gamma(x) }{ \Gamma(x+y) x^{-y}} 
+    \\&= \text{lim}_{x\rightarrow \infty} \frac{\Gamma(x) x^{y}}{ \Gamma(x+y) } 
+    \\&= \frac{\int^{x}_{0}e^{-t} t^{x-1} dt x^y}{\int^{x}_{0}e^{-t} t^{x+y-1} dt} 
+\end{align*}
+Now, examining the denominator of this expression, we have
+\begin{align*}
+    \int^{x}_{0}e^{-t} t^{x+y-1} dt = \Big( -e^{-t}t^{x+y-1} \Big|^{x}_{0} \Big) + (x+y-1) \int^{x}_{0}e^{-t} t^{x-1 + y-1}
+\end{align*}
+Resulting in 
+\begin{align*}
+    \frac{x\cdot x \cdot \dots \cdot \int^{x}_{0}e^{-t} t^{x-1}dt}{(x-1+y)(x-1+y-1)\dots(x-1) \int^{x}_{0}d^{-t}t^{x-1}dt}
+\end{align*}
+Now, the right-most terms will cancel, and since we are taking the limit with respect to $x \rightarrow \infty$, we will need to differentiate with respect to $x$ alone after encountering $\frac{\infty}{\infty}$. We will need to do so at least $y$ times, meaning that all other $x$ terms go to zero and we will have, effectively, $\frac{x^y}{x^y} = 1$. 
+
+\subsection*{1.47}
+\begin{align*}
+    \int^{\infty}_{0} e^{-xt} t^p dt
+\end{align*}
+Now, letting 
+\[ u = xt \]
+\[ du = x~ dt \]
+\[ t = \frac{u}{x} \]
+We have
+\begin{align*}
+    \int^{\infty}_{0} e^{-xt} t^p dt &=\int^{\infty}_{0} \frac{1}{x}e^{-u} (\frac{u}{x})^p du
+    \frac{1}{x}\int^{\infty}_{0} e^{-u} (\frac{u}{x})^p du
+    \\&=\frac{1}{x}\int^{\infty}_{0} e^{-u} \frac{u^p}{x^p} du
+    \\&=\frac{1}{x^{1+p}}\int^{\infty}_{0} e^{-u} u^p du
+\end{align*}
+And since $\int^{\infty}_{0} e^{-u} u^p du = \Gamma(p+1) $, we have the desired result.
+
+\subsection*{1.48}
+We know that $\text{log} () $ strictly increasing on $[1, \infty)$ 
+\[ \implies \text{log} (1) <\text{log} (2) < \dots<\text{log} (n-1) <\text{log} (n) \]
+ \begin{align*}
+     \sum^{n-1}_{k=1}  \text{log} (k)  &= \text{log} (1) + \text{log} (2) + \dots + \text{log} (n-1) 
+     \\&= \text{log}(n-1)! 
+     \\\sum^{n}_{k=1}  \text{log} (k)  &= \text{log} (1) + \text{log} (2) + \dots + \text{log} (n) 
+     \\&= \text{log}(n)! 
+ \end{align*}
+ Also, we have that
+ \begin{align*}
+     \int^{n}_{1}\text{log} (k) &= k ( \text{log} (n-1))^n
+     \\&= n \text{log} (k) - n + 1
+ \end{align*}
+ Where $\text{log} (n)$ is a continually increasing funciton, we have that the first summation to $n-1$ is equivalent to the Riemann sums evaluated at the left endpoints of each interval, and the second sum corresponds to the right endpoints, meaning that the first is a lower bound on the true integral, and the second is an upper bound
+ \[ \implies \sum^{n-1}_{k=1} \text{log} (k) < \int^{n}_{1} \text{log} (x) dx < \sum^{n}_{k=1} \text{log} (k)\]
+ \[ \implies \text{log} (n-1)! < n\text{log} (n) -n+1 <  \text{log} (n!)\]
+ Now, notice that if we add $\text{log} (n) $ to each term
+ \[ \implies \text{log} (n-1)! + \text{log} (n)  < n\text{log} (n) -n+1+ \text{log} (n) <  \text{log} (n!)+ \text{log} (n)\]
+ which yields, combining the inequalities.
+ \[ \implies n\text{log} (n) -n+1 <  \text{log} (n!) < n\text{log} (n) -n+1+ \text{log} (n) \]
+Which yields the second inequality. As for the third, let us raise every term to the exponent.
+\[ e^{n\text{log} (n) -n+1} < e^{ \text{log} (n!) }< e^{n\text{log} (n) -n+1+ \text{log} (n)} \]
+\[ \frac{e^{\text{log} (n)^n}}{e^{ n-1}} < e^{ \text{log} (n!) } < \frac{e^{(n+1) \text{log} (n)}}{e^{n-1}} \]
+\[ \frac{ (n)^n}{e^{ n-1}} < (n!) <  \frac{n^{(n+1)}  }{e^{n-1}} \]
+
+\subsection*{1.49}
+Consider
+\begin{align*}
+    \int^{1}_{-1} e^{x cosh(t)} dt 
+\end{align*}
+Let 
+\[\alpha = x\]
+\[f(t) = -cosh(t)\]
+\[f'(t) = -sinh(t)\]
+\[f''(t) = -cosh(t)\]
+We can find $x_0$ by setting $f'(t)$ equal to $0$.
+
+\[-sinh(x_0) = 0\]
+Differentiating, we have
+\[-sinh^{-1}(sinh(x_0)) = 0\]
+\[ \implies x_0 = 0\]
+
+We have that 
+\begin{align*}
+    \int^{1}_{-1} e^{x cosh(t)} dt = e^{\alpha f(x_0)} \sqrt{\frac{2 \pi}{ \alpha|f''(x_0) |}}
+    &=e^{-1x} \sqrt{\frac{2 \pi}{ x |1 |}}
+    \\&=e^{-x} \sqrt{\frac{2 \pi}{ x }}
+\end{align*}
+
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{mathrsfs}  
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins} \usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+\usepackage{amssymb}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{subsection*}{Exercise} % Number subsection*s on their own
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+
+\title{Math 344 HW 3.6}
+\author{Chris Rytting}
+
+
+\begin{document}
+\maketitle
+\subsection*{3.31}
+By Lemma 3.6.1, to find the minimum let $x = 1$. From the proof for Young's inequality, let $x = 1 = \frac{a^{p-1}}{b}$, \\
+\begin{align*}
+    ab & = \big( \frac{a^p}{p} + \frac{b^q}{q} \big)
+\end{align*}\\
+Which will hold iff $ b = a^{p-1}$. Raising both sides to the $q$, we have the following:\\
+\begin{align*}
+    b^q = a^{pq-q} = a^p
+\end{align*}\\
+Thus, equality holds iff $b^p = a ^p$.
+
+\subsection*{3.32}
+Let $\epsilon \geq 1$. By Young's inequality, we have the following:
+\begin{align*}
+    ab & \leq \frac{a^2}{2} + \frac{b^2}{2} \\
+    & \leq \frac{\epsilon ^2}{\epsilon}\big( \frac{a^2}{2} + \frac{b^2}{2} \big)\\
+    & \leq  \frac{a^2 + \epsilon^2 b^2}{2\epsilon} \\
+    ab & \leq \frac{a^2}{2\epsilon} + \frac{\epsilon b^2}{2} \\
+\end{align*}
+Now, suppose $\epsilon < 1$. Thus, by Young's inequality, 
+\begin{align*}
+    ab & \leq \frac{a^2}{2} + \frac{b^2}{2} \\
+    & \leq \frac{1}{\epsilon}\big( \frac{a^2 + b^2}{2} \big)\\
+    & \leq \frac{a^2}{2\epsilon} + \frac{b^2}{2\epsilon} \\
+    ab & \leq \frac{a^2}{2\epsilon} + \frac{\epsilon b^2}{2} \\
+\end{align*}
+In both of these cases, $ab \leq \frac{a^2}{2\epsilon} + \frac{\epsilon b^2}{2}$\\
+
+\subsection*{3.33}
+Note that if $a=b$, then
+\begin{align*}
+    a^\theta b^{1-\theta} =a^\theta a^{1-\theta} = a = \theta a + (1-\theta)a = \theta a + (1-\theta)b
+\end{align*}
+On the other hand, if $a \neq b$
+\begin{align*}
+a^\theta b^{1-\theta} &\leq \theta a + (1-\theta)b\\
+\ln(a^\theta b^{1-\theta}) &\leq \ln(\theta a + (1-\theta)b)
+\end{align*}
+Due to the convexity of ln, $\theta \ln(a) < \ln(\theta a)$. Therefore,
+\begin{align*}
+    \ln(a^\theta b^{1-\theta}) &= \theta \ln(a) + (1-\theta)\ln(b)\\
+    & < \ln(\theta a ) + \ln( (1-\theta) b) \\
+    & < \ln( \theta a + (1- \theta)b) 
+\end{align*}
+Thus, equality holds if and only if $a = b$.
+
+\subsection*{3.34}
+If we let $\theta=\frac{1}{2}$, then 
+\begin{align*}
+&a^\frac{1}{2}b^\frac{1}{2} \leq \frac{1}{2} (a+b) \\
+&(ab)^\frac{1}{2} \leq \frac{1}{2} (a+b) \\
+&(\text{A})^\frac{1}{2} \leq \frac{1}{4} \text{P} \\
+& P \geq 4 \sqrt{A}
+\end{align*}
+Where $A$ is the area and $P$ is the perimeter.
+The minimum of the area is where $P=4 \sqrt{A}$ where
+\[2(a+b)=4\sqrt{ab} \Rightarrow 4(a+b)^2 = 16(ab) \Rightarrow 4(a-b)^2=0 \Rightarrow a=b \]
+
+\subsection*{3.35}
+Using the Arithmetic Geometric Mean inequality,
+\begin{align*}
+    (x_1 \cdot ... \cdot x_n)^{\frac{1}{n}} \leq \frac{x_1+\dots+x_n}{n}
+\end{align*}
+Where the two quantities are equal iff each $x_i = x_j \quad \forall i,j$ .\\
+The n-dimensional cube must have $n$ vertices, and $2^{n-1}$ edges by theorem, so the total length of all vertices is going to be $2^{n-1}(x_1+x_2+\dots+x_n)$, where each $x$ is a length of a vertex.
+Volume is given by $2^n(x_1\cdot \dots \cdot x_n)^{\frac{1}{n}}$, Thus, the inequality yields
+\begin{align*}
+    2^{n}(x_1\cdot ... \cdot x_n)^{\frac{1}{n}} & \leq 2^{n-1} \sum_{i=1}^n x_i\\
+    (x_1\cdot ... \cdot x_n)^{\frac{1}{n}} & \leq \frac{1}{n}\sum_{i=1}^n x_i\\
+    \text{Area}^{\frac{1}{n}} & \leq \frac{1}{n}\sum_{i=1}^n x_i \\
+\end{align*}
+The minimum value is yielded when when these are equal.\\
+Note, if $x_i = y$ for all i, then 
+\begin{align*}
+    y^n & = \frac{1}{n}\sum_{i=1}^n x_i = \frac{1}{n} (n(y^n)) = y^n
+\end{align*}
+Otherwise, we know that these will not be equal by our definition of the Arithmetic Geometric Mean inequality.\\
+Thus, the $n$ dimensional rectangle with the least perimeter and a fixed area will be the square.
+
+\subsection*{3.36}
+Lemma: For $p > 1, a \geq 0$ we have $\|\mathbf{x}\|_p \geq \|\mathbf{x}\|_{p+a}$\\\\
+Pf:\\
+\begin{align*}
+    \sum_{k=1}^{n} \|\mathbf{x}\|^p &= \sum_{k=1}^{n} \big( (\|\mathbf{x}\|^{p+a})^{\frac{p}{p+a}} \big) \\
+    & \geq \big( \sum_{k=1}^{n}  (\|\mathbf{x}\|^{p+a}) \big)^{\frac{p}{p+a}} \\
+\end{align*}
+By Jensen's inequality, $\frac{p}{p+a} < 1 \implies $ convexity, implying 
+\begin{align*}
+    \big( \sum_{k=1}^{n} \|\mathbf{x}\|^p\big)^{\frac{1}{p}} &\geq \big( \sum_{k=1}^{n}  (\|\mathbf{x}\|^{p+a}) \big)^{\frac{1}{p+a}} \\
+    \|\mathbf{x}_p \| & \geq \|\mathbf{x}\|_{p+a}
+\end{align*}
+
+Pf for 3.36:
+Note, $\frac{1}{\frac{p}{r}}+\frac{1}{\frac{q}{r}} = 1$
+\begin{align*}
+    \big( \sum_{k=1}^n\|\mathbf{x}_k \mathbf{y}_k \|^r \big) ^{1/r} &\leq \big( \big(\sum_{k=1}^n\|\mathbf{x}_k \mathbf{y}_k \|\big)^r\big)^{\frac{1}{r}}& \\
+    &  \text{ By Jensen's inequality, as $r>1$} \\
+    & = \sum_{k=1}^n\|\mathbf{x}_k \mathbf{y}_k \| \quad \\\\
+    &\text{         By Holder's inequality we have}\\\\
+    & = \|\mathbf{x}\|_{\frac{p}{r}}\|\mathbf{y}\|_{\frac{q}{r}}
+\end{align*}
+Note that $\frac{p}{r} < p$ and $\frac{q}{r}<q$. Therefore, by Lemma:
+\begin{align*}
+    \|\mathbf{x}\|_{\frac{p}{r}}\|\mathbf{y}\|_{\frac{q}{r}} & \leq \|\mathbf{x}\|_p \|\mathbf{y}\|_q 
+\end{align*}
+
+
+
+
+
+
+
+
+\end{document}
+

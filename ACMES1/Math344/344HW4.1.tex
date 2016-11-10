@@ -1,0 +1,238 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 4.1}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{4.1}
+If $\lambda$ is an eigenvalue of $A$, then we have that 
+\begin{align*}
+    Ax &= \lambda x \\
+    (Ax)^k &= (\lambda x)^k \\
+    A^kx^k &= \lambda^k x^k \\
+\end{align*}
+If $A$ is nilpotent, though, we have that $A^k = 0$, which implies that
+\[0x^k = \lambda^k x^k\]
+Which only holds if and only if $\lambda = 0 $, since $x$ is nonzero by the definition 4.1.1.
+
+\subsection*{4.2}
+Note that 
+\[ D = 
+\begin{bmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 2 \\
+    0 & 0 & 0 \\
+\end{bmatrix}
+\]
+Now, we find eigenvalues by the following calculation
+\begin{align*}
+    p_A(z) &= \text{det} (z I - A) \\
+&= \text{det} \left(  
+\begin{bmatrix}
+    z & 0 & 0 \\
+    0 & z & 0 \\
+    0 & 0 & z \\
+\end{bmatrix}
+-
+\begin{bmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 2 \\
+    0 & 0 & 0 \\
+\end{bmatrix}\right)\\
+&= \text{det}
+\begin{bmatrix}
+    z & -1 & 0 \\
+    0 & z & -2 \\
+    0 & 0 & z \\
+\end{bmatrix}\\
+&= z^3\\
+\implies z &= 0\\
+\end{align*}
+Now, we have there is one eigenvalue equal to zero with algebraic multiplicity of 3 and geometric multiplicity of one, the eigenvector being 
+\[
+\begin{bmatrix}
+    1\\0\\0
+\end{bmatrix}
+\]
+
+\subsection*{4.3}
+Let $A$ be as follows:
+\[A = 
+\begin{bmatrix}
+    a & b \\
+    c & d \\
+\end{bmatrix}
+\]
+
+
+The characteristic polynomial is given by 
+\begin{align*}
+p_A(\lambda) &= \text{det}(\lambda I - A)\\
+&= \text{det} \left(
+\begin{bmatrix}
+    \lambda & 0 \\
+    0 & \lambda \\
+\end{bmatrix}
+- 
+\begin{bmatrix}
+    a & b \\
+    c & d \\
+\end{bmatrix}\right)
+&=
+\text{det}
+\begin{bmatrix}
+    \lambda-a & b \\
+    c & \lambda-d \\
+\end{bmatrix}
+&= (\lambda-d)(\lambda-a) - bc \\
+&= \lambda^2 - \lambda d - a\lambda + ad - bc\\
+&= \lambda^2 - \lambda d - a\lambda + ad - bc\\
+&= \lambda^2 - \lambda(d + a) + ad - bc\\
+&= \lambda^2 - \lambda \text{tr}(A) + \text{det}(A)\\
+\end{align*}
+as desired.
+
+\subsection*{4.4 (i)}
+Let 
+\[A =
+\begin{bmatrix}
+   a & b \\ 
+   c & d
+\end{bmatrix}  \]
+
+Since $A$ is Hermitian, $c=b$, and using the characteristic polynomial found in 4.3, we have that
+\begin{align*}
+ \lambda &= \frac{(a+d) \pm \sqrt{(a+d)^2 - 4(1)(ad-b^2)    }   }{    2} \\&= \frac{a+d}{2}+\frac{1}{2}\sqrt{a^2 + 2ad + d^2 -4ad + 4b^2} \\&= \frac{a+d}{2}+\frac{1}{2}\sqrt{a^2 - 2ad + d^2 + 4b^2 } \\&= \frac{a+d}{2}+\frac{1}{2}\sqrt{(a-d)^2 + 4b^2  }
+\end{align*}
+ Since all elements of $A$ are real, and $(a-d)^2 + 4b^2 $ will be non-negative, we know that no eigenvalue will be imaginary, implying that all will be real. 
+
+\subsection*{4.4 (ii)}
+
+
+As $A$ is skew-Hermitian, we know that $-a = \overline a$ and that $-d = \overline d$, implying that $A$ has strictly imaginary numbers on the diagonal. Moreover, $-b = \overline c$ and $-c = \overline b$, implying a matrix $A$ of the form
+\[A = 
+\begin{bmatrix}
+    wi & x + yi \\
+    -x + yi  &vi \\
+\end{bmatrix}\]
+where $x,y,v,w \in \mathbb{R}$
+Using the characteristic polynomial and the quadratic formula, we have that
+\begin{align*}
+ \lambda &= \frac{(a+d) \pm \sqrt{(a+d)^2 - 4(1)(ad-b^2)    }   }{    2} \\&= \frac{a+d}{2}+\frac{1}{2}\sqrt{a^2 + 2ad + d^2 -4ad + 4b^2} \\&= \frac{a+d}{2}+\frac{1}{2}\sqrt{a^2 - 2ad + d^2 + 4b^2 } \\&= \frac{a+d}{2}+\frac{1}{2}\sqrt{(a-d)^2 + 4b^2  }
+\end{align*}
+Since $(w-v)^2 +4x^2  +4y^2 \in \mathbb{R}_+$ and ${w+v} \over 2$ is real, the sum of these will be real, and a real number multiplied by an imaginary number will be strictly imaginary. 
+
+\subsection*{4.5}
+If $A(c-\lambda I)^{-1}B^H$ has an eigenvalue of 1, we have that 
+\[(A(c-\lambda I)^{-1}B^H)\textbf{y} = \textbf{y}\]
+for some $\textbf{y} \in \mathbb{F}^m$. If $\textbf{x}$ is an eigenvector and $\lambda$ is its eigenvalue  $C-B^HA$ then we have that \[(C-B^HA)\textbf{x} = \lambda \textbf{x}\] Then we have the following:
+\begin{align*}
+        (C-B^HA)\textbf{x} &= \lambda \textbf{x} \\
+            C\textbf{x}-B^HA\textbf{x} &= \lambda \textbf{x} \\
+                B^HA\textbf{x} &= C\textbf{x} - \lambda \textbf{x} \\
+                    B^HA\textbf{x} &= (C- \lambda I)\textbf{x} \\
+                        (C- \lambda I)^{-1} B^HA\textbf{x} &= \textbf{x} \\
+                            A(C- \lambda I)^{-1} B^HA\textbf{x} &= A\textbf{x} 
+                        \end{align*}
+                        Now, letting $\textbf{y} = A\textbf{x}$, we have that \[(A(c-\lambda I)^{-1}B^H)\textbf{y} = \textbf{y}\]
+                        Therefore, 1 is an eigenvalue of $A(c-\lambda I)^{-1}B^H$, as desired.
+
+
+\subsection*{4.6}
+Let a matrix $A$ be an upper-triangular matrix. To find its eigenvalues, we find the characteristic polynomial:
+\begin{align*}
+p_A(z) &= \text{det}(zi - A)\\
+&= \text{det}\left(
+\begin{bmatrix}
+    z & 0 & 0 & \dots & 0 \\
+    0 & z & 0 & \dots & 0 \\
+    0 & 0 & z & \dots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & z \\
+\end{bmatrix}
+-
+\begin{bmatrix}
+    a_1 & a_2 & a_3 & \dots & a_n \\
+    0 & b_1 & b_2 & \dots & b_{n-1} \\
+    0 & 0 & c_1 & \dots & c_{n-1}\\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & n_1 \\
+\end{bmatrix}\right)\\
+&= 
+\text{det}\left(
+\begin{bmatrix}
+    z - a_1 & -a_2 & -a_3 & \dots &- a_n \\
+    0 & z - b_1 & -b_2 & \dots & -b_{n-1} \\
+    0 & 0 & z - c_1 & \dots &  -c_{n-1}\\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & z - n_1 \\
+\end{bmatrix}\right)\\
+&= 
+(z-a_1)(z-b_1)(z-c_1)\dots(z-n_1)
+\end{align*}
+which yields the desired result, that $a_1, b_1, c_1,\dots, n_1$ are eigenvalues of $A$ since the characteristic polynomial equals zero when they do.
+
+
+
+
+
+
+\end{document}

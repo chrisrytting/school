@@ -1,0 +1,127 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Homework 1.4}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{1.20}
+We want to show
+Let $(\mathbf{x} + W), (\mathbf{y} + W) \in V/W \quad a,b \in \mathbb{F}$\\
+Note that for
+\\
+$(v)$
+\[a \boxdot [(\mathbf{x} + W) \boxplus (\mathbf{y}  + W)] = a \boxdot [(\mathbf{x} +\mathbf{y})  + W] = a \boxdot (\mathbf{x} + W) \boxplus a \boxdot (\mathbf{y} + W)\]
+\\
+$(vi)$\\
+\[(a+b) \boxdot (\mathbf{x}  + \mathbf{y} ) = ( a + b)\mathbf{x} + W = (a \mathbf{x} + b \mathbf{y} ) = a\boxdot (\mathbf{x}  + W) + b\boxdot (\mathbf{x}  + W)\]
+\\
+$(vii)$\\
+\[1 \boxdot (\mathbf{x}  + W ) = (1\mathbf{x} ) \boxplus W = \mathbf{x}  + W\]
+\\
+$(viii)$
+\[(ab) \boxdot (\mathbf{x} + W) = a \boxdot(b \mathbf{x}  + w) = (ab \mathbf{x} + w = ba \mathbf{x}  + W = b \boxdot (a \mathbf{x}  + w) = (ba) \boxdot (\mathbf{x}+W) \]
+
+\subsection*{1.21}
+\[(a \boxdot(\mathbf{x}  + W)) \boxplus (b \boxdot( \mathbf{y} +  W)) = (a \mathbf{x}  +W ) \boxplus ( b \mathbf{y}  + W) = (a \mathbf{x}  + b \mathbf{y}) + W\]
+
+\subsection*{1.22}
+We know from the definition of translates that, given $V/W$, the translates of $W$ are sets of the form \[\mathbf{x} + W = \{ \mathbf{x}  + \mathbf{w}  \vert \mathbf{w} \in W\}\] where $\mathbf{x}$ is any element of $V$. Given $V/V$, then, the translates of $V$ are sets of the form
+\[\mathbf{x} + V = \{ \mathbf{x}  + \mathbf{v}  \vert \mathbf{v} \in V\}\] where $\mathbf{x}$ is any element of $V$. However, $x$ is necessarily in $V$, so only one quotient exists in the set, for no translate is necessary.
+
+\subsection*{1.23}
+Let $\varphi: V/\{\mathbf{0}\} \rightarrow V$ be such that 
+\[ \varphi ( \mathbf{x} + \{\mathbf{0} \}) = \mathbf{x}  \quad \text{for }\mathbf{x} \in V\]
+Then we have that 
+\[ \varphi ( \mathbf{x} + \{\mathbf{0} \} \boxplus \mathbf{y} + \{\mathbf{0} \}) = \varphi ( \mathbf{x} + \mathbf{y}  \{\mathbf{0} \}) = \mathbf{x}  + \mathbf{y} \]
+Furthermore \[\varphi ( \mathbf{x} + \{\mathbf{0} \}  + \varphi \mathbf{y} + \{\mathbf{0} \}) = \mathbf{x} + \mathbf{y} \]
+\[ \implies \varphi ( \mathbf{x} + \{\mathbf{0} \} \boxplus \mathbf{y} + \{\mathbf{0} \}) = \varphi(\mathbf{x}  + \{\mathbf{0} \}) + \varphi(\mathbf{y}  + \{\mathbf{0} \}) \]
+
+Next, we have that for $\mathbf{x} ,\mathbf{y} \in  V, \quad c \in \mathbb{F} $,
+\[  \varphi(c \boxdot ( \mathbf{x} + \{\mathbf{0} \})) = \varphi(c \mathbf{x} + \{\mathbb{0} \}) = c \mathbf{x} \]
+and that
+\[c \varphi ( \mathbf{x} + \{ \mathbf{0} \}) = c \mathbf{x}  \]
+so we have that 
+\[ \varphi (c \boxdot (\mathbf{x}  + \{\mathbf{0} \})) = c \varphi (\mathbf{x}  + \{\mathbf{0} \})\]
+
+\subsection*{1.24}
+
+Consider the map $\psi$ with $c_i = i \in \mathbb{N}$
+\[ \psi: V/W \rightarrow \mathbb{F}[y] \quad \text{s.t.} \quad \psi  (a_1x^{c_1} + a_2x^{c_2} + \dots + a_nx^{c_n} + W) = (a_1y^{c_1/2} + a_2y^{c_2/2} + \dots + a_ny^{c_n/2})\]
+\[ \text{where } a_i = 
+\begin{cases}
+    0 & \text{ if $c_i$ is even}\\
+    a_i & \text{ if $c_i$ is odd}
+\end{cases}
+\]
+Bijectivity satisfied because every monomial exists in $V/W$ (odds covered by $W$ and evens covered by rest of function), and it is mapped to every monomial in $\mathbb{F}[y]$ since every number is an even number divided by two, which is what characterizes the second space.
+As for addition and multiplication closure, for $p, q \in V \quad d \in \mathbb{F} $, 
+\[ \psi(p + W) \boxplus (q + W) \]
+\[ =\psi( (a_1p^{c_1} + a_2p^{c_2} + \dots + p_nx^{c_n} + W)) \boxplus ((a_1q^{c_1} + a_2q^{c_2} + \dots + q_nx^{c_n} + W)) = \psi(p+W) + \psi(q+ W)\]
+
+\[ \psi(d \boxdot( p + W)) = \psi( (da_1p^{c_1} + da_2p^{c_2} + \dots + dp_nx^{c_n} + W)) =d \psi (p + W)\]
+
+
+
+
+
+
+
+\end{document}

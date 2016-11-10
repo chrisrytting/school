@@ -1,0 +1,164 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 2.1}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{2.1}
+Since Abe said we don't actually have to list out the subgraphs, as the question indicates, I will show how to derive the number of subgraphs.
+Let $G_i = (V_i, E_i)$ be a sequence of subgraphs of $G$ for $i = 1,2,\cdots,48$, as we know the following:
+\\
+For subgraphs with one vertex, there will be 4 subgraphs, as there are no edges between a vertex and itself. 
+\\For subgraphs with two vertices, there will be 10 subgraphs, since between $a$ and $d$, there is a subgraph with no edge but that includes both vertices and a subgraph with an edge that includes both vertices. On the other hand, there exists a subgraph between $b$ and $d$, there is only one subgraph since there is no edge in $G$ between $b$ and $d$. 
+\\For subgraphs with three vertices, there will be 18 total subgraphs.
+\\For subgraphs with four vertices, there will be 16 total subgraphs.
+\\Therefore, we have that there are 
+\[4+ 10 + 16+ 18 = 48\]
+total subgraphs.
+
+\subsection*{2.2}
+
+For undirected graphs, we know there are $\binom 72 = 21$ edges between the seven vertices. Therefore, the number of distinct graphs is given by $\binom {21}{13} = 203490$. \\\\
+For directed graphs, we know there are $2\binom 72 = 42$ edges between the seven vertices, (since now there are simply twice as many). Therefore, the number of distinct graphs is given by $\binom {42}{13} = 25518731280$. \\\\
+
+\subsection*{2.3}
+
+Let $A$ be our adjacency matrix. Then we have that 
+\[A = 
+\begin{bmatrix}
+    0&0&1&0&0&0\\
+    1&0&0&0&0&0\\
+    1&0&0&0&1&1\\
+    0&1&1&0&0&0\\
+    0&0&0&0&0&1\\
+    0&0&0&1&0&0\\
+\end{bmatrix}
+\]
+
+\[A^4 = 
+\begin{bmatrix}
+    0&0&0&3&0&1\\
+    2&0&0&0&1&1\\
+    4&1&1&0&2&2\\
+    0&3&3&1&0&0\\
+    2&0&0&0&1&1\\
+    0&0&0&3&0&1\\
+\end{bmatrix}
+\]
+$\implies$ by Proposition 2.1.13, we have that there are 3 length-4 paths from node 1 to 4.
+
+\subsection*{2.4}
+
+Let $A$ be our adjacency matrix. Then we have that 
+\[A = 
+\begin{bmatrix}
+    0&1&1&0&0&0\\
+    1&0&1&0&1&0\\
+    1&1&0&0&1&1\\
+    0&0&0&0&0&0\\
+    0&1&1&0&0&1\\
+    0&0&1&0&1&0\\
+\end{bmatrix}
+\]
+
+\[A^3 = 
+\begin{bmatrix}
+    2&5&6&0&3&3\\
+    5&4&7&0&7&3\\
+    6&7&6&0&7&6\\
+    0&0&0&0&0&0\\
+    3&7&7&0&4&5\\
+    3&3&6&0&5&2\\
+\end{bmatrix}
+\]
+$\implies$ by Proposition 2.1.13, we have that there are 6 length-3 paths from node 3 to 3.
+
+\subsection*{2.5}
+As our base case, for $k=1$, $A^1$ is clearly the number of length 1 paths from $i$ to $j$. Suppose, as our inductive hypothesis, then, that $A^{k-1}$ is the number of length $k-1$ paths from $i$ to $j$. Note that
+\[ AA^{k-1} = \sum^{n}_{b=1} A_{ib}A_{bj}^{k-1}\]
+Note that $A_{ib}$ will either be 0 or $A_{bj}^{k-1}$ for each $b,j$ since $A_{ib}$ is equal to either 0 or 1. Thus $\sum^{n}_{b=1} A_{ib}A_{bj}^{k-1}$
+is the sum of the number of length $k-1$ paths that ends at a node that is connected to $i$.
+If we extend the path length by one, each of these paths will end at $i$. Therefore, we have that 
+$ \sum^{n}_{b=1} A_{ib}A_{bj}^{k-1}$ is the number of length $k$ paths connecting $i$ and $j$, and we have the desired result.
+
+\subsection*{2.6}
+It is enough to show that $1 \implies 2 \implies 3 \implies 4 \implies 1$.
+\\\\$1 \implies 2$ \\\\
+Let $G$ be a tree. By definition of a tree, there is a unique path between $v_i$ and $v_j$
+\\\\$2 \implies 3$ \\\\
+Let $(v_1,v_2,\dots,v_j)$ be the unique path from $v_i$ to $v_j$. Now remove $v_n$ from $V$ where $1< n < j$. 
+Note $v_i$ is no longer connected to $v_j$. Since the two nodes are arbitrary, removing any edge makes a disconnected graph.
+\\\\$3 \implies 4$ \\\\
+Suppose $G$ has a cycle. By removing one of the edges of a cycle, $G$ is still connected, which is a contradiction. As $G$ is connected, there exists a path $(v_1,v_2,\dots,v_j)$ between $v_i$ and $v_j$ of path length 2 or greater, we add an edge between $v_i$ and $v_j$, which yields a cycle from $v_i$ to $v_j$ through our path, and $v_j$ to $v_i$ through our edge.
+\\\\$4 \implies 1$ \\\\
+It is sufficient to show here that $G$ is connected and undirected. That $G$ is undirected is assumed. Note that upon placing an edge between $v_i$ and $v_j$, we get a cycle $(v_i, v_1, \dots, v_j, v_i)$. We have then, that there exists a path from $v_1$ to $v_j$, namely $(v_i, v_1,\dots, v_j)$. Since $v_i, v_j$ are arbitrary, we have that $G$ is connected, implying that it is a tree.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

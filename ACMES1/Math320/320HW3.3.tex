@@ -1,0 +1,146 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{mathrsfs}  
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins} \usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+\usepackage{amssymb}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{exercise}{Exercise} % Number exercises on their own
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+
+\title{Math 320 3.3}
+\author{Chris Rytting}
+
+\begin{document}
+\maketitle
+\subsection*{3.14 (i)}
+
+
+\begin{align*}
+    f_X(\alpha) = \begin{cases} \frac{1}{2} &\mbox{if } \alpha = a,b,c\\
+        \frac{1}{6} & \mbox{if } \alpha = d \\
+        \frac{1}{3} & \mbox{if } \alpha = e,f \\
+        0 & \mbox{if $\alpha$ equals anything else.}\\
+    \end{cases}
+\end{align*}
+
+\subsection*{3.14 (ii)}
+Mean given by
+\begin{align*}
+    \frac{1}{2} + \frac{1}{6}\cdot 2 + \frac{1}{3} \cdot 3.5 = 2
+\end{align*}
+
+\subsection*{3.14 (iii)}
+Variance given by
+\begin{align*}
+    \text{V}(X) &= (1-2)^2 \cdot \frac{1}{2} + (0)^2 \cdot \frac{1}{6} + (1.5)^2 \cdot \frac{1}{3} = \frac{5}{4}
+\end{align*}
+
+\subsection*{3.15}
+Let $X$ be an arbitary discrete set. Let the probability distribution be given by $p(X=i) = g_X$
+\\\\
+Suppose $h:\mathbb{R} \rightarrow \mathbb{R}$ is a continuous function such that there exists an $\varepsilon > 0$ between each $x \in X$ where there is a countable number of points.
+\\\\
+Since $h$ is continuous, we have that there exists an $\epsilon' >0$ between each $x$. Let $A = \{\epsilon '\}_{i\in I}$.\\\\
+$inf(A)$ will yield an $\epsilon'$, such that for every point $p$, there exists an
+$E(p,\frac{\epsilon'}{2})$ where the neighborhood $E$ doesn't contain other points $x \in X$. Therefore, we have that $h(X)$ is a random variable, and by the Law of the Unconscious Statistitian, we have
+\begin{align*}
+    E[h(X)] &= \sum_{i \in I}h(i)p(x = i) = \sum_{i \in I} h(i)g_X(i)
+\end{align*}
+
+\subsection*{3.16}
+\begin{align*}
+    \text{V}(X) & = E[(X-\mu)^2] = E[X^2 - 2X\mu + \mu^2] \\
+    & = E[X^2] - 2\mu E[X] + E[\mu^2]\\
+    & = E[X^2] - \mu^2
+\end{align*}
+
+\subsection*{3.17}
+\begin{align*}
+    \text{V}(\alpha x + \beta y) & = E [\alpha x + \beta y]^2 - (E[\alpha x + \beta y] )^2 \\
+    & = E[\alpha^2 x^2 + \alpha x \beta y + \alpha \beta xy + \beta^2 y^2] - (\alpha E[x] + \beta E[Y])^2 \\
+    & = \alpha^2 E[x^2] + 2\alpha \beta E[xy] + \beta ^2 E[y^2] - \alpha E[x]^2 - 2 \alpha \beta E[x]E[y] - \beta ^2 E[y]^2 \\
+    & = \alpha ^2 (E[x^2]-E[x]^2) + 2\alpha \beta (E[xy]-E[x]E[y]) + \beta^2(E[y^2]-E[y]^2) \\
+    & = \alpha^2 \text{var}[x] + 2\alpha \beta(E[xy]-E[x]E[y])+\beta^2 \text{V}(y)
+\end{align*}
+Which is the desired result. Moreover, if $x,y$ are independent, we have $E[xy]-E[x]E[y]= 0$, yielding
+\[
+    \text{V}(\alpha x + \beta y) = \alpha^2 \text{V}[x] +\beta^2 \text{V}[y]
+\]
+
+
+\subsection*{3.18}
+Note, by the Law of the Unconscious Statistician, we have that $E\big(\frac{1}{X+1}\big)$ is a random variable.
+\begin{align*}
+    E\left[\frac{1}{X+1}\right] & = \sum_{i=0}^n \frac{1}{i+1} \binom ni p^i (1-p)^{n-i} \\
+    & = \sum_{i=0}^n \frac{n!}{(i+1)!(n-i)!}  p^i (1-p)^{n-i} \\
+    & = \sum_{i=1}^{n+1} \frac{n!}{i!(n-i+1)!} p^{i-1} (1-p)^{n-i+1}\\
+    & = \frac{1}{p(n+1)} \sum_{i=1}^{n+1} \frac{(n+1)!}{i!(n+1-i)!} p^{i} (1-p)^{n+1-i} \\
+    & = \frac{1}{p(n+1)} \sum_{i=1}^{n+1} \binom {n+1}i p^{i} (1-p)^{n+1-i} \\
+    & = \frac{1}{p(n+1)} \big(\sum_{i=0}^{n+1} \binom {n+1}i p^{i} (1-p)^{n+1-i}-(1-p)^{n+1}\big) \\
+    & = \frac{1}{p(n+1)}\cdot (1-(1-p)^{n+1}) \\
+    & = \frac{1-(1-p)^{n+1}}{p(n+1)} 
+\end{align*}
+Which is the desired result.
+
+\subsection*{3.19}
+
+
+\begin{align*}
+    E[X] &= \sum_{x \in X} x \cdot P(X=x) \\
+    & = \sum_{i \in I} x \sum{x \in X} \frac{x P(X = x) \bigcap B_i) P(B_i)}{P(B_i)}\\
+    & = \sum_i \sum_x x P(X=x|B_i)P(B_i) \\
+    & = \sum_i E(X|B_i)P(B_i)
+\end{align*}
+
+
+
+
+\end{document}
+

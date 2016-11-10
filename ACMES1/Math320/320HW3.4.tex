@@ -1,0 +1,133 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 3.4}
+\author{Chris Rytting}
+\maketitle
+\subsection*{3.20}
+\[ .5(.5)^3 = .5^4 \]
+and for the second part we have that
+\[ \binom 31 (p(T=1)) + \binom 32 (p(T=2)) + \binom 33 (p(T=3)) = 3(\frac{1}{8}) + 3(\frac{1}{8}) + 1(\frac{1}{8}) = \frac{7}{8}\]
+\subsection*{3.21}
+We should use the negative binomial distribution.
+\[ \binom {19}{17} .9^{17}.1^{3} = 171 \cdot .16677 \cdot .001 = .0285 \]
+\subsection*{3.22}
+Given the law of the unconscious statistitian, we will have 100 for the first scenario, 200 for the second scenario.
+\subsection*{3.23 (i)}
+We would use the Poisson distribution
+\subsection*{3.23 (ii)}
+Where $X$ occurs in a fixed interval of time (or space) and independently of the time since the last event. 
+\subsection*{3.23 (iii)}
+If the space is not fixed or $X$ occurs in a dependent way.
+\subsection*{3.23 (iv)}
+\[\sum^{100}_{\lambda = 0} \frac{e^{-\lambda} \lambda^x}{x!} = 
+\sum^{100}_{x = 0} \frac{e^{-200/3} (200/3)^x}{x!} = .9999\]
+We want the complement of this, though.
+\[\implies 1-.9999 = .0001\] 
+
+\subsection*{2.24}
+
+Note, $P(Y = 1) = \lambda e^{-\lambda}$
+then we have that
+\begin{align*}
+    P(X_n=1)& = \lim_{n \rightarrow \infty} \binom n1 \frac{\lambda}{n} (1-\frac{\lambda}{n})^{n-1} \\
+    & = \lim_{n \rightarrow \infty} \frac{n!}{(n-1)!}(\frac{\lambda}{n}(1-\frac{\lambda}{n})^{n-1} \\
+    & = \lambda \lim_{n \rightarrow \infty}(1+\frac{-\lambda}{n})^{n-1} \\
+    & = \lambda e^{-\lambda}
+\end{align*}
+Therefore what we want to show holds for $k = 1$. Now, for our inductive hypothesis, suppose it holds for $k = j-1$.\\ Note that
+\begin{align*}
+    P(Y=k) = \frac{e^{-\lambda}\lambda^k}{k!} = \frac{\lambda}{k} \frac{e^{-\lambda}\lambda^{k-1}}{(k-1)!} = \frac{\lambda}{k} P(Y=k-1)
+\end{align*}
+and we also have the following:
+\begin{align*}
+    P(X_n = k) & = \lim_{n \rightarrow \infty} \binom nk \frac{\lambda}{n}^k (1-\frac{\lambda}{n})^{n-k} \\
+    & = \lim_{n \rightarrow \infty} \frac{\lambda}{n} \frac{n-(k-1)}{k} \frac{n!}{( n-(k-1))!(k-1)!} (1-\frac{\lambda}{n})^{n-(k-1)} (1-\frac{\lambda}{n})^{-1}\\
+    & = \lim_{n \rightarrow \infty} \frac{\lambda(n-(k-1)}{nk}(1-\frac{\lambda}{n})^{-1} P(X_n = k-1)\\
+    & = \frac{\lambda}{k} \lim_{n \rightarrow \infty} \frac{(n-(k-1))n}{(n-\lambda)n} P(X_n = k-1) \\
+    & = \frac{\lambda}{k} P(Y=k-1)
+    & = P(Y=k)
+\end{align*}
+The result, then, holds for all $k \in \mathbb{N}$, and we have the desired result.
+
+\subsection*{2.25}
+
+\begin{align*}
+    \text{V}(x) &= E[x^2] - E[x]^2 \\
+    &= \sum_{k=0}^{\infty} k^2 \cdot P(x=k) - \lambda^2 \\
+    &= \sum_{k=0}^{\infty} k^2 \cdot \frac{e^{-\lambda} \lambda^k}{k!} - \lambda^2 \\
+    &= \sum_{k=0}^{\infty} k \cdot \frac{e^{-\lambda} \lambda^k}{(k-1)!} - \lambda^2 \\
+    &= \lambda e^{-\lambda} \sum_{k=1}^{\infty} \frac{k \lambda^{k-1}}{(k-1)!} - \lambda^2 \\
+    &= \lambda e^{-\lambda} \sum_{k=1}^{\infty} \left( \frac{\lambda^{k-1}}{(k-2)!} + \frac{\lambda^{k-1}}{(k-2)!} \right) - \lambda^2 \\
+    &= \lambda e^{-\lambda} \left( \lambda \sum_{k=1}^{\infty} \frac{\lambda^{k-2}}{(k-2)!} + \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{(k-1)!} \right) - \lambda^2 \\
+    &= \lambda e^{-\lambda} \left( \lambda e^{\lambda} + e^{\lambda} \right) - \lambda^2 \\
+    &= \lambda
+\end{align*}
+Which is the desired result.
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,186 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework }
+\author{Chris Rytting}
+\maketitle
+
+
+\subsection*{6.6}
+Given $f$, note that $|x| \leq (x^2 +y^2)^\frac{1}{2}$, and $|y|\leq (x^2 +y^2)^\frac{1}{2}$. Now, given $\epsilon > 0 \quad |x^2+y^2|<\delta$
+\[\implies |f(x,y) - f(0,0)| = \frac{xy^2}{X^2+y^2}\leq \frac{(x^2+y^2)^{3/2}}{x^2+y^2} = (x^2+y^2)^{1/2} <\delta = \epsilon\]
+Now, differentiating, we get
+\[f_y = \frac{2xy(x^2+y^2) - 2xy^3}{(x^2+y^2)^2}\]
+Now consider the sequence $\{x_n\}_{n=2}^\infty = (1/n, 1/n)$. Plugging this into $f_y$, we have 
+\[f_y = \frac{2xy(x^2+y^2) - 2xy^3}{(x^2+y^2)^2} = \frac{\frac{4}{n^4}- \frac{2}{n^4}}{\frac{4}{n^4}} = \frac{1}{2}\]
+Next, consider the sequence $\{y_n\}_{n=2}^\infty = (1/n, -1/n)$, and we have
+\[= \frac{\frac{-4}{n^4}+ \frac{2}{n^4}}{\frac{4}{n^4}} = \frac{-1}{2}\]
+implying that the limit is not the same coming from both sides, implying that $f$ is not differentiable at $(0,0)$, the desired result.
+
+\subsection*{6.7}
+Directional derivatives are as follows:
+\[D_1f(0,0) = \lim_{h\to0} \frac{f(h,0) - 0}{h} = \frac{0}{h^2}= 0\]
+\[D_2f(0,0) = \lim_{h\to0}\frac{f(0,h) - 0}{h} = \frac{0}{h}= 0\]
+Therefore, the partial derivatives exist.
+Converting $x$ and $y$ into polar coordinates, where 
+\[x = r\cos(\theta) \quad y = r\sin(\theta)\] 
+yielding 
+\begin{align*}
+\lim_{r\to0} \frac{r^2\cos(\theta)\sin(\theta)}{r^2\cos^2(\theta)+r\sin(\theta)}
+&=\lim_{r\to0} \frac{r\cos(\theta)\sin(\theta)}{r\cos^2(\theta)+\sin(\theta)}
+\\&=\lim_{r\to0} \frac{\cos(\theta)\sin(\theta)}{\cos^2(\theta)}
+\\&=\lim_{r\to0}\frac{\sin(\theta)}{\cos(\theta)}\\
+&\not = 0
+\end{align*}
+Consider the sequence $\{x_n\}_{i=n}^\infty = (1/n,1/n)$ which yields
+\[\lim_{n \to 0} \frac{1}{n} = 0\]
+and the derivatives do not converge to same value, so we have that $f$ is not differentiable.
+
+
+\subsection*{6.8}
+Directional derivatives are as follows:
+\[ D_1f(x,y) = \lim_{h\rightarrow 0} \frac{0 \cdot h}{0^2 + h^2} = \lim_{h\rightarrow 0} \frac{0}{h^2} = 0 \]
+\[ D_2f(x,y) = \lim_{h\rightarrow 0} \frac{h \cdot o}{h^2 + 0^2} = \lim_{h\rightarrow 0} \frac{0}{h^2} = 0 \]
+Therefore, partial derivatives exist, and if $f$ is differentiable, total derivative is $0$.
+
+Now, if $f$ is differentiable, we have the following:
+\begin{align*}
+    \lim_{h\rightarrow 0} \frac{\| f(0 + h) - f(0,0) - 0 \|}{\| {h} \|} &= 0\\
+    &= \lim_{h\rightarrow 0} \frac{1}{\sqrt{h_x^2 + h_y^2}}\cdot \frac{\|h_x\|\|h_y\|}{\sqrt{h_x^2 + h_y^2}} \\
+    &= \lim_{h\rightarrow 0} \frac{\|h_x\|\|h_y\|}{h_x^2 + h_y^2} \\
+\end{align*}
+Consider the sequence $\{(\frac{1}{n},\frac{1}{n})\}_{n=1}^{\infty}$. The limit $\frac{1/n^2}{2/n^2} = \frac{1}{2} \neq 0$ yielding a contradiction and we have the desired result.
+
+\subsection*{6.9}
+Given
+\[ Df(0,0)({h}) = {0} \cdot {h} = {0} ~ \forall ~ {h} \]
+Let ${h} = (x,y)$. Given $\varepsilon > 0$ let $\delta = \varepsilon$. Then $\| {h} - (0,0) \| = (x^2 + y^2)^\frac{1}{2} < \delta$. and we have the result.
+\begin{align*}
+    \lim_{h\rightarrow 0} \frac{\| f({h} + {0}) + f(0,0) + Df(0,0)({h} \| }{\| {h} \| } 
+    &=  \lim_{h\rightarrow 0} \frac{|(x^2 + y^2)sin\left( \frac{1}{\sqrt{x^2+y^2}} \right)}{\sqrt{x^2 + y^2}}\\
+    & \leq \frac{x^2 + y^2}{\sqrt{x^2 + y^2}} \\&< \varepsilon
+\end{align*}
+And we have that $f$ is differentiable at $(0,0)$.\\
+\\
+For $D_1f(x,y)$ and $\varepsilon_1, \varepsilon_2 > 0$,
+\begin{align*}
+    \frac{1}{h} &\cdot f(h + \varepsilon_1, \varepsilon_2) - f(\varepsilon_1, \varepsilon_2)\\
+    &= \frac{1}{h} \cdot \left( ( (h + \varepsilon_1)^2 + \varepsilon_2^2)\cdot \sin\left(\frac{1}{\sqrt{(h + \varepsilon_1)^2 + \varepsilon_2^2}}\right) - (\varepsilon_1^2 + \varepsilon_2^2)\cdot \sin\left(\frac{1}{\sqrt{\varepsilon_1^2 + \varepsilon_2^2}}\right) \right) \\
+    & \leq \frac{1}{h} \cdot \big( (h + \varepsilon_1)^2 + \varepsilon_2^2 - \varepsilon_1^2 - \varepsilon_2^2 \big) \\
+    &= \frac{1}{h}(h^2 +2\varepsilon_1) = h + 2\varepsilon_1 < M_1
+\end{align*}
+For $D_2f(x,y)$ and $\varepsilon_1, \varepsilon_2 > 0$, 
+\begin{align*}
+    \frac{1}{h} &\cdot f(\varepsilon_1, h+\varepsilon_2) - f(\varepsilon_1, \varepsilon_2)\\
+    &= \frac{1}{h} \cdot \left( ( \varepsilon_1^2 + (h+\varepsilon_2)^2)\cdot \sin\left(\frac{1}{\sqrt{(\varepsilon_1^2 + (h+\varepsilon_2)^2}}\right) - (\varepsilon_1^2 + \varepsilon_2^2)\cdot \sin\left(\frac{1}{\sqrt{\varepsilon_1^2 + \varepsilon_2^2}}\right) \right) \\
+    & \leq \frac{1}{h} \cdot \big( \varepsilon_1^2 + (h+\varepsilon_2)^2 - \varepsilon_1^2 - \varepsilon_2^2 \big) \\
+    &= \frac{1}{h}(h^2 +2\varepsilon_2) = h + 2\varepsilon_2 < M_2
+\end{align*}
+So the partial derivatives are bounded at $(0,0)$. Discontinuous as $f$ doesn't converge to zero for all $\varepsilon < 0$, while $f(0,0) = 0$.
+
+
+\subsection*{6.10}
+Given
+\[f(x) = (f_1(x),...,f_n(x))\]
+Since each derivative exists, given that $\epsilon / n >0$,$\exists \delta$ 
+\[\implies  \lim_{n \to 0} \frac{\| f_i(x+h) - f_i(x) - Df_i(x)h\|_{y_i}}{\|h\|_x}<\epsilon_i\]
+when $\|h\|_x < \delta_i$. Now we let $\delta = min\{\delta_i\}_{i=1}^n$. Note that
+\[\epsilon > n\cdot \sup_i \frac{\| f_i(x+h) - f_i(x) - Df_i(x)h\|_{y_i}}{\|h\|_x}\geq \frac{\| \vec{f}(x+h) - \vec{f}(x) - D(f_1(x)h,...,Df_n(x)h)\|_{y}}{\|h\|_x} \]
+Therefore the total derivative exists and is 
+\[D(f_1(x)h,...,Df_n(x)h)\]
+% \begin{align*}
+
+% \langle T_0,T_0 \rangle &= \int^{1}_{-1} \frac{T_0^2}{\sqrt{1- x^2}} dx 
+% \\&= \int^{1}_{-1}\frac{1}{\sqrt{1- x^2}}\frac{(2^{n-1})^2}{(2^{n-1})^2} \text{cos}(0 \cdot \text{cos}^{-1}(x))dx
+% \\&= \int^{1}_{-1}\frac{1}{\sqrt{1- x^2}}\frac{(2^{n-1})^2}{(2^{n-1})^2} \text{cos}(0)dx
+% \\&= \int^{1}_{-1}\frac{1}{\sqrt{1- x^2}} 1dx
+% \\&= \int^{1}_{-1}\frac{1}{\sqrt{1- x^2}} dx
+% \\&= \pi
+% \end{align*}
+
+
+
+
+
+
+\subsection*{6.11}
+
+Note that
+\begin{align*}
+    \lim_{h \to \infty} \frac{\|E(t+h) - E(t) - Ae^{Ath}\|_x}{\|h\|} &= \lim_{h \to \infty} \frac{\|E(t+h) - E(t) - Ae^{Ath}\|_x}{\|h\|} \\
+    &= \lim_{h \to \infty} \frac{\|e^{At}e^{Ah} - e^{At}- Ae^{Ath}\|_x}{\|h\|} \\
+    &=\|e^{At}\| \lim_{h \to \infty} \frac{\|e^{Ah} - I - Ae^{Ah}\|_x}{\|h\|} \\
+    &\text{Since $\|e^{At}\|$ is bounded by a constant $M_1$, we have} \\
+    &\leq M_1 \lim_{h \to \infty} \frac{\|e^{Ah} - I - Ae^{Ah}\|_x}{\|h\|} \\
+    &\text{and by example 5.1.19,}\\
+    &\leq M_1 \lim_{h \to \infty} \frac{\sum^{\infty}_{k = 0} \frac{\|Ah\|^k}{k!}  + \|I\| + A \sum^{\infty}_{k = 0} \frac{\|h\|^k}{k!}}{\|h\|} \\
+    &= M_1 \lim_{h \to \infty} \frac{\sum^{\infty}_{k = 0} \frac{\|h\|\|A\|^k}{k!}  + \|I\| + A \sum^{\infty}_{k = 0} \frac{\|h\|\|1\|^k}{k!}}{\|h\|} \\
+    &= M_1 \lim_{h \to \infty} \sum^{\infty}_{k = 0} \frac{\|A\|^k}{k!}  + \|I\| + A \sum^{\infty}_{k = 0} \frac{\|1\|^k}{k!} \\
+    &\text{and since each of these are bounded above,}\\&\text{say by a constant $M_2$, we have}\\
+    &\leq M_1 M_2 
+\end{align*}
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,165 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 320 Homework 3.1}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{3.1 (i)}
+
+\begin{align*}
+    \Omega = \{&(0,0), (0,1), (0,2),
+               (1,0), (1,1), (1,2),
+           (2,0), (2,1), (2,2)\}
+\end{align*}
+\subsection*{3.1 (ii)}
+\begin{align*}
+    E = \{(1,1), (1,2), (2,1), (2,2)\}
+\end{align*}
+\subsection*{3.1 (iii)}
+
+Where $E \subset \Omega$.\\
+
+\[\frac{|E|}{|\Omega|} = \frac{4}{9}\]
+
+\subsection*{3.1 (iv)}
+
+Note, the probability of $\Omega$ is
+\begin{align*}
+    P = \{\frac{4}{49}, \frac{6}{49}, \frac{4}{49}, 
+           \frac{6}{49}, \frac{9}{49}, \frac{6}{49}, 
+          \frac{4}{49}, \frac{6}{49}, \frac{4}{49}\}
+\end{align*}
+$\implies $ Probability is $\frac{25}{49}$.
+
+
+\subsection*{3.2 (i)}
+We will use $P(E) = 1 - P(E^c)$, where $P(E^c)$ is where we have no pairs of shoes. I.E. we choose eight left shoes, and $0$ right shoes, and from eight pairs of shoes we choose one shoe. Then the probability is as follows:
+\[  1 - \frac{\binom{10}{8} \binom{10}{0} \binom21 \binom21 \binom21 \binom21 \binom21 \binom21 \binom21 \binom21   }{\binom{20}{8}}  \]
+\subsection*{3.2 (ii)}
+Having exactly one pair of shoes, we will choose $7$ left shoes and $1$ right shoe. From one pair of shoes we choose two, while from six we choose one. Then the probability is as follows:
+\[  \frac{\binom{10}{7} \binom{10}{1} \binom22  \binom21 \binom21 \binom21 \binom21 \binom21 \binom21   }{\binom{20}{8}}  \]
+
+\subsection*{3.3 (i)}
+
+
+Three of a kind is three cards that are the same type from 5. Note, total number of possibilites is $C(52,5)$.\\
+\begin{align*}
+    \text{Prob} = \frac{13\cdot C(4,3) \cdot C(12,2) 4^2}{C(52,5)}
+\end{align*}
+\subsection*{3.3 (ii)}
+Two Pairs in the same hand, given by
+\begin{align*}
+    \text{Prob} = \frac{11\cdot C(13,2) \cdot C(4,2)^2 \cdot 4}{C(52,5)}
+\end{align*}
+
+
+\subsection*{3.3 (iii)}
+
+Full House:
+\begin{align*}
+    \text{Prob} = \frac{ 13 \cdot 12 \cdot  C(4,3) \cdot C(4,2)}{ C(52,5)}
+\end{align*}
+
+
+\subsection*{3.4 (i)}
+
+
+This is similar to the probability of a classroom with $n$ people having all distinct birthdays, but replacing one of the distinct birthday probabilities with $\frac{1}{365}$ giving us the probability:
+\[ \frac{365!}{(365-n+1)! \cdot 365^n}\]
+\subsection*{3.4 (ii)}
+This is similar to the part (i), but we replace another distinct birthday with $\frac{1}{365}$, yielding:
+\[ \frac{365!}{(365-n+2)! \cdot 365^{n}}\]
+\subsection*{3.4 (iii)}
+This is similar to part (ii), but instead of replacing the second distinct birthday with $\frac{1}{365}$, we replace it with $\frac{1}{364}$ changing our probability to:
+\[ \frac{365!}{(365-n+2)! \cdot 365^{n-1}\cdot 364}\]
+\subsection*{3.5}
+We have that \[P(E^c) = 1 - P(E) \implies P(E) = 1 - ap^n\] where $E$ is the event that $n=0$. Given the definition of $a$ we have the following:
+\begin{align*}
+    1 - ap^n &\geq 1 - \left( \frac{1-p}{p} \right)p^n \\
+    &= 1 - (1-p)p^{n-1} \\
+\end{align*}
+Yielding the final result:
+\[  P(E) \geq 1 - (1-p)p^{n-1} \]
+
+\subsection*{3.6}
+We know the following
+\[\Omega = \{B_1, B_2,\cdots, B_n\}\]
+where $\Omega$ has $n$ elements and $\mathscr{F}$ is the power set of $\Omega$. Any $A \in \mathscr{F}$, then, will be a set consisting either of the empty set, a single $B_i \in \Omega$, or multiple $B_i,\cdots, B_j \in \Omega$. 
+\\\\
+For the empty set, the probability will be $0$ since $P(\Omega) = 1$.\\\\ 
+For $A = B_i \in \Omega$, the probability of $A$ will obviously just be the probability of $B_i$ happening, implying that $P(A) = \sum_{i \in I} P(A\cap B_i) = P(B_i \cap B_i) + P(B_i \cap B_j) +\cdots + P(B_i \cap B_n) = P(B_i \cap B_i) + 0 +\cdots + 0) =  P(B_i \cap B_i) = P(B_i) = P(A)$.\\\\
+A similar argument follows for the case where $A = \{B_1, B_2,\cdots,B_i\}$, since 
+\begin{align*}
+    P(B_1) &= P(B_1 \cap A) = P(B_1) \\
+    P(B_2) &= P(B_2 \cap A) = P(B_2) \\
+    &\cdots\\
+    P(B_i) &= P(B_i \cap A) = P(B_i) \\
+\end{align*}
+And we know then, that the probability of $A$ will be equal to the sum of the probability of all its elements happening, or more precisely,
+\[P(A) = P(B_1) + P(B_2) +\cdots+ P(B_i)\]
+Which is the desired result.
+
+
+
+
+
+
+\end{document}

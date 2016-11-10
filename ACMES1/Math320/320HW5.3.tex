@@ -1,0 +1,134 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 5.3}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{5.16}
+
+
+Suppose that $\{x_i\}_{i=0}^\infty$ and  $\{y_i\}_{i=0}^\infty$ be Cauchy. Then 
+\[d(x,x_n)<\frac{\epsilon}{2}\]
+and 
+\[d(y,y_n) < \frac{\epsilon}{2}\] 
+for some $N$. Note, by triangle inequality we have
+\[|d(x_k,y_k) - d(x_j, y_j)| \leq |d(x_k, x_j)+d(y_k,y_j)| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon\]
+which is the desired result.
+ 
+\subsection*{5.17}
+Suppose $\{x_i\}_{i=0}^\infty$ has a closer point $x \in X$. By Remark 5.2.33, there is a subsequence convergent to $x$.\\\\
+Furthermore, by Proposition 5.3.8, the whole Cauchy sequence converges to the unique cluster point referred to in Prop 5.2.30.
+
+\subsection*{5.18 (i)}
+$x^3$ is uniformly continuous on the interval $(0,1)$, but not on the latter.
+\subsection*{5.18 (ii)}
+$\frac{\sin(x)}{x} $ is uniformly and Lipshitz continuous on both intervals.
+\subsection*{5.18 (iii)}
+    $x \log(x)$ is uniformly continuous on the inverval $(0,1)$, but not on the latter.
+Let $\epsilon >0$ be arbitrary, and let $\delta = \frac{\epsilon}{3}$. Then when $|x-y| < \delta$, we have
+\[ |x^3 - x^3 | = |x-y|(x^2+xy +y^2)<3|x-y| < \frac{3\epsilon}{3} = \epsilon \implies \text{ uniformly continuous}\]
+On the other hand, for the other interval, note that for any fixed difference in $|x-y|$, 
+there exists an $x$ such that,
+\[|x^2 - y^2| = x^2|1-\left( \frac{y}{x} \right)^2| \not < \epsilon \]
+
+
+\subsection*{5.19}
+
+Let $f: X \to Y$ be a bounded linear transformation. Note that for all unit vectors, 
+\[\sup \|f \mathbf{x}\| = \|f\| < M, \quad M \in \mathbb{N}\]
+Let $\delta = \frac{\epsilon}{\|f\|} $. Then
+\[\|f \mathbf{x} \| \leq \|f\| \|\mathbf{x}\|\]
+ 
+\[\|f \mathbf{x} - f\mathbf{y} \| = \|f(\mathbf{x}- \mathbf{y})\| \leq \|f\|\|x-y\| < \epsilon\]
+
+which is the desired result.
+
+\subsection*{5.20}
+
+
+By way of contradiction, assume that there exists a Cauchy sequence in $Z$ that does not converge to something in $Z$. Then, since $Y$ is dense in $Z$, every $z \in Z$ is either a limit point of $Y$ or found in $Y$. \\\\
+Now, let $\{z_i\}_{i=0}^\infty$ be this sequence that does not converge in $Z$. We can see that $\exists j,n$ such that
+\[
+d(z_j,z_n) = d(d(y_{j,i},y_{j,k},d(y_{n,m},y_{n,p})<\epsilon
+\]
+By Exercise 5.16, distance is a real number, but is arbitrarily small in this case, and a limit point of $Y$, therefore we know that it is in $Z$, and the sequence converges to it in $Z$.\\\\
+We have a contradiction and the desired result.
+
+
+
+\subsection*{5.21 (i)}
+
+
+        Suppose $f(B)$ is not bounded, then there exists an 
+        \[\mathbf{x} \in B0 \text{ such that } f(x) > M \forall M \in \mathbb{N}\] Then, given $d(x,y) < \delta$, 
+        \[|f(x)-f(y)| \not < \epsilon \forall \epsilon > 0\] 
+        Then by contrapositive, we have that if $f$ is uniformly continuous, $f(B)$ is bounded.
+\subsection*{5.21 (ii)}
+    $f(\mathbf{x}) = \sqrt{\mathbf{x}}$ is continuous, but unbounded.
+
+\subsection*{5.22}
+    
+    
+No. Let $X$ be $\mathbb{R}$, and the metric on $X$ be 
+\[d(x,y) = \frac{1}{2}, x \neq y, 0 \text{ otherwise}\] 
+Consider as a counterexample, the funciton $f(x) = x$ which is uniformly continious on this metric yet unbounded.
+
+\end{document}

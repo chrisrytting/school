@@ -1,0 +1,311 @@
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{delarray}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\synctex=1
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue,citecolor=red}
+\usepackage{bm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}{Definition} % Number definitions on their own
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\renewcommand\theenumi{\roman{enumi}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+
+\title{Math 344 Homework 2.3}
+\author{Chris Rytting}
+\maketitle
+
+\subsection*{2.14}
+\[L(2e_1, -3e_2) = -4e_1 + 7e_2\]
+\[L^2(2e_1, -3e_2) = 10e_1  -15e_2\]
+\begin{align*}
+    L =
+    \begin{bmatrix}
+        1 & 2 \\
+        2 & -1 \\
+    \end{bmatrix}
+    L^2 =
+    \begin{bmatrix}
+        5 & 0 \\
+        0 & 5 \\
+    \end{bmatrix}
+\end{align*}
+
+
+
+\subsection*{2.15}
+(ii)
+\begin{align*}
+\begin{bmatrix}
+    0 & 0 & 0\\
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+    0 & 0 & 0\\
+\end{bmatrix}
+\end{align*}
+
+(iv)
+\begin{align*}
+\begin{bmatrix}
+    0 & 0 & 0\\
+    0 & -3 & 0\\
+    0 & 4 & -6\\
+    0 & 0 & 8\\
+    0 & 0 & 0\\
+\end{bmatrix}
+\end{align*}
+\subsection*{2.16}
+For the transformation $p(x) \rightarrow p(x) + 4p'(x)$ we have the matrix representation:
+\begin{align*}
+    L\left( \begin{bmatrix} 1 \\ 0 \\ 1 \\ \end{bmatrix} \right) &= 
+    \begin{bmatrix} 1 \\ 0 \\ 1 \\ \end{bmatrix} + 4\begin{bmatrix} 0 \\ 2 \\ 0 \\ \end{bmatrix} =
+    \begin{bmatrix} 1 \\ 8 \\ 1 \\ \end{bmatrix} \\
+    L\left( \begin{bmatrix} -1 \\ 1 \\ 0 \\ \end{bmatrix} \right) &= 
+    \begin{bmatrix} -1 \\ 1 \\ 0 \\ \end{bmatrix} + 4\begin{bmatrix} 1 \\ 0 \\ 0 \\ \end{bmatrix} =
+    \begin{bmatrix} 3 \\ 1 \\ 0 \\ \end{bmatrix} \\
+    L\left( \begin{bmatrix} 1 \\ 0 \\ 0 \\ \end{bmatrix} \right) &= 
+    \begin{bmatrix} 1 \\ 0 \\ 0 \\ \end{bmatrix} + 4\begin{bmatrix} 0 \\ 0 \\ 0 \\ \end{bmatrix} =
+    \begin{bmatrix} 1 \\ 0 \\ 0 \\ \end{bmatrix} \\
+\end{align*}
+Ultimately giving:
+\[
+\begin{bmatrix}
+    1 & 3 & 1 \\
+    8 & 1 & 0 \\
+    1 & 0 & 0 \\
+\end{bmatrix}
+\]
+\subsection*{2.17}
+Let the matrix representation of $S$ be given by
+\begin{align*}
+    S = 
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+    \end{bmatrix}
+\end{align*}
+\begin{align*}
+    L(s_1) = L \Big(
+    \begin{bmatrix}
+        1\\
+        0\\
+        0
+    \end{bmatrix}\Big)
+    = \Big(
+    \begin{bmatrix}
+        \alpha\\
+        0\\
+        0
+    \end{bmatrix}\Big)\\
+\end{align*}
+
+\begin{align*}
+    L(s_2) = L \Big(
+    \begin{bmatrix}
+        0\\
+        1\\
+        0
+    \end{bmatrix}\Big)
+    = \Big(
+    \begin{bmatrix}
+        \alpha\\0\\0
+    \end{bmatrix}\Big)\\
+\end{align*}
+\begin{align*}
+    L(s_3) =L \Big(
+    \begin{bmatrix}
+        1\\ 
+        \alpha\\
+        0
+    \end{bmatrix}\Big)
+    = 
+    \begin{bmatrix}
+        0\\2\\ \alpha
+    \end{bmatrix}\Big)\\
+    \implies
+    L = 
+    \begin{bmatrix}
+        \alpha & 1 & 0 \\
+        0 & \alpha & 2 \\
+        0 & 0 & \alpha \\
+    \end{bmatrix}
+\end{align*}
+
+\subsection*{2.18}
+\begin{align*}
+    s_1 = e^{i \theta} = \text{cos} (\theta) + i \text{sin} (\alpha) = t_1 + t_2 
+    \\s_2 = e^{-i \theta} = \text{cos} (\theta) - i \text{sin} (\alpha) = t_1 - t_2
+    \\t_1 = \text{cos} (\theta) = \frac{1}{2}(\text{cos} (\theta) + i \text{sin} (\theta) ) + \frac{1}{2}(\text{cos} (\theta) - i \text{sin} (\theta) ) = \frac{1}{2}s_1 + \frac{1}{2}s_2 
+    \\t_2 = i\text{sin} (\theta) = \frac{1}{2}(\text{cos} (\theta) + i \text{sin} (\theta) ) - \frac{1}{2}(\text{cos} (\theta) - i \text{sin} (\theta) ) = \frac{1}{2}s_1 - \frac{1}{2}s_2 
+    \\
+\end{align*}
+    (i)\\
+\begin{align*}
+    \implies 
+    C_{TS}=
+    \begin{bmatrix}
+        \frac{1}{2} & \frac{1}{2}\\
+        \frac{1}{2} & -\frac{1}{2}\\
+    \end{bmatrix}
+\end{align*}
+    \\(ii)\\
+\begin{align*}
+    \implies 
+    C_{ST}=
+    \begin{bmatrix}
+        1 & 1\\
+        1 & -1\\
+    \end{bmatrix}
+\end{align*}
+    \\(iii)\\
+\begin{align*}
+    \\ C_{ST}^{-1} = -\frac{1}{2}
+    \begin{bmatrix}
+        -1 & -1 \\
+        -1 & 1 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{1}{2} & \frac{1}{2}\\
+        \frac{1}{2} & -\frac{1}{2}\\
+    \end{bmatrix}
+\end{align*}
+
+\subsection*{2.19(i)}
+For the derivative operator $D:V\rightarrow V$:\\
+\\
+We know that:
+\begin{align*}
+    &\frac{d}{d\theta}\left( e^{i\theta} \right) = ie^{i\theta} \rightarrow
+    D\left( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \right) = \begin{bmatrix} i \\ 0 \end{bmatrix} \\
+    &\frac{d}{d\theta}\left( e^{-i\theta} \right) = -ie^{-i\theta} \rightarrow
+    D\left( \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right) = \begin{bmatrix} 0 \\ -i \end{bmatrix} \\
+\end{align*}
+So,
+\[
+D = \begin{bmatrix}
+i & 0 \\
+0 & -i \\
+\end{bmatrix}
+\]
+\subsection*{2.19(ii)}
+We know that:
+\begin{align*}
+    &\frac{d}{d\theta}\left( \text{cos}(\theta) \right) = -\text{sin}(\theta) \rightarrow
+    D\left( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \right) = \begin{bmatrix} 0 \\ i \end{bmatrix} \\
+    &\frac{d}{d\theta}\left( i\text{sin}(\theta) \right) = i\text{cos}(\theta) \rightarrow
+    D\left( \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right) = \begin{bmatrix} i \\ 0 \end{bmatrix} \\
+\end{align*}
+So,
+\[
+D= \begin{bmatrix}
+0 & i \\
+i & 0 \\
+\end{bmatrix}
+\]
+\subsection*{2.19(iii)}
+We first want apply our linear transformation and then change our basis to $T$, this can be done using the transformation matrix for $D$ in terms of $S$, and then applying our transition matrix from $S$ to $T$. So if we multiply this transformation matrix and transition matrix, this will yield the desired result.
+\[
+\begin{bmatrix}
+i & 0 \\
+0 & -i \\
+\end{bmatrix}
+\begin{bmatrix}
+0 & i \\
+i & 0 \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+i & -i \\
+i & i \\
+\end{bmatrix}
+\]
+
+\subsection*{2.20}
+We want to show that for the linear transformation $A = [a_1, a_2, \dots,a_n]$, it is true that 
+$\mathscr{R}(A) = \text{span}\{a_1, a_2, \dots,a_n\}$. \\ \\
+$\Rightarrow$ \\
+Let us consider $b \in \mathscr{R}(A)$. Then the following is also true that 
+$\exists ~ x \text{s.t.} ~ A(x) = b$. Since $x$ can be expressed $x = x_1, x_2, \dots, x_n$, 
+we can also express $b$ as $b=x_1a_1+x_2a_2+\dots+x_na_n$. Thus we can see that b is represented 
+as a linear combination of the columns of $A$ and therefore is also in $\mathscr{R}(A) = 
+\text{span}\{a_1, a_2, \dots,a_n\}$. \\
+\\
+$\Leftarrow$ \\
+Now let us consider $b \in \text{span}\{a_1, a_2, \dots,a_n\}$. Then it is true that 
+$b$ is a linear combination of the elements of $\text{span}\{a_1, a_2, \dots,a_n\}$ 
+and therefore can be represented as $b=x_1a_1+x_2a_2+\dots+x_na_n$, and we can say that $\exists ~ x 
+~ \text{s.t.} ~ b=A(x)$. Showing that $b \in \mathscr{R}(A)$. \\
+\\
+Since every element of $\mathscr{R}(A)$ is in $\text{span}\{a_1, a_2, \dots,a_n\}$, and every element
+of $\text{span}\{a_1, a_2, \dots,a_n\}$ is in $\mathscr{R}(A)$, it is true that  
+$\mathscr{R}(A) = \text{span}\{a_1, a_2, \dots,a_n\}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
